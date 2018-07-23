@@ -1,0 +1,80 @@
+<INDIDriver>
+
+<defSwitchVector device="Power HUB" name="CONNECTION" label="Connection" group="Main Control" state="Idle" perm="rw" rule="OneOfMany" timeout="60">
+    <defSwitch name="CONNECT" label="Connect">
+Off
+    </defSwitch>
+    <defSwitch name="DISCONNECT" label="Disconnect">
+On
+    </defSwitch>
+</defSwitchVector>
+
+<defTextVector device="Power HUB" name="DEVICE_PORT" label="Ports" group="Connection" state="Idle" perm="rw" timeout="0">
+    <defText name="PORT" label="Port">
+/dev/ttyACM0
+    </defText>
+</defTextVector>
+
+
+<defSwitchVector device="Power HUB" name="POWER" label="Power" group="Main Control" state="Idle" perm="rw" rule="OneOfMany" timeout="1">
+    <defSwitch name="POWER_ON" label="ON">
+    <indiduino pin="2"/>
+Off
+    </defSwitch>
+    <defSwitch name="DUMMY" label="OFF">
+On
+    </defSwitch>
+</defSwitchVector>
+
+<defSwitchVector device="Power HUB" name="SYSTEM_EAST" label="System East" group="Main Control" state="Idle" perm="rw" rule="OneOfMany" timeout="1">
+    <defSwitch name="SYSTEM_EAST_ON" label="ON">
+    <indiduino pin="3"/>
+Off
+    </defSwitch>
+    <defSwitch name="DUMMY" label="OFF">
+On
+    </defSwitch>
+</defSwitchVector>
+
+<defSwitchVector device="Power HUB" name="SYSTEM_WEST" label="System West" group="Main Control" state="Idle" perm="rw" rule="OneOfMany" timeout="1">
+    <defSwitch name="SYSTEM_WEST_ON" label="ON">
+    <indiduino pin="4"/>
+Off
+    </defSwitch>
+    <defSwitch name="DUMMY" label="OFF">
+On
+    </defSwitch>
+</defSwitchVector>
+
+<defSwitchVector device="Power HUB" name="SCOPE_EAST" label="CEM60 East" group="Main Control" state="Idle" perm="rw" rule="OneOfMany" timeout="1">
+    <defSwitch name="SCOPE_EAST_ON" label="ON">
+    <indiduino pin="5"/>
+Off
+    </defSwitch>
+    <defSwitch name="DUMMY" label="OFF">
+On
+    </defSwitch>
+</defSwitchVector>
+
+<defSwitchVector device="Power HUB" name="SCOPE_WEST" label="CEM120 West" group="Main Control" state="Idle" perm="rw" rule="OneOfMany" timeout="1">
+    <defSwitch name="SCOPE_WEST_ON" label="ON">
+    <indiduino pin="6"/>
+Off
+    </defSwitch>
+    <defSwitch name="DUMMY" label="OFF">
+On
+    </defSwitch>
+</defSwitchVector>
+
+<defSwitchVector device="Power HUB" name="DEW_HEATER" label="Dew Heater" group="Main Control" state="Idle" perm="rw" rule="OneOfMany" timeout="1">
+    <defSwitch name="DEW_HEATER_ON" label="ON">
+    <indiduino pin="7"/>
+Off
+    </defSwitch>
+    <defSwitch name="DUMMY" label="OFF">
+On
+    </defSwitch>
+</defSwitchVector>
+
+
+</INDIDriver>

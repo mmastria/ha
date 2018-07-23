@@ -1,0 +1,16 @@
+[Unit]
+Description=INDI Server Rolloff Roof 
+After=multi-user.target
+
+[Service]
+Type=idle
+User=rolloffroof
+Environment=INDISKEL=/usr/share/indi/arua_rolloffroof_sk.xml
+ExecStart=/usr/bin/indiserver -m 100 -p 7625 -v \
+  indi_duino
+
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
