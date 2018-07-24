@@ -15,16 +15,12 @@ On
     </defText>
 </defTextVector>
 
-
-<defLightVector device="RollOff Roof" name="OPENED" label="Opened" group="Main Control" state="Idle" perm="ro" rule="OneOfMany" timeout="1">
-    <defLight name="OPENED_ON" label="Roof Opened">
+<defLightVector device="RollOff Roof" name="STATUS" label="Roof Status" group="Main Control" state="Idle" perm="ro" rule="OneOfMany" timeout="1">
+    <defLight name="OPENED_ON" label="Opened">
     <indiduino pin="10"/>
 OK
     </defLight>
-</defLightVector>
-
-<defLightVector device="RollOff Roof" name="CLOSED" label="Closed" group="Main Control" state="Idle" perm="ro" rule="OneOfMany" timeout="1">
-    <defLight name="CLOSED_ON" label="Roof Closed">
+    <defLight name="CLOSED_ON" label="Closed">
     <indiduino pin="11"/>
 OK
     </defLight>
