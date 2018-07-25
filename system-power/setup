@@ -31,7 +31,7 @@ tail -f /var/log/syslog
 #
 # git clone https://github.com/mmastria/ha.git
 # git add *
-# git commit -m "release"
+# git commit * -m "release"
 # git config credential.helper store
 # git push
 #
