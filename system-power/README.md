@@ -1,6 +1,8 @@
-# Ubuntu 16.04.5 LTS (Xenial Xerus)
+# Raspbian 9 / Ubuntu 16.04
 
-git config --global user.name "mmastria"
+## Raspbain 9 (stretch)
+
+## Ubuntu 16.04.5 LTS (Xenial Xerus)
 
 adicionar repositorio ppa ou nightly
 ```
@@ -34,7 +36,7 @@ apt -y install swig2.0 libz3-dev libcfitsio-dev libnova-dev zlib1g-dev
 pip2 install --upgrade pip
 ```
 
-efetuar login com usuário que irá executar os pyindi-client
+efetuar login com usuário que irá executar o pyindi-client
 ```
 pip2  install --user --install-option="--prefix=/usr/local" pyindi-client
 ```
