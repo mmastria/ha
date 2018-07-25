@@ -1,15 +1,15 @@
-# https://gist.github.com/rajmani1995/cae8a16056e44bd901a6d17d8f1a7fbf
+https://gist.github.com/rajmani1995/cae8a16056e44bd901a6d17d8f1a7fbf
 
+## Ubuntu 16.04.5 LTS (Xenial Xerus)
 
-adicionar repositorio ppa
--------------------------
+adicionar repositorio ppa ou nightly
+```
 apt-add-repository ppa:mutlaqja/ppa
 apt-add-repository ppa:mutlaqja/indinightly
+```
 
-
-remover repositorio ppa e reverter pacotes para oficial
-
----------------------------------------------------------
+para reverter para pacotes oficiais
+```
 apt install ppa-purge
 
 ppa-purge -y ppa:mutlaqja/ppa
@@ -17,23 +17,33 @@ rm -f /etc/apt/sources.list.d/mutlaqja-ubuntu-ppa-*
 
 ppa-purge -y ppa:mutlaqja/indinightly
 rm -f /etc/apt/sources.list.d/mutlaqja-ubuntu-indinightly-*
+```
 
-
-remover pacote de repositorio oficial
--------------------------------------
+para remover pacotes oficiais
+```
 apt purge package
+```
 
-configurar ambiente de desenvolvimento indi-python
---------------------------------------------------
+configurar ambiente de desenvolvimento indi-python 2.7
+```
 apt update
 apt -y upgrade
 apt -y install build-essential git python-dev python-pip vim
 apt -y install indi-full
 apt -y install swig2.0 libz3-dev libcfitsio-dev libnova-dev zlib1g-dev
-
-as rolloffroof user:
---------------------
 pip2 install --upgrade pip
-exit / login
+```
+
+efetuar login com usuário que irá executar os pyindi-client
+```
 pip2  install --user --install-option="--prefix=/usr/local" pyindi-client
+```
+
+## Git
+```
+git config --global user.email "marco@mastria.com.br"
+git config --global user.name "mmastria"
+```
+
+
 
