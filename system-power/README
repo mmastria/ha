@@ -1,6 +1,6 @@
-https://gist.github.com/rajmani1995/cae8a16056e44bd901a6d17d8f1a7fbf
+# Ubuntu 16.04.5 LTS (Xenial Xerus)
 
-## Ubuntu 16.04.5 LTS (Xenial Xerus)
+git config --global user.name "mmastria"
 
 adicionar repositorio ppa ou nightly
 ```
