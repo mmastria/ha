@@ -51,5 +51,7 @@ git config --global user.name "mmastria"
 git pull
 git add *
 git commit * -m "release"
+git rm xxxx
+git commit -m "release"
 git push
 ```
