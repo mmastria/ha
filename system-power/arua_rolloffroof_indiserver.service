@@ -5,7 +5,7 @@ After=multi-user.target
 [Service]
 Type=idle
 User=rolloffroof
-Environment=INDISKEL=/usr/share/indi/arua_rolloffroof_sk.xml
+#Environment=INDISKEL=/usr/share/indi/arua_rolloffroof_sk.xml
 ExecStart=/usr/local/bin/arua_rolloffroof_indiserver.sh
 
 Restart=always

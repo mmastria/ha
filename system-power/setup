@@ -25,4 +25,5 @@ systemctl restart arua_rolloffroof_monitor
 
 sleep 1
 
-systemctl status arua_powerhub_indiserver arua_rolloffroof_indiserver arua_rolloffroof_monitor 
+#systemctl status arua_powerhub_indiserver arua_rolloffroof_indiserver arua_rolloffroof_monitor 
+tail -f /var/log/syslog

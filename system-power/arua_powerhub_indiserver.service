@@ -5,9 +5,8 @@ After=multi-user.target
 [Service]
 Type=idle
 User=powerhub
-Environment=INDISKEL=/usr/share/indi/arua_powerhub_sk.xml
-ExecStart=/usr/bin/indiserver -m 100 -v \
-  indi_duino
+#Environment=INDISKEL=/usr/share/indi/arua_powerhub_sk.xml
+ExecStart=/usr/local/bin/arua_powerhub_indiserver.sh
 
 Restart=always
 RestartSec=5

@@ -11,10 +11,10 @@ trap _term SIGTERM SIGINT
 
 [ -p ~/.indi/indiFIFO ] && rm -f ~/.indi/indiFIFO
 mkfifo ~/.indi/indiFIFO
-/usr/bin/indiserver -p 7625 -m 100 -v -f ~/.indi/indiFIFO &
+/usr/bin/indiserver -p 7624 -m 100 -v -f ~/.indi/indiFIFO &
 child=$!
 
-echo "start indi_duino -c \"$HOME/.indi/rolloffroof_config.xml\" -n \"RollOff Roof\" -s \"/usr/share/indi/arua_rolloffroof_sk.xml\"" > ~/.indi/indiFIFO
+echo "start indi_duino -c \"$HOME/.indi/arua_powerhub_config.xml\" -n \"Power HUB\" -s \"/usr/share/indi/arua_powerhub_sk.xml\"" > ~/.indi/indiFIFO
 
 wait "$child"
 echo "stopping indiserver"

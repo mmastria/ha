@@ -54,8 +54,7 @@ if (not(indiclient.connectServer())):
      indiclient.log("No indiserver running, exiting.")
      sys.exit(1)
  
-#rolloffroof="RollOff Roof"
-rolloffroof="Arduino"
+rolloffroof="RollOff Roof"
 rolloffroof_connection="CONNECTION"
 
 roof="ROOF"
