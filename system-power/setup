@@ -28,11 +28,3 @@ sleep 1
 #systemctl status arua_powerhub_indiserver arua_rolloffroof_indiserver arua_rolloffroof_monitor 
 tail -f /var/log/syslog
 
-#
-# git clone https://github.com/mmastria/ha.git
-# git add *
-# git commit * -m "release"
-# git config credential.helper store
-# git push
-#
-

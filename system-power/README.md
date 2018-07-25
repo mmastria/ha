@@ -41,9 +41,13 @@ pip2  install --user --install-option="--prefix=/usr/local" pyindi-client
 
 ## Git
 ```
+git clone https://github.com/mmastria/ha.git
+cd ha
+git config credential.helper store
 git config --global user.email "marco@mastria.com.br"
 git config --global user.name "mmastria"
+git pull
+git add *
+git commit * -m "release"
+git push
 ```
-
-
-
