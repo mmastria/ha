@@ -9,7 +9,7 @@ adduser rolloffroof dialout && \
 adduser rolloffroof gpio
 
 cp -f *.service /etc/systemd/system/
-cp -f *_sk.xml /usr/share/indi/
+cp -f *.xml /usr/share/indi/
 cp -f *.py /usr/local/bin/
 cp -f *.sh /usr/local/bin/
 
