@@ -23,22 +23,20 @@ apt -y upgrade
 apt -y dist-upgrade
 rpi-update
 
-apt -y install cdbs libcfitsio-dev libnova-dev libusb-1.0-0-dev libjpeg-dev libusb-dev libtiff5-dev libftdi1-dev fxload libkrb5-dev libcurl4-gnutls-dev libraw-dev libgphoto2-dev libgsl-dev dkms libboost-regex-dev libgps-dev libdc1394-22-dev wget
-
-# wget http://indilib.org/download/send/6-raspberry-pi/9-indi-library-for-raspberry-pi.html
-wget http://indilib.org/download/raspberry-pi/send/6-raspberry-pi/9-indi-library-for-raspberry-pi.html
-
-tar -xzf libindi_1.7.3_rpi.tar.gz
-cd libindi_1.7.3_rpi
-dpkg -i *.deb
-
 sed -i '/raspberrypi/ c\127.0.0.1 %1 %1.local' /etc/hosts
 echo %1 > /etc/hostname
 sed -i 's/^# export/export/g' /root/.bashrc
 sed -i 's/^# eval/eval/g' /root/.bashrc
 sed -i 's/^# alias l/alias l/g' /root/.bashrc
 
+apt -y install cdbs libcfitsio-dev libnova-dev libusb-1.0-0-dev libjpeg-dev libusb-dev libtiff5-dev libftdi1-dev fxload libkrb5-dev libcurl4-gnutls-dev libraw-dev libgphoto2-dev libgsl-dev dkms libboost-regex-dev libgps-dev libdc1394-22-dev 
+apt -y --fix-broken install
 
+cd /root
+curl http://indilib.org/download/raspberry-pi/send/6-raspberry-pi/9-indi-library-for-raspberry-pi.html -o libindi_1.7.3_rpi.tar.gz
+tar -zxvf libindi_1.7.3_rpi.tar.gz
+cd libindi_1.7.3_rpi
+dpkg -i *.deb
 
 read -p "key to reboot"
 reboot
