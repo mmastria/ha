@@ -6,6 +6,22 @@
 # cd ha
 # ./setup1.sh
 
+# doc
+# http://www.clearskyinstitute.com/INDI/INDI.pdf
+
+# dev
+# https://github.com/indilib/indi
+
+# PyIndi
+# http://indilib.org/support/tutorials/166-installing-and-using-the-python-pyndi-client-on-raspberry-pi.html
+
+# verificar
+# pi config - http://baddotrobot.com/blog/2017/03/01/standard-pi-setup/
+# telescope scripts - https://github.com/indilib/indi/blob/master/libindi/drivers/telescope/telescope_script.txt
+# indi python ex - https://github.com/HazenBabcock/indi-python/tree/master/indi_python
+# indi python ex - http://indilib.org/develop/tutorials/151-time-lapse-astrophotography-with-indi-python.html
+
+
 git config credential.helper store
 git config --global user.email "marco@mastria.com.br"
 git pull
