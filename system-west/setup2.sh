@@ -23,7 +23,7 @@ systemctl enable arua_cem120.service
 systemctl enable arua_qhy5lii.service
 systemctl enable arua_atik320e.service
 
-#systemctl restart arua_system-west_indiserver.service
-#systemctl restart arua_cem120.service
-#systemctl restart arua_qhy5lii.service
-#systemctl restart arua_atik320e.service
+systemctl restart arua_system-west_indiserver.service
+systemctl restart arua_cem120.service
+systemctl restart arua_qhy5lii.service
+systemctl restart arua_atik320e.service
