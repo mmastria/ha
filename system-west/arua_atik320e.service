@@ -1,0 +1,14 @@
+[Unit]
+Description=INDI Atik 320e
+After=multi-user.target arua_system-west_indiserver.service
+
+[Service]
+Type=idle
+User=west
+ExecStart=/usr/local/bin/arua_atik320e.sh
+
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
