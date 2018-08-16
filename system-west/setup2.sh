@@ -9,12 +9,13 @@
 # RollOff Roof Remote
 
 [ $(grep west /etc/passwd|wc -l) -eq 0 ] && \
-useradd -m west && \
+useradd -m -s /bin/bash west && \
 adduser west dialout && \
 adduser west gpio
+sed -i 's/^#alias l/alias l/g' /home/west/.bashrc
 
 cp -f *.service /etc/systemd/system/
-cp -f *.sh /usr/local/bin/
+cp -f arua*.sh /usr/local/bin/
 
 systemctl daemon-reload
 
