@@ -9,10 +9,9 @@ _term() {
 echo "starting atik320e"
 trap _term SIGTERM SIGINT
 
-echo "start indi_atik_ccd -n \"Atik 320E\"" > ~/.indi/indiFIFO
+echo "start indi_atik_ccd -n \"Atik 320E\" -c \"~/.indi/indi_atik_ccd_config.xml\"" > ~/.indi/indiFIFO
 child=$(ps -ef|grep indi_atik_ccd|grep -v grep|awk '{print $2}'|sort|tail -n 1)
 
 wait "$child"
 echo "stopping atik320e"
 exit
-

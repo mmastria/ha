@@ -45,13 +45,15 @@ sed -i 's/^# export/export/g' /root/.bashrc
 sed -i 's/^# eval/eval/g' /root/.bashrc
 sed -i 's/^# alias l/alias l/g' /root/.bashrc
 
-apt -y install cdbs libcfitsio-dev libnova-dev \
+apt -y install build-essential git python-dev python-pip vim \
+       install cdbs libcfitsio-dev libnova-dev \
        libusb-1.0-0-dev libjpeg-dev libusb-dev libtiff5-dev \
        libftdi1-dev fxload libkrb5-dev libcurl4-gnutls-dev \
        libraw-dev libgphoto2-dev libgsl-dev dkms \
        libboost-regex-dev libgps-dev libdc1394-22-dev \
        swig2.0 libz3-dev zlib1g-dev
 apt -y --fix-broken install
+ln -s /usr/bin/swig2.0 /usr/bin/swig
 pip install --install-option="--prefix=/usr/local" pyindi-client 
 
 cd /root

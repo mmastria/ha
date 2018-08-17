@@ -9,7 +9,7 @@ _term() {
 echo "starting cem120"
 trap _term SIGTERM SIGINT
 
-echo "start indi_ioptronv3_telescope -n \"iOptron CEM120\"" > ~/.indi/indiFIFO
+echo "start indi_ioptronv3_telescope -n \"iOptron CEM120\" -c \"~/.indi/indi_ioptronv3_telescope_config.xml\"" > ~/.indi/indiFIFO
 child=$(ps -ef|grep indi_ioptronv3_telescope|grep -v grep|awk '{print $2}'|sort|tail -n 1)
 
 wait "$child"
