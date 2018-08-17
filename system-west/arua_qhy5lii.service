@@ -1,10 +1,9 @@
 [Unit]
 Description=INDI QHY5LII-Mono
-Requires=arua_system-west_indiserver.service
-After=multi-user.target
+After=multi-user.target arua_system-west_indiserver.service
+BindsTo=arua_system-west_indiserver.service
 
 [Service]
-Type=idle
 Restart=always
 RestartSec=5
 User=west

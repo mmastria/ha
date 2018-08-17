@@ -3,7 +3,6 @@ Description=INDI Server System West
 After=multi-user.target
 
 [Service]
-Type=idle
 Restart=always
 RestartSec=5
 User=west
