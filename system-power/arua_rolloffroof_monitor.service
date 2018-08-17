@@ -1,6 +1,6 @@
 [Unit]
 Description=Arua Rolloff Roof Monitor 
-After=multi-user.target arua_rolloffroof_indiserver.service
+After=multi-user.target
 
 [Service]
 Type=idle

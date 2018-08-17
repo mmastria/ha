@@ -1,14 +1,14 @@
 [Unit]
 Description=INDI iOptron CEM120
-After=multi-user.target arua_system-west_indiserver.service
+Requires=arua_system-west_indiserver.service
+After=multi-user.target
 
 [Service]
 Type=idle
-User=west
-ExecStart=/usr/local/bin/arua_cem120.sh
-
 Restart=always
 RestartSec=5
+User=west
+ExecStart=/usr/local/bin/arua_cem120.sh
 
 [Install]
 WantedBy=multi-user.target
