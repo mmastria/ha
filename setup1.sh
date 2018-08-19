@@ -62,6 +62,7 @@ apt -y install build-essential git python-dev python-pip vim \
        swig2.0 libz3-dev zlib1g-dev
 apt -y --fix-broken install
 ln -s /usr/bin/swig2.0 /usr/bin/swig
+ln -s /usr/lib/arm-linux-gnueabihf/libnova-0.16.so.0 /usr/lib/arm-linux-gnueabihf/libnova-0.14.so.0
 
 # apt -y install indi-full
 # pip2 install --upgrade pip
@@ -71,7 +72,7 @@ curl http://indilib.org/download/raspberry-pi/send/6-raspberry-pi/9-indi-library
 tar -zxvf libindi_rpi.tar.gz
 cd libindi_1*
 dpkg -i *.deb
-apt --fix-broken install
+apt -y --fix-broken install
 dpkg -i *.deb
 
 cd /root
