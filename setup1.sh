@@ -1,5 +1,10 @@
 #!/bin/sh
 
+# etcher raspibian stretch
+# touch /boot/ssh
+
+# sudo raspi-config
+
 # sudo su -
 # apt update && apt -y install git
 # git clone https://github.com/mmastria/ha.git
