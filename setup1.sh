@@ -27,9 +27,8 @@
 # indi python ex - http://indilib.org/develop/tutorials/151-time-lapse-astrophotography-with-indi-python.html
 
 if [ $# -eq 0 -o ! -d "$1" ];then echo -e "$0 <system-xxxx>";exit 1;fi
-
-if [ $# -eq 0 -o ! -d "$1" ];then echo -e "$0 <system-xxxx>";exit 1;fi
 SDEVICE="${1///}"
+SSED=$(echo "/raspberrypi/ c127.0.0.1\t$SDEVICE \t$SDEVICE.local")
 
 git config credential.helper store
 git config --global user.email "marco@mastria.com.br"
@@ -48,8 +47,8 @@ apt -y upgrade
 apt -y dist-upgrade
 rpi-update
 
-sed -i $'/raspberrypi/ c127.0.0.1\t$SDEVICE $SDEVICE.local' /etc/hosts
-echo $SDEVICENAME > /etc/hostname
+sed -i $"$SSED" /etc/hosts
+echo $SDEVICE > /etc/hostname
 sed -i 's/^# export/export/g' /root/.bashrc
 sed -i 's/^# eval/eval/g' /root/.bashrc
 sed -i 's/^# alias l/alias l/g' /root/.bashrc
