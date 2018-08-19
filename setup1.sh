@@ -71,6 +71,8 @@ curl http://indilib.org/download/raspberry-pi/send/6-raspberry-pi/9-indi-library
 tar -zxvf libindi_rpi.tar.gz
 cd libindi_1*
 dpkg -i *.deb
+apt --fix-broken install
+dpkg -i *.deb
 
 cd /root
 pip install --install-option="--prefix=/usr/local" pyindi-client 
