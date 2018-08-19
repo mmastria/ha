@@ -15,7 +15,7 @@ mkfifo ~/.indi/indiFIFO
 /usr/bin/indiserver -p 7625 -m 100 -v -f ~/.indi/indiFIFO &
 child=$!
 
-echo "start indi_duino -c \"~/.indi/arua_rolloffroof_config.xml\" -n \"RollOff Roof\" -s \"/usr/share/indi/arua_rolloffroof_sk.xml\"" > ~/.indi/indiFIFO
+echo "start indi_duino -c \"$HOME/.indi/RollOff Roof_config.xml\" -n \"RollOff Roof\" -s \"/usr/share/indi/arua_rolloffroof_sk.xml\"" > ~/.indi/indiFIFO
 
 wait "$child"
 echo "stopping indiserver"
