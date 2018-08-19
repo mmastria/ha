@@ -1,0 +1,15 @@
+[Unit]
+Description=INDI Server AAG CloudWatcher Solo 
+After=multi-user.target
+
+[Service]
+Type=idle
+User=root
+ExecStart=/usr/bin/indiserver -m 100 -v \
+    indi_aagcloudwatcher
+
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
