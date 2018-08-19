@@ -1,13 +1,12 @@
 [Unit]
 Description=Arua Rolloff Roof Monitor 
-After=multi-user.target
+After=multi-user.target arua_rolloffroof_indiserver.service
 
 [Service]
-Type=idle
-User=rolloffroof
-ExecStart=/usr/local/bin/arua_rolloffroof_monitor.py
 Restart=always
 RestartSec=5
+User=rolloffroof
+ExecStart=/usr/local/bin/arua_rolloffroof_monitor.py
 
 [Install]
 WantedBy=multi-user.target

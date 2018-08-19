@@ -1,0 +1,15 @@
+[Unit]
+Description=INDI Server System East 
+After=multi-user.target
+
+[Service]
+Type=idle
+User=system-east
+ExecStart=/usr/bin/indiserver -m 100 -p 7625 -v \
+  indi_armadillo_focus
+
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

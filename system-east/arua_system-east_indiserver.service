@@ -1,12 +1,12 @@
 [Unit]
-Description=INDI Server Power HUB 
+Description=INDI Server System East
 After=multi-user.target
 
 [Service]
 Restart=always
 RestartSec=5
-User=powerhub
-ExecStart=/usr/local/bin/arua_powerhub_indiserver.sh
+User=east
+ExecStart=/usr/local/bin/arua_system-east_indiserver.sh
 
 [Install]
 WantedBy=multi-user.target

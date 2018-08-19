@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # iOptron CEM120
-# Atik 314L+
+# Atik 320E
 # QHY5L-II Mono
 # Seletek Armadillo 2 Remote
 # Astrometry Remote
@@ -20,11 +20,11 @@ cp -f arua*.sh /usr/local/bin/
 systemctl daemon-reload
 
 systemctl enable arua_system-west_indiserver.service
-systemctl enable arua_cem120.service
-systemctl enable arua_qhy5lii.service
-systemctl enable arua_atik320e.service
+#systemctl enable arua_cem120.service
+#systemctl enable arua_qhy5lii.service
+#systemctl enable arua_atik320e.service
 
 systemctl restart arua_system-west_indiserver.service
-systemctl restart arua_cem120.service
-systemctl restart arua_qhy5lii.service
-systemctl restart arua_atik320e.service
+#systemctl restart arua_cem120.service
+#systemctl restart arua_qhy5lii.service
+#systemctl restart arua_atik320e.service

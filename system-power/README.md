@@ -1,8 +1,4 @@
-# Raspbian 9 / Ubuntu 16.04
-
-## Raspbain 9 (stretch)
-
-## Ubuntu 16.04.5 LTS (Xenial Xerus)
+## Ubuntu 16.04.5 LTS (Xenial Xerus) - apenas ref
 
 adicionar repositorio ppa ou nightly
 ```
@@ -24,16 +20,6 @@ rm -f /etc/apt/sources.list.d/mutlaqja-ubuntu-indinightly-*
 para remover pacotes oficiais
 ```
 apt purge package
-```
-
-configurar ambiente de desenvolvimento indi-python 2.7
-```
-apt update
-apt -y upgrade
-apt -y install build-essential git python-dev python-pip vim
-apt -y install indi-full
-apt -y install swig2.0 libz3-dev libcfitsio-dev libnova-dev zlib1g-dev
-pip2 install --upgrade pip
 ```
 
 efetuar login com usuário que irá executar o pyindi-client

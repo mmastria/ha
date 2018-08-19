@@ -21,6 +21,10 @@
 # indi python ex - https://github.com/HazenBabcock/indi-python/tree/master/indi_python
 # indi python ex - http://indilib.org/develop/tutorials/151-time-lapse-astrophotography-with-indi-python.html
 
+if [ $# -eq 0 -o ! -d "$1" ];then echo -e "$0 <system-xxxx>";exit 1;fi
+
+if [ $# -eq 0 -o ! -d "$1" ];then echo -e "$0 <system-xxxx>";exit 1;fi
+SDEVICE="${1///}"
 
 git config credential.helper store
 git config --global user.email "marco@mastria.com.br"
@@ -39,7 +43,7 @@ apt -y upgrade
 apt -y dist-upgrade
 rpi-update
 
-sed -i '/raspberrypi/ c\127.0.0.1 %1 %1.local' /etc/hosts
+sed -i '/raspberrypi/ c\127.0.0.1 %SDEVICE %SDEVICE.local' /etc/hosts
 echo %1 > /etc/hostname
 sed -i 's/^# export/export/g' /root/.bashrc
 sed -i 's/^# eval/eval/g' /root/.bashrc
@@ -54,6 +58,10 @@ apt -y install build-essential git python-dev python-pip vim \
        swig2.0 libz3-dev zlib1g-dev
 apt -y --fix-broken install
 ln -s /usr/bin/swig2.0 /usr/bin/swig
+
+# apt -y install indi-full
+# pip2 install --upgrade pip
+
 pip install --install-option="--prefix=/usr/local" pyindi-client 
 
 cd /root
@@ -64,6 +72,3 @@ dpkg -i *.deb
 
 read -p "key to reboot"
 reboot
-
-
-

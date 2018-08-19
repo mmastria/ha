@@ -1,0 +1,13 @@
+[Unit]
+Description=Arua System Main Monitor 
+After=multi-user.target indiwebmanager.service
+
+[Service]
+Type=idle
+User=root
+ExecStart=/usr/local/bin/arua_system-main_monitor.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
