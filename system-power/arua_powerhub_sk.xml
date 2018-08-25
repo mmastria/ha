@@ -10,12 +10,6 @@ On
     </defSwitch>
 </defSwitchVector>
 
-<defTextVector device="Power HUB" name="DEVICE_PORT" label="Ports" group="Connection" state="Idle" perm="rw" timeout="0">
-    <defText name="PORT" label="Port">
-/dev/ttyACM0
-    </defText>
-</defTextVector>
-
 
 <defSwitchVector device="Power HUB" name="POWER" label="Power" group="Main Control" state="Idle" perm="rw" rule="OneOfMany" timeout="1">
     <defSwitch name="POWER_ON" label="ON">
@@ -38,7 +32,7 @@ On
 </defSwitchVector>
 
 
-<defSwitchVector device="Power HUB" name="SCOPE_EAST" label="CEM60 Devices" group="East" state="Idle" perm="rw" rule="OneOfMany" timeout="1">
+<defSwitchVector device="Power HUB" name="SCOPE_EAST" label="CEM60" group="East" state="Idle" perm="rw" rule="OneOfMany" timeout="1">
     <defSwitch name="SCOPE_EAST_ON" label="ON">
     <indiduino pin="5"/>
 Off
@@ -59,7 +53,7 @@ On
 </defSwitchVector>
 
 
-<defSwitchVector device="Power HUB" name="SCOPE_WEST" label="CEM120 Devices" group="West" state="Idle" perm="rw" rule="OneOfMany" timeout="1">
+<defSwitchVector device="Power HUB" name="SCOPE_WEST" label="CEM120" group="West" state="Idle" perm="rw" rule="OneOfMany" timeout="1">
     <defSwitch name="SCOPE_WEST_ON" label="ON">
     <indiduino pin="6"/>
 Off
@@ -78,6 +72,13 @@ Off
 On
     </defSwitch>
 </defSwitchVector>
+
+
+<defTextVector device="Power HUB" name="DEVICE_PORT" label="Ports" group="Connection" state="Idle" perm="rw" timeout="0">
+    <defText name="PORT" label="Port">
+/dev/ttyACM0
+    </defText>
+</defTextVector>
 
 
 </INDIDriver>
