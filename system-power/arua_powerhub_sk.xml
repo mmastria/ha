@@ -21,8 +21,8 @@ On
     </defSwitch>
 </defSwitchVector>
 
-<defSwitchVector device="Power HUB" name="SW1" label="SW1" group="Main Control" state="Idle" perm="rw" rule="OneOfMany" timeout="1">
-    <defSwitch name="SW1_ON" label="ON">
+<defSwitchVector device="Power HUB" name="SW1" label="Aux" group="Main Control" state="Idle" perm="rw" rule="OneOfMany" timeout="1">
+    <defSwitch name="AUX_ON" label="ON">
     <indiduino pin="7"/>
 Off
     </defSwitch>
@@ -30,27 +30,6 @@ Off
 On
     </defSwitch>
 </defSwitchVector>
-
-<defSwitchVector device="Power HUB" name="SW2" label="SW2" group="Main Control" state="Idle" perm="rw" rule="OneOfMany" timeout="1">
-    <defSwitch name="SW2_ON" label="ON">
-    <indiduino pin="8"/>
-Off
-    </defSwitch>
-    <defSwitch name="DUMMY" label="OFF">
-On
-    </defSwitch>
-</defSwitchVector>
-
-<defSwitchVector device="Power HUB" name="SW3" label="SW3" group="Main Control" state="Idle" perm="rw" rule="OneOfMany" timeout="1">
-    <defSwitch name="SW3_ON" label="ON">
-    <indiduino pin="9"/>
-Off
-    </defSwitch>
-    <defSwitch name="DUMMY" label="OFF">
-On
-    </defSwitch>
-</defSwitchVector>
-
 
 <defSwitchVector device="Power HUB" name="SCOPE_EAST" label="CEM60" group="East" state="Idle" perm="rw" rule="OneOfMany" timeout="1">
     <defSwitch name="SCOPE_EAST_ON" label="ON">
