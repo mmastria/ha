@@ -30,6 +30,22 @@ if [ $# -eq 0 -o ! -d "$1" ];then echo -e "$0 <system-xxxx>";exit 1;fi
 SDEVICE="${1///}"
 SSED=$(echo "/raspberrypi/ c127.0.0.1\t$SDEVICE \t$SDEVICE.local")
 
+sed -i 's/en_GB.UTF-8/# en_GB.UTF-8/' /etc/locale.gen
+sed -i 's/# en_US.UTF-8/en_US.UTF-8/' /etc/locale.gen
+locale-gen
+
+export LANGUAGE=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export LC_TYPE=en_US.UTF-8
+
+dpkg-reconfigure -f noninteractive locales
+
+cp /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
+echo "America/Sao_Paulo" > /etc/timezone
+#dpkg-reconfigure -f noninteractive tzdata
+dpkg-reconfigure tzdata
+
 git config credential.helper store
 git config --global user.email "marco@mastria.com.br"
 git pull
