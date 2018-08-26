@@ -1,6 +1,7 @@
 #!/bin/bash
 
 _mkhosts() {
+  sed -i "/$1/d" /etc/hosts
   ping -q -c 1 $1.local > /dev/null
   if [ $? -eq 0 ]; then
     if [ "$(grep $1 /etc/hosts|grep -v 127|head -n 1)" = "" ]; then
