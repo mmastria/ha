@@ -40,6 +40,7 @@ passwd <<eof
 eof
 
 sed -i '/^#PermitRootLogin/ c\PermitRootLogin Yes' /etc/ssh/sshd_config
+sed -i 's/AcceptEnv LANG/#AcceptEnv LANG/' /etc/ssh/sshd_config
 #systemctl enable ssh
 systemctl restart ssh
 
