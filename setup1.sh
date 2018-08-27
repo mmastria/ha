@@ -84,15 +84,8 @@ ln -s /usr/lib/arm-linux-gnueabihf/libnova-0.16.so.0 /usr/lib/arm-linux-gnueabih
 # apt -y install indi-full
 # pip2 install --upgrade pip
 
-cd /root
-curl http://indilib.org/download/raspberry-pi/send/6-raspberry-pi/9-indi-library-for-raspberry-pi.html -o libindi_rpi.tar.gz
-tar -zxvf libindi_rpi.tar.gz
-cd libindi_1*
-dpkg -i *.deb
-apt -y --fix-broken install
-dpkg -i *.deb
+. libindi_update.sh
 
-cd /root
 pip install --install-option="--prefix=/usr/local" pyindi-client 
 
 read -p "key to reboot"
