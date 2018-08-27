@@ -60,9 +60,7 @@ sed -i 's/AcceptEnv LANG/#AcceptEnv LANG/' /etc/ssh/sshd_config
 #systemctl enable ssh
 systemctl restart ssh
 
-apt -y upgrade
-apt -y dist-upgrade
-rpi-update
+. ./os_update.sh
 
 sed -i $"$SSED" /etc/hosts
 echo $SDEVICE > /etc/hostname
@@ -84,7 +82,7 @@ ln -s /usr/lib/arm-linux-gnueabihf/libnova-0.16.so.0 /usr/lib/arm-linux-gnueabih
 # apt -y install indi-full
 # pip2 install --upgrade pip
 
-. libindi_update.sh
+. ./libindi_update.sh
 
 pip install --install-option="--prefix=/usr/local" pyindi-client 
 
