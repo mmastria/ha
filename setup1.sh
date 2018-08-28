@@ -78,6 +78,7 @@ apt -y install build-essential git python-dev python-pip vim ntpdate \
 apt -y --fix-broken install
 ln -s /usr/bin/swig2.0 /usr/bin/swig
 ln -s /usr/lib/arm-linux-gnueabihf/libnova-0.16.so.0 /usr/lib/arm-linux-gnueabihf/libnova-0.14.so.0
+sed -i '/NTPDATE_USE_NTP_CONF/ cNTPDATE_USE_NTP_CONF=no' /etc/default/ntpdate
 sed -i '/NTPSERVERS/ cNTPSERVERS="a.st1.ntp.br b.st1.ntp.br c.st1.ntp.br d.st1.ntp.br a.ntp.br b.ntp.br c.ntp.br gps.ntp.br"' /etc/default/ntpdate
 
 # apt -y install indi-full
