@@ -68,7 +68,7 @@ sed -i 's/^# export/export/g' /root/.bashrc
 sed -i 's/^# eval/eval/g' /root/.bashrc
 sed -i 's/^# alias l/alias l/g' /root/.bashrc
 
-apt -y install build-essential git python-dev python-pip vim \
+apt -y install build-essential git python-dev python-pip vim ntpdate \
        cdbs libcfitsio-dev libnova-dev \
        libusb-1.0-0-dev libjpeg-dev libusb-dev libtiff5-dev \
        libftdi1-dev fxload libkrb5-dev libcurl4-gnutls-dev \
@@ -78,6 +78,7 @@ apt -y install build-essential git python-dev python-pip vim \
 apt -y --fix-broken install
 ln -s /usr/bin/swig2.0 /usr/bin/swig
 ln -s /usr/lib/arm-linux-gnueabihf/libnova-0.16.so.0 /usr/lib/arm-linux-gnueabihf/libnova-0.14.so.0
+sed '/NTPSERVERS/ cNTPSERVERS="a.st1.ntp.br b.st1.ntp.br c.st1.ntp.br d.st1.ntp.br a.ntp.br b.ntp.br c.ntp.br gps.ntp.br"' /etc/default/ntpdate
 
 # apt -y install indi-full
 # pip2 install --upgrade pip
