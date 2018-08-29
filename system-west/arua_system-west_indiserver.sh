@@ -19,7 +19,7 @@ echo "start indi_ioptronv3_telescope -n \"iOptron CEM120\" -c \"$HOME/.indi/iOpt
 echo "start indi_atik_ccd -n \"Atik 320E\" -c \"$HOME/.indi/Atik 320E_config.xml\"" > ~/.indi/indiFIFO
 echo "start indi_qhy_ccd -n \"QHY5LII-M\" -c \"$HOME/.indi/QHY5LII-M_config.xml\"" > ~/.indi/indiFIFO
 echo "start \"Armadillo focuser\"@system-main:7626" > ~/.indi/indiFIFO
-echo "start \"Astrometry\"@system-main" > ~/.indi/indiFIFO
+echo "start \"Astrometry\"@system-main:7626" > ~/.indi/indiFIFO
 echo "start \"AAG Cloud Watcher\"@aagsolo" > ~/.indi/indiFIFO
 echo "start \"RollOff Roof\"@system-power:7625" > ~/.indi/indiFIFO
 
