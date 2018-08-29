@@ -6,7 +6,8 @@ After=multi-user.target
 Type=idle
 User=system-east
 ExecStart=/usr/bin/indiserver -m 100 -p 7625 -v \
-  indi_armadillo_focus
+  indi_armadillo_focus \
+  indi_astrometry
 
 Restart=always
 RestartSec=5
