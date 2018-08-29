@@ -1,0 +1,15 @@
+[Unit]
+Description=INDI Server Main 
+After=multi-user.target
+
+[Service]
+Type=idle
+User=system-main
+ExecStart=/usr/bin/indiserver -m 100 -p 7624 -v \
+  indi_astrometry
+
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
