@@ -21,7 +21,7 @@ echo "start indi_atik_ccd -n \"Atik 383L+\" -c \"$HOME/.indi/Atik 383L+_config.x
 echo "start indi_sx_wheel -n \"SX Wheel\" -c \"$HOME/.indi/SX Wheel_config.xml\"" > ~/.indi/indiFIFO
 echo "start indi_qhy_ccd -n \"QHY5LII-M\" -c \"$HOME/.indi/QHY5LII-M_config.xml\"" > ~/.indi/indiFIFO
 echo "start \"Armadillo focuser\"@system-main:7625" > ~/.indi/indiFIFO
-echo "start \"Astrometry\"@system-main" > ~/.indi/indiFIFO
+echo "start \"Astrometry\"@system-main:7625" > ~/.indi/indiFIFO
 echo "start \"AAG Cloud Watcher\"@aagsolo" > ~/.indi/indiFIFO
 echo "start \"RollOff Roof\"@system-power:7625" > ~/.indi/indiFIFO
 
