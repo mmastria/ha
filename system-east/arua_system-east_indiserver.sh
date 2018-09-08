@@ -24,6 +24,8 @@ echo "start \"Armadillo focuser\"@system-main:7625" > ~/.indi/indiFIFO
 echo "start \"Astrometry\"@system-main:7625" > ~/.indi/indiFIFO
 echo "start \"AAG Cloud Watcher\"@aagsolo" > ~/.indi/indiFIFO
 echo "start \"RollOff Roof\"@system-power:7625" > ~/.indi/indiFIFO
+echo "start \"Vantage\"@system-main:7625" > ~/.indi/indiFIFO
+echo "start \"V4L2 CCD\"@system-main:7625" > ~/.indi/indiFIFO
 
 wait "$child"
 echo "stopping indiserver"
