@@ -16,7 +16,6 @@ mkfifo ~/.indi/indiFIFO
 child=$!
 
 echo "start indi_ieq_telescope -n \"iOptron CEM60\" -c \"$HOME/.indi/iOptron CEM60_config.xml\"" > ~/.indi/indiFIFO
-#echo "start indi_ioptronv3_telescope -n \"iOptron CEM60\" -c \"$HOME/.indi/iOptron CEM60_config.xml\"" > ~/.indi/indiFIFO
 echo "start indi_atik_ccd -n \"Atik 383L+\" -c \"$HOME/.indi/Atik 383L+_config.xml\"" > ~/.indi/indiFIFO
 echo "start indi_sx_wheel -n \"SX Wheel\" -c \"$HOME/.indi/SX Wheel_config.xml\"" > ~/.indi/indiFIFO
 echo "start indi_qhy_ccd -n \"QHY5LII-M\" -c \"$HOME/.indi/QHY5LII-M_config.xml\"" > ~/.indi/indiFIFO
