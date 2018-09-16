@@ -19,5 +19,5 @@ _mkhosts system-power
 _mkhosts system-east
 _mkhosts system-west
 _mkhosts system-main
-_mkhosts aagsolo
+_mkhosts system-weather
 

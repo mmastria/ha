@@ -1,0 +1,12 @@
+[Unit]
+Description=INDI Server System Weather 
+After=multi-user.target
+
+[Service]
+Restart=always
+RestartSec=5
+User=weather
+ExecStart=/usr/local/bin/arua_system-weather_indiserver.sh
+
+[Install]
+WantedBy=multi-user.target
