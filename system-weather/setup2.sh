@@ -3,6 +3,8 @@
 [ $(grep weather /etc/passwd|wc -l) -eq 0 ] && \
 useradd -m -s /bin/bash weather && \
 adduser weather dialout && \
+adduser weather plugdev && \
+adduser weather video && \
 adduser weather gpio && \
 sed -i 's/^#alias l/alias l/g' /home/weather/.bashrc
 
