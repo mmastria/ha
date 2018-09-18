@@ -1,0 +1,12 @@
+[Unit]
+Description=INDI Server System  Main 
+After=multi-user.target
+
+[Service]
+Restart=always
+RestartSec=5
+User=main
+ExecStart=/usr/local/bin/arua_system-main_indiserver.sh
+
+[Install]
+WantedBy=multi-user.target
