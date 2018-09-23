@@ -18,6 +18,7 @@ child=$!
 echo "start indi_aagcloudwatcher -n \"AAG Cloud Watcher\" -c \"$HOME/.indi/AAG Cloud Watcher_config.xml\"" > ~/.indi/indiFIFO
 echo "start indi_vantage_weather -n \"Vantage\" -c \"$HOME/.indi/Vantage_config.xml\"" > ~/.indi/indiFIFO
 echo "start indi_v4l2_ccd -n \"V4L2 CCD\" -c \"$HOME/.indi/V4L2 CCD_config.xml\"" > ~/.indi/indiFIFO
+echo "start indi_v4l2_ccd -n \"V4L2 CCD2\" -c \"$HOME/.indi/V4L2 CCD2_config.xml\"" > ~/.indi/indiFIFO
 
 wait "$child"
 echo "stopping indiserver"
