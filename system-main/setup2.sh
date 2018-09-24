@@ -1,6 +1,6 @@
 #!/bin/bash
 
-[ $(grep weather /etc/passwd|wc -l) -eq 0 ] && \
+[ $(grep main /etc/passwd|wc -l) -eq 0 ] && \
 apt -y install v4l-util &&
 useradd -m -s /bin/bash main && \
 adduser main dialout && \
