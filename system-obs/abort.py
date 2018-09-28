@@ -1,12 +1,9 @@
 #!/usr/bin/python
-#
-# Abort script for INDI Dome Scripting Gateway
-#
-# Arguments: none
-# Exit code: 0 for success, 1 for failure
-#
 
 import sys
+import ror
 
-sys.exit(0)
+if ror.abort():
+    sys.exit(0)
+sys.exit(1)
 
