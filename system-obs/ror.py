@@ -47,8 +47,11 @@ def is_not_parked():
 def park():
   log.debug('do park')
   if not is_closed and is_not_parked():
+    log.debug('++before close')
     if not close():
+      log.debug('++inside close')
       return False
+    log.debug('++ after close')
   if is_closed() and is_stopped() and is_not_parked():
     GPIO.output(ror_parked, GPIO.LOW)
     log.debug('do park return True')
@@ -89,7 +92,8 @@ def is_stopped():
 # 0/1 for unparked/parked, 0/1 for closed/open shutter and azimuth as float.
 def status():
   p = '1' if is_parked() else '0'
-  s = '1' if is_open() else '0'
+  s = '1' if is_open() else '0' if is_closed() else '-'
+  log.debug('status %s %s 0' % (p, s))
   return '%s %s 0' % (p, s)
 
 def can_open():
@@ -151,24 +155,36 @@ def open():
 def close():
   log.debug('do close')
   if can_close():
+    log.debug('can close and not is moving')
     move()
+    log.debug('move')
     while is_open():
+      log.debug('while is open')
       sleep(1)
     while (not is_closed() and is_moving()):
+      log.debug('while not is closed and is moving')
       sleep(1)
       if is_open():
+        log.debug('is open')
         stop()
+        log.debug('stop')
         sleep(1)
+        log.debug('move')
         move()
         while is_open() and is_moving():
+          log.debug('while is open')
           sleep(1)
     if is_stopped():
+      log.debug('is stopped return false')
       return False
     stop()
+    log.debug('stop and return true')
     return True
+  log.debug('return false')
   return False
 
 def abort():
+  log.debug('do abort')
   if is_moving():
     stop()
     return True
