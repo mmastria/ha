@@ -1,5 +1,11 @@
 #!/usr/bin/python
 
+# parked        == TRUE  -->  [ Relay Desligado | GPIO.LOW ]
+# sw_close      == TRUE  -->  [ Switch Fechado | FALSE ]
+# mount_parked  == TRUE  -->  [ Switch Fechado | FALSE ]
+# move          == TRUE  -->  [ Relay Ligado | GPIO.HIGH ]
+
+
 import sys
 import RPi.GPIO as GPIO
 from time import sleep
@@ -21,173 +27,188 @@ log.addHandler(handler)
 # pwr_west_27
 
 ror_parked = 22
-ror_pulse = 23
+ror_move = 23
 ror_sw_closed = 24
 ror_sw_open = 25
+ror_mount_parked = 26
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(ror_parked, GPIO.OUT)
-GPIO.setup(ror_pulse, GPIO.OUT)
+GPIO.setup(ror_move, GPIO.OUT)
 GPIO.setup(ror_sw_closed, GPIO.IN)
 GPIO.setup(ror_sw_open, GPIO.IN)
+GPIO.setup(ror_mount_parked, GPIO.IN)
 
-def is_parked():
-  # ror parked
-  if (GPIO.input(ror_parked) == GPIO.LOW):
+def _is_parked():
+  if GPIO.input(ror_parked) == GPIO.LOW:
     return True
   return False
 
-def is_not_parked():
-  # ror not parked
-  if (GPIO.input(ror_parked) == GPIO.HIGH):
+def _is_unparked():
+  if GPIO.input(ror_parked) == GPIO.HIGH:
     return True
   return False
 
-def park():
-  log.debug('do park')
-  if not is_closed and is_not_parked():
-    log.debug('++before close')
-    if not close():
-      log.debug('++inside close')
+def _is_not_closed():
+  if GPIO.input(ror_sw_closed):
+    return True
+  return False
+
+def _is_closed():
+  if not GPIO.input(ror_sw_closed):
+    return True
+  return False
+
+def _is_not_open():
+  if GPIO.input(ror_sw_open):
+    return True
+  return False
+
+def _is_open():
+  if not GPIO.input(ror_sw_open):
+    return True
+  return False
+
+def _is_mount_unparked():
+  if GPIO.input(ror_mount_parked):
+    return True
+  return False
+
+def _is_mount_parked():
+  if not GPIO.input(ror_mount_parked):
+    return True
+  return False
+
+def _is_stopped():
+  if GPIO.input(ror_move) == GPIO.LOW:
+    return True
+  return False
+
+def _is_moving():
+  if GPIO.input(ror_move) == GPIO.HIGH:
+    return True
+  return False
+
+def _can_open():
+  return _is_unparked() and _is_not_open() and _is_mount_parked()
+
+def _can_close():
+  return _is_unparked() and _is_not_closed() and _is_mount_parked()
+
+def _can_park():
+  return _is_unparked() and _is_closed() and _is_not_open()
+
+def _can_unpark():
+  return _is_parked() and _is_mount_parked()
+
+def _can_move():
+  return _is_unparked() and _is_mount_parked()
+
+def _can_stop():
+  return _is_not_closed() and _is_not_open()
+
+def _move():
+  log.debug('move')
+  if _can_move():
+    if _is_moving():
+      GPIO.output(ror_move, GPIO.LOW)
+      sleep(1)
+    GPIO.output(ror_move, GPIO.HIGH)
+    return True
+  return False
+
+def _stop():
+  log.debug('stop')
+  if _is_moving():
+    GPIO.output(ror_move, GPIO.LOW)
+    sleep(1)
+  if _can_stop():
+    GPIO.output(ror_move, GPIO.HIGH)
+    sleep(1)
+    GPIO.output(ror_move, GPIO.LOW)
+  return True
+
+def _park():
+  log.debug('park')
+  if _is_not_closed():
+    if not _close():
       return False
-    log.debug('++ after close')
-  if is_closed() and is_stopped() and is_not_parked():
+  if _can_park():
     GPIO.output(ror_parked, GPIO.LOW)
-    log.debug('do park return True')
     return True
-  log.debug('do park return False')
   return False
 
-def unpark():
-  if is_closed() and is_stopped() and is_parked():
+def _unpark():
+  log.debug('unpark')
+  if _can_unpark():
     GPIO.output(ror_parked, GPIO.HIGH)
-    log.debug('do unpark return True')
-    return True
-  log.debug('do unpark return False')
-  return False
-
-def is_open():
-  # ror open
-  if (not GPIO.input(ror_sw_open)):
     return True
   return False
 
-def is_closed():
-  # ror closed
-  if (not GPIO.input(ror_sw_closed)):
+def _open():
+  log.debug('open')
+  if _can_open():
+    _move()
+    while _is_closed():
+      sleep(1)
+    while _is_not_open() and _is_moving():
+      sleep(1)
+      if _is_closed():
+        _move()
+        while _is_closed() and _is_moving():
+          sleep(1)
+    if _is_moving():
+      GPIO.output(ror_move, GPIO.LOW)
     return True
   return False
 
-def is_moving():
-  if (GPIO.input(ror_pulse) == GPIO.HIGH):
+def _close():
+  log.debug('close')
+  if _can_close():
+    _move()
+    while _is_open():
+      sleep(1)
+    while _is_not_closed() and _is_moving():
+      sleep(1)
+      if _is_open():
+        _move()
+        while _is_open() and _is_moving():
+          sleep(1)
+    if _is_moving():
+      GPIO.output(ror_move, GPIO.LOW)
     return True
   return False
 
-def is_stopped():
-  if (GPIO.input(ror_pulse) == GPIO.LOW):
-    return True
-  return False
+def _abort():
+  log.debug('abort')
+  return _stop()
 
 # 0/1 for unparked/parked, 0/1 for closed/open shutter and azimuth as float.
-def status():
-  p = '1' if is_parked() else '0'
-  s = '1' if is_open() else '0' if is_closed() else '-'
-  log.debug('status %s %s 0' % (p, s))
+def _status():
+  p = '1' if _is_parked() else '0'
+  s = '1' if _is_open() else '0' if _is_closed() else '-'
+  m = '1' if _is_mount_parked() else '0'
+  log.debug('-- parked: %s (p:%s) - open: %s - closed: %s (s:%s) - mount_parked: %s (m:%s)' % ( _is_parked(), p, _is_open(), _is_closed(), s, _is_mount_parked(),  m))
   return '%s %s 0' % (p, s)
 
-def can_open():
-  # ror not open
-  return not is_open() and not is_parked() and not is_moving()
+## --------------------------
 
-def can_close():
-  # ror not closed
-  return not is_closed() and is_not_parked() and not is_moving()
+def park():
+  return _park()
 
-def move():
-  log.debug('do move')
-  if is_not_parked() and not is_moving():
-    GPIO.output(ror_pulse, GPIO.LOW)
-    sleep(1)
-    GPIO.output(ror_pulse, GPIO.HIGH)
-
-def stop():
-  log.debug('do stop')
-  if is_moving():
-    GPIO.output(ror_pulse, GPIO.LOW)
-  if not is_open() and not is_closed():
-    sleep(1)
-    GPIO.output(ror_pulse, GPIO.HIGH)
-    sleep(1)
-    GPIO.output(ror_pulse, GPIO.LOW)
+def unpark():
+  return _unpark()
 
 def open():
-  log.debug('do open')
-  if can_open():
-    log.debug('can open and not is moving')
-    move()
-    log.debug('move')
-    while is_closed():
-      log.debug('while is closed')
-      sleep(1)
-    while (not is_open() and is_moving()):
-      log.debug('while not is open and is moving')
-      sleep(1)
-      if is_closed():
-        log.debug('is closed')
-        stop()
-        log.debug('stop')
-        sleep(1)
-        move()
-        log.debug('move')
-        while is_closed() and is_moving():
-          log.debug('while is closed')
-          sleep(1)
-    if is_stopped():
-      log.debug('is stopped return false')
-      return False
-    stop()
-    log.debug('stop and return true')
-    return True
-  log.debug('return false')
-  return False
+  return _open()
 
 def close():
-  log.debug('do close')
-  if can_close():
-    log.debug('can close and not is moving')
-    move()
-    log.debug('move')
-    while is_open():
-      log.debug('while is open')
-      sleep(1)
-    while (not is_closed() and is_moving()):
-      log.debug('while not is closed and is moving')
-      sleep(1)
-      if is_open():
-        log.debug('is open')
-        stop()
-        log.debug('stop')
-        sleep(1)
-        log.debug('move')
-        move()
-        while is_open() and is_moving():
-          log.debug('while is open')
-          sleep(1)
-    if is_stopped():
-      log.debug('is stopped return false')
-      return False
-    stop()
-    log.debug('stop and return true')
-    return True
-  log.debug('return false')
-  return False
+  return _close()
 
 def abort():
-  log.debug('do abort')
-  if is_moving():
-    stop()
-    return True
-  return False
+  return _abort()
 
+def status():
+  return _status()
 
