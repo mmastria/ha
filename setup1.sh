@@ -88,6 +88,7 @@ timedatectl set-ntp true
 . ./libindi_update.sh
 
 pip install --install-option="--prefix=/usr/local" pyindi-client 
+apt -y install python3-rpi.gpio
 
 read -p "key to reboot"
 reboot
