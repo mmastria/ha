@@ -5,6 +5,7 @@
 # mount_parked  == TRUE  -->  [ Switch Fechado | FALSE ]
 # move          == TRUE  -->  [ Relay Ligado | GPIO.HIGH ]
 
+# 0/1 for unparked/parked, 0/1 for closed/open shutter and azimuth as float.
 
 import sys
 import RPi.GPIO as GPIO
