@@ -13,10 +13,10 @@ echo ""
 echo "*** ATUALIZANDO ***"
 echo ""
 cd libindi_1*
-ls -1 /etc/systemd/system/multi-user.target.wants/arua*|cut -d / -f 6|xargs -n 1 -r -t systemctl stop
+ls -1 /etc/systemd/system/multi-user.target.wants/|grep arua|cut -d / -f 6|xargs -n 1 -r -t systemctl stop
 dpkg -i *.deb
 apt -y --fix-broken install
 dpkg -i *.deb
-ls -1 /etc/systemd/system/multi-user.target.wants/arua*|cut -d / -f 6|xargs -n 1 -r -t systemctl start
+ls -1 /etc/systemd/system/multi-user.target.wants/|grep arua|cut -d / -f 6|xargs -n 1 -r -t systemctl start
 popd
 
