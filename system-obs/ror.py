@@ -216,23 +216,29 @@ def status():
 
 ## --------------------------
 
-while True
+while True:
 
   if os.path.exists('/tmp/ror-park'):
     os.remove('/tmp/ror-park')
+    park()
 
   if os.path.exists('/tmp/ror-unpark'):
     os.remove('/tmp/ror-unpark')
+    unpark()
 
   if os.path.exists('/tmp/ror-open'):
     os.remove('/tmp/ror-open')
+    open()
 
   if os.path.exists('/tmp/ror-close'):
     os.remove('/tmp/ror-close')
+    close()
 
   if os.path.exists('/tmp/ror-abort'):
     os.remove('/tmp/ror-abort')
+    abort()
 
   if os.path.exists('/tmp/ror-status'):
     os.remove('/tmp/ror-status')
+    status()
 
