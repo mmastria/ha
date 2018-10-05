@@ -8,6 +8,7 @@
 # 0/1 for unparked/parked, 0/1 for closed/open shutter and azimuth as float.
 
 import sys
+import os
 import RPi.GPIO as GPIO
 from time import sleep
 
@@ -212,4 +213,26 @@ def abort():
 
 def status():
   return _status()
+
+## --------------------------
+
+while True
+
+  if os.path.exists('/tmp/ror-park'):
+    os.remove('/tmp/ror-park')
+
+  if os.path.exists('/tmp/ror-unpark'):
+    os.remove('/tmp/ror-unpark')
+
+  if os.path.exists('/tmp/ror-open'):
+    os.remove('/tmp/ror-open')
+
+  if os.path.exists('/tmp/ror-close'):
+    os.remove('/tmp/ror-close')
+
+  if os.path.exists('/tmp/ror-abort'):
+    os.remove('/tmp/ror-abort')
+
+  if os.path.exists('/tmp/ror-status'):
+    os.remove('/tmp/ror-status')
 
