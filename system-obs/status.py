@@ -13,11 +13,5 @@ st = open('/tmp/ror-status', 'w')
 st.truncate()
 st.write(path)
 st.close()
-
-status = open(path, 'w')
-status.truncate()
-status.write('1 1 1')
-status.close()
-
 sys.exit(0)
 

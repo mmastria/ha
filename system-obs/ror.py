@@ -192,7 +192,12 @@ def _status():
   s = '1' if _is_open() else '0' if _is_closed() else '-'
   m = '1' if _is_mount_parked() else '0'
   log.debug('-- parked: %s (p:%s) - open: %s - closed: %s (s:%s) - mount_parked: %s (m:%s)' % ( _is_parked(), p, _is_open(), _is_closed(), s, _is_mount_parked(),  m))
-  return '%s %s 0' % (p, s)
+  sti = os.open('/tmp/ror-status', 'r')
+  sto = open(sti.readLine(), 'w')
+  sto.truncate()
+  sto.write('%s %s 0' % (p, s))
+  sto.close()
+  #return '%s %s 0' % (p, s)
 
 ## --------------------------
 
@@ -239,6 +244,6 @@ while True:
     abort()
 
   if os.path.exists('/tmp/ror-status'):
-    os.remove('/tmp/ror-status')
     status()
+    os.remove('/tmp/ror-status')
 
