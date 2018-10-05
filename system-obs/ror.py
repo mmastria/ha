@@ -192,59 +192,46 @@ def _status():
   s = '1' if _is_open() else '0' if _is_closed() else '-'
   m = '1' if _is_mount_parked() else '0'
   log.debug('-- parked: %s (p:%s) - open: %s - closed: %s (s:%s) - mount_parked: %s (m:%s)' % ( _is_parked(), p, _is_open(), _is_closed(), s, _is_mount_parked(),  m))
-  sti = os.open('/tmp/ror-status', 'r')
-  sto = os.open(sti.readLine(), 'w')
-  sti.close()
-  sto.truncate()
-  sto.write('%s %s 0' % (p, s))
-  sto.close()
+  try:
+    sti = open('/tmp/ror-status', 'r')
+    sto = open(sti.readline(), 'w')
+    sti.close()
+    sto.truncate()
+    sto.write('%s %s 0' % (p, s))
+    sto.close()
+  except:
+    pass
   #return '%s %s 0' % (p, s)
-
-## --------------------------
-
-def park():
-  return _park()
-
-def unpark():
-  return _unpark()
-
-def open():
-  return _open()
-
-def close():
-  return _close()
-
-def abort():
-  return _abort()
-
-def status():
-  return _status()
 
 ## --------------------------
 
 while True:
 
-  if os.path.exists('/tmp/ror-park'):
-    os.remove('/tmp/ror-park')
-    _park()
+  try:
 
-  if os.path.exists('/tmp/ror-unpark'):
-    os.remove('/tmp/ror-unpark')
-    _unpark()
+    if os.path.exists('/tmp/ror-park'):
+      os.remove('/tmp/ror-park')
+      _park()
 
-  if os.path.exists('/tmp/ror-open'):
-    os.remove('/tmp/ror-open')
-    _open()
+    if os.path.exists('/tmp/ror-unpark'):
+      os.remove('/tmp/ror-unpark')
+      _unpark()
 
-  if os.path.exists('/tmp/ror-close'):
-    os.remove('/tmp/ror-close')
-    _close()
+    if os.path.exists('/tmp/ror-open'):
+      os.remove('/tmp/ror-open')
+      _open()
 
-  if os.path.exists('/tmp/ror-abort'):
-    os.remove('/tmp/ror-abort')
-    _abort()
+    if os.path.exists('/tmp/ror-close'):
+      os.remove('/tmp/ror-close')
+      _close()
 
-  if os.path.exists('/tmp/ror-status'):
-    _status()
-    os.remove('/tmp/ror-status')
+    if os.path.exists('/tmp/ror-abort'):
+      os.remove('/tmp/ror-abort')
+      _abort()
 
+    if os.path.exists('/tmp/ror-status'):
+      _status()
+      os.remove('/tmp/ror-status')
+
+  except:
+    pass
