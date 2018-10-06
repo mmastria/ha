@@ -34,6 +34,7 @@ SSED=$(echo "/raspberrypi/ c127.0.0.1\t$SDEVICE \t$SDEVICE.local")
 
 # aagsolo
 [ "$(mount|grep /dev/root.*\(ro,|wc -l)" == "1" ] && mount -o remount,rw /dev/root /
+[ "$(mount|grep /dev/boot.*\(ro,|wc -l)" == "1" ] && mount -o remount,rw /dev/boot /boot
 
 sed -i 's/en_GB.UTF-8/# en_GB.UTF-8/' /etc/locale.gen
 sed -i 's/# en_US.UTF-8/en_US.UTF-8/' /etc/locale.gen
