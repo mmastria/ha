@@ -16,6 +16,30 @@ import logging.handlers
 
 # 0/1 for unparked/parked, 0/1 for closed/open shutter and azimuth as float.
 
+log = logging.getLogger(__name__)
+log.setLevel(logging.DEBUG)
+handler = logging.handlers.SysLogHandler(address = '/dev/log')
+formatter = logging.Formatter('%(module)s.%(funcName)s: %(message)s')
+handler.setFormatter(formatter)
+log.addHandler(handler)
+
+# pwr_east = 17
+# pwr_west_27
+
+ror_parked = 22
+ror_move = 23
+ror_sw_closed = 24
+ror_sw_open = 25
+ror_mount_parked = 26
+
+GPIO.setwarnings(False)
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(ror_parked, GPIO.OUT)
+GPIO.setup(ror_move, GPIO.OUT)
+GPIO.setup(ror_sw_closed, GPIO.IN)
+GPIO.setup(ror_sw_open, GPIO.IN)
+GPIO.setup(ror_mount_parked, GPIO.IN)
+
 app = Bottle()
 
 ## --------------------------
@@ -182,23 +206,23 @@ def index():
 
 @app.route('/park', method='GET')
 def park():
-  return '1' if _park() else '0'
+  return '0' if _park() else '1'
 
 @app.route('/unpark', method='GET')
 def unpark():
-  return '1' if _unpark() else '0'
+  return '0' if _unpark() else '1'
 
 @app.route('/open', method='GET')
 def open():
-  return '1' if _open() else '0'
+  return '0' if _open() else '1'
 
 @app.route('/close', method='GET')
 def close():
-  return '1' if _close() else '0'
+  return '0' if _close() else '1'
 
 @app.route('/abort', method='GET')
 def abort():
-  return '1' if _abort() else '0'
+  return '0' if _abort() else '1'
 
 @app.route('/status', method='GET')
 def status():
@@ -209,29 +233,6 @@ def status():
 
 if __name__ == "__main__":
 
-  log = logging.getLogger(__name__)
-  log.setLevel(logging.DEBUG)
-  handler = logging.handlers.SysLogHandler(address = '/dev/log')
-  formatter = logging.Formatter('%(module)s.%(funcName)s: %(message)s')
-  handler.setFormatter(formatter)
-  log.addHandler(handler)
-
-  # pwr_east = 17
-  # pwr_west_27
-
-  ror_parked = 22
-  ror_move = 23
-  ror_sw_closed = 24
-  ror_sw_open = 25
-  ror_mount_parked = 26
-
-  GPIO.setwarnings(False)
-  GPIO.setmode(GPIO.BCM)
-  GPIO.setup(ror_parked, GPIO.OUT)
-  GPIO.setup(ror_move, GPIO.OUT)
-  GPIO.setup(ror_sw_closed, GPIO.IN)
-  GPIO.setup(ror_sw_open, GPIO.IN)
-  GPIO.setup(ror_mount_parked, GPIO.IN)
     
   log.debug("starting roll-off roof manager")
 

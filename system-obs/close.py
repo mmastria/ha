@@ -7,4 +7,4 @@ import ror
 #    sys.exit(0)
 #sys.exit(1)
 
-exit(ror.close())
+exit(int(ror.close()))

@@ -7,5 +7,5 @@ import ror
 #    sys.exit(0)
 #sys.exit(1)
 
-exit(ror.open())
+exit(int(ror.open()))
 
