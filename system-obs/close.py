@@ -1,9 +1,10 @@
 #!/usr/bin/python
 
 import sys
-#, 'w'import ror
+import ror
 
 #if ror.close():
-open('/tmp/ror-close', 'w').close()
-sys.exit(0)
+#    sys.exit(0)
+#sys.exit(1)
 
+exit(ror.close())

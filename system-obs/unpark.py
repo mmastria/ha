@@ -1,9 +1,11 @@
 #!/usr/bin/python
 
 import sys
-#import ror
+import ror
 
 #if ror.unpark():
-open('/tmp/ror-unpark', 'w').close()
-sys.exit(0)
+#    sys.exit(0)
+#sys.exit(1)
+
+exit(ror.unpark())
 
