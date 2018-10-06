@@ -32,6 +32,9 @@ if [ $# -eq 0 -o ! -d "$1" ];then echo -e "$0 <system-xxxx>";exit 1;fi
 SDEVICE="${1///}"
 SSED=$(echo "/raspberrypi/ c127.0.0.1\t$SDEVICE \t$SDEVICE.local")
 
+# aagsolo
+[ "$(mount|grep /dev/root.*\(ro,|wc -l)" == "1" ] && mount -o remount,rw /dev/root /
+
 sed -i 's/en_GB.UTF-8/# en_GB.UTF-8/' /etc/locale.gen
 sed -i 's/# en_US.UTF-8/en_US.UTF-8/' /etc/locale.gen
 
@@ -79,7 +82,7 @@ apt-get -y install build-essential git python-dev python-pip vim cmake ntpdate \
        libraw-dev libgphoto2-dev libgsl-dev dkms \
        libboost-regex-dev libgps-dev libdc1394-22-dev \
        zlib1g-dev 
-[ $DEVICE == 'aagsolo' ] && apt-get -y install swig libz3-dev
+[ $DEVICE == 'aagsolo' ] && apt-get -y install swig 
 [ $DEVICE != 'aagsolo' ] && apt-get -y install swig2.0 libz3-dev
 apt-get -y --fix-broken install
 apt-get -y autoremove
