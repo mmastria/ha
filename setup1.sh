@@ -41,9 +41,9 @@ export LC_ALL=en_US.UTF-8
 export LC_TYPE=en_US.UTF-8
 
 locale-gen en_US.UTF-8
-update-locale en_US.UTF-8
 
 dpkg-reconfigure -f noninteractive locales
+update-locale en_US.UTF-8
 
 cp /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
 echo "America/Sao_Paulo" > /etc/timezone
@@ -72,19 +72,20 @@ sed -i 's/^# export/export/g' /root/.bashrc
 sed -i 's/^# eval/eval/g' /root/.bashrc
 sed -i 's/^# alias l/alias l/g' /root/.bashrc
 
-apt -y install build-essential git python-dev python-pip vim ntpdate \
+apt-get -y install build-essential git python-dev python-pip vim ntpdate \
        cdbs libcfitsio-dev libnova-dev \
        libusb-1.0-0-dev libjpeg-dev libusb-dev libtiff5-dev \
        libftdi1-dev fxload libkrb5-dev libcurl4-gnutls-dev \
        libraw-dev libgphoto2-dev libgsl-dev dkms \
-       libboost-regex-dev libgps-dev libdc1394-22-dev \
-       swig2.0 libz3-dev zlib1g-dev
-apt -y --fix-broken install
-ln -s /usr/bin/swig2.0 /usr/bin/swig
-ln -s /usr/lib/arm-linux-gnueabihf/libnova-0.16.so.0 /usr/lib/arm-linux-gnueabihf/libnova-0.14.so.0
+       libboost-regex-dev libgps-dev libdc1394-22-dev 
+[ $DEVICE != 'aagsolo' ] && apt -y install swig2.0 libz3-dev zlib1g-dev
+[ $DEVICE == 'aagsolo' ] && apt-get -y install swig libz3-dev zlib1g-dev
+[ $DEVICE != 'aagsolo' ] && apt -y --fix-broken install
+[ $DEVICE != 'aagsolo' ] && ln -s /usr/bin/swig2.0 /usr/bin/swig
+[ $DEVICE != 'aagsolo' ] && ln -s /usr/lib/arm-linux-gnueabihf/libnova-0.16.so.0 /usr/lib/arm-linux-gnueabihf/libnova-0.14.so.0
 sed -i '/NTPDATE_USE_NTP_CONF/ cNTPDATE_USE_NTP_CONF=no' /etc/default/ntpdate
 sed -i '/NTPSERVERS/ cNTPSERVERS="a.st1.ntp.br b.st1.ntp.br c.st1.ntp.br d.st1.ntp.br a.ntp.br b.ntp.br c.ntp.br gps.ntp.br"' /etc/default/ntpdate
-timedatectl set-ntp true
+[ $DEVICE != 'aagsolo' ] && timedatectl set-ntp true
 
 # apt -y install indi-full
 # pip2 install --upgrade pip
