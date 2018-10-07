@@ -202,11 +202,14 @@ def _status():
 
 @route('/', method='GET')
 def index():
-    return "REST Services - Roll-Off Roof Manager"
+  return "REST Services - Roll-Off Roof Manager"
+
+@route('/park', method='GET')
+def can_park():
+  return '0' if _is_not_closed() or _can_park() else '1'
 
 @route('/park', method='PUT')
 def park():
-  yield '0' if _is_not_closed() or _can_park() else '1'
   _park()
   return
 
@@ -214,15 +217,21 @@ def park():
 def unpark():
   return '0' if _unpark() else '1'
 
+@route('/open', method='GET')
+def can_open():
+  return '0' if _can_open() else '1'
+
 @route('/open', method='PUT')
 def open():
-  yield '0' if _can_open() else '1'
   _open()
   return
 
+@route('/close', method='GET')
+def can_close():
+  return '0' if _can_close() else '1'
+
 @route('/close', method='PUT')
 def close():
-  yield '0' if _can_close() else '1'
   _close()
   return
 
