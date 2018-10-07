@@ -1,13 +1,17 @@
 #!/usr/bin/python
 
 import sys
-import ror 
+import requests
+#import json
 
 script, path = sys.argv
 
-status = open(path, 'w')
-status.truncate()
-status.write(ror.status())
-status.close()
-sys.exit(0)
+resp = requests.get('http://localhost/status')
+if resp.ok:
+  status = open(path, 'w')
+  status.truncate()
+  status.write(resp.content)
+  status.close()
+  sys.exit(0)
+sys.exit(1)
 

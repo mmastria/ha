@@ -1,11 +1,8 @@
 #!/usr/bin/python
 
 import sys
-import ror
+import requests
 
-#if ror.unpark():
-#    sys.exit(0)
-#sys.exit(1)
-
-exit(int(ror.unpark()))
-
+resp = requests.put('http://localhost/unpark')
+exit(0 if resp.ok else 1)
+  

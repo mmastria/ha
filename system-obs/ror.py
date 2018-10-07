@@ -5,7 +5,8 @@ import sys
 import os
 import RPi.GPIO as GPIO
 from time import sleep
-from bottle import Bottle, run
+from gevent import monkey; monkey.patch_all()
+from bottle import route, run
 import logging
 import logging.handlers
 
@@ -40,7 +41,6 @@ GPIO.setup(ror_sw_closed, GPIO.IN)
 GPIO.setup(ror_sw_open, GPIO.IN)
 GPIO.setup(ror_mount_parked, GPIO.IN)
 
-app = Bottle()
 
 ## --------------------------
 
@@ -200,42 +200,41 @@ def _status():
 ## --------------------------
 
 
-@app.route('/', method='GET')
+@route('/', method='GET')
 def index():
     return "REST Services - Roll-Off Roof Manager"
 
-@app.route('/park', method='GET')
+@route('/park', method='PUT')
 def park():
   return '0' if _park() else '1'
 
-@app.route('/unpark', method='GET')
+@route('/unpark', method='PUT')
 def unpark():
   return '0' if _unpark() else '1'
 
-@app.route('/open', method='GET')
+@route('/open', method='PUT')
 def open():
-  return '0' if _open() else '1'
+  yield '0' if _can_open() else '1'
+  _open()
+  return
 
-@app.route('/close', method='GET')
+@route('/close', method='PUT')
 def close():
   return '0' if _close() else '1'
 
-@app.route('/abort', method='GET')
+@route('/abort', method='PUT')
 def abort():
   return '0' if _abort() else '1'
 
-@app.route('/status', method='GET')
+@route('/status', method='GET')
 def status():
   return _status()
 
 
 ## --------------------------
 
+
 if __name__ == "__main__":
-
-    
   log.debug("starting roll-off roof manager")
-
-  run(app, host='0.0.0.0', port=80)
-
+  run(host='0.0.0.0', port=80, server='gevent')
 

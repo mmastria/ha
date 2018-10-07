@@ -1,11 +1,8 @@
 #!/usr/bin/python
 
 import sys
-import ror
+import requests
 
-#if ror.open():
-#    sys.exit(0)
-#sys.exit(1)
-
-exit(int(ror.open()))
-
+resp = requests.put('http://localhost/open')
+exit(0 if resp.ok else 1)
+  

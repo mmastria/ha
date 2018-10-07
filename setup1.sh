@@ -82,7 +82,7 @@ apt-get -y install build-essential git python-dev python-pip vim cmake ntpdate \
        libftdi1-dev fxload libkrb5-dev libcurl4-gnutls-dev \
        libraw-dev libgphoto2-dev libgsl-dev dkms \
        libboost-regex-dev libgps-dev libdc1394-22-dev \
-       zlib1g-dev 
+       zlib1g-dev libffi-dev 
 [ $DEVICE == 'aagsolo' ] && apt-get -y install swig 
 [ $DEVICE != 'aagsolo' ] && apt-get -y install swig2.0 libz3-dev
 apt-get -y --fix-broken install
@@ -100,7 +100,7 @@ sed -i '/NTPSERVERS/ cNTPSERVERS="a.st1.ntp.br b.st1.ntp.br c.st1.ntp.br d.st1.n
 . ./libindi_update.sh
 
 pip install --install-option="--prefix=/usr/local" pyindi-client 
-apt -y install python3-rpi.gpio
+apt-get -y install python3-rpi.gpio
 
 read -p "key to reboot"
 reboot
