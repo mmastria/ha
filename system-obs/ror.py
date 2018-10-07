@@ -206,7 +206,9 @@ def index():
 
 @route('/park', method='PUT')
 def park():
-  return '0' if _park() else '1'
+  yield '0' if _is_not_closed() or _can_park() else '1'
+  _park()
+  return
 
 @route('/unpark', method='PUT')
 def unpark():
@@ -220,7 +222,9 @@ def open():
 
 @route('/close', method='PUT')
 def close():
-  return '0' if _close() else '1'
+  yield '0' if _can_close() else '1'
+  _close()
+  return
 
 @route('/abort', method='PUT')
 def abort():
