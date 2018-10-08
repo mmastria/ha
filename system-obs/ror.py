@@ -42,7 +42,7 @@ GPIO.setup(ror_sw_open, GPIO.IN)
 GPIO.setup(ror_mount_parked, GPIO.IN)
 
 
-## --------------------------
+# --------------------------
 
 def _is_parked():
   if GPIO.input(ror_parked) == GPIO.LOW:
