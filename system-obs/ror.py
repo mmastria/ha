@@ -312,13 +312,4 @@ def status():
 
 
 if __name__ == "__main__":
-
-    log = logging.getLogger(__name__)
-    log.setLevel(logging.DEBUG)
-    handler = logging.handlers.SysLogHandler(address='/dev/log')
-    formatter = logging.Formatter('%(module)s.%(funcName)s: %(message)s')
-    handler.setFormatter(formatter)
-    log.addHandler(handler)
-
-    log.debug("starting roll-off roof controller")
     run(host='0.0.0.0', port=80, server='gevent')
