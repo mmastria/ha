@@ -5,7 +5,7 @@ After=multi-user.target
 [Service]
 Restart=always
 RestartSec=5
-User=obs
+User=root
 ExecStart=/usr/share/indi/scripts/ror.py
 
 [Install]
