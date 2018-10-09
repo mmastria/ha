@@ -5,10 +5,11 @@ import multiprocessing
 import RPi.GPIO as GPIO
 from time import sleep
 from gevent import monkey
-
-monkey.patch_all()
 from bottle import route, run
 import logging.handlers
+
+monkey.patch_all()
+
 
 # PWR_EAST = 17
 # PWR_WEST = 27
