@@ -5,7 +5,7 @@ import multiprocessing
 import RPi.GPIO as GPIO
 from time import sleep
 from gevent import monkey
-from bottle import route, run
+from bottle import route, response, run
 import logging.handlers
 
 monkey.patch_all()
