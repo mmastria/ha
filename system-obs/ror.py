@@ -225,15 +225,21 @@ class RoR:
 
 # --------------------------
 
+# 200 OK
+# 202 ACCEPTED
+# 409 CONFLICT 
 
 @route('/', method='GET')
 def index():
+    response.content_type = 'text/html'
+    response.status = 200
     return "REST Services - Roll-Off Roof Manager"
 
 
 @route('/park', method='GET')
 def can_park():
-    return '0' if RoR.is_not_closed or RoR.can_park else '1'
+    response.status = 200 if RoR.is_not_closed or RoR.can_park else 409
+    return
 
 
 @route('/park', method='PUT')
@@ -241,6 +247,7 @@ def park():
     ror = RoR()
     p = multiprocessing.Process(target=ror.park)
     p.start()
+    response.status = 202
     return
 
 
@@ -249,12 +256,14 @@ def unpark():
     ror = RoR()
     p = multiprocessing.Process(target=ror.unpark)
     p.start()
+    response.status = 202
     return
 
 
 @route('/open', method='GET')
 def can_open():
-    return '0' if RoR.can_open else '1'
+    response.status = 200 if RoR.can_open else 409
+    return
 
 
 @route('/open', method='PUT')
@@ -262,12 +271,14 @@ def open():
     ror = RoR()
     p = multiprocessing.Process(target=ror.open)
     p.start()
+    response.status = 202
     return
 
 
 @route('/close', method='GET')
 def can_close():
-    return '0' if RoR.can_close else '1'
+    response.status = 200 if RoR.can_close else 409
+    return
 
 
 @route('/close', method='PUT')
@@ -275,6 +286,7 @@ def close():
     ror = RoR()
     p = multiprocessing.Process(target=ror.close)
     p.start()
+    response.status = 202
     return
 
 
@@ -282,12 +294,16 @@ def close():
 def abort():
     ror = RoR()
     p = multiprocessing.Process(target=ror.abort)
+    response.status = 202
     p.start()
+    return
 
 
 @route('/status', method='GET')
 def status():
     ror = RoR()
+    response.content_type = 'text/html'
+    response.status = 200
     return ror.status
 
 
