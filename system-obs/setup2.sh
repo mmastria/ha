@@ -6,10 +6,9 @@ useradd -m -s /bin/bash obs && \
 adduser obs dialout && \
 adduser obs gpio && \
 pip install resquests && \
-pip install bottle
-pip install -U 'gevent~=1.2.2'
-pip install multiprocessing
-
+pip install bottle && \
+pip install -U 'gevent~=1.2.2' && \
+pip install multiprocessing && \
 sed -i 's/^#alias l/alias l/g' /home/obs/.bashrc
 
 mkdir /usr/share/indi/scripts
