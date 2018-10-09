@@ -100,7 +100,7 @@ sed -i '/NTPSERVERS/ cNTPSERVERS="a.st1.ntp.br b.st1.ntp.br c.st1.ntp.br d.st1.n
 . ./libindi_update.sh
 
 pip install --install-option="--prefix=/usr/local" pyindi-client 
-apt-get -y install python3-rpi.gpio
+apt-get -y install python-rpi.gpio python-requests
 
 read -p "key to reboot"
 reboot
