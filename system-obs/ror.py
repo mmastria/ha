@@ -25,7 +25,7 @@ ROR_MOUNT_PARKED = 26
 # ROR_PWR_SOURCE = ??
 
 
-class RoR:
+class RoR(object):
     # parked        == TRUE  -->  [ Relay Desligado | GPIO.LOW ]
     # sw_close      == TRUE  -->  [ Switch Fechado | FALSE ]
     # mount_parked  == TRUE  -->  [ Switch Fechado | FALSE ]
@@ -53,73 +53,89 @@ class RoR:
     def terminate(self):
         self._running = False
 
-    def _is_parked(self):
+    @staticmethod
+    def _is_parked():
         if GPIO.input(ROR_PARKED) == GPIO.LOW:
             return True
         return False
 
-    def _is_unparked(self):
+    @staticmethod
+    def _is_unparked():
         if GPIO.input(ROR_PARKED) == GPIO.HIGH:
             return True
         return False
 
-    def is_not_closed(self):
+    @staticmethod
+    def is_not_closed():
         if GPIO.input(ROR_SW_CLOSED):
             return True
         return False
 
-    def _is_closed(self):
+    @staticmethod
+    def _is_closed():
         if not GPIO.input(ROR_SW_CLOSED):
             return True
         return False
 
-    def _is_not_open(self):
+    @staticmethod
+    def _is_not_open():
         if GPIO.input(ROR_SW_OPEN):
             return True
         return False
 
-    def _is_open(self):
+    @staticmethod
+    def _is_open():
         if not GPIO.input(ROR_SW_OPEN):
             return True
         return False
 
-    def _is_mount_unparked(self):
+    @staticmethod
+    def _is_mount_unparked():
         if GPIO.input(ROR_MOUNT_PARKED):
             return True
         return False
 
-    def _is_mount_parked(self):
+    @staticmethod
+    def _is_mount_parked():
         if not GPIO.input(ROR_MOUNT_PARKED):
             return True
         return False
 
-    def _is_stopped(self):
+    @staticmethod
+    def _is_stopped():
         if GPIO.input(ROR_MOVE) == GPIO.LOW:
             return True
         return False
 
-    def _is_moving(self):
+    @staticmethod
+    def _is_moving():
         if GPIO.input(ROR_MOVE) == GPIO.HIGH:
             return True
         return False
 
-    def can_open(self):
-        return self._is_unparked and self._is_not_open and self._is_mount_parked
+    @staticmethod
+    def can_open():
+        return RoR._is_unparked and RoR._is_not_open and RoR._is_mount_parked
 
-    def can_close(self):
-        return self._is_unparked and self.is_not_closed and self._is_mount_parked
+    @staticmethod
+    def can_close():
+        return RoR._is_unparked and RoR.is_not_closed and RoR._is_mount_parked
 
-    def can_park(self):
-        return self._is_unparked and self._is_closed and self._is_not_open
+    @staticmethod
+    def can_park():
+        return RoR._is_unparked and RoR._is_closed and RoR._is_not_open
 
-    def _can_unpark(self):
-        return self._is_parked and self._is_mount_parked
+    @staticmethod
+    def _can_unpark():
+        return RoR._is_parked and RoR._is_mount_parked
 
-    def _can_move(self):
-        return self._is_unparked and self._is_mount_parked
+    @staticmethod
+    def _can_move():
+        return RoR._is_unparked and RoR._is_mount_parked
 
-    def _can_stop(self):
-        return self.is_not_closed and self._is_not_open
+    @staticmethod
+    def _can_stop():
+        return RoR.is_not_closed and RoR._is_not_open
 
     def _move(self):
         self.log.debug('move')
