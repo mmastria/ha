@@ -115,27 +115,27 @@ class RoR(object):
 
     @staticmethod
     def can_open():
-        return RoR._is_unparked and RoR._is_not_open and RoR._is_mount_parked
+        return RoR._is_unparked() and RoR._is_not_open() and RoR._is_mount_parked()
 
     @staticmethod
     def can_close():
-        return RoR._is_unparked and RoR.is_not_closed and RoR._is_mount_parked
+        return RoR._is_unparked() and RoR.is_not_closed() and RoR._is_mount_parked()
 
     @staticmethod
     def can_park():
-        return RoR._is_unparked and RoR._is_closed and RoR._is_not_open
+        return RoR._is_unparked() and RoR._is_closed() and RoR._is_not_open()
 
     @staticmethod
     def _can_unpark():
-        return RoR._is_parked and RoR._is_mount_parked
+        return RoR._is_parked() and RoR._is_mount_parked()
 
     @staticmethod
     def _can_move():
-        return RoR._is_unparked and RoR._is_mount_parked
+        return RoR._is_unparked() and RoR._is_mount_parked()
 
     @staticmethod
     def _can_stop():
-        return RoR.is_not_closed and RoR._is_not_open
+        return RoR.is_not_closed() and RoR._is_not_open()
 
     def _move(self):
         self.log.debug('move')
