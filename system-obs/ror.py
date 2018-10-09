@@ -303,6 +303,6 @@ if __name__ == "__main__":
     handler.setFormatter(formatter)
     log.addHandler(handler)
 
-    log.debug("starting roll-off roof manager")
+    log.debug("starting roll-off roof controller")
     run(host='0.0.0.0', port=80, server='gevent')
 
