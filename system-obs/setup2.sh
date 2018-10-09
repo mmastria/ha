@@ -19,5 +19,8 @@ cp -f *.py /usr/share/indi/scripts/
 
 systemctl daemon-reload
 
+systemctl enable arua_system-obs_ror.service
+systemctl restart arua_system-obs_ror.service
+
 systemctl enable arua_system-obs_indiserver.service
 systemctl restart arua_system-obs_indiserver.service
