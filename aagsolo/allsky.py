@@ -5,7 +5,6 @@ import pygame.camera
 from PIL import Image
 
 pygame.camera.init()
-#pygame.camera.list_camera() #Camera detected or not
 cam = pygame.camera.Camera("/dev/video0",(640,480))
 cam.start()
 img = cam.get_image()
