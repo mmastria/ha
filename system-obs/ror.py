@@ -299,14 +299,14 @@ class RoR(object):
     def rl1b_close(self):
         self.log.debug('rl1b_close')
         if self.rl1b_is_not_closed():
-            GPIO.output(ROR_RL1B, GPIO.LOW)
+            GPIO.output(ROR_RL1B, GPIO.HIGH)
             return True
         return False
 
     def rl1b_open(self):
         self.log.debug('rl1b_open')
         if self.rl1b_is_not_open():
-            GPIO.output(ROR_RL1B, GPIO.HIGH)
+            GPIO.output(ROR_RL1B, GPIO.LOW)
             return True
         return False
 
@@ -327,14 +327,14 @@ class RoR(object):
     def rl2b_close(self):
         self.log.debug('rl2b_close')
         if self.rl2b_is_not_closed():
-            GPIO.output(ROR_RL2B, GPIO.LOW)
+            GPIO.output(ROR_RL2B, GPIO.HIGH)
             return True
         return False
 
     def rl2b_open(self):
         self.log.debug('rl2b_open')
         if self.rl2b_is_not_open():
-            GPIO.output(ROR_RL2B, GPIO.HIGH)
+            GPIO.output(ROR_RL2B, GPIO.LOW)
             return True
         return False
 
@@ -355,14 +355,14 @@ class RoR(object):
     def rl3b_close(self):
         self.log.debug('rl3b_close')
         if self.rl3b_is_not_closed():
-            GPIO.output(ROR_RL3B, GPIO.LOW)
+            GPIO.output(ROR_RL3B, GPIO.HIGH)
             return True
         return False
 
     def rl3b_open(self):
         self.log.debug('rl3b_open')
         if self.rl3b_is_not_open():
-            GPIO.output(ROR_RL3B, GPIO.HIGH)
+            GPIO.output(ROR_RL3B, GPIO.LOW)
             return True
         return False
 
@@ -383,14 +383,14 @@ class RoR(object):
     def rl4b_close(self):
         self.log.debug('rl4b_close')
         if self.rl4b_is_not_closed():
-            GPIO.output(ROR_RL4B, GPIO.LOW)
+            GPIO.output(ROR_RL4B, GPIO.HIGH)
             return True
         return False
 
     def rl4b_open(self):
         self.log.debug('rl4b_open')
         if self.rl4b_is_not_open():
-            GPIO.output(ROR_RL4B, GPIO.HIGH)
+            GPIO.output(ROR_RL4B, GPIO.LOW)
             return True
         return False
 
@@ -411,14 +411,14 @@ class RoR(object):
     def rl1c_close(self):
         self.log.debug('rl1c_close')
         if self.rl1c_is_not_closed():
-            GPIO.output(ROR_RL1C, GPIO.LOW)
+            GPIO.output(ROR_RL1C, GPIO.HIGH)
             return True
         return False
 
     def rl1c_open(self):
         self.log.debug('rl1c_open')
         if self.rl1c_is_not_open():
-            GPIO.output(ROR_RL1C, GPIO.HIGH)
+            GPIO.output(ROR_RL1C, GPIO.LOW)
             return True
         return False
 
@@ -439,14 +439,14 @@ class RoR(object):
     def rl2c_close(self):
         self.log.debug('rl2c_close')
         if self.rl2c_is_not_closed():
-            GPIO.output(ROR_RL2C, GPIO.LOW)
+            GPIO.output(ROR_RL2C, GPIO.HIGH)
             return True
         return False
 
     def rl2c_open(self):
         self.log.debug('rl2c_open')
         if self.rl2c_is_not_open():
-            GPIO.output(ROR_RL2C, GPIO.HIGH)
+            GPIO.output(ROR_RL2C, GPIO.LOW)
             return True
         return False
 
@@ -547,7 +547,7 @@ def sw4_open():
 @route('/rl1b/close', method='PUT')
 def rl1b_close():
     ror = RoR()
-    p = multiprocessing.Process(target=ror.rl1b_close())
+    p = multiprocessing.Process(target=ror.rl1b_close)
     p.start()
     response.status = 202
     return
@@ -556,7 +556,7 @@ def rl1b_close():
 @route('/rl1b/open', method='PUT')
 def rl1b_open():
     ror = RoR()
-    p = multiprocessing.Process(target=ror.rl1b_open())
+    p = multiprocessing.Process(target=ror.rl1b_open)
     p.start()
     response.status = 202
     return
@@ -565,7 +565,7 @@ def rl1b_open():
 @route('/rl2b/close', method='PUT')
 def rl2b_close():
     ror = RoR()
-    p = multiprocessing.Process(target=ror.rl2b_close())
+    p = multiprocessing.Process(target=ror.rl2b_close)
     p.start()
     response.status = 202
     return
@@ -574,7 +574,7 @@ def rl2b_close():
 @route('/rl2b/open', method='PUT')
 def rl2b_open():
     ror = RoR()
-    p = multiprocessing.Process(target=ror.rl2b_open())
+    p = multiprocessing.Process(target=ror.rl2b_open)
     p.start()
     response.status = 202
     return
@@ -583,7 +583,7 @@ def rl2b_open():
 @route('/rl3b/close', method='PUT')
 def rl3b_close():
     ror = RoR()
-    p = multiprocessing.Process(target=ror.rl3b_close())
+    p = multiprocessing.Process(target=ror.rl3b_close)
     p.start()
     response.status = 202
     return
@@ -592,7 +592,7 @@ def rl3b_close():
 @route('/rl3b/open', method='PUT')
 def rl3b_open():
     ror = RoR()
-    p = multiprocessing.Process(target=ror.rl3b_open())
+    p = multiprocessing.Process(target=ror.rl3b_open)
     p.start()
     response.status = 202
     return
@@ -601,7 +601,7 @@ def rl3b_open():
 @route('/rl4b/close', method='PUT')
 def rl4b_close():
     ror = RoR()
-    p = multiprocessing.Process(target=ror.rl4b_close())
+    p = multiprocessing.Process(target=ror.rl4b_close)
     p.start()
     response.status = 202
     return
@@ -610,7 +610,7 @@ def rl4b_close():
 @route('/rl4b/open', method='PUT')
 def rl4b_open():
     ror = RoR()
-    p = multiprocessing.Process(target=ror.rl4b_open())
+    p = multiprocessing.Process(target=ror.rl4b_open)
     p.start()
     response.status = 202
     return
@@ -619,7 +619,7 @@ def rl4b_open():
 @route('/rl1c/close', method='PUT')
 def rl1c_close():
     ror = RoR()
-    p = multiprocessing.Process(target=ror.rl1c_close())
+    p = multiprocessing.Process(target=ror.rl1c_close)
     p.start()
     response.status = 202
     return
@@ -628,7 +628,7 @@ def rl1c_close():
 @route('/rl1c/open', method='PUT')
 def rl1c_open():
     ror = RoR()
-    p = multiprocessing.Process(target=ror.rl1c_open())
+    p = multiprocessing.Process(target=ror.rl1c_open)
     p.start()
     response.status = 202
     return
@@ -637,7 +637,7 @@ def rl1c_open():
 @route('/rl2c/close', method='PUT')
 def rl2c_close():
     ror = RoR()
-    p = multiprocessing.Process(target=ror.rl2c_close())
+    p = multiprocessing.Process(target=ror.rl2c_close)
     p.start()
     response.status = 202
     return
@@ -646,7 +646,7 @@ def rl2c_close():
 @route('/rl2c/open', method='PUT')
 def rl2c_open():
     ror = RoR()
-    p = multiprocessing.Process(target=ror.rl2c_open())
+    p = multiprocessing.Process(target=ror.rl2c_open)
     p.start()
     response.status = 202
     return
