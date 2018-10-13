@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="421c5a88-915d-4ea9-b6ce-dca56febe2a8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ror.py" beforeDir="false" afterPath="$PROJECT_DIR$/ror.py" afterDir="false" />
     </list>
@@ -15,13 +16,14 @@
     <session id="-2106310240">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="5" />
+          <entry key="project.closed" value="6" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.5" value="2" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="6" />
+          <entry key="project.open.time.8" value="1" />
+          <entry key="project.opened" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -40,7 +42,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="403" />
+          <entry key="py" value="931" />
           <entry key="service" value="35" />
           <entry key="sh" value="54" />
           <entry key="txt" value="9" />
@@ -50,7 +52,7 @@
         <counts>
           <entry key="Bash" value="54" />
           <entry key="PLAIN_TEXT" value="44" />
-          <entry key="Python" value="403" />
+          <entry key="Python" value="931" />
         </counts>
       </usages-collector>
     </session>
@@ -60,10 +62,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ror.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="225" selection-start-line="225" selection-end-line="225" />
+            <state relative-caret-position="7485">
+              <caret line="499" selection-start-line="499" selection-end-line="499" />
               <folding>
                 <element signature="e#43#65#0" expanded="true" />
+                <marker date="1539468423954" expanded="true" signature="7408:7411" ph="..." />
               </folding>
             </state>
           </provider>
@@ -91,7 +94,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="width" value="1440" />
     <option name="height" value="900" />
   </component>
@@ -101,7 +104,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -113,11 +115,12 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Python" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -198,7 +201,21 @@
       <option name="project" value="LOCAL" />
       <updated>1539045501614</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="ror">
+      <created>1539055136842</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1539055136842</updated>
+    </task>
+    <task id="LOCAL-00006" summary="ror">
+      <created>1539056075128</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1539056075128</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TodoView">
@@ -222,7 +239,7 @@
       <window_info anchor="bottom" id="Python Console" order="2" weight="0.32891566" />
       <window_info anchor="bottom" id="Message" order="3" />
       <window_info anchor="bottom" id="Find" order="4" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="5" visible="true" weight="0.14457831" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="5" visible="true" weight="0.14337349" />
       <window_info anchor="bottom" id="Run" order="6" weight="0.32891566" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
@@ -323,10 +340,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ror.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="225" selection-start-line="225" selection-end-line="225" />
+        <state relative-caret-position="7485">
+          <caret line="499" selection-start-line="499" selection-end-line="499" />
           <folding>
             <element signature="e#43#65#0" expanded="true" />
+            <marker date="1539468423954" expanded="true" signature="7408:7411" ph="..." />
           </folding>
         </state>
       </provider>

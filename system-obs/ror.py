@@ -20,7 +20,7 @@ monkey.patch_all()
 # ROR_RL3B        07  (O4)    vinho       GPIO22  X X     GPIO23  cinza       (O3)    08  ROR_RL4B
 #                                                 - X     GPIO24  branco      (O2)    09  ROR_MOVE/2A
 # ROR_PARKED/1A   10  (O1)    preto       GPIO10  X -
-#                 12  (I4)    vermelho    GPIO09  X X     GPIO25  laranja     (I3)    13  ROR_SWITCH_OPEN
+# ROR_SW4         12  (I4)    vermelho    GPIO09  X X     GPIO25  laranja     (I3)    13  ROR_SWITCH_OPEN
 # ROR_SW_CLOSED   14  (I2)    amarelho    GPIO11  X X     GPIO08  verde       (I1)    15  ROR_MOUNT_PARKED
 
 ROR_PARKED = 10
@@ -28,6 +28,16 @@ ROR_MOVE = 24
 ROR_SW_CLOSED = 11
 ROR_SW_OPEN = 25
 ROR_MOUNT_PARKED = 8
+
+ROR_RL1B = 18
+ROR_RL2B = 27
+ROR_RL3B = 22
+ROR_RL4B = 23
+
+ROR_RL1C = 17
+ROR_RL2C = 04
+
+ROR_SW4 = 9
 
 
 class Timer(multiprocessing.Process):
@@ -71,6 +81,16 @@ class RoR(object):
     GPIO.setup(ROR_SW_CLOSED, GPIO.IN)
     GPIO.setup(ROR_SW_OPEN, GPIO.IN)
     GPIO.setup(ROR_MOUNT_PARKED, GPIO.IN)
+
+    GPIO.setup(ROR_RL1B, GPIO.OUT)
+    GPIO.setup(ROR_RL2B, GPIO.OUT)
+    GPIO.setup(ROR_RL3B, GPIO.OUT)
+    GPIO.setup(ROR_RL4B, GPIO.OUT)
+
+    GPIO.setup(ROR_RL1C, GPIO.OUT)
+    GPIO.setup(ROR_RL2C, GPIO.OUT)
+
+    GPIO.setup(ROR_SW4, GPIO.IN)
 
     def __init__(self):
         self._running = True
@@ -248,6 +268,189 @@ class RoR(object):
             self._is_parked(), p, self._is_open(), self._is_closed(), s, self._is_mount_parked(), m))
         return '%s %s 0' % (p, s)
 
+    # --------------------------
+
+    @staticmethod
+    def is_sw4_closed():
+        if GPIO.input(ROR_SW4) == GPIO.LOW:
+            return True
+        return False
+
+    @staticmethod
+    def is_sw4_open():
+        if GPIO.input(ROR_SW4) == GPIO.HIGH:
+            return True
+        return False
+
+    # --------------------------
+
+    @staticmethod
+    def rl1b_is_not_open():
+        if GPIO.input(ROR_RL1B):
+            return True
+        return False
+
+    @staticmethod
+    def rl1b_is_not_closed():
+        if not GPIO.input(ROR_RL1B):
+            return True
+        return False
+
+    def rl1b_close(self):
+        self.log.debug('rl1b_close')
+        if self.rl1b_is_not_closed():
+            GPIO.output(ROR_RL1B, GPIO.LOW)
+            return True
+        return False
+
+    def rl1b_open(self):
+        self.log.debug('rl1b_open')
+        if self.rl1b_is_not_open():
+            GPIO.output(ROR_RL1B, GPIO.HIGH)
+            return True
+        return False
+
+    # --------------------------
+
+    @staticmethod
+    def rl2b_is_not_open():
+        if GPIO.input(ROR_RL2B):
+            return True
+        return False
+
+    @staticmethod
+    def rl2b_is_not_closed():
+        if not GPIO.input(ROR_RL2B):
+            return True
+        return False
+
+    def rl2b_close(self):
+        self.log.debug('rl2b_close')
+        if self.rl2b_is_not_closed():
+            GPIO.output(ROR_RL2B, GPIO.LOW)
+            return True
+        return False
+
+    def rl2b_open(self):
+        self.log.debug('rl2b_open')
+        if self.rl2b_is_not_open():
+            GPIO.output(ROR_RL2B, GPIO.HIGH)
+            return True
+        return False
+
+    # --------------------------
+
+    @staticmethod
+    def rl3b_is_not_open():
+        if GPIO.input(ROR_RL3B):
+            return True
+        return False
+
+    @staticmethod
+    def rl3b_is_not_closed():
+        if not GPIO.input(ROR_RL3B):
+            return True
+        return False
+
+    def rl3b_close(self):
+        self.log.debug('rl3b_close')
+        if self.rl3b_is_not_closed():
+            GPIO.output(ROR_RL3B, GPIO.LOW)
+            return True
+        return False
+
+    def rl3b_open(self):
+        self.log.debug('rl3b_open')
+        if self.rl3b_is_not_open():
+            GPIO.output(ROR_RL3B, GPIO.HIGH)
+            return True
+        return False
+
+    # --------------------------
+
+    @staticmethod
+    def rl4b_is_not_open():
+        if GPIO.input(ROR_RL4B):
+            return True
+        return False
+
+    @staticmethod
+    def rl4b_is_not_closed():
+        if not GPIO.input(ROR_RL4B):
+            return True
+        return False
+
+    def rl4b_close(self):
+        self.log.debug('rl4b_close')
+        if self.rl4b_is_not_closed():
+            GPIO.output(ROR_RL4B, GPIO.LOW)
+            return True
+        return False
+
+    def rl4b_open(self):
+        self.log.debug('rl4b_open')
+        if self.rl4b_is_not_open():
+            GPIO.output(ROR_RL4B, GPIO.HIGH)
+            return True
+        return False
+
+    # --------------------------
+
+    @staticmethod
+    def rl1c_is_not_open():
+        if GPIO.input(ROR_RL1C):
+            return True
+        return False
+
+    @staticmethod
+    def rl1c_is_not_closed():
+        if not GPIO.input(ROR_RL1C):
+            return True
+        return False
+
+    def rl1c_close(self):
+        self.log.debug('rl1c_close')
+        if self.rl1c_is_not_closed():
+            GPIO.output(ROR_RL1C, GPIO.LOW)
+            return True
+        return False
+
+    def rl1c_open(self):
+        self.log.debug('rl1c_open')
+        if self.rl1c_is_not_open():
+            GPIO.output(ROR_RL1C, GPIO.HIGH)
+            return True
+        return False
+
+    # --------------------------
+
+    @staticmethod
+    def rl2c_is_not_open():
+        if GPIO.input(ROR_RL2C):
+            return True
+        return False
+
+    @staticmethod
+    def rl2c_is_not_closed():
+        if not GPIO.input(ROR_RL2C):
+            return True
+        return False
+
+    def rl2c_close(self):
+        self.log.debug('rl2c_close')
+        if self.rl2c_is_not_closed():
+            GPIO.output(ROR_RL2C, GPIO.LOW)
+            return True
+        return False
+
+    def rl2c_open(self):
+        self.log.debug('rl2c_open')
+        if self.rl2c_is_not_open():
+            GPIO.output(ROR_RL2C, GPIO.HIGH)
+            return True
+        return False
+
+
 # --------------------------
 
 # 200 OK
@@ -332,11 +535,126 @@ def status():
     response.status = 200
     return ror.status
 
-
 # --------------------------
 
 
+@route('/sw4', method='GET')
+def sw4_open():
+    response.status = 200 if RoR.is_sw4_open() else 409
+    return
+
+
+@route('/rl1b/close', method='PUT')
+def rl1b_close():
+    ror = RoR()
+    p = multiprocessing.Process(target=ror.rl1b_close())
+    p.start()
+    response.status = 202
+    return
+
+
+@route('/rl1b/open', method='PUT')
+def rl1b_open():
+    ror = RoR()
+    p = multiprocessing.Process(target=ror.rl1b_open())
+    p.start()
+    response.status = 202
+    return
+
+
+@route('/rl2b/close', method='PUT')
+def rl2b_close():
+    ror = RoR()
+    p = multiprocessing.Process(target=ror.rl2b_close())
+    p.start()
+    response.status = 202
+    return
+
+
+@route('/rl2b/open', method='PUT')
+def rl2b_open():
+    ror = RoR()
+    p = multiprocessing.Process(target=ror.rl2b_open())
+    p.start()
+    response.status = 202
+    return
+
+
+@route('/rl3b/close', method='PUT')
+def rl3b_close():
+    ror = RoR()
+    p = multiprocessing.Process(target=ror.rl3b_close())
+    p.start()
+    response.status = 202
+    return
+
+
+@route('/rl3b/open', method='PUT')
+def rl3b_open():
+    ror = RoR()
+    p = multiprocessing.Process(target=ror.rl3b_open())
+    p.start()
+    response.status = 202
+    return
+
+
+@route('/rl4b/close', method='PUT')
+def rl4b_close():
+    ror = RoR()
+    p = multiprocessing.Process(target=ror.rl4b_close())
+    p.start()
+    response.status = 202
+    return
+
+
+@route('/rl4b/open', method='PUT')
+def rl4b_open():
+    ror = RoR()
+    p = multiprocessing.Process(target=ror.rl4b_open())
+    p.start()
+    response.status = 202
+    return
+
+
+@route('/rl1c/close', method='PUT')
+def rl1c_close():
+    ror = RoR()
+    p = multiprocessing.Process(target=ror.rl1c_close())
+    p.start()
+    response.status = 202
+    return
+
+
+@route('/rl1c/open', method='PUT')
+def rl1c_open():
+    ror = RoR()
+    p = multiprocessing.Process(target=ror.rl1c_open())
+    p.start()
+    response.status = 202
+    return
+
+
+@route('/rl2c/close', method='PUT')
+def rl2c_close():
+    ror = RoR()
+    p = multiprocessing.Process(target=ror.rl2c_close())
+    p.start()
+    response.status = 202
+    return
+
+
+@route('/rl2c/open', method='PUT')
+def rl2c_open():
+    ror = RoR()
+    p = multiprocessing.Process(target=ror.rl2c_open())
+    p.start()
+    response.status = 202
+    return
+
+
+# --------------------------
+
 if __name__ == "__main__":
-    #t = Timer(10, rotina para fazer pooling do aagcw)
-    #t.run()
+    # t = Timer(10, rotina para fazer pooling do aagcw)
+    # t.run()
     run(host='0.0.0.0', port=80, server='gevent')
