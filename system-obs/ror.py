@@ -10,19 +10,25 @@ import logging.handlers
 
 monkey.patch_all()
 
+#                 01          marron      3.3v    X -
+#                                                 - X     5v  marron                  11
+#                                                 - X     GND vermelho                02
+# ROR_RL2C        03  (O8)    laranja     GPIO4   X -
+#                                               - -
+# RLR_RL1C        04  (O7)    amarelo     GPIO17  X X     GPIO18  verde       (O6)    05  ROR_RL1B
+# ROR_RL2B        06  (O5)    azul        GPIO27  X
+# ROR_RL3B        07  (O4)    vinho       GPIO22  X X     GPIO23  cinza       (O3)    08  ROR_RL4B
+#                                                 - X     GPIO24  branco      (O2)    09  ROR_MOVE/2A
+# ROR_PARKED/1A   10  (O1)    preto       GPIO10  X -
+#                 12  (I4)    vermelho    GPIO09  X X     GPIO25  laranja     (I3)    13  ROR_SWITCH_OPEN
+# ROR_SW_CLOSED   14  (I2)    amarelho    GPIO11  X X     GPIO08  verde       (I1)    15  ROR_MOUNT_PARKED
 
-# PWR_EAST = 17
-# PWR_WEST = 27
-
-ROR_PARKED = 22
-ROR_MOVE = 23
-ROR_SW_CLOSED = 24
+ROR_PARKED = 10
+ROR_MOVE = 24
+ROR_SW_CLOSED = 11
 ROR_SW_OPEN = 25
-ROR_MOUNT_PARKED = 26
+ROR_MOUNT_PARKED = 8
 
-
-# ROR_AAGCW = ??
-# ROR_PWR_SOURCE = ??
 
 class Timer(multiprocessing.Process):
     def __init__(self, interval, function, args=[], kwargs={}):
