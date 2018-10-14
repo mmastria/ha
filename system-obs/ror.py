@@ -176,7 +176,7 @@ class RoR(object):
 		return RoR._is_closed() and RoR._is_not_open()
 
 	@staticmethod
-	def _can_unpark():
+	def can_unpark():
 		return RoR._is_parked() and RoR._is_mount_parked() and RoR.is_safe()
 
 	@staticmethod
@@ -238,7 +238,7 @@ class RoR(object):
 
 	def unpark(self):
 		self.log.debug('unpark')
-		if self._can_unpark() and self.is_safe():
+		if self.can_unpark() and self.is_safe():
 			GPIO.output(ROR_PARKED, GPIO.HIGH)
 			return True
 		return False
@@ -501,6 +501,12 @@ def park():
 	p = multiprocessing.Process(target=ror.park)
 	p.start()
 	response.status = 202
+	return
+
+
+@route('/unpark', method='GET')
+def can_unpark():
+	response.status = 200 if RoR.can_unpark() else 409
 	return
 
 
