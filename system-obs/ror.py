@@ -286,7 +286,7 @@ class RoR(object):
 	def status(self):
 		p = '1' if self._is_parked() else '0'
 		s = '1' if self._is_open() else '0' if self._is_closed() else '-'
-		self.log.debug('-- parked: %s / open: %s / closed: %s / mount_parked: %s / safe: %s / file: %s %s 0 ' % (
+		self.log.debug('-- parked:%s / open:%s / closed:%s / mount_parked:%s / safe:%s / file: %s %s 0 ' % (
 			self._is_parked(), self._is_open(), self._is_closed(), self._is_mount_parked(), self.is_safe(), p, s))
 		return '%s %s 0' % (p, s)
 
