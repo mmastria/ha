@@ -164,7 +164,7 @@ class RoR(object):
 
 	@staticmethod
 	def can_open():
-		return RoR._is_unparked() and RoR._is_not_open() and RoR._is_mount_parked()
+		return RoR._is_unparked() and RoR._is_not_open() and RoR._is_mount_parked() and RoR.is_safe()
 
 	@staticmethod
 	def can_close():
@@ -177,7 +177,7 @@ class RoR(object):
 
 	@staticmethod
 	def _can_unpark():
-		return RoR._is_parked() and RoR._is_mount_parked()
+		return RoR._is_parked() and RoR._is_mount_parked() and RoR.is_safe()
 
 	@staticmethod
 	def _can_move():
