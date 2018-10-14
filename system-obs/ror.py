@@ -168,7 +168,8 @@ class RoR(object):
 
     @staticmethod
     def can_park():
-        return RoR._is_unparked() and RoR._is_closed() and RoR._is_not_open()
+        # return RoR._is_unparked() and RoR._is_closed() and RoR._is_not_open()
+        return RoR._is_closed() and RoR._is_not_open()
 
     @staticmethod
     def _can_unpark():
@@ -467,7 +468,8 @@ def index():
 
 @route('/park', method='GET')
 def can_park():
-    response.status = 200 if RoR.is_not_closed() or RoR.can_park() else 409
+    # response.status = 200 if RoR.is_not_closed() or RoR.can_park() else 409
+    response.status = 200 if RoR.can_park() else 409
     return
 
 
