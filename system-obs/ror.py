@@ -469,7 +469,7 @@ def index():
 @route('/park', method='GET')
 def can_park():
     # response.status = 200 if RoR.is_not_closed() or RoR.can_park() else 409
-    response.status = 200 if RoR.can_park() else 409
+    response.status = 200
     return
 
 
