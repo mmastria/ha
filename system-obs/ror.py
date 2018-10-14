@@ -286,9 +286,8 @@ class RoR(object):
 	def status(self):
 		p = '1' if self._is_parked() else '0'
 		s = '1' if self._is_open() else '0' if self._is_closed() else '-'
-		m = '1' if self._is_mount_parked() else '0'
-		self.log.debug('-- parked: %s (p:%s) - open: %s - closed: %s (s:%s) - mount_parked: %s (m:%s)' % (
-			self._is_parked(), p, self._is_open(), self._is_closed(), s, self._is_mount_parked(), m))
+		self.log.debug('-- parked: %s / open: %s / closed: %s / mount_parked: %s / safe: %s / file: %s %s 0 ' % (
+			self._is_parked(), self._is_open(), self._is_closed(), self._is_mount_parked(), self.is_safe(), p, s))
 		return '%s %s 0' % (p, s)
 
 	# --------------------------
