@@ -21,7 +21,7 @@ monkey.patch_all()
 # ROR_RL3B        07  (O4)    vinho       GPIO22  X X     GPIO23  cinza       (O3)    08  ROR_RL4B
 #                                                 - X     GPIO24  branco      (O2)    09  ROR_MOVE/2A
 # ROR_PARKED/1A   10  (O1)    preto       GPIO10  X -
-# ROR_SW4         12  (I4)    vermelho    GPIO09  X X     GPIO25  laranja     (I3)    13  ROR_SWITCH_OPEN
+# ROR_AAGSAFE     12  (I4)    vermelho    GPIO09  X X     GPIO25  laranja     (I3)    13  ROR_SWITCH_OPEN
 # ROR_SW_CLOSED   14  (I2)    amarelho    GPIO11  X X     GPIO08  verde       (I1)    15  ROR_MOUNT_PARKED
 
 ROR_PARKED = 10
@@ -38,7 +38,7 @@ ROR_RL4B = 23
 ROR_RL1C = 17
 ROR_RL2C = 04
 
-ROR_SW4 = 9
+ROR_AAGSAFE = 9
 
 ROR_AAG_HOST = '192.168.0.205'
 ROR_AAG_PORT = 80
@@ -94,7 +94,7 @@ class RoR(object):
 	GPIO.setup(ROR_RL1C, GPIO.OUT)
 	GPIO.setup(ROR_RL2C, GPIO.OUT)
 
-	GPIO.setup(ROR_SW4, GPIO.IN)
+	GPIO.setup(ROR_AAGSAFE, GPIO.IN)
 
 	def __init__(self):
 		self._running = True
@@ -164,7 +164,7 @@ class RoR(object):
 
 	@staticmethod
 	def can_open():
-		return RoR._is_unparked() and RoR._is_not_open() and RoR._is_mount_parked() and RoR.is_safe()
+		return RoR._is_unparked() and RoR._is_not_open() and RoR._is_mount_parked() and RoR.is_safe() and RoR.is_aagsafe()
 
 	@staticmethod
 	def can_close():
@@ -177,7 +177,7 @@ class RoR(object):
 
 	@staticmethod
 	def can_unpark():
-		return RoR._is_parked() and RoR._is_mount_parked() and RoR.is_safe()
+		return RoR._is_parked() and RoR._is_mount_parked() and RoR.is_safe() and RoR.is_aagsafe()
 
 	@staticmethod
 	def _can_move():
@@ -186,6 +186,12 @@ class RoR(object):
 	@staticmethod
 	def _can_stop():
 		return RoR.is_not_closed() and RoR._is_not_open()
+
+	@staticmethod
+	def is_aagsafe():
+		if GPIO.input(ROR_AAGSAFE) == GPIO.HIGH:
+			return True
+		return False
 
 	@staticmethod
 	def is_safe():
@@ -238,14 +244,14 @@ class RoR(object):
 
 	def unpark(self):
 		self.log.debug('unpark')
-		if self.can_unpark() and self.is_safe():
+		if self.can_unpark() and self.is_safe() and self.is_aagsafe():
 			GPIO.output(ROR_PARKED, GPIO.HIGH)
 			return True
 		return False
 
 	def open(self):
 		self.log.debug('open')
-		if self.can_open() and self.is_safe():
+		if self.can_open() and self.is_safe() and self.is_aagsafe():
 			self._move()
 			while self._is_closed():
 				sleep(1)
@@ -286,23 +292,9 @@ class RoR(object):
 	def status(self):
 		p = '1' if self._is_parked() else '0'
 		s = '1' if self._is_open() else '0' if self._is_closed() else '-'
-		self.log.debug('-- parked:%s / open:%s / closed:%s / mount_parked:%s / safe:%s / file: %s %s 0 ' % (
-			self._is_parked(), self._is_open(), self._is_closed(), self._is_mount_parked(), self.is_safe(), p, s))
+		self.log.debug('-- parked:%s / open:%s / closed:%s / mount_parked:%s / safe:%s / aagsafe:%s / file: %s %s 0 ' % (
+			self._is_parked(), self._is_open(), self._is_closed(), self._is_mount_parked(), self.is_safe(), self.is_aagsafe(), p, s))
 		return '%s %s 0' % (p, s)
-
-	# --------------------------
-
-	@staticmethod
-	def is_sw4_closed():
-		if GPIO.input(ROR_SW4) == GPIO.LOW:
-			return True
-		return False
-
-	@staticmethod
-	def is_sw4_open():
-		if GPIO.input(ROR_SW4) == GPIO.HIGH:
-			return True
-		return False
 
 	# --------------------------
 
@@ -570,13 +562,13 @@ def is_safe():
 	response.status = 200 if RoR.is_safe() else 409
 	return
 
-# --------------------------
 
-
-@route('/sw4', method='GET')
-def sw4_open():
-	response.status = 200 if RoR.is_sw4_open() else 409
+@route('/aagsafe', method='GET')
+def is_aagsafe():
+	response.status = 200 if RoR.is_aagsafe() else 409
 	return
+
+# --------------------------
 
 
 @route('/rl1b/close', method='PUT')
