@@ -15,10 +15,10 @@ monkey.patch_all()
 #                                                 - X     5v  marron                  11
 #                                                 - X     GND vermelho                02
 # ROR_RL2C        03  (O8)    laranja     GPIO4   X -
-#                                               - -
+#                                                 - -
 # RLR_RL1C        04  (O7)    amarelo     GPIO17  X X     GPIO18  verde       (O6)    05  ROR_RL1B
-# ROR_RL2B        06  (O5)    azul        GPIO27  X
-# ROR_RL3B        07  (O4)    vinho       GPIO22  X X     GPIO23  cinza       (O3)    08  ROR_RL4B
+# ROR_PWRPI/2B    06  (O5)    azul        GPIO27  X -
+# ROR_PWSCOPE/3B  07  (O4)    vinho       GPIO22  X X     GPIO23  cinza       (O3)    08  ROR_POWER/4B
 #                                                 - X     GPIO24  branco      (O2)    09  ROR_MOVE/2A
 # ROR_PARKED/1A   10  (O1)    preto       GPIO10  X -
 # ROR_AAGSAFE     12  (I4)    vermelho    GPIO09  X X     GPIO25  laranja     (I3)    13  ROR_SWITCH_OPEN
@@ -31,9 +31,9 @@ ROR_SW_OPEN = 25
 ROR_MOUNT_PARKED = 8
 
 ROR_RL1B = 18
-ROR_RL2B = 27
-ROR_RL3B = 22
-ROR_RL4B = 23
+ROR_PWRPI = 27
+ROR_PWSCOPE = 22
+ROR_POWER = 23
 
 ROR_RL1C = 17
 ROR_RL2C = 04
@@ -87,9 +87,9 @@ class RoR(object):
 	GPIO.setup(ROR_MOUNT_PARKED, GPIO.IN)
 
 	GPIO.setup(ROR_RL1B, GPIO.OUT)
-	GPIO.setup(ROR_RL2B, GPIO.OUT)
-	GPIO.setup(ROR_RL3B, GPIO.OUT)
-	GPIO.setup(ROR_RL4B, GPIO.OUT)
+	GPIO.setup(ROR_PWRPI, GPIO.OUT)
+	GPIO.setup(ROR_PWSCOPE, GPIO.OUT)
+	GPIO.setup(ROR_POWER, GPIO.OUT)
 
 	GPIO.setup(ROR_RL1C, GPIO.OUT)
 	GPIO.setup(ROR_RL2C, GPIO.OUT)
@@ -328,27 +328,27 @@ class RoR(object):
 
 	@staticmethod
 	def rl2b_is_not_open():
-		if GPIO.input(ROR_RL2B):
+		if GPIO.input(ROR_PWRPI):
 			return True
 		return False
 
 	@staticmethod
 	def rl2b_is_not_closed():
-		if not GPIO.input(ROR_RL2B):
+		if not GPIO.input(ROR_PWRPI):
 			return True
 		return False
 
 	def rl2b_close(self):
 		self.log.debug('rl2b_close')
 		if self.rl2b_is_not_closed():
-			GPIO.output(ROR_RL2B, GPIO.HIGH)
+			GPIO.output(ROR_PWRPI, GPIO.HIGH)
 			return True
 		return False
 
 	def rl2b_open(self):
 		self.log.debug('rl2b_open')
 		if self.rl2b_is_not_open():
-			GPIO.output(ROR_RL2B, GPIO.LOW)
+			GPIO.output(ROR_PWRPI, GPIO.LOW)
 			return True
 		return False
 
@@ -356,27 +356,27 @@ class RoR(object):
 
 	@staticmethod
 	def rl3b_is_not_open():
-		if GPIO.input(ROR_RL3B):
+		if GPIO.input(ROR_PWSCOPE):
 			return True
 		return False
 
 	@staticmethod
 	def rl3b_is_not_closed():
-		if not GPIO.input(ROR_RL3B):
+		if not GPIO.input(ROR_PWSCOPE):
 			return True
 		return False
 
 	def rl3b_close(self):
 		self.log.debug('rl3b_close')
 		if self.rl3b_is_not_closed():
-			GPIO.output(ROR_RL3B, GPIO.HIGH)
+			GPIO.output(ROR_PWSCOPE, GPIO.HIGH)
 			return True
 		return False
 
 	def rl3b_open(self):
 		self.log.debug('rl3b_open')
 		if self.rl3b_is_not_open():
-			GPIO.output(ROR_RL3B, GPIO.LOW)
+			GPIO.output(ROR_PWSCOPE, GPIO.LOW)
 			return True
 		return False
 
@@ -384,27 +384,27 @@ class RoR(object):
 
 	@staticmethod
 	def rl4b_is_not_open():
-		if GPIO.input(ROR_RL4B):
+		if GPIO.input(ROR_POWER):
 			return True
 		return False
 
 	@staticmethod
 	def rl4b_is_not_closed():
-		if not GPIO.input(ROR_RL4B):
+		if not GPIO.input(ROR_POWER):
 			return True
 		return False
 
 	def rl4b_close(self):
 		self.log.debug('rl4b_close')
 		if self.rl4b_is_not_closed():
-			GPIO.output(ROR_RL4B, GPIO.HIGH)
+			GPIO.output(ROR_POWER, GPIO.HIGH)
 			return True
 		return False
 
 	def rl4b_open(self):
 		self.log.debug('rl4b_open')
 		if self.rl4b_is_not_open():
-			GPIO.output(ROR_RL4B, GPIO.LOW)
+			GPIO.output(ROR_POWER, GPIO.LOW)
 			return True
 		return False
 
