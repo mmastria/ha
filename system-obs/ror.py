@@ -278,6 +278,7 @@ class RoR(object):
 	GPIO.setup(ROR_SW_CLOSED, GPIO.IN)
 	GPIO.setup(ROR_SW_OPEN, GPIO.IN)
 	GPIO.setup(ROR_MOUNT_PARKED, GPIO.IN)
+	GPIO.setup(ROR_AAGSAFE, GPIO.IN)
 
 	def __init__(self):
 		self._running = True
