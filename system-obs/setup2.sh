@@ -12,6 +12,9 @@ pip install -U 'gevent~=1.2.2' && \
 pip install multiprocessing && \
 sed -i 's/^#alias l/alias l/g' /home/obs/.bashrc
 
+(crontab -l 2>/dev/null; echo "* * * * * /usr/bin/curl http://192.168.0.205/cgi-bin/cgiLastData -o /tmp/aagsolo.txt") | crontab -
+
+
 cp -f *.service /etc/systemd/system/
 cp -f arua*.sh /usr/local/bin/
 cp -f *.py /usr/share/indi/scripts/
