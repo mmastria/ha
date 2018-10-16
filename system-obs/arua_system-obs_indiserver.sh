@@ -21,8 +21,8 @@ echo "start indi_armadillo_focus -n \"Armadillo focuser Main\" -c \"$HOME/.indi/
 echo "start indi_armadillo_focus -n \"Armadillo focuser Exp\" -c \"$HOME/.indi/Armadillo focuser exp_config.xml\"" > ~/.indi/indiFIFO
 echo "start indi_astrometry -n \"Astrometry\" -c \"$HOME/.indi/Astrometry_config.xml\"" > ~/.indi/indiFIFO
 echo "start indi_watcher_weather" > ~/.indi/indiFIFO
+echo "start indi_meta_weather" > ~/.indi/indiFIFO
 echo "start indi_watchdog" > ~/.indi/indiFIFO
-
 
 wait "$child"
 echo "stopping indiserver"
