@@ -4,6 +4,7 @@
 [ $(grep obs /etc/passwd|wc -l) -eq 0 ] && \
 useradd -m -s /bin/bash obs && \
 adduser obs dialout && \
+adduser obs video && \
 adduser obs gpio && \
 mkdir /usr/share/indi/scripts && \
 pip install bottle && \
