@@ -23,6 +23,7 @@ echo "start indi_astrometry -n \"Astrometry\" -c \"$HOME/.indi/Astrometry_config
 echo "start indi_watcher_weather" > ~/.indi/indiFIFO
 echo "start indi_meta_weather" > ~/.indi/indiFIFO
 echo "start indi_watchdog" > ~/.indi/indiFIFO
+echo "start indi_wiringpi_gpio" > ~/.indi/indiFIFO
 
 wait "$child"
 echo "stopping indiserver"
