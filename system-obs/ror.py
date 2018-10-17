@@ -21,7 +21,7 @@ monkey.patch_all()
 # PWR_SCOPE/3B    07  (O4)    vinho       GPIO22  X X     GPIO23  cinza       (O3)    08  PWR_MAIN/4B
 #                                                 - X     GPIO24  branco      (O2)    09  ROR_MOVE/2A
 # ROR_PARKED/1A   10  (O1)    preto       GPIO10  X -
-# ROR_AAGSAFE     12  (I4)    vermelho    GPIO09  X X     GPIO25  laranja     (I3)    13  ROR_SWITCH_OPEN
+# ROR_AAGSAFE     12  (I4)    vermelho    GPIO09  X X     GPIO25  laranja     (I3)    13  ROR_SW_OPEN
 # ROR_SW_CLOSED   14  (I2)    amarelho    GPIO11  X X     GPIO08  verde       (I1)    15  ROR_MOUNT_PARKED
 
 ROR_PARKED = 10
@@ -30,19 +30,10 @@ ROR_SW_CLOSED = 11
 ROR_SW_OPEN = 25
 ROR_MOUNT_PARKED = 8
 
-ROR_AAGSAFE = 9
+# ROR_AAGSAFE = 9
 
 ROR_AAG_HOST = '192.168.0.205'
 ROR_AAG_PORT = 80
-
-PWR_RL1B = 18
-PWR_RPI = 27
-PWR_SCOPE = 22
-PWR_MAIN = 23
-
-PWR_RL1C = 17
-PWR_RL2C = 04
-
 
 class Timer(multiprocessing.Process):
 	def __init__(self, interval, function, args=[], kwargs={}):
@@ -62,199 +53,6 @@ class Timer(multiprocessing.Process):
 		if not self.finished.is_set():
 			self.function(*self.args, **self.kwargs)
 		self.finished.set()
-
-
-class Pwr(object):
-
-	log = logging.getLogger(__name__)
-	log.setLevel(logging.DEBUG)
-	handler = logging.handlers.SysLogHandler(address='/dev/log')
-	formatter = logging.Formatter('%(module)s.%(funcName)s: %(message)s')
-	handler.setFormatter(formatter)
-	log.addHandler(handler)
-
-	GPIO.setwarnings(False)
-	GPIO.setmode(GPIO.BCM)
-
-	GPIO.setup(PWR_RL1B, GPIO.OUT)
-	GPIO.setup(PWR_RPI, GPIO.OUT)
-	GPIO.setup(PWR_SCOPE, GPIO.OUT)
-	GPIO.setup(PWR_MAIN, GPIO.OUT)
-
-	GPIO.setup(PWR_RL1C, GPIO.OUT)
-	GPIO.setup(PWR_RL2C, GPIO.OUT)
-
-	def __init__(self):
-		self._running = True
-
-	def terminate(self):
-		self._running = False
-
-	@staticmethod
-	def is_rl1b_closed():
-		if GPIO.input(PWR_RL1B):
-			return True
-		return False
-
-	@staticmethod
-	def is_rl1b_open():
-		if not GPIO.input(PWR_RL1B):
-			return True
-		return False
-
-	def rl1b_close(self):
-		self.log.debug('rl1b_close')
-		if self.is_rl1b_open():
-			GPIO.output(PWR_RL1B, GPIO.HIGH)
-			return True
-		return False
-
-	def rl1b_open(self):
-		self.log.debug('rl1b_open')
-		if self.is_rl1b_closed():
-			GPIO.output(PWR_RL1B, GPIO.LOW)
-			return True
-		return False
-
-	# --------------------------
-
-	@staticmethod
-	def is_rpi_on():
-		if GPIO.input(PWR_RPI):
-			return True
-		return False
-
-	@staticmethod
-	def is_rpi_off():
-		if not GPIO.input(PWR_RPI):
-			return True
-		return False
-
-	def rpi_on(self):
-		self.log.debug('rpi_on')
-		if self.is_rpi_off():
-			GPIO.output(PWR_RPI, GPIO.HIGH)
-			return True
-		return False
-
-	def rpi_off(self):
-		self.log.debug('rpi_off')
-		if self.is_rpi_on():
-			GPIO.output(PWR_RPI, GPIO.LOW)
-			return True
-		return False
-
-	# --------------------------
-
-	@staticmethod
-	def is_scope_on():
-		if GPIO.input(PWR_SCOPE):
-			return True
-		return False
-
-	@staticmethod
-	def is_scope_off():
-		if not GPIO.input(PWR_SCOPE):
-			return True
-		return False
-
-	def scope_on(self):
-		self.log.debug('scope_on')
-		if self.is_scope_off():
-			GPIO.output(PWR_SCOPE, GPIO.HIGH)
-			return True
-		return False
-
-	def scope_off(self):
-		self.log.debug('scope_off')
-		if self.is_scope_on():
-			GPIO.output(PWR_SCOPE, GPIO.LOW)
-			return True
-		return False
-
-	# --------------------------
-
-	@staticmethod
-	def is_power_on():
-		if GPIO.input(PWR_MAIN):
-			return True
-		return False
-
-	@staticmethod
-	def is_power_off():
-		if not GPIO.input(PWR_MAIN):
-			return True
-		return False
-
-	def power_on(self):
-		self.log.debug('power_on')
-		if self.is_power_off():
-			GPIO.output(PWR_MAIN, GPIO.HIGH)
-			return True
-		return False
-
-	def power_off(self):
-		self.log.debug('power_off')
-		if self.is_power_on():
-			GPIO.output(PWR_MAIN, GPIO.LOW)
-			return True
-		return False
-
-	# --------------------------
-
-	@staticmethod
-	def is_rl1c_closed():
-		if GPIO.input(PWR_RL1C):
-			return True
-		return False
-
-	@staticmethod
-	def is_rl1c_open():
-		if not GPIO.input(PWR_RL1C):
-			return True
-		return False
-
-	def rl1c_close(self):
-		self.log.debug('rl1c_close')
-		if self.is_rl1c_open():
-			GPIO.output(PWR_RL1C, GPIO.HIGH)
-			return True
-		return False
-
-	def rl1c_open(self):
-		self.log.debug('rl1c_open')
-		if self.is_rl1c_closed():
-			GPIO.output(PWR_RL1C, GPIO.LOW)
-			return True
-		return False
-
-	# --------------------------
-
-	@staticmethod
-	def is_rl2c_closed():
-		if GPIO.input(PWR_RL2C):
-			return True
-		return False
-
-	@staticmethod
-	def is_rl2c_open():
-		if not GPIO.input(PWR_RL2C):
-			return True
-		return False
-
-	def rl2c_close(self):
-		self.log.debug('rl2c_close')
-		if self.is_rl2c_open():
-			GPIO.output(PWR_RL2C, GPIO.HIGH)
-			return True
-		return False
-
-	def rl2c_open(self):
-		self.log.debug('rl2c_open')
-		if self.is_rl2c_closed():
-			GPIO.output(PWR_RL2C, GPIO.LOW)
-			return True
-		return False
 
 
 class RoR(object):
@@ -278,7 +76,7 @@ class RoR(object):
 	GPIO.setup(ROR_SW_CLOSED, GPIO.IN)
 	GPIO.setup(ROR_SW_OPEN, GPIO.IN)
 	GPIO.setup(ROR_MOUNT_PARKED, GPIO.IN)
-	GPIO.setup(ROR_AAGSAFE, GPIO.IN)
+	# GPIO.setup(ROR_AAGSAFE, GPIO.IN)
 
 	def __init__(self):
 		self._running = True
@@ -373,7 +171,8 @@ class RoR(object):
 
 	@staticmethod
 	def is_aagsafe():
-		if GPIO.input(ROR_AAGSAFE) == GPIO.HIGH:
+		# if GPIO.input(ROR_AAGSAFE) == GPIO.HIGH:
+                if True:
 			return True
 		return False
 
@@ -587,153 +386,6 @@ def ror_is_aagsafe():
 	return
 
 # --------------------------
-
-
-@route('/rl1b/status', method='GET')
-def rl1b_status():
-	response.status = 200 if Pwr.is_rl1b_closed() else 409
-
-
-@route('/rl1b/close', method='PUT')
-def rl1b_close():
-	pwr = Pwr()
-	p = multiprocessing.Process(target=pwr.rl1b_close)
-	p.start()
-	response.status = 202
-	return
-
-
-@route('/rl1b/open', method='PUT')
-def rl1b_open():
-	pwr = Pwr()
-	p = multiprocessing.Process(target=pwr.rl1b_open)
-	p.start()
-	response.status = 202
-	return
-
-
-@route('/rl1c/status', method='GET')
-def rl1c_status():
-	response.status = 200 if Pwr.is_rl1c_closed() else 409
-
-
-@route('/rl1c/close', method='PUT')
-def rl1c_close():
-	pwr = Pwr()
-	p = multiprocessing.Process(target=pwr.rl1c_close)
-	p.start()
-	response.status = 202
-	return
-
-
-@route('/rl1c/open', method='PUT')
-def rl1c_open():
-	pwr = Pwr()
-	p = multiprocessing.Process(target=pwr.rl1c_open)
-	p.start()
-	response.status = 202
-	return
-
-
-@route('/rl2c/status', method='GET')
-def rl2c_status():
-	response.status = 200 if Pwr.is_rl2c_closed() else 409
-
-
-@route('/rl2c/close', method='PUT')
-def rl2c_close():
-	pwr = Pwr()
-	p = multiprocessing.Process(target=pwr.rl2c_close)
-	p.start()
-	response.status = 202
-	return
-
-
-@route('/rl2c/open', method='PUT')
-def rl2c_open():
-	pwr = Pwr()
-	p = multiprocessing.Process(target=pwr.rl2c_open)
-	p.start()
-	response.status = 202
-	return
-
-
-# --------------------------
-
-@route('/rpi/status', method='GET')
-def pwr_rpi_status():
-	response.status = 200 if Pwr.is_rpi_on() else 409
-
-
-@route('/rpi/on', method='PUT')
-def pwr_rpi_on():
-	pwr = Pwr()
-	p = multiprocessing.Process(target=pwr.rpi_on)
-	p.start()
-	response.status = 202
-	return
-
-
-@route('/rpi/off', method='PUT')
-def pwr_rpi_off():
-	pwr = Pwr()
-	p = multiprocessing.Process(target=pwr.rpi_off)
-	p.start()
-	response.status = 202
-	return
-
-
-# --------------------------
-
-@route('/scope/status', method='GET')
-def pwr_scope_status():
-	response.status = 200 if Pwr.is_scope_on() else 409
-
-
-@route('/scope/on', method='PUT')
-def pwr_scope_on():
-	pwr = Pwr()
-	p = multiprocessing.Process(target=pwr.scope_on)
-	p.start()
-	response.status = 202
-	return
-
-
-@route('/scope/off', method='PUT')
-def pwr_scope_off():
-	pwr = Pwr()
-	p = multiprocessing.Process(target=pwr.scope_off)
-	p.start()
-	response.status = 202
-	return
-
-
-# --------------------------
-
-@route('/power/status', method='GET')
-def pwr_power_status():
-	response.status = 200 if Pwr.is_power_on() else 409
-
-
-@route('/power/on', method='PUT')
-def pwr_power_on():
-	pwr = Pwr()
-	p = multiprocessing.Process(target=pwr.power_on)
-	p.start()
-	response.status = 202
-	return
-
-
-@route('/power/off', method='PUT')
-def pwr_power_off():
-	pwr = Pwr()
-	p = multiprocessing.Process(target=pwr.power_off)
-	p.start()
-	response.status = 202
-	return
-
-# --------------------------
-
 
 if __name__ == "__main__":
 	# t = Timer(10, rotina para fazer pooling do aagcw)
