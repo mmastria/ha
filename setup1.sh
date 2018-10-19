@@ -5,12 +5,20 @@
 # etcher raspibian stretch
 # touch /boot/ssh
 
-# sudo raspi-config
-
-# sudo su -
-# apt update && apt -y install git
+# ssh pi@ip
+# sudo passwd root
+# su root -
+# echo "PermitRootLogin Yes" >> /etc/ssh/sshd_config
+# reboot
+# ssh root@ip
+# raspi-config
+# apt -y install git
 # git clone https://github.com/mmastria/ha.git
 # cd ha
+# git config credential.helper store
+# git config --global user.email "marco@mastria.com.br"
+# git config --global user.name "mmastria"
+
 # ./setup1.sh
 
 # doc
