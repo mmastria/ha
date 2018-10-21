@@ -30,6 +30,7 @@ mkdir /usr/share/indi/scripts && \
 pip install bottle && \
 pip install -U 'gevent~=1.2.2' && \
 pip install multiprocessing && \
+pip install requests && \
 sed -i 's/^#alias l/alias l/g' /home/obs/.bashrc 
 
 # driver access url, not needed
