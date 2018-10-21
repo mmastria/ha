@@ -9,9 +9,12 @@
 # libindi
 cd
 git clone https://github.com/indilib/indi.git
+diff -q ~/ha/setup_indi/indidome.cpp.ORIGINAL ~/root/indi/libindi/libs/indibase/indidome.cpp  && \
+cp -f ~/ha/setup_indi/indidome.cpp.NEW ~/root/indi/libindi/libs/indibase/indidome.cpp 
+diff -q ~/ha/setup_indi/dome_script.cpp.ORIGINAL ~/indi/libindi/drivers/dome/dome_script.cpp  && \
+cp -f ~/ha/setup_indi/dome_script.cpp.NEW ~/indi/libindi/drivers/dome/dome_script.cpp 
 mkdir -p indi/buid/libindi
 cd ~/indi/buid/libindi/
-#cmake -E env CXXFLAGS="-Wno-psabi" cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Debug ~/indi/libindi
 cmake -DCMAKE_CXX_FLAGS="-Wno-psabi" -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Debug ~/indi/libindi
 make install
 
@@ -56,7 +59,6 @@ dpkg -i *.deb
 pip install --install-option="--prefix=/usr/local" pyindi-client
 
 # apt -y install indi-full
-# pip2 install --upgrade pip
 # apt-get -y install python-rpi.gpio python-requests
 
 
