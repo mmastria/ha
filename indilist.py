@@ -104,8 +104,8 @@ for d in dl:
             for t in tpy:
                 print("       "+t.name+"("+t.label+")= <blob "+str(t.size)+" bytes>")
 
-while(1):
-    pass
+#while(1):
+#    pass
 
 # Disconnect from the indiserver
 print("Disconnecting")

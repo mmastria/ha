@@ -94,7 +94,7 @@
       Telescope Simulator
   </oneText>
   <oneText name='ACTIVE_WEATHER'>
-      WunderGround
+      Weather Meta
   </oneText>
 </newTextVector>
 <newSwitchVector device='Dome Scripting Gateway' name='TELESCOPE_POLICY'>

@@ -64,21 +64,21 @@
       On
   </oneSwitch>
   <oneSwitch name='DBG_DEBUG'>
-      On
+      Off
   </oneSwitch>
   <oneSwitch name='DBG_EXTRA_1'>
-      On
+      Off
   </oneSwitch>
 </newSwitchVector>
 <newSwitchVector device='Armadillo focuser Main' name='LOGGING_LEVEL'>
   <oneSwitch name='LOG_ERROR'>
-      Off
+      On
   </oneSwitch>
   <oneSwitch name='LOG_WARNING'>
-      Off
+      On
   </oneSwitch>
   <oneSwitch name='LOG_SESSION'>
-      Off
+      On
   </oneSwitch>
   <oneSwitch name='LOG_DEBUG'>
       Off
@@ -89,7 +89,7 @@
 </newSwitchVector>
 <newSwitchVector device='Armadillo focuser Main' name='LOG_OUTPUT'>
   <oneSwitch name='CLIENT_DEBUG'>
-      Off
+      On
   </oneSwitch>
   <oneSwitch name='FILE_DEBUG'>
       Off

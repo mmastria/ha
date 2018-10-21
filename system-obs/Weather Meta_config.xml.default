@@ -50,7 +50,7 @@
 </newSwitchVector>
 <newTextVector device='Weather Meta' name='ACTIVE_DEVICES'>
   <oneText name='ACTIVE_WEATHER_1'>
-      Weather Watcher
+      AAG Solo Weather
   </oneText>
   <oneText name='ACTIVE_WEATHER_2'>
       

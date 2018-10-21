@@ -18,6 +18,9 @@
 # ROR_PARKED/1A		GPIO10	WPI PIN 12 O
 # ROR_SW_CLOSED		GPIO11	WPI PIN 14 I
 
+
+# first time only
+
 [ $(grep obs /etc/passwd|wc -l) -eq 0 ] && \
 useradd -m -s /bin/bash obs && \
 adduser obs dialout && \
@@ -27,14 +30,21 @@ mkdir /usr/share/indi/scripts && \
 pip install bottle && \
 pip install -U 'gevent~=1.2.2' && \
 pip install multiprocessing && \
-sed -i 's/^#alias l/alias l/g' /home/obs/.bashrc
+sed -i 's/^#alias l/alias l/g' /home/obs/.bashrc 
 
-(crontab -l 2>/dev/null; echo "* * * * * /usr/bin/curl http://192.168.0.205/cgi-bin/cgiLastData -o /tmp/aagsolo.txt") | crontab -
+# driver access url, not needed
+# (crontab -l 2>/dev/null; echo "* * * * * /usr/bin/curl http://aagsolo.local/cgi-bin/cgiLastData -o /tmp/aagsolo.txt") | crontab -
 
+
+# every execution
 
 cp -f *.service /etc/systemd/system/
 cp -f arua*.sh /usr/local/bin/
 cp -f *.py /usr/share/indi/scripts/
+cp -f *.default /home/obs/.indi/
+ls -1 /home/obs/.indi/*.default|xargs -n 1 -I{a} echo {a}|sed 's/.default//'|xargs -n 1 -I{b} cp {b}.default {b}
+chown obs:obs /home/obs/.indi/*.default
+chown obs:obs /home/obs/.indi/*.xml
 
 systemctl daemon-reload
 
