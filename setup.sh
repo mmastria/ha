@@ -101,12 +101,5 @@ sed -i '/NTPDATE_USE_NTP_CONF/ cNTPDATE_USE_NTP_CONF=no' /etc/default/ntpdate
 sed -i '/NTPSERVERS/ cNTPSERVERS="a.st1.ntp.br b.st1.ntp.br c.st1.ntp.br d.st1.ntp.br a.ntp.br b.ntp.br c.ntp.br gps.ntp.br"' /etc/default/ntpdate
 [ '$DEVICE' != 'aagsolo' ] && timedatectl set-ntp true
 
-# apt -y install indi-full
-# pip2 install --upgrade pip
-
-# . ./libindi_update.sh
-# pip install --install-option="--prefix=/usr/local" pyindi-client 
-# apt-get -y install python-rpi.gpio python-requests
-
 read -p "key to reboot"
 reboot

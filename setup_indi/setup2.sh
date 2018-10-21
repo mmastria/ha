@@ -52,3 +52,12 @@ dpkg -i *.deb
 # PyIndi
 pip2  install --user --install-option="--prefix=/usr/local" pyindi-client
 
+# apt -y install indi-full
+# pip2 install --upgrade pip
+
+# . ./libindi_update.sh
+# pip install --install-option="--prefix=/usr/local" pyindi-client
+# apt-get -y install python-rpi.gpio python-requests
+
+
+
