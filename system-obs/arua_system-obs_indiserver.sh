@@ -10,7 +10,7 @@ echo "starting indiserver"
 trap _term SIGTERM SIGINT
 
 [ -d ~/.indi ] || mkdir ~/.indi
-ps -ef|grep /usr/bin/indiserver|grep -v grep|{ read a b c n;echo $c; }|xargs -r -n 1 kill -TERM
+ps -ef|grep /usr/bin/indiserver|grep -v grep|{ read a b n;echo $b; }|xargs -r -n 1 kill -TERM
 [ -p ~/.indi/indiFIFO ] && rm -f ~/.indi/indiFIFO
 mkfifo ~/.indi/indiFIFO
 /usr/bin/indiserver -p 7624 -m 100 -v -f ~/.indi/indiFIFO &

@@ -31,7 +31,8 @@ pip install bottle && \
 pip install -U 'gevent~=1.2.2' && \
 pip install multiprocessing && \
 pip install requests && \
-sed -i 's/^#alias l/alias l/g' /home/obs/.bashrc 
+sed -i 's/^#alias l/alias l/g' /home/obs/.bashrc && \
+(crontab -l 2>/dev/null; echo "*/5 * * * * /usr/local/bin/arua_close-wait.sh") | crontab -
 
 # driver access url, not needed
 # (crontab -l 2>/dev/null; echo "* * * * * /usr/bin/curl http://aagsolo.local/cgi-bin/cgiLastData -o /tmp/aagsolo.txt") | crontab -
@@ -45,7 +46,7 @@ cp -f arua*.sh /usr/local/bin/
 cp -f *.py /usr/share/indi/scripts/
 [ ! -d /home/obs/.indi ] && mkdir -p /home/obs/.indi && chown obs:obs /home/obs/.indi
 cp -f *.default /home/obs/.indi/
-ls -1 /home/obs/.indi/*.default|xargs -n 1 -I{a} echo {a}|sed 's/.default//'|xargs -n 1 -I{b} cp {b}.default {b}
+ls -1 /home/obs/.indi/*.default|xargs -n 1 -I{a} echo {a}|sed 's/.default//'|xargs -r -n 1 -I{b} cp {b}.default {b}
 chown obs:obs /home/obs/.indi/*.default
 chown obs:obs /home/obs/.indi/*.xml
 
