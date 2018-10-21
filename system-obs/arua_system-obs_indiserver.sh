@@ -21,6 +21,7 @@ echo "start indi_wiringpi_gpio -n \"Power System\" -c \"$HOME/.indi/Power System
 /usr/share/indi/scripts/indi_wiringpi_gpio.py
 echo "start indi_watcher_weather -n \"AAG Solo Weather\" -c \"$HOME/.indi/AAG Solo Weather_config.xml\"" > ~/.indi/indiFIFO
 /usr/share/indi/scripts/indi_watcher_weather.py
+echo "start indi_vantage_weather -n \"Vantage\" -c \"$HOME/.indi/Vantage_config.xml\"" > ~/.indi/indiFIFO
 echo "start indi_meta_weather -n \"Weather Meta\" -c \"$HOME/.indi/Weather Meta_config.xml\"" > ~/.indi/indiFIFO
 echo "start indi_script_dome -n \"Dome Scripting Gateway\" -c \"$HOME/.indi/Dome Scripting Gateway_config.xml\"" > ~/.indi/indiFIFO
 echo "start indi_watchdog -n \"WatchDog\" -c \"$HOME/.indi/WatchDog_config.xml\"" > ~/.indi/indiFIFO
