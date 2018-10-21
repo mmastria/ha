@@ -66,7 +66,7 @@
 </newNumberVector>
 <newNumberVector device='AAG Solo Weather' name='WEATHER_UPDATE'>
   <oneNumber name='PERIOD'>
-      60
+      10
   </oneNumber>
 </newNumberVector>
 <newNumberVector device='AAG Solo Weather' name='WEATHER_WIND_GUST'>

@@ -64,7 +64,7 @@
 </newTextVector>
 <newNumberVector device='Weather Meta' name='WEATHER_UPDATE'>
   <oneNumber name='PERIOD'>
-      60
+      10
   </oneNumber>
 </newNumberVector>
 </INDIDriver>
