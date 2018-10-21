@@ -32,8 +32,10 @@ cd wiringPi/
 echo "/usr/local/lib" | tee /etc/ld.so.conf.d/usr_local_lib.conf
 ldconfig
 
+# Indi WiringPi GPIO
 cd
 git clone https://github.com/magnue/indi_wiringpi_gpio.git
+cp -f ~/ha/setup_indi/wiringpi_gpio.cpp ~/indi_wiringpi_gpio/wiringpi_gpio/
 cd indi_wiringpi_gpio
 mkdir build
 cd build
