@@ -1,0 +1,220 @@
+<INDIDriver>
+<newSwitchVector device='Back Camera' name='DEBUG'>
+  <oneSwitch name='ENABLE'>
+      Off
+  </oneSwitch>
+  <oneSwitch name='DISABLE'>
+      On
+  </oneSwitch>
+</newSwitchVector>
+<newNumberVector device='Back Camera' name='POLLING_PERIOD'>
+  <oneNumber name='PERIOD_MS'>
+      1000
+  </oneNumber>
+</newNumberVector>
+<newSwitchVector device='Back Camera' name='DEBUG_LEVEL'>
+  <oneSwitch name='DBG_ERROR'>
+      On
+  </oneSwitch>
+  <oneSwitch name='DBG_WARNING'>
+      On
+  </oneSwitch>
+  <oneSwitch name='DBG_SESSION'>
+      On
+  </oneSwitch>
+  <oneSwitch name='DBG_DEBUG'>
+      Off
+  </oneSwitch>
+</newSwitchVector>
+<newSwitchVector device='Back Camera' name='LOGGING_LEVEL'>
+  <oneSwitch name='LOG_ERROR'>
+      On
+  </oneSwitch>
+  <oneSwitch name='LOG_WARNING'>
+      On
+  </oneSwitch>
+  <oneSwitch name='LOG_SESSION'>
+      On
+  </oneSwitch>
+  <oneSwitch name='LOG_DEBUG'>
+      Off
+  </oneSwitch>
+</newSwitchVector>
+<newSwitchVector device='Back Camera' name='LOG_OUTPUT'>
+  <oneSwitch name='CLIENT_DEBUG'>
+      On
+  </oneSwitch>
+  <oneSwitch name='FILE_DEBUG'>
+      Off
+  </oneSwitch>
+</newSwitchVector>
+<newTextVector device='Back Camera' name='ACTIVE_DEVICES'>
+  <oneText name='ACTIVE_TELESCOPE'>
+      Telescope Simulator
+  </oneText>
+  <oneText name='ACTIVE_FOCUSER'>
+      Focuser Simulator
+  </oneText>
+  <oneText name='ACTIVE_FILTER'>
+      CCD Simulator
+  </oneText>
+  <oneText name='ACTIVE_SKYQUALITY'>
+      SQM
+  </oneText>
+</newTextVector>
+<newSwitchVector device='Back Camera' name='UPLOAD_MODE'>
+  <oneSwitch name='UPLOAD_CLIENT'>
+      On
+  </oneSwitch>
+  <oneSwitch name='UPLOAD_LOCAL'>
+      Off
+  </oneSwitch>
+  <oneSwitch name='UPLOAD_BOTH'>
+      Off
+  </oneSwitch>
+</newSwitchVector>
+<newTextVector device='Back Camera' name='UPLOAD_SETTINGS'>
+  <oneText name='UPLOAD_DIR'>
+      /home/obs
+  </oneText>
+  <oneText name='UPLOAD_PREFIX'>
+      IMAGE_XXX
+  </oneText>
+</newTextVector>
+<newSwitchVector device='Back Camera' name='TELESCOPE_TYPE'>
+  <oneSwitch name='TELESCOPE_PRIMARY'>
+      On
+  </oneSwitch>
+  <oneSwitch name='TELESCOPE_GUIDE'>
+      Off
+  </oneSwitch>
+</newSwitchVector>
+<newSwitchVector device='Back Camera' name='CCD_EXPOSURE_LOOP'>
+  <oneSwitch name='LOOP_ON'>
+      Off
+  </oneSwitch>
+  <oneSwitch name='LOOP_OFF'>
+      On
+  </oneSwitch>
+</newSwitchVector>
+<newSwitchVector device='Back Camera' name='CCD_COMPRESSION'>
+  <oneSwitch name='CCD_COMPRESS'>
+      Off
+  </oneSwitch>
+  <oneSwitch name='CCD_RAW'>
+      On
+  </oneSwitch>
+</newSwitchVector>
+<newNumberVector device='Back Camera' name='CCD_FRAME'>
+  <oneNumber name='X'>
+      0
+  </oneNumber>
+  <oneNumber name='Y'>
+      0
+  </oneNumber>
+  <oneNumber name='WIDTH'>
+      640
+  </oneNumber>
+  <oneNumber name='HEIGHT'>
+      480
+  </oneNumber>
+</newNumberVector>
+<newNumberVector device='Back Camera' name='CCD_BINNING'>
+  <oneNumber name='HOR_BIN'>
+      1
+  </oneNumber>
+  <oneNumber name='VER_BIN'>
+      1
+  </oneNumber>
+</newNumberVector>
+<newSwitchVector device='Back Camera' name='CCD_STREAM_ENCODER'>
+  <oneSwitch name='RAW'>
+      On
+  </oneSwitch>
+  <oneSwitch name='MJPEG'>
+      Off
+  </oneSwitch>
+</newSwitchVector>
+<newTextVector device='Back Camera' name='RECORD_FILE'>
+  <oneText name='RECORD_FILE_DIR'>
+      /home/obs/indi__D_
+  </oneText>
+  <oneText name='RECORD_FILE_NAME'>
+      indi_record__T_
+  </oneText>
+</newTextVector>
+<newNumberVector device='Back Camera' name='RECORD_OPTIONS'>
+  <oneNumber name='RECORD_DURATION'>
+      1
+  </oneNumber>
+  <oneNumber name='RECORD_FRAME_TOTAL'>
+      30
+  </oneNumber>
+</newNumberVector>
+<newSwitchVector device='Back Camera' name='CCD_STREAM_RECORDER'>
+  <oneSwitch name='SER'>
+      On
+  </oneSwitch>
+  <oneSwitch name='OGV'>
+      Off
+  </oneSwitch>
+</newSwitchVector>
+<newNumberVector device='Back Camera' name='Image Adjustments'>
+  <oneNumber name='Brightness'>
+      128
+  </oneNumber>
+  <oneNumber name='Contrast'>
+      32
+  </oneNumber>
+  <oneNumber name='Saturation'>
+      32
+  </oneNumber>
+  <oneNumber name='Gain'>
+      0
+  </oneNumber>
+  <oneNumber name='White Balance Temperature'>
+      10000
+  </oneNumber>
+  <oneNumber name='Sharpness'>
+      24
+  </oneNumber>
+  <oneNumber name='Backlight Compensation'>
+      1
+  </oneNumber>
+  <oneNumber name='Exposure (Absolute)'>
+      671
+  </oneNumber>
+</newNumberVector>
+<newSwitchVector device='Back Camera' name='CCD_STREAM_ENCODER'>
+  <oneSwitch name='RAW'>
+      On
+  </oneSwitch>
+  <oneSwitch name='MJPEG'>
+      Off
+  </oneSwitch>
+</newSwitchVector>
+<newTextVector device='Back Camera' name='RECORD_FILE'>
+  <oneText name='RECORD_FILE_DIR'>
+      /home/obs/indi__D_
+  </oneText>
+  <oneText name='RECORD_FILE_NAME'>
+      indi_record__T_
+  </oneText>
+</newTextVector>
+<newNumberVector device='Back Camera' name='RECORD_OPTIONS'>
+  <oneNumber name='RECORD_DURATION'>
+      1
+  </oneNumber>
+  <oneNumber name='RECORD_FRAME_TOTAL'>
+      30
+  </oneNumber>
+</newNumberVector>
+<newSwitchVector device='Back Camera' name='CCD_STREAM_RECORDER'>
+  <oneSwitch name='SER'>
+      On
+  </oneSwitch>
+  <oneSwitch name='OGV'>
+      Off
+  </oneSwitch>
+</newSwitchVector>
+</INDIDriver>

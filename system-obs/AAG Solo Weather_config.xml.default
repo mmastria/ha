@@ -1,0 +1,154 @@
+<INDIDriver>
+<newSwitchVector device='AAG Solo Weather' name='DEBUG'>
+  <oneSwitch name='ENABLE'>
+      Off
+  </oneSwitch>
+  <oneSwitch name='DISABLE'>
+      On
+  </oneSwitch>
+</newSwitchVector>
+<newNumberVector device='AAG Solo Weather' name='POLLING_PERIOD'>
+  <oneNumber name='PERIOD_MS'>
+      1000
+  </oneNumber>
+</newNumberVector>
+<newSwitchVector device='AAG Solo Weather' name='DEBUG_LEVEL'>
+  <oneSwitch name='DBG_ERROR'>
+      On
+  </oneSwitch>
+  <oneSwitch name='DBG_WARNING'>
+      On
+  </oneSwitch>
+  <oneSwitch name='DBG_SESSION'>
+      On
+  </oneSwitch>
+  <oneSwitch name='DBG_DEBUG'>
+      Off
+  </oneSwitch>
+</newSwitchVector>
+<newSwitchVector device='AAG Solo Weather' name='LOGGING_LEVEL'>
+  <oneSwitch name='LOG_ERROR'>
+      On
+  </oneSwitch>
+  <oneSwitch name='LOG_WARNING'>
+      On
+  </oneSwitch>
+  <oneSwitch name='LOG_SESSION'>
+      On
+  </oneSwitch>
+  <oneSwitch name='LOG_DEBUG'>
+      Off
+  </oneSwitch>
+</newSwitchVector>
+<newSwitchVector device='AAG Solo Weather' name='LOG_OUTPUT'>
+  <oneSwitch name='CLIENT_DEBUG'>
+      On
+  </oneSwitch>
+  <oneSwitch name='FILE_DEBUG'>
+      Off
+  </oneSwitch>
+</newSwitchVector>
+<newTextVector device='AAG Solo Weather' name='ACTIVE_DEVICES'>
+  <oneText name='ACTIVE_GPS'>
+      GPS Simulator
+  </oneText>
+</newTextVector>
+<newNumberVector device='AAG Solo Weather' name='GEOGRAPHIC_COORD'>
+  <oneNumber name='LAT'>
+      -23.463599999999999568
+  </oneNumber>
+  <oneNumber name='LONG'>
+      313.73000000000001819
+  </oneNumber>
+  <oneNumber name='ELEV'>
+      754
+  </oneNumber>
+</newNumberVector>
+<newNumberVector device='AAG Solo Weather' name='WEATHER_UPDATE'>
+  <oneNumber name='PERIOD'>
+      60
+  </oneNumber>
+</newNumberVector>
+<newNumberVector device='AAG Solo Weather' name='WEATHER_WIND_GUST'>
+  <oneNumber name='MIN_OK'>
+      -1
+  </oneNumber>
+  <oneNumber name='MAX_OK'>
+      -1
+  </oneNumber>
+  <oneNumber name='PERC_WARN'>
+      0
+  </oneNumber>
+</newNumberVector>
+<newNumberVector device='AAG Solo Weather' name='WEATHER_RAIN_HOUR'>
+  <oneNumber name='MIN_OK'>
+      2000
+  </oneNumber>
+  <oneNumber name='MAX_OK'>
+      3000
+  </oneNumber>
+  <oneNumber name='PERC_WARN'>
+      10
+  </oneNumber>
+</newNumberVector>
+<newNumberVector device='AAG Solo Weather' name='WEATHER_FORECAST'>
+  <oneNumber name='MIN_OK'>
+      1
+  </oneNumber>
+  <oneNumber name='MAX_OK'>
+      1
+  </oneNumber>
+  <oneNumber name='PERC_WARN'>
+      0
+  </oneNumber>
+</newNumberVector>
+<newNumberVector device='AAG Solo Weather' name='WEATHER_TEMPERATURE'>
+  <oneNumber name='MIN_OK'>
+      -10
+  </oneNumber>
+  <oneNumber name='MAX_OK'>
+      30
+  </oneNumber>
+  <oneNumber name='PERC_WARN'>
+      10
+  </oneNumber>
+</newNumberVector>
+<newNumberVector device='AAG Solo Weather' name='WEATHER_WIND_SPEED'>
+  <oneNumber name='MIN_OK'>
+      -1
+  </oneNumber>
+  <oneNumber name='MAX_OK'>
+      -1
+  </oneNumber>
+  <oneNumber name='PERC_WARN'>
+      0
+  </oneNumber>
+</newNumberVector>
+<newTextVector device='AAG Solo Weather' name='WATCH_SOURCE'>
+  <oneText name='URL'>
+      http://aagsolo.local/cgi-bin/cgiLastData
+  </oneText>
+</newTextVector>
+<newTextVector device='AAG Solo Weather' name='KEYWORD'>
+  <oneText name='RAIN'>
+      rain
+  </oneText>
+  <oneText name='TEMP'>
+      temp
+  </oneText>
+  <oneText name='WIND'>
+      wind
+  </oneText>
+  <oneText name='GUST'>
+      gust
+  </oneText>
+  <oneText name='FORECAST'>
+      safe
+  </oneText>
+</newTextVector>
+<newTextVector device='AAG Solo Weather' name='SEPARATOR_KEYWORD'>
+  <oneText name='SEPARATOR'>
+      =
+  </oneText>
+</newTextVector>
+</INDIDriver>
