@@ -1,0 +1,217 @@
+<INDIDriver>
+<newSwitchVector device='Dome Scripting Gateway' name='DEBUG'>
+  <oneSwitch name='ENABLE'>
+      Off
+  </oneSwitch>
+  <oneSwitch name='DISABLE'>
+      On
+  </oneSwitch>
+</newSwitchVector>
+<newNumberVector device='Dome Scripting Gateway' name='POLLING_PERIOD'>
+  <oneNumber name='PERIOD_MS'>
+      2000
+  </oneNumber>
+</newNumberVector>
+<newSwitchVector device='Dome Scripting Gateway' name='CONNECTION_MODE'>
+  <oneSwitch name='CONNECTION_SERIAL'>
+      On
+  </oneSwitch>
+  <oneSwitch name='CONNECTION_TCP'>
+      Off
+  </oneSwitch>
+</newSwitchVector>
+<newTextVector device='Dome Scripting Gateway' name='DEVICE_PORT'>
+  <oneText name='PORT'>
+      /dev/ttyUSB0
+  </oneText>
+</newTextVector>
+<newSwitchVector device='Dome Scripting Gateway' name='DEVICE_BAUD_RATE'>
+  <oneSwitch name='9600'>
+      On
+  </oneSwitch>
+  <oneSwitch name='19200'>
+      Off
+  </oneSwitch>
+  <oneSwitch name='38400'>
+      Off
+  </oneSwitch>
+  <oneSwitch name='57600'>
+      Off
+  </oneSwitch>
+  <oneSwitch name='115200'>
+      Off
+  </oneSwitch>
+  <oneSwitch name='230400'>
+      Off
+  </oneSwitch>
+</newSwitchVector>
+<newSwitchVector device='Dome Scripting Gateway' name='DEVICE_AUTO_SEARCH'>
+  <oneSwitch name='ENABLED'>
+      On
+  </oneSwitch>
+  <oneSwitch name='DISABLED'>
+      Off
+  </oneSwitch>
+</newSwitchVector>
+<newSwitchVector device='Dome Scripting Gateway' name='DEBUG_LEVEL'>
+  <oneSwitch name='DBG_ERROR'>
+      On
+  </oneSwitch>
+  <oneSwitch name='DBG_WARNING'>
+      On
+  </oneSwitch>
+  <oneSwitch name='DBG_SESSION'>
+      On
+  </oneSwitch>
+  <oneSwitch name='DBG_DEBUG'>
+      Off
+  </oneSwitch>
+</newSwitchVector>
+<newSwitchVector device='Dome Scripting Gateway' name='LOGGING_LEVEL'>
+  <oneSwitch name='LOG_ERROR'>
+      On
+  </oneSwitch>
+  <oneSwitch name='LOG_WARNING'>
+      On
+  </oneSwitch>
+  <oneSwitch name='LOG_SESSION'>
+      On
+  </oneSwitch>
+  <oneSwitch name='LOG_DEBUG'>
+      Off
+  </oneSwitch>
+</newSwitchVector>
+<newSwitchVector device='Dome Scripting Gateway' name='LOG_OUTPUT'>
+  <oneSwitch name='CLIENT_DEBUG'>
+      On
+  </oneSwitch>
+  <oneSwitch name='FILE_DEBUG'>
+      Off
+  </oneSwitch>
+</newSwitchVector>
+<newTextVector device='Dome Scripting Gateway' name='ACTIVE_DEVICES'>
+  <oneText name='ACTIVE_TELESCOPE'>
+      Telescope Simulator
+  </oneText>
+  <oneText name='ACTIVE_WEATHER'>
+      WunderGround
+  </oneText>
+</newTextVector>
+<newSwitchVector device='Dome Scripting Gateway' name='TELESCOPE_POLICY'>
+  <oneSwitch name='NO_ACTION'>
+      On
+  </oneSwitch>
+  <oneSwitch name='LOCK_PARKING'>
+      Off
+  </oneSwitch>
+</newSwitchVector>
+<newNumberVector device='Dome Scripting Gateway' name='Presets'>
+  <oneNumber name='Preset 1'>
+      0
+  </oneNumber>
+  <oneNumber name='Preset 2'>
+      0
+  </oneNumber>
+  <oneNumber name='Preset 3'>
+      0
+  </oneNumber>
+</newNumberVector>
+<newNumberVector device='Dome Scripting Gateway' name='DOME_PARAMS'>
+  <oneNumber name='AUTOSYNC_THRESHOLD'>
+      0.5
+  </oneNumber>
+</newNumberVector>
+<newNumberVector device='Dome Scripting Gateway' name='DOME_MEASUREMENTS'>
+  <oneNumber name='DM_DOME_RADIUS'>
+      0
+  </oneNumber>
+  <oneNumber name='DM_SHUTTER_WIDTH'>
+      0
+  </oneNumber>
+  <oneNumber name='DM_NORTH_DISPLACEMENT'>
+      0
+  </oneNumber>
+  <oneNumber name='DM_EAST_DISPLACEMENT'>
+      0
+  </oneNumber>
+  <oneNumber name='DM_UP_DISPLACEMENT'>
+      0
+  </oneNumber>
+  <oneNumber name='DM_OTA_OFFSET'>
+      0
+  </oneNumber>
+</newNumberVector>
+<newSwitchVector device='Dome Scripting Gateway' name='DOME_AUTOPARK'>
+  <oneSwitch name='Enable'>
+      Off
+  </oneSwitch>
+  <oneSwitch name='Disable'>
+      On
+  </oneSwitch>
+</newSwitchVector>
+<newSwitchVector device='Dome Scripting Gateway' name='DOME_AUTOSYNC'>
+  <oneSwitch name='DOME_AUTOSYNC_ENABLE'>
+      Off
+  </oneSwitch>
+  <oneSwitch name='DOME_AUTOSYNC_DISABLE'>
+      On
+  </oneSwitch>
+</newSwitchVector>
+<newSwitchVector device='Dome Scripting Gateway' name='USEJOYSTICK'>
+  <oneSwitch name='ENABLE'>
+      Off
+  </oneSwitch>
+  <oneSwitch name='DISABLE'>
+      On
+  </oneSwitch>
+</newSwitchVector>
+<newTextVector device='Dome Scripting Gateway' name='JOYSTICKSETTINGS'>
+  <oneText name='Dome Abort'>
+      BUTTON_3
+  </oneText>
+  <oneText name='Dome CW'>
+      BUTTON_1
+  </oneText>
+  <oneText name='Dome CCW'>
+      BUTTON_2
+  </oneText>
+</newTextVector>
+<newTextVector device='Dome Scripting Gateway' name='SCRIPTS'>
+  <oneText name='FOLDER'>
+      /usr/share/indi/scripts
+  </oneText>
+  <oneText name='SCRIPT_CONNECT'>
+      connect.py
+  </oneText>
+  <oneText name='SCRIPT_DISCONNECT'>
+      disconnect.py
+  </oneText>
+  <oneText name='SCRIPT_STATUS'>
+      status.py
+  </oneText>
+  <oneText name='SCRIPT_OPEN'>
+      open.py
+  </oneText>
+  <oneText name='SCRIPT_CLOSE'>
+      close.py
+  </oneText>
+  <oneText name='SCRIPT_PARK'>
+      park.py
+  </oneText>
+  <oneText name='SCRIPT_UNPARK'>
+      unpark.py
+  </oneText>
+  <oneText name='SCRIPT_GOTO'>
+      goto.py
+  </oneText>
+  <oneText name='SCRIPT_MOVE_CW'>
+      move_cw.py
+  </oneText>
+  <oneText name='SCRIPT_MOVE_CCW'>
+      move_ccw.py
+  </oneText>
+  <oneText name='SCRIPT_ABORT'>
+      abort.py
+  </oneText>
+</newTextVector>
+</INDIDriver>

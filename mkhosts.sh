@@ -15,10 +15,7 @@ _mkhosts() {
   fi
 }
 
-#_mkhosts system-power
 _mkhosts system-east
 _mkhosts system-west
-#_mkhosts system-main
-#_mkhosts system-weather
 _mkhosts system-obs
 
