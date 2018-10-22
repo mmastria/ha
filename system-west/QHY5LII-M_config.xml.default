@@ -1,0 +1,183 @@
+<INDIDriver>
+<newSwitchVector device='QHY CCD QHY5LII-M-6097e' name='DEBUG'>
+  <oneSwitch name='ENABLE'>
+      Off
+  </oneSwitch>
+  <oneSwitch name='DISABLE'>
+      On
+  </oneSwitch>
+</newSwitchVector>
+<newNumberVector device='QHY CCD QHY5LII-M-6097e' name='POLLING_PERIOD'>
+  <oneNumber name='PERIOD_MS'>
+      1000
+  </oneNumber>
+</newNumberVector>
+<newSwitchVector device='QHY CCD QHY5LII-M-6097e' name='DEBUG_LEVEL'>
+  <oneSwitch name='DBG_ERROR'>
+      On
+  </oneSwitch>
+  <oneSwitch name='DBG_WARNING'>
+      On
+  </oneSwitch>
+  <oneSwitch name='DBG_SESSION'>
+      On
+  </oneSwitch>
+  <oneSwitch name='DBG_DEBUG'>
+      Off
+  </oneSwitch>
+  <oneSwitch name='DBG_EXTRA_1'>
+      Off
+  </oneSwitch>
+</newSwitchVector>
+<newSwitchVector device='QHY CCD QHY5LII-M-6097e' name='LOGGING_LEVEL'>
+  <oneSwitch name='LOG_ERROR'>
+      On
+  </oneSwitch>
+  <oneSwitch name='LOG_WARNING'>
+      On
+  </oneSwitch>
+  <oneSwitch name='LOG_SESSION'>
+      On
+  </oneSwitch>
+  <oneSwitch name='LOG_DEBUG'>
+      Off
+  </oneSwitch>
+  <oneSwitch name='LOG_EXTRA_1'>
+      Off
+  </oneSwitch>
+</newSwitchVector>
+<newSwitchVector device='QHY CCD QHY5LII-M-6097e' name='LOG_OUTPUT'>
+  <oneSwitch name='CLIENT_DEBUG'>
+      On
+  </oneSwitch>
+  <oneSwitch name='FILE_DEBUG'>
+      Off
+  </oneSwitch>
+</newSwitchVector>
+<newTextVector device='QHY CCD QHY5LII-M-6097e' name='ACTIVE_DEVICES'>
+  <oneText name='ACTIVE_TELESCOPE'>
+      iOptron CEM120
+  </oneText>
+  <oneText name='ACTIVE_FOCUSER'>
+      
+  </oneText>
+  <oneText name='ACTIVE_FILTER'>
+      
+  </oneText>
+  <oneText name='ACTIVE_SKYQUALITY'>
+      
+  </oneText>
+</newTextVector>
+<newSwitchVector device='QHY CCD QHY5LII-M-6097e' name='UPLOAD_MODE'>
+  <oneSwitch name='UPLOAD_CLIENT'>
+      On
+  </oneSwitch>
+  <oneSwitch name='UPLOAD_LOCAL'>
+      Off
+  </oneSwitch>
+  <oneSwitch name='UPLOAD_BOTH'>
+      Off
+  </oneSwitch>
+</newSwitchVector>
+<newTextVector device='QHY CCD QHY5LII-M-6097e' name='UPLOAD_SETTINGS'>
+  <oneText name='UPLOAD_DIR'>
+      /home/west
+  </oneText>
+  <oneText name='UPLOAD_PREFIX'>
+      IMAGE_XXX
+  </oneText>
+</newTextVector>
+<newSwitchVector device='QHY CCD QHY5LII-M-6097e' name='TELESCOPE_TYPE'>
+  <oneSwitch name='TELESCOPE_PRIMARY'>
+      On
+  </oneSwitch>
+  <oneSwitch name='TELESCOPE_GUIDE'>
+      Off
+  </oneSwitch>
+</newSwitchVector>
+<newSwitchVector device='QHY CCD QHY5LII-M-6097e' name='CCD_EXPOSURE_LOOP'>
+  <oneSwitch name='LOOP_ON'>
+      Off
+  </oneSwitch>
+  <oneSwitch name='LOOP_OFF'>
+      On
+  </oneSwitch>
+</newSwitchVector>
+<newSwitchVector device='QHY CCD QHY5LII-M-6097e' name='CCD_COMPRESSION'>
+  <oneSwitch name='CCD_COMPRESS'>
+      Off
+  </oneSwitch>
+  <oneSwitch name='CCD_RAW'>
+      On
+  </oneSwitch>
+</newSwitchVector>
+<newNumberVector device='QHY CCD QHY5LII-M-6097e' name='CCD_FRAME'>
+  <oneNumber name='X'>
+      0
+  </oneNumber>
+  <oneNumber name='Y'>
+      0
+  </oneNumber>
+  <oneNumber name='WIDTH'>
+      1280
+  </oneNumber>
+  <oneNumber name='HEIGHT'>
+      960
+  </oneNumber>
+</newNumberVector>
+<newNumberVector device='QHY CCD QHY5LII-M-6097e' name='CCD_BINNING'>
+  <oneNumber name='HOR_BIN'>
+      1
+  </oneNumber>
+  <oneNumber name='VER_BIN'>
+      1
+  </oneNumber>
+</newNumberVector>
+<newSwitchVector device='QHY CCD QHY5LII-M-6097e' name='CCD_STREAM_ENCODER'>
+  <oneSwitch name='RAW'>
+      On
+  </oneSwitch>
+  <oneSwitch name='MJPEG'>
+      Off
+  </oneSwitch>
+</newSwitchVector>
+<newTextVector device='QHY CCD QHY5LII-M-6097e' name='RECORD_FILE'>
+  <oneText name='RECORD_FILE_DIR'>
+      /home/west/indi__D_
+  </oneText>
+  <oneText name='RECORD_FILE_NAME'>
+      indi_record__T_
+  </oneText>
+</newTextVector>
+<newNumberVector device='QHY CCD QHY5LII-M-6097e' name='RECORD_OPTIONS'>
+  <oneNumber name='RECORD_DURATION'>
+      1
+  </oneNumber>
+  <oneNumber name='RECORD_FRAME_TOTAL'>
+      30
+  </oneNumber>
+</newNumberVector>
+<newSwitchVector device='QHY CCD QHY5LII-M-6097e' name='CCD_STREAM_RECORDER'>
+  <oneSwitch name='SER'>
+      On
+  </oneSwitch>
+  <oneSwitch name='OGV'>
+      Off
+  </oneSwitch>
+</newSwitchVector>
+<newNumberVector device='QHY CCD QHY5LII-M-6097e' name='CCD_GAIN'>
+  <oneNumber name='GAIN'>
+      30
+  </oneNumber>
+</newNumberVector>
+<newNumberVector device='QHY CCD QHY5LII-M-6097e' name='USB_SPEED'>
+  <oneNumber name='Speed'>
+      0
+  </oneNumber>
+</newNumberVector>
+<newNumberVector device='QHY CCD QHY5LII-M-6097e' name='USB_TRAFFIC'>
+  <oneNumber name='Speed'>
+      30
+  </oneNumber>
+</newNumberVector>
+</INDIDriver>
