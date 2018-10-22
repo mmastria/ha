@@ -1,7 +1,7 @@
 <INDIDriver>
 <newTextVector device='Astrometry' name='ACTIVE_DEVICES'>
   <oneText name='ACTIVE_CCD'>
-      CCD Simulator
+      Atik 383L+ CCD
   </oneText>
 </newTextVector>
 <newTextVector device='Astrometry' name='ASTROMETRY_SETTINGS'>
