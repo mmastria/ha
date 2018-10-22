@@ -79,7 +79,7 @@
 </newTextVector>
 <newNumberVector device='Vantage' name='GEOGRAPHIC_COORD'>
   <oneNumber name='LAT'>
-      -24.086700000000000443
+      -23.463599999999999568
   </oneNumber>
   <oneNumber name='LONG'>
       313.73000000000001819
@@ -90,7 +90,7 @@
 </newNumberVector>
 <newNumberVector device='Vantage' name='WEATHER_UPDATE'>
   <oneNumber name='PERIOD'>
-      10
+      60
   </oneNumber>
 </newNumberVector>
 <newNumberVector device='Vantage' name='WEATHER_FORECAST'>

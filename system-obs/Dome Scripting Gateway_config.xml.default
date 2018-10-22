@@ -105,41 +105,11 @@
       Off
   </oneSwitch>
 </newSwitchVector>
-<newNumberVector device='Dome Scripting Gateway' name='Presets'>
-  <oneNumber name='Preset 1'>
-      0
-  </oneNumber>
-  <oneNumber name='Preset 2'>
-      0
-  </oneNumber>
-  <oneNumber name='Preset 3'>
-      0
-  </oneNumber>
+<newNumberVector device='' name=''>
 </newNumberVector>
-<newNumberVector device='Dome Scripting Gateway' name='DOME_PARAMS'>
-  <oneNumber name='AUTOSYNC_THRESHOLD'>
-      0.5
-  </oneNumber>
+<newNumberVector device='' name=''>
 </newNumberVector>
-<newNumberVector device='Dome Scripting Gateway' name='DOME_MEASUREMENTS'>
-  <oneNumber name='DM_DOME_RADIUS'>
-      0
-  </oneNumber>
-  <oneNumber name='DM_SHUTTER_WIDTH'>
-      0
-  </oneNumber>
-  <oneNumber name='DM_NORTH_DISPLACEMENT'>
-      0
-  </oneNumber>
-  <oneNumber name='DM_EAST_DISPLACEMENT'>
-      0
-  </oneNumber>
-  <oneNumber name='DM_UP_DISPLACEMENT'>
-      0
-  </oneNumber>
-  <oneNumber name='DM_OTA_OFFSET'>
-      0
-  </oneNumber>
+<newNumberVector device='' name=''>
 </newNumberVector>
 <newSwitchVector device='Dome Scripting Gateway' name='DOME_AUTOPARK'>
   <oneSwitch name='Enable'>
@@ -149,13 +119,7 @@
       On
   </oneSwitch>
 </newSwitchVector>
-<newSwitchVector device='Dome Scripting Gateway' name='DOME_AUTOSYNC'>
-  <oneSwitch name='DOME_AUTOSYNC_ENABLE'>
-      Off
-  </oneSwitch>
-  <oneSwitch name='DOME_AUTOSYNC_DISABLE'>
-      On
-  </oneSwitch>
+<newSwitchVector device='' name=''>
 </newSwitchVector>
 <newSwitchVector device='Dome Scripting Gateway' name='USEJOYSTICK'>
   <oneSwitch name='ENABLE'>
@@ -168,12 +132,6 @@
 <newTextVector device='Dome Scripting Gateway' name='JOYSTICKSETTINGS'>
   <oneText name='Dome Abort'>
       BUTTON_3
-  </oneText>
-  <oneText name='Dome CW'>
-      BUTTON_1
-  </oneText>
-  <oneText name='Dome CCW'>
-      BUTTON_2
   </oneText>
 </newTextVector>
 <newTextVector device='Dome Scripting Gateway' name='SCRIPTS'>
