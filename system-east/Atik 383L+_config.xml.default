@@ -1,0 +1,127 @@
+<INDIDriver>
+<newNumberVector device='Atik 383L+ CCD' name='TIMER_THRESHOLD'>
+  <oneNumber name='TIMER_THRESHOLD'>
+      2
+  </oneNumber>
+</newNumberVector>
+<newNumberVector device='Atik 383L+ CCD' name='BUFFER_SIZE'>
+  <oneNumber name='BUFFER_SIZE'>
+      8
+  </oneNumber>
+</newNumberVector>
+<newSwitchVector device='Atik 383L+ CCD' name='DEBUG'>
+  <oneSwitch name='ENABLE'>
+      Off
+  </oneSwitch>
+  <oneSwitch name='DISABLE'>
+      On
+  </oneSwitch>
+</newSwitchVector>
+<newSwitchVector device='Atik 383L+ CCD' name='DEBUG_LEVEL'>
+  <oneSwitch name='DBG_ERROR'>
+      On
+  </oneSwitch>
+  <oneSwitch name='DBG_WARNING'>
+      On
+  </oneSwitch>
+  <oneSwitch name='DBG_SESSION'>
+      On
+  </oneSwitch>
+  <oneSwitch name='DBG_DEBUG'>
+      Off
+  </oneSwitch>
+</newSwitchVector>
+<newSwitchVector device='Atik 383L+ CCD' name='LOGGING_LEVEL'>
+  <oneSwitch name='LOG_ERROR'>
+      On
+  </oneSwitch>
+  <oneSwitch name='LOG_WARNING'>
+      On
+  </oneSwitch>
+  <oneSwitch name='LOG_SESSION'>
+      On
+  </oneSwitch>
+  <oneSwitch name='LOG_DEBUG'>
+      Off
+  </oneSwitch>
+</newSwitchVector>
+<newSwitchVector device='Atik 383L+ CCD' name='LOG_OUTPUT'>
+  <oneSwitch name='CLIENT_DEBUG'>
+      On
+  </oneSwitch>
+  <oneSwitch name='FILE_DEBUG'>
+      Off
+  </oneSwitch>
+</newSwitchVector>
+<newTextVector device='Atik 383L+ CCD' name='ACTIVE_DEVICES'>
+  <oneText name='ACTIVE_TELESCOPE'>
+      iOptron CEM60
+  </oneText>
+  <oneText name='ACTIVE_FOCUSER'>
+      Armadillo focuser Main
+  </oneText>
+  <oneText name='ACTIVE_FILTER'>
+      SX Whell
+  </oneText>
+  <oneText name='ACTIVE_SKYQUALITY'>
+      Weather Meta
+  </oneText>
+</newTextVector>
+<newSwitchVector device='Atik 383L+ CCD' name='UPLOAD_MODE'>
+  <oneSwitch name='UPLOAD_CLIENT'>
+      On
+  </oneSwitch>
+  <oneSwitch name='UPLOAD_LOCAL'>
+      Off
+  </oneSwitch>
+  <oneSwitch name='UPLOAD_BOTH'>
+      Off
+  </oneSwitch>
+</newSwitchVector>
+<newTextVector device='Atik 383L+ CCD' name='UPLOAD_SETTINGS'>
+  <oneText name='UPLOAD_DIR'>
+      /home/east
+  </oneText>
+  <oneText name='UPLOAD_PREFIX'>
+      IMAGE_XXX
+  </oneText>
+</newTextVector>
+<newSwitchVector device='Atik 383L+ CCD' name='TELESCOPE_TYPE'>
+  <oneSwitch name='TELESCOPE_PRIMARY'>
+      On
+  </oneSwitch>
+  <oneSwitch name='TELESCOPE_GUIDE'>
+      Off
+  </oneSwitch>
+</newSwitchVector>
+<newSwitchVector device='Atik 383L+ CCD' name='CCD_COMPRESSION'>
+  <oneSwitch name='CCD_COMPRESS'>
+      Off
+  </oneSwitch>
+  <oneSwitch name='CCD_RAW'>
+      On
+  </oneSwitch>
+</newSwitchVector>
+<newNumberVector device='Atik 383L+ CCD' name='CCD_FRAME'>
+  <oneNumber name='X'>
+      0
+  </oneNumber>
+  <oneNumber name='Y'>
+      0
+  </oneNumber>
+  <oneNumber name='WIDTH'>
+      3326
+  </oneNumber>
+  <oneNumber name='HEIGHT'>
+      2504
+  </oneNumber>
+</newNumberVector>
+<newNumberVector device='Atik 383L+ CCD' name='CCD_BINNING'>
+  <oneNumber name='HOR_BIN'>
+      1
+  </oneNumber>
+  <oneNumber name='VER_BIN'>
+      1
+  </oneNumber>
+</newNumberVector>
+</INDIDriver>
