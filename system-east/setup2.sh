@@ -1,13 +1,14 @@
 #!/bin/bash
 
 # iOptron CEM60
-# Atik  383L+
+# Atik 383L+
 # Starlight Xpress Filter Wheel
 # QHY5L-II Mono
+# Astrometry 
+# WatchDog
 # Seletek Armadillo 2 Remote
-# Astrometry Remote
-# AAG CloudWatcher Remote
-# RollOff Roof Remote
+# Weather Meta Remote
+# Dome Scripting Gateway Remote
 
 [ $(grep east /etc/passwd|wc -l) -eq 0 ] && \
 useradd -m -s /bin/bash east && \
