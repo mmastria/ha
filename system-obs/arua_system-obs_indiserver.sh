@@ -27,6 +27,7 @@ echo "start indi_watchdog -n \"WatchDog\" -c \"$HOME/.indi/WatchDog_config.xml\"
 echo "start indi_v4l2_ccd -n \"Back Camera\" -c \"$HOME/.indi/Back Camera_config.xml\"" > ~/.indi/indiFIFO
 echo "start indi_armadillo_focus -n \"Armadillo focuser Main\" -c \"$HOME/.indi/Armadillo focuser main_config.xml\"" > ~/.indi/indiFIFO
 echo "start indi_armadillo_focus -n \"Armadillo focuser Exp\" -c \"$HOME/.indi/Armadillo focuser exp_config.xml\"" > ~/.indi/indiFIFO
+echo "start indi_rtlsdr_detector -n \"RTL-SDR Receiver\" -c \"$HOME/.indi/RTL-SDR Receiver_config.xml\"" > ~/.indi/indiFIFO
 
 wait "$child"
 echo "stopping indiserver"

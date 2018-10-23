@@ -117,7 +117,7 @@ bool WeatherWatcher::createPropertiesFromMap()
     {
         if (x.first == keywordT[1].text)
         {
-            addParameter("WEATHER_TEMPERATURE", "Temperature (C)", -10, 40, 10);
+            addParameter("WEATHER_TEMPERATURE", "Temperature (C)", -10, 60, 10);
             setCriticalParameter("WEATHER_TEMPERATURE");
         }
         else if (x.first == keywordT[2].text)
