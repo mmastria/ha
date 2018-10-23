@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# https://github.com/keenerd/rtl-sdr/blob/master/rtl-sdr.rules
+
 # Bus 001 Device 006: ID 0bda:2838 Realtek Semiconductor Corp. RTL2838 DVB-T
 [ ! -f /lib/udev/rules.d/99-rtl-sdr.rules ] && \
 cat > /lib/udev/rules.d/99-rtl-sdr.rules <<- EOF
