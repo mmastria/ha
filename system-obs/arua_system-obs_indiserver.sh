@@ -16,11 +16,10 @@ mkfifo ~/.indi/indiFIFO
 /usr/bin/indiserver -p 7624 -m 100 -v -f ~/.indi/indiFIFO &
 child=$!
 
-# echo "start indi_astrometry -n \"Astrometry\" -c \"$HOME/.indi/Astrometry_config.xml\"" > ~/.indi/indiFIFO
 echo "start indi_wiringpi_gpio -n \"Power System\" -c \"$HOME/.indi/Power System_config.xml\"" > ~/.indi/indiFIFO
 /usr/share/indi/scripts/indi_wiringpi_gpio.py
 echo "start indi_watcher_weather -n \"AAG Solo Weather\" -c \"$HOME/.indi/AAG Solo Weather_config.xml\"" > ~/.indi/indiFIFO
-/usr/share/indi/scripts/indi_watcher_weather.py
+#/usr/share/indi/scripts/indi_watcher_weather.py
 echo "start indi_vantage_weather -n \"Vantage\" -c \"$HOME/.indi/Vantage_config.xml\"" > ~/.indi/indiFIFO
 echo "start indi_meta_weather -n \"Weather Meta\" -c \"$HOME/.indi/Weather Meta_config.xml\"" > ~/.indi/indiFIFO
 echo "start indi_script_dome -n \"Dome Scripting Gateway\" -c \"$HOME/.indi/Dome Scripting Gateway_config.xml\"" > ~/.indi/indiFIFO
