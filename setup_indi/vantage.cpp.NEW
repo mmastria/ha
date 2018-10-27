@@ -283,7 +283,7 @@ IPState Vantage::updateWeather()
     // Wind Speed
     uint8_t windValue = loopData[14];
 
-    LOGF_DEBUG("Raw Wind Speed (%d) [%#X4]", windValue, loopData[14]);
+    LOGF_DEBUG("Raw Wind Speed (%d) [%#4X]", windValue, loopData[14]);
 
     setParameterValue("WEATHER_WIND_SPEED", windValue / 0.62137);
 
