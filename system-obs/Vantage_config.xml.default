@@ -79,13 +79,13 @@
 </newTextVector>
 <newNumberVector device='Vantage' name='GEOGRAPHIC_COORD'>
   <oneNumber name='LAT'>
-      -23.463599999999999568
+      -23.547499999999999432
   </oneNumber>
   <oneNumber name='LONG'>
-      313.73000000000001819
+      -46.633099999999998886
   </oneNumber>
   <oneNumber name='ELEV'>
-      754
+      765.39999999999997726
   </oneNumber>
 </newNumberVector>
 <newNumberVector device='Vantage' name='WEATHER_UPDATE'>
@@ -98,10 +98,10 @@
       0
   </oneNumber>
   <oneNumber name='MAX_OK'>
-      1
+      0
   </oneNumber>
   <oneNumber name='PERC_WARN'>
-      0
+      15
   </oneNumber>
 </newNumberVector>
 <newNumberVector device='Vantage' name='WEATHER_TEMPERATURE'>

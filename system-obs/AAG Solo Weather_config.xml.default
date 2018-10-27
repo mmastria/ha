@@ -55,13 +55,13 @@
 </newTextVector>
 <newNumberVector device='AAG Solo Weather' name='GEOGRAPHIC_COORD'>
   <oneNumber name='LAT'>
-      -23.463599999999999568
+      -23.547499999999999432
   </oneNumber>
   <oneNumber name='LONG'>
-      313.73000000000001819
+      -46.633099999999998886
   </oneNumber>
   <oneNumber name='ELEV'>
-      754
+      765.39999999999997726
   </oneNumber>
 </newNumberVector>
 <newNumberVector device='AAG Solo Weather' name='WEATHER_UPDATE'>
@@ -82,18 +82,18 @@
 </newNumberVector>
 <newNumberVector device='AAG Solo Weather' name='WEATHER_RAIN_HOUR'>
   <oneNumber name='MIN_OK'>
-      2000
+      2600
   </oneNumber>
   <oneNumber name='MAX_OK'>
       3000
   </oneNumber>
   <oneNumber name='PERC_WARN'>
-      10
+      5
   </oneNumber>
 </newNumberVector>
 <newNumberVector device='AAG Solo Weather' name='WEATHER_FORECAST'>
   <oneNumber name='MIN_OK'>
-      0
+      1
   </oneNumber>
   <oneNumber name='MAX_OK'>
       1
@@ -104,13 +104,13 @@
 </newNumberVector>
 <newNumberVector device='AAG Solo Weather' name='WEATHER_TEMPERATURE'>
   <oneNumber name='MIN_OK'>
-      -10
+      -20
   </oneNumber>
   <oneNumber name='MAX_OK'>
-      40
+      1
   </oneNumber>
   <oneNumber name='PERC_WARN'>
-      0
+      10
   </oneNumber>
 </newNumberVector>
 <newNumberVector device='AAG Solo Weather' name='WEATHER_WIND_SPEED'>
@@ -134,7 +134,7 @@
       rain
   </oneText>
   <oneText name='TEMP'>
-      temp
+      clouds
   </oneText>
   <oneText name='WIND'>
       wind
