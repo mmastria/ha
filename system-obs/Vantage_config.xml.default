@@ -82,7 +82,7 @@
       -23.547499999999999432
   </oneNumber>
   <oneNumber name='LONG'>
-      -46.633099999999998886
+      313.36700000000001864
   </oneNumber>
   <oneNumber name='ELEV'>
       765.39999999999997726
@@ -98,10 +98,10 @@
       0
   </oneNumber>
   <oneNumber name='MAX_OK'>
-      0
+      1
   </oneNumber>
   <oneNumber name='PERC_WARN'>
-      15
+      0
   </oneNumber>
 </newNumberVector>
 <newNumberVector device='Vantage' name='WEATHER_TEMPERATURE'>
@@ -137,7 +137,7 @@
       15
   </oneNumber>
 </newNumberVector>
-<newNumberVector device='Vantage' name='WEAHTER_WIND_DIRECTION'>
+<newNumberVector device='Vantage' name='WEATHER_WIND_DIRECTION'>
   <oneNumber name='MIN_OK'>
       0
   </oneNumber>
