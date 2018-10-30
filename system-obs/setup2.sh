@@ -39,6 +39,10 @@ sed -i 's/^#alias l/alias l/g' /home/obs/.bashrc
 # (crontab -l 2>/dev/null; echo "* * * * * /usr/bin/curl http://aagsolo.local/cgi-bin/cgiLastData -o /tmp/aagsolo.txt") | crontab -
 
 
+# PiVPN
+# curl -L https://install.pivpn.io | bash
+
+
 # every execution
 
 cp -f *.service /etc/systemd/system/
