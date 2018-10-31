@@ -125,10 +125,10 @@
       Off
   </oneSwitch>
   <oneSwitch name='5x'>
-      On
+      Off
   </oneSwitch>
   <oneSwitch name='6x'>
-      Off
+      On
   </oneSwitch>
   <oneSwitch name='7x'>
       Off
