@@ -13,6 +13,7 @@
 [ $(grep east /etc/passwd|wc -l) -eq 0 ] && \
 useradd -m -s /bin/bash east && \
 adduser east dialout && \
+adduser east video && \
 adduser east gpio && \
 sed -i 's/^#alias l/alias l/g' /home/east/.bashrc
 

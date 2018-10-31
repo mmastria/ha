@@ -80,7 +80,7 @@
 </newSwitchVector>
 <newTextVector device='Atik 383L+ CCD' name='UPLOAD_SETTINGS'>
   <oneText name='UPLOAD_DIR'>
-      /home/east
+      
   </oneText>
   <oneText name='UPLOAD_PREFIX'>
       IMAGE_XXX
@@ -102,26 +102,4 @@
       On
   </oneSwitch>
 </newSwitchVector>
-<newNumberVector device='Atik 383L+ CCD' name='CCD_FRAME'>
-  <oneNumber name='X'>
-      0
-  </oneNumber>
-  <oneNumber name='Y'>
-      0
-  </oneNumber>
-  <oneNumber name='WIDTH'>
-      3326
-  </oneNumber>
-  <oneNumber name='HEIGHT'>
-      2504
-  </oneNumber>
-</newNumberVector>
-<newNumberVector device='Atik 383L+ CCD' name='CCD_BINNING'>
-  <oneNumber name='HOR_BIN'>
-      1
-  </oneNumber>
-  <oneNumber name='VER_BIN'>
-      1
-  </oneNumber>
-</newNumberVector>
 </INDIDriver>
