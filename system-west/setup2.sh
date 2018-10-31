@@ -12,6 +12,7 @@
 [ $(grep west /etc/passwd|wc -l) -eq 0 ] && \
 useradd -m -s /bin/bash west && \
 adduser west dialout && \
+adduser west video && \
 adduser west gpio && \
 sed -i 's/^#alias l/alias l/g' /home/west/.bashrc
 

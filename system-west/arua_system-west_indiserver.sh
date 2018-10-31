@@ -24,6 +24,8 @@ echo "start indi_watchdog -n \"WatchDog\" -c \"$HOME/.indi/WatchDog_config.xml\"
 echo "start \"Armadillo focuser Exp\"@system-obs:7624" > ~/.indi/indiFIFO
 echo "start \"Weather Meta\"@system-obs:7624" > ~/.indi/indiFIFO
 echo "start \"Dome Scripting Gateway\"@system-obs:7624" > ~/.indi/indiFIFO
+echo "start \"Observ Cam\"@system-obs:7624" > ~/.indi/indiFIFO
+echo "start indi_v4l2_ccd -n \"West Camera\" -c \"$HOME/.indi/West Camera_config.xml\"" > ~/.indi/indiFIFO
 
 wait "$child"
 echo "stopping indiserver"
