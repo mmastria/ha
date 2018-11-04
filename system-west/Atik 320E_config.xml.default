@@ -17,6 +17,11 @@
       On
   </oneSwitch>
 </newSwitchVector>
+<newNumberVector device='Atik 320E CCD' name='POLLING_PERIOD'>
+  <oneNumber name='PERIOD_MS'>
+      1000
+  </oneNumber>
+</newNumberVector>
 <newSwitchVector device='Atik 320E CCD' name='DEBUG_LEVEL'>
   <oneSwitch name='DBG_ERROR'>
       On
@@ -64,7 +69,7 @@
       
   </oneText>
   <oneText name='ACTIVE_SKYQUALITY'>
-      AAG Cloud Watcher
+      Weather Meta
   </oneText>
 </newTextVector>
 <newSwitchVector device='Atik 320E CCD' name='UPLOAD_MODE'>
@@ -92,6 +97,14 @@
   </oneSwitch>
   <oneSwitch name='TELESCOPE_GUIDE'>
       Off
+  </oneSwitch>
+</newSwitchVector>
+<newSwitchVector device='Atik 320E CCD' name='CCD_EXPOSURE_LOOP'>
+  <oneSwitch name='LOOP_ON'>
+      Off
+  </oneSwitch>
+  <oneSwitch name='LOOP_OFF'>
+      On
   </oneSwitch>
 </newSwitchVector>
 <newSwitchVector device='Atik 320E CCD' name='CCD_COMPRESSION'>
