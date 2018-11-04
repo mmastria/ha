@@ -17,6 +17,11 @@
       On
   </oneSwitch>
 </newSwitchVector>
+<newNumberVector device='Atik 383L+ CCD' name='POLLING_PERIOD'>
+  <oneNumber name='PERIOD_MS'>
+      1000
+  </oneNumber>
+</newNumberVector>
 <newSwitchVector device='Atik 383L+ CCD' name='DEBUG_LEVEL'>
   <oneSwitch name='DBG_ERROR'>
       On
@@ -94,6 +99,14 @@
       Off
   </oneSwitch>
 </newSwitchVector>
+<newSwitchVector device='Atik 383L+ CCD' name='CCD_EXPOSURE_LOOP'>
+  <oneSwitch name='LOOP_ON'>
+      Off
+  </oneSwitch>
+  <oneSwitch name='LOOP_OFF'>
+      On
+  </oneSwitch>
+</newSwitchVector>
 <newSwitchVector device='Atik 383L+ CCD' name='CCD_COMPRESSION'>
   <oneSwitch name='CCD_COMPRESS'>
       Off
@@ -102,4 +115,26 @@
       On
   </oneSwitch>
 </newSwitchVector>
+<newNumberVector device='Atik 383L+ CCD' name='CCD_FRAME'>
+  <oneNumber name='X'>
+      0
+  </oneNumber>
+  <oneNumber name='Y'>
+      0
+  </oneNumber>
+  <oneNumber name='WIDTH'>
+      3326
+  </oneNumber>
+  <oneNumber name='HEIGHT'>
+      2504
+  </oneNumber>
+</newNumberVector>
+<newNumberVector device='Atik 383L+ CCD' name='CCD_BINNING'>
+  <oneNumber name='HOR_BIN'>
+      1
+  </oneNumber>
+  <oneNumber name='VER_BIN'>
+      1
+  </oneNumber>
+</newNumberVector>
 </INDIDriver>
