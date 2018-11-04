@@ -103,3 +103,8 @@ sed -i '/NTPSERVERS/ cNTPSERVERS="a.st1.ntp.br b.st1.ntp.br c.st1.ntp.br d.st1.n
 
 read -p "key to reboot"
 reboot
+
+
+# apt -y install indi-full
+# apt-get -y install python-rpi.gpio python-requests
+
