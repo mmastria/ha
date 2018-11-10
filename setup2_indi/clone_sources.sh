@@ -1,18 +1,18 @@
 #!/bin/bash
 
 pushd ~
-[ -d ~/indi ] && exit 1
-[ -d ~/wiringPi ]  && exit 1
-[ -d indi_wiringpi_gpio ] && exit 1
 
 # libindi
 # 3rd party
+[ -d ~/indi ] || \
 git clone https://github.com/indilib/indi.git
 
 # WiringPi
+[ -d ~/wiringPi ] || \ 
 git clone git://git.drogon.net/wiringPi
 
 # Indi WiringPi GPIO
+[ -d ~/indi_wiringpi_gpio ] || \ 
 git clone https://github.com/magnue/indi_wiringpi_gpio.git
 
 popd
