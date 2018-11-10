@@ -7,8 +7,8 @@ pushd ~
 
 [ -f ~/indi_wiringpi_gpio/wiringpi_gpio/wiringpi_gpio.cpp.ORIGINAL ] || cp ~/indi_wiringpi_gpio/wiringpi_gpio/wiringpi_gpio.cpp ~/indi_wiringpi_gpio/wiringpi_gpio/wiringpi_gpio.cpp.ORIGINAL
 
-diff -q ~/ha/setup_indi/wiringpi_gpio.cpp.ORIGINAL ~/indi_wiringpi_gpio/wiringpi_gpio/wiringpi_gpio.cpp.ORIGINAL || exit 1
-cp -f ~/ha/setup_indi/wiringpi_gpio.cpp.NEW ~/indi_wiringpi_gpio/wiringpi_gpio/wiringpi_gpio.cpp
+diff -q ~/ha/setup2_indi/wiringpi_gpio.cpp.ORIGINAL ~/indi_wiringpi_gpio/wiringpi_gpio/wiringpi_gpio.cpp.ORIGINAL || exit 1
+cp -f ~/ha/setup2_indi/wiringpi_gpio.cpp.NEW ~/indi_wiringpi_gpio/wiringpi_gpio/wiringpi_gpio.cpp
 
 mkdir -p ~/indi_wiringpi_gpio/build
 cd ~/indi_wiringpi_gpio/build
