@@ -8,11 +8,11 @@ pushd ~
 git clone https://github.com/indilib/indi.git
 
 # WiringPi
-[ -d ~/wiringPi ] || \ 
+[ -d ~/wiringPi ] || \
 git clone git://git.drogon.net/wiringPi
 
 # Indi WiringPi GPIO
-[ -d ~/indi_wiringpi_gpio ] || \ 
+[ -d ~/indi_wiringpi_gpio ] || \
 git clone https://github.com/magnue/indi_wiringpi_gpio.git
 
 popd
