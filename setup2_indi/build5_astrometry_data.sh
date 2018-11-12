@@ -3,7 +3,7 @@
 # Astrometry Data
 pushd ~
 
-[ -d astrometry_data ] || exit 1
+[ -d ~/astrometry_data ] && exit 1
 
 mkdir -p ~/astrometry_data
 cd ~/astrometry_data
