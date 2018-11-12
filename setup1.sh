@@ -90,7 +90,7 @@ apt-get -y install build-essential git python-dev python-pip vim cmake ntpdate \
        libraw-dev libgphoto2-dev libgsl-dev dkms \
        libboost-regex-dev libgps-dev libdc1394-22-dev \
        zlib1g-dev libffi-dev libfftw3-dev librtlsdr-dev ffmpeg gawk lsof libavcodec-dev libavdevice-dev \
-       astrometry.net astrometry-data*
+       astrometry.net
 [ '$DEVICE' == 'aagsolo' ] && apt-get -y install swig 
 [ '$DEVICE' != 'aagsolo' ] && apt-get -y install swig2.0 libz3-dev
 apt-get -y --fix-broken install
