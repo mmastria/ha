@@ -90,12 +90,20 @@ apt-get -y install build-essential git python-dev python-pip vim cmake ntpdate \
        libraw-dev libgphoto2-dev libgsl-dev dkms \
        libboost-regex-dev libgps-dev libdc1394-22-dev \
        zlib1g-dev libffi-dev libfftw3-dev librtlsdr-dev ffmpeg gawk lsof libavcodec-dev libavdevice-dev \
+       libgtest-dev google-mock oggvideotools \
        astrometry.net
 [ '$DEVICE' == 'aagsolo' ] && apt-get -y install swig 
 [ '$DEVICE' != 'aagsolo' ] && apt-get -y install swig2.0 libz3-dev
 apt-get -y --fix-broken install
 apt-get -y autoremove
 apt-get -y clean 
+pushd /usr/src/gtest
+cmake CMakeLists.txt
+cmake
+cp *.a /usr/lib
+cd /usr/src/gmock/make
+make
+popd
 [ ! -f /usr/lib/arm-linux-gnueabihf/libnova-0.14.so.0 ] && ln -s /usr/lib/arm-linux-gnueabihf/libnova-0.16.so.0 /usr/lib/arm-linux-gnueabihf/libnova-0.14.so.0
 [ ! -f /usr/bin/swig ] && ln -s /usr/bin/swig2.0 /usr/bin/swig
 sed -i '/NTPDATE_USE_NTP_CONF/ cNTPDATE_USE_NTP_CONF=no' /etc/default/ntpdate

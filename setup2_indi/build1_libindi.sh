@@ -18,9 +18,9 @@ diff -q ~/ha/setup2_indi/indidome.cpp.ORIGINAL ~/indi/libindi/libs/indibase/indi
 diff -q ~/ha/setup2_indi/dome_script.cpp.ORIGINAL ~/indi/libindi/drivers/dome/dome_script.cpp.ORIGINAL || exit 1
 diff -q ~/ha/setup2_indi/weatherwatcher.cpp.ORIGINAL ~/indi/libindi/drivers/weather/weatherwatcher.cpp.ORIGINAL || exit 1
 
-cp -f ~/ha/setup2_indi/indidome.cpp.NEW ~/indi/libindi/libs/indibase/indidome.cpp 
-cp -f ~/ha/setup2_indi/dome_script.cpp.NEW ~/indi/libindi/drivers/dome/dome_script.cpp 
-cp -f ~/ha/setup2_indi/weatherwatcher.cpp.NEW ~/indi/libindi/drivers/weather/weatherwatcher.cpp
+#cp -f ~/ha/setup2_indi/indidome.cpp.NEW ~/indi/libindi/libs/indibase/indidome.cpp 
+#cp -f ~/ha/setup2_indi/dome_script.cpp.NEW ~/indi/libindi/drivers/dome/dome_script.cpp 
+#cp -f ~/ha/setup2_indi/weatherwatcher.cpp.NEW ~/indi/libindi/drivers/weather/weatherwatcher.cpp
 
 mkdir -p ~/indi/build/libindi
 cd ~/indi/build/libindi/
