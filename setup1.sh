@@ -97,12 +97,15 @@ apt-get -y install build-essential git python-dev python-pip vim cmake ntpdate \
 apt-get -y --fix-broken install
 apt-get -y autoremove
 apt-get -y clean 
-pushd /usr/src/gtest
+pushd /usr/src/googletest
+cmake CMakeLists.txt 
+cd /usr/src/gtest
 cmake CMakeLists.txt
-cmake
-cp *.a /usr/lib
-cd /usr/src/gmock/make
 make
+cp *.a /usr/lib
+cd /usr/src/gmock
+make
+cp *.a /usr/lib
 popd
 [ ! -f /usr/lib/arm-linux-gnueabihf/libnova-0.14.so.0 ] && ln -s /usr/lib/arm-linux-gnueabihf/libnova-0.16.so.0 /usr/lib/arm-linux-gnueabihf/libnova-0.14.so.0
 [ ! -f /usr/bin/swig ] && ln -s /usr/bin/swig2.0 /usr/bin/swig
