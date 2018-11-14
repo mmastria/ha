@@ -239,6 +239,10 @@ void DomeScript::TimerHit()
     if (!isConnected())
         return;
     char name[1024];
+    // --- MASTRIA - Voltei do original, precisa gerar um nome de arquivo temporario
+    char *s = tmpnam(name);
+    INDI_UNUSED(s);
+    // ---
     bool status = RunScript(SCRIPT_STATUS, name, nullptr);
     if (status)
     {
