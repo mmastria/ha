@@ -29,8 +29,7 @@ ROR_MOVE = 24
 ROR_SW_CLOSED = 11
 ROR_SW_OPEN = 25
 ROR_MOUNT_PARKED = 8
-
-# ROR_AAGSAFE = 9
+ROR_AAGSAFE = 9
 
 ROR_AAG_HOST = '192.168.0.205'
 ROR_AAG_PORT = 80
@@ -76,7 +75,7 @@ class RoR(object):
 	GPIO.setup(ROR_SW_CLOSED, GPIO.IN)
 	GPIO.setup(ROR_SW_OPEN, GPIO.IN)
 	GPIO.setup(ROR_MOUNT_PARKED, GPIO.IN)
-	# GPIO.setup(ROR_AAGSAFE, GPIO.IN)
+	GPIO.setup(ROR_AAGSAFE, GPIO.IN)
 
 	def __init__(self):
 		self._running = True
@@ -171,8 +170,8 @@ class RoR(object):
 
 	@staticmethod
 	def is_aagsafe():
-		# if GPIO.input(ROR_AAGSAFE) == GPIO.HIGH:
-                if True:
+		if GPIO.input(ROR_AAGSAFE) == GPIO.HIGH:
+                #if True:
 			return True
 		return False
 
