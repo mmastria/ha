@@ -69,7 +69,7 @@
       SX Whell
   </oneText>
   <oneText name='ACTIVE_SKYQUALITY'>
-      Weather Meta
+      
   </oneText>
 </newTextVector>
 <newSwitchVector device='Atik 383L+ CCD' name='UPLOAD_MODE'>
