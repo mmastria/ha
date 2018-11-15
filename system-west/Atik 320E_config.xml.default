@@ -69,7 +69,7 @@
       
   </oneText>
   <oneText name='ACTIVE_SKYQUALITY'>
-      Weather Meta
+      
   </oneText>
 </newTextVector>
 <newSwitchVector device='Atik 320E CCD' name='UPLOAD_MODE'>

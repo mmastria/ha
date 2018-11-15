@@ -50,16 +50,16 @@
 </newSwitchVector>
 <newTextVector device='West Camera' name='ACTIVE_DEVICES'>
   <oneText name='ACTIVE_TELESCOPE'>
-      Telescope Simulator
+      
   </oneText>
   <oneText name='ACTIVE_FOCUSER'>
-      Focuser Simulator
+      
   </oneText>
   <oneText name='ACTIVE_FILTER'>
-      CCD Simulator
+      
   </oneText>
   <oneText name='ACTIVE_SKYQUALITY'>
-      SQM
+      
   </oneText>
 </newTextVector>
 <newSwitchVector device='West Camera' name='UPLOAD_MODE'>
@@ -83,10 +83,10 @@
 </newTextVector>
 <newSwitchVector device='West Camera' name='TELESCOPE_TYPE'>
   <oneSwitch name='TELESCOPE_PRIMARY'>
-      On
+      Off
   </oneSwitch>
   <oneSwitch name='TELESCOPE_GUIDE'>
-      Off
+      On
   </oneSwitch>
 </newSwitchVector>
 <newSwitchVector device='West Camera' name='CCD_EXPOSURE_LOOP'>
@@ -113,10 +113,10 @@
       0
   </oneNumber>
   <oneNumber name='WIDTH'>
-      1280
+      640
   </oneNumber>
   <oneNumber name='HEIGHT'>
-      960
+      480
   </oneNumber>
 </newNumberVector>
 <newNumberVector device='West Camera' name='CCD_BINNING'>
@@ -154,9 +154,6 @@
 <newSwitchVector device='West Camera' name='CCD_STREAM_RECORDER'>
   <oneSwitch name='SER'>
       On
-  </oneSwitch>
-  <oneSwitch name='OGV'>
-      Off
   </oneSwitch>
 </newSwitchVector>
 <newNumberVector device='West Camera' name='Image Adjustments'>
@@ -212,9 +209,6 @@
 <newSwitchVector device='West Camera' name='CCD_STREAM_RECORDER'>
   <oneSwitch name='SER'>
       On
-  </oneSwitch>
-  <oneSwitch name='OGV'>
-      Off
   </oneSwitch>
 </newSwitchVector>
 </INDIDriver>
