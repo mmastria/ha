@@ -50,16 +50,16 @@
 </newSwitchVector>
 <newTextVector device='East Camera' name='ACTIVE_DEVICES'>
   <oneText name='ACTIVE_TELESCOPE'>
-      Telescope Simulator
+      
   </oneText>
   <oneText name='ACTIVE_FOCUSER'>
-      Focuser Simulator
+      
   </oneText>
   <oneText name='ACTIVE_FILTER'>
-      CCD Simulator
+      
   </oneText>
   <oneText name='ACTIVE_SKYQUALITY'>
-      SQM
+      
   </oneText>
 </newTextVector>
 <newSwitchVector device='East Camera' name='UPLOAD_MODE'>
@@ -83,10 +83,10 @@
 </newTextVector>
 <newSwitchVector device='East Camera' name='TELESCOPE_TYPE'>
   <oneSwitch name='TELESCOPE_PRIMARY'>
-      On
+      Off
   </oneSwitch>
   <oneSwitch name='TELESCOPE_GUIDE'>
-      Off
+      On
   </oneSwitch>
 </newSwitchVector>
 <newSwitchVector device='East Camera' name='CCD_EXPOSURE_LOOP'>
@@ -113,10 +113,10 @@
       0
   </oneNumber>
   <oneNumber name='WIDTH'>
-      1280
+      640
   </oneNumber>
   <oneNumber name='HEIGHT'>
-      960
+      480
   </oneNumber>
 </newNumberVector>
 <newNumberVector device='East Camera' name='CCD_BINNING'>
@@ -155,9 +155,6 @@
   <oneSwitch name='SER'>
       On
   </oneSwitch>
-  <oneSwitch name='OGV'>
-      Off
-  </oneSwitch>
 </newSwitchVector>
 <newNumberVector device='East Camera' name='Image Adjustments'>
   <oneNumber name='Brightness'>
@@ -173,7 +170,7 @@
       0
   </oneNumber>
   <oneNumber name='White Balance Temperature'>
-      3320
+      4000
   </oneNumber>
   <oneNumber name='Sharpness'>
       24
@@ -182,7 +179,7 @@
       1
   </oneNumber>
   <oneNumber name='Exposure (Absolute)'>
-      671
+      166
   </oneNumber>
 </newNumberVector>
 <newSwitchVector device='East Camera' name='CCD_STREAM_ENCODER'>
@@ -212,9 +209,6 @@
 <newSwitchVector device='East Camera' name='CCD_STREAM_RECORDER'>
   <oneSwitch name='SER'>
       On
-  </oneSwitch>
-  <oneSwitch name='OGV'>
-      Off
   </oneSwitch>
 </newSwitchVector>
 </INDIDriver>
