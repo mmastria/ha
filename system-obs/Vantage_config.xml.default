@@ -66,7 +66,7 @@
 </newSwitchVector>
 <newSwitchVector device='Vantage' name='LOG_OUTPUT'>
   <oneSwitch name='CLIENT_DEBUG'>
-      Off
+      On
   </oneSwitch>
   <oneSwitch name='FILE_DEBUG'>
       Off
@@ -98,7 +98,7 @@
       0
   </oneNumber>
   <oneNumber name='MAX_OK'>
-      1
+      2
   </oneNumber>
   <oneNumber name='PERC_WARN'>
       0
