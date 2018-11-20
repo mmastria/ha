@@ -119,13 +119,13 @@
 </newSwitchVector>
 <newNumberVector device='iOptron CEM60' name='GEOGRAPHIC_COORD'>
   <oneNumber name='LAT'>
-      -23.547499999999999432
+      -23.463333333333334707
   </oneNumber>
   <oneNumber name='LONG'>
-      313.36700000000001864
+      313.73000000000001819
   </oneNumber>
   <oneNumber name='ELEV'>
-      765.39999999999997726
+      0
   </oneNumber>
 </newNumberVector>
 <newSwitchVector device='iOptron CEM60' name='TELESCOPE_SLEW_RATE'>
