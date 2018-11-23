@@ -1,5 +1,7 @@
 #!/bin/bash
 
+exit
+
 # CloudMakers
 pushd ~
 [ -d CloudMakers ] && exit 1
