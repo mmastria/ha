@@ -1,6 +1,6 @@
 #!/bin/bash
 
-LIBS="libapogee libfishcamp libfli libqhy libqsi libsbig"
+LIBS="libapogee libfishcamp libfli libqhy libqsi libsbig libatik"
 
 pushd ~
 
