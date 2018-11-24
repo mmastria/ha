@@ -1,15 +1,5 @@
 <INDIDriver>
-<newNumberVector device='Atik 320E CCD' name='TIMER_THRESHOLD'>
-  <oneNumber name='TIMER_THRESHOLD'>
-      2
-  </oneNumber>
-</newNumberVector>
-<newNumberVector device='Atik 320E CCD' name='BUFFER_SIZE'>
-  <oneNumber name='BUFFER_SIZE'>
-      8
-  </oneNumber>
-</newNumberVector>
-<newSwitchVector device='Atik 320E CCD' name='DEBUG'>
+<newSwitchVector device='Atik 320E' name='DEBUG'>
   <oneSwitch name='ENABLE'>
       Off
   </oneSwitch>
@@ -17,12 +7,12 @@
       On
   </oneSwitch>
 </newSwitchVector>
-<newNumberVector device='Atik 320E CCD' name='POLLING_PERIOD'>
+<newNumberVector device='Atik 320E' name='POLLING_PERIOD'>
   <oneNumber name='PERIOD_MS'>
       1000
   </oneNumber>
 </newNumberVector>
-<newSwitchVector device='Atik 320E CCD' name='DEBUG_LEVEL'>
+<newSwitchVector device='Atik 320E' name='DEBUG_LEVEL'>
   <oneSwitch name='DBG_ERROR'>
       On
   </oneSwitch>
@@ -35,8 +25,11 @@
   <oneSwitch name='DBG_DEBUG'>
       Off
   </oneSwitch>
+  <oneSwitch name='DBG_EXTRA_1'>
+      Off
+  </oneSwitch>
 </newSwitchVector>
-<newSwitchVector device='Atik 320E CCD' name='LOGGING_LEVEL'>
+<newSwitchVector device='Atik 320E' name='LOGGING_LEVEL'>
   <oneSwitch name='LOG_ERROR'>
       On
   </oneSwitch>
@@ -49,8 +42,11 @@
   <oneSwitch name='LOG_DEBUG'>
       Off
   </oneSwitch>
+  <oneSwitch name='LOG_EXTRA_1'>
+      Off
+  </oneSwitch>
 </newSwitchVector>
-<newSwitchVector device='Atik 320E CCD' name='LOG_OUTPUT'>
+<newSwitchVector device='Atik 320E' name='LOG_OUTPUT'>
   <oneSwitch name='CLIENT_DEBUG'>
       On
   </oneSwitch>
@@ -58,7 +54,7 @@
       Off
   </oneSwitch>
 </newSwitchVector>
-<newTextVector device='Atik 320E CCD' name='ACTIVE_DEVICES'>
+<newTextVector device='Atik 320E' name='ACTIVE_DEVICES'>
   <oneText name='ACTIVE_TELESCOPE'>
       iOptron CEM120
   </oneText>
@@ -72,7 +68,7 @@
       
   </oneText>
 </newTextVector>
-<newSwitchVector device='Atik 320E CCD' name='UPLOAD_MODE'>
+<newSwitchVector device='Atik 320E' name='UPLOAD_MODE'>
   <oneSwitch name='UPLOAD_CLIENT'>
       On
   </oneSwitch>
@@ -83,7 +79,7 @@
       Off
   </oneSwitch>
 </newSwitchVector>
-<newTextVector device='Atik 320E CCD' name='UPLOAD_SETTINGS'>
+<newTextVector device='Atik 320E' name='UPLOAD_SETTINGS'>
   <oneText name='UPLOAD_DIR'>
       /home/west
   </oneText>
@@ -91,7 +87,7 @@
       IMAGE_XXX
   </oneText>
 </newTextVector>
-<newSwitchVector device='Atik 320E CCD' name='TELESCOPE_TYPE'>
+<newSwitchVector device='Atik 320E' name='TELESCOPE_TYPE'>
   <oneSwitch name='TELESCOPE_PRIMARY'>
       On
   </oneSwitch>
@@ -99,7 +95,7 @@
       Off
   </oneSwitch>
 </newSwitchVector>
-<newSwitchVector device='Atik 320E CCD' name='CCD_EXPOSURE_LOOP'>
+<newSwitchVector device='Atik 320E' name='CCD_EXPOSURE_LOOP'>
   <oneSwitch name='LOOP_ON'>
       Off
   </oneSwitch>
@@ -107,7 +103,7 @@
       On
   </oneSwitch>
 </newSwitchVector>
-<newSwitchVector device='Atik 320E CCD' name='CCD_COMPRESSION'>
+<newSwitchVector device='Atik 320E' name='CCD_COMPRESSION'>
   <oneSwitch name='CCD_COMPRESS'>
       Off
   </oneSwitch>
@@ -115,7 +111,7 @@
       On
   </oneSwitch>
 </newSwitchVector>
-<newNumberVector device='Atik 320E CCD' name='CCD_FRAME'>
+<newNumberVector device='Atik 320E' name='CCD_FRAME'>
   <oneNumber name='X'>
       0
   </oneNumber>
@@ -123,13 +119,13 @@
       0
   </oneNumber>
   <oneNumber name='WIDTH'>
-      1620
+      1619
   </oneNumber>
   <oneNumber name='HEIGHT'>
-      1220
+      1219
   </oneNumber>
 </newNumberVector>
-<newNumberVector device='Atik 320E CCD' name='CCD_BINNING'>
+<newNumberVector device='Atik 320E' name='CCD_BINNING'>
   <oneNumber name='HOR_BIN'>
       1
   </oneNumber>
@@ -137,4 +133,15 @@
       1
   </oneNumber>
 </newNumberVector>
+<newTextVector device='Atik 320E' name='CCD_CFA'>
+  <oneText name='CFA_OFFSET_X'>
+      0
+  </oneText>
+  <oneText name='CFA_OFFSET_Y'>
+      0
+  </oneText>
+  <oneText name='CFA_TYPE'>
+      RGGB
+  </oneText>
+</newTextVector>
 </INDIDriver>

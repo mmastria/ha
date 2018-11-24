@@ -50,7 +50,7 @@
 </newSwitchVector>
 <newTextVector device='West Camera' name='ACTIVE_DEVICES'>
   <oneText name='ACTIVE_TELESCOPE'>
-      
+      iOptron CEM120
   </oneText>
   <oneText name='ACTIVE_FOCUSER'>
       
