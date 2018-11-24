@@ -1,15 +1,5 @@
 <INDIDriver>
-<newNumberVector device='Atik 383L+ CCD' name='TIMER_THRESHOLD'>
-  <oneNumber name='TIMER_THRESHOLD'>
-      2
-  </oneNumber>
-</newNumberVector>
-<newNumberVector device='Atik 383L+ CCD' name='BUFFER_SIZE'>
-  <oneNumber name='BUFFER_SIZE'>
-      8
-  </oneNumber>
-</newNumberVector>
-<newSwitchVector device='Atik 383L+ CCD' name='DEBUG'>
+<newSwitchVector device='Atik 383L' name='DEBUG'>
   <oneSwitch name='ENABLE'>
       Off
   </oneSwitch>
@@ -17,12 +7,12 @@
       On
   </oneSwitch>
 </newSwitchVector>
-<newNumberVector device='Atik 383L+ CCD' name='POLLING_PERIOD'>
+<newNumberVector device='Atik 383L' name='POLLING_PERIOD'>
   <oneNumber name='PERIOD_MS'>
       1000
   </oneNumber>
 </newNumberVector>
-<newSwitchVector device='Atik 383L+ CCD' name='DEBUG_LEVEL'>
+<newSwitchVector device='Atik 383L' name='DEBUG_LEVEL'>
   <oneSwitch name='DBG_ERROR'>
       On
   </oneSwitch>
@@ -35,8 +25,11 @@
   <oneSwitch name='DBG_DEBUG'>
       Off
   </oneSwitch>
+  <oneSwitch name='DBG_EXTRA_1'>
+      Off
+  </oneSwitch>
 </newSwitchVector>
-<newSwitchVector device='Atik 383L+ CCD' name='LOGGING_LEVEL'>
+<newSwitchVector device='Atik 383L' name='LOGGING_LEVEL'>
   <oneSwitch name='LOG_ERROR'>
       On
   </oneSwitch>
@@ -49,8 +42,11 @@
   <oneSwitch name='LOG_DEBUG'>
       Off
   </oneSwitch>
+  <oneSwitch name='LOG_EXTRA_1'>
+      Off
+  </oneSwitch>
 </newSwitchVector>
-<newSwitchVector device='Atik 383L+ CCD' name='LOG_OUTPUT'>
+<newSwitchVector device='Atik 383L' name='LOG_OUTPUT'>
   <oneSwitch name='CLIENT_DEBUG'>
       On
   </oneSwitch>
@@ -58,7 +54,7 @@
       Off
   </oneSwitch>
 </newSwitchVector>
-<newTextVector device='Atik 383L+ CCD' name='ACTIVE_DEVICES'>
+<newTextVector device='Atik 383L' name='ACTIVE_DEVICES'>
   <oneText name='ACTIVE_TELESCOPE'>
       iOptron CEM60
   </oneText>
@@ -66,13 +62,13 @@
       Armadillo focuser Main
   </oneText>
   <oneText name='ACTIVE_FILTER'>
-      SX Whell
+      SX Wheel
   </oneText>
   <oneText name='ACTIVE_SKYQUALITY'>
       
   </oneText>
 </newTextVector>
-<newSwitchVector device='Atik 383L+ CCD' name='UPLOAD_MODE'>
+<newSwitchVector device='Atik 383L' name='UPLOAD_MODE'>
   <oneSwitch name='UPLOAD_CLIENT'>
       On
   </oneSwitch>
@@ -83,15 +79,15 @@
       Off
   </oneSwitch>
 </newSwitchVector>
-<newTextVector device='Atik 383L+ CCD' name='UPLOAD_SETTINGS'>
+<newTextVector device='Atik 383L' name='UPLOAD_SETTINGS'>
   <oneText name='UPLOAD_DIR'>
-      
+      /home/east
   </oneText>
   <oneText name='UPLOAD_PREFIX'>
       IMAGE_XXX
   </oneText>
 </newTextVector>
-<newSwitchVector device='Atik 383L+ CCD' name='TELESCOPE_TYPE'>
+<newSwitchVector device='Atik 383L' name='TELESCOPE_TYPE'>
   <oneSwitch name='TELESCOPE_PRIMARY'>
       On
   </oneSwitch>
@@ -99,7 +95,7 @@
       Off
   </oneSwitch>
 </newSwitchVector>
-<newSwitchVector device='Atik 383L+ CCD' name='CCD_EXPOSURE_LOOP'>
+<newSwitchVector device='Atik 383L' name='CCD_EXPOSURE_LOOP'>
   <oneSwitch name='LOOP_ON'>
       Off
   </oneSwitch>
@@ -107,7 +103,7 @@
       On
   </oneSwitch>
 </newSwitchVector>
-<newSwitchVector device='Atik 383L+ CCD' name='CCD_COMPRESSION'>
+<newSwitchVector device='Atik 383L' name='CCD_COMPRESSION'>
   <oneSwitch name='CCD_COMPRESS'>
       Off
   </oneSwitch>
@@ -115,21 +111,7 @@
       On
   </oneSwitch>
 </newSwitchVector>
-<newNumberVector device='Atik 383L+ CCD' name='CCD_FRAME'>
-  <oneNumber name='X'>
-      0
-  </oneNumber>
-  <oneNumber name='Y'>
-      0
-  </oneNumber>
-  <oneNumber name='WIDTH'>
-      3326
-  </oneNumber>
-  <oneNumber name='HEIGHT'>
-      2504
-  </oneNumber>
-</newNumberVector>
-<newNumberVector device='Atik 383L+ CCD' name='CCD_BINNING'>
+<newNumberVector device='Atik 383L' name='CCD_BINNING'>
   <oneNumber name='HOR_BIN'>
       1
   </oneNumber>
@@ -137,4 +119,17 @@
       1
   </oneNumber>
 </newNumberVector>
+<newNumberVector device='Atik 383L' name='CCD_COOLER_POWER'>
+  <oneNumber name='CCD_COOLER_VALUE'>
+      0
+  </oneNumber>
+</newNumberVector>
+<newSwitchVector device='Atik 383L' name='CCD_COOLER'>
+  <oneSwitch name='COOLER_ON'>
+      Off
+  </oneSwitch>
+  <oneSwitch name='COOLER_OFF'>
+      On
+  </oneSwitch>
+</newSwitchVector>
 </INDIDriver>
