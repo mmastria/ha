@@ -113,6 +113,10 @@ sed -i '/NTPDATE_USE_NTP_CONF/ cNTPDATE_USE_NTP_CONF=no' /etc/default/ntpdate
 sed -i '/NTPSERVERS/ cNTPSERVERS="a.st1.ntp.br b.st1.ntp.br c.st1.ntp.br d.st1.ntp.br a.ntp.br b.ntp.br c.ntp.br gps.ntp.br"' /etc/default/ntpdate
 [ '$DEVICE' != 'aagsolo' ] && timedatectl set-ntp true
 
+[ ! -f /usr/bin/zram.sh ] && \
+cp -f zram.sh /usr/bin/ && \
+sed -i '$i/usr/bin/zram.sh &' /etc/rc.local
+
 read -p "key to reboot"
 reboot
 
