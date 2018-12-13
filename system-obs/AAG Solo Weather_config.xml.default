@@ -126,7 +126,7 @@
 </newNumberVector>
 <newTextVector device='AAG Solo Weather' name='WATCH_SOURCE'>
   <oneText name='URL'>
-      http://aagsolo.local/cgi-bin/cgiLastData
+      http://aagsolo.arua/cgi-bin/cgiLastData
   </oneText>
 </newTextVector>
 <newTextVector device='AAG Solo Weather' name='KEYWORD'>

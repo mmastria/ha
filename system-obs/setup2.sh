@@ -36,7 +36,7 @@ sed -i 's/^#alias l/alias l/g' /home/obs/.bashrc
 # (crontab -l 2>/dev/null; echo "*/5 * * * * /usr/local/bin/arua_close-wait.sh") | crontab -
 
 # driver access url, not needed
-# (crontab -l 2>/dev/null; echo "* * * * * /usr/bin/curl http://aagsolo.local/cgi-bin/cgiLastData -o /tmp/aagsolo.txt") | crontab -
+# (crontab -l 2>/dev/null; echo "* * * * * /usr/bin/curl http://aagsolo.arua/cgi-bin/cgiLastData -o /tmp/aagsolo.txt") | crontab -
 
 
 # PiVPN
