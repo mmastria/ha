@@ -265,7 +265,16 @@ class RoR(object):
 			return True
 		return False
 
-	def abort(self):
+	def forcemove(self):
+		self.log.debug('foce-move')
+		GPIO.output(ROR_PARKED, GPIO.HIGH)
+		if self._is_moving():
+			GPIO.output(ROR_MOVE, GPIO.LOW)
+			sleep(1)
+		GPIO.output(ROR_MOVE, GPIO.HIGH)
+		return True
+
+        def abort(self):
 		self.log.debug('abort')
 		return self._stop()
 
@@ -351,6 +360,15 @@ def ror_can_close():
 def ror_close():
 	ror = RoR()
 	p = multiprocessing.Process(target=ror.close)
+	p.start()
+	response.status = 202
+	return
+
+
+@route('/ror/force/move', method='PUT')
+def ror_force_move():
+	ror = RoR()
+	p = multiprocessing.Process(target=ror.forcemove)
 	p.start()
 	response.status = 202
 	return

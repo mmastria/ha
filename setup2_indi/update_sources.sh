@@ -15,6 +15,10 @@ cd ~/indi
 git stash 
 git pull
 
+# enquanto der erro na rtlsdr - updated libdspau 1.05, 2.0.5 - 09-jan-2019
+# revertendo para antes da atualizacao da libdspau - 03-nov-2018
+git checkout 8d839b89929926ae253772349246c727e2cc3987 ./3rdparty/indi-rtlsdr/indi_rtlsdr_detector.cpp
+
 # WiringPi
 cd ~/wiringPi
 git pull
