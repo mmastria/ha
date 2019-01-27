@@ -86,9 +86,9 @@ void ISSnoopDevice(XMLEle *root)
 
 DomeScript::DomeScript()
 {
-    //MASTRIA
-    //SetDomeCapability(DOME_CAN_PARK | DOME_CAN_ABORT | DOME_CAN_ABS_MOVE | DOME_HAS_SHUTTER);
-    SetDomeCapability(DOME_CAN_PARK | DOME_CAN_ABORT | DOME_HAS_SHUTTER);
+    // MASTRIA
+    // SetDomeCapability(DOME_CAN_PARK | DOME_CAN_ABORT | DOME_CAN_ABS_MOVE | DOME_HAS_SHUTTER);
+    SetDomeCapability(DOME_CAN_PARK | DOME_CAN_ABORT |  DOME_HAS_SHUTTER);
 }
 
 const char *DomeScript::getDefaultName()
