@@ -5,7 +5,7 @@
 # QHY5L-II Mono
 # Astrometry
 # WatchDog
-# Seletek Armadillo 2 Remote
+# Moonlite Focuser 
 # Weather Meta Remote
 # Dome Scripting Gateway Remote 
 
