@@ -1,0 +1,12 @@
+[Unit]
+Description=INDI Server System Environment
+After=multi-user.target
+
+[Service]
+Restart=always
+RestartSec=5
+User=env
+ExecStart=/usr/local/bin/arua_system-env_indiserver.sh
+
+[Install]
+WantedBy=multi-user.target

@@ -18,5 +18,6 @@ _mkhosts() {
 _mkhosts system-east
 _mkhosts system-west
 _mkhosts system-obs
+_mkhosts system-env
 _mkhosts aagsolo 
 

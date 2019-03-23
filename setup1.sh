@@ -91,7 +91,8 @@ apt-get -y install build-essential git python-dev python-pip vim cmake ntpdate \
        libboost-regex-dev libgps-dev libdc1394-22-dev \
        zlib1g-dev libffi-dev libfftw3-dev librtlsdr-dev ffmpeg gawk lsof libavcodec-dev libavdevice-dev \
        libgtest-dev google-mock oggvideotools \
-       astrometry.net
+       astrometry.net \
+       screen
 [ '$DEVICE' == 'aagsolo' ] && apt-get -y install swig 
 [ '$DEVICE' != 'aagsolo' ] && apt-get -y install swig2.0 libz3-dev
 apt-get -y --fix-broken install
@@ -116,6 +117,20 @@ sed -i '/NTPSERVERS/ cNTPSERVERS="a.st1.ntp.br b.st1.ntp.br c.st1.ntp.br d.st1.n
 [ ! -f /usr/bin/zram.sh ] && \
 cp -f zram.sh /usr/bin/ && \
 sed -i '$i/usr/bin/zram.sh &' /etc/rc.local
+
+# enable hardware serial for system-env
+sed -i 's/console=serial0,115200 //' /boot/cmdline.txt
+echo "##############################" >> /boot/config.txt
+echo "# enabling UART to GPIO Serial" >> /boot/config.txt
+echo "#" >> /boot/config.txt
+echo "enable_uart=1" >> /boot/config.txt
+echo "dtoverlay=pi3-disable-bt" >> /boot/config.txt
+echo "#" >> /boot/config.txt
+echo "##############################" >> /boot/config.txt
+systemctl stop serial-getty@ttyAMA0.service
+systemctl disable serial-getty@ttyAMA0.service
+systemctl stop hciuart
+systemctl disable hciuart
 
 read -p "key to reboot"
 reboot
