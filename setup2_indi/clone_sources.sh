@@ -15,5 +15,9 @@ git clone git://git.drogon.net/wiringPi
 [ -d ~/indi_wiringpi_gpio ] || \
 git clone https://github.com/magnue/indi_wiringpi_gpio.git
 
+# IntercepTTY
+[ -d ~/interceptty ] || \
+git clone https://github.com/geoffmeyers/interceptty.git
+
 popd
 
