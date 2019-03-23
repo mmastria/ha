@@ -94,7 +94,7 @@ apt-get -y install build-essential git python-dev python-pip vim cmake ntpdate \
        astrometry.net \
        screen
 [ '$DEVICE' == 'aagsolo' ] && apt-get -y install swig 
-[ '$DEVICE' != 'aagsolo' ] && apt-get -y install swig2.0 libz3-dev
+[ '$DEVICE' != 'aagsolo' ] && apt-get -y install swig2.0 libz3-dev raspberrypi-kernel-headers
 apt-get -y --fix-broken install
 apt-get -y autoremove
 apt-get -y clean 

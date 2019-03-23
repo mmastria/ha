@@ -8,7 +8,7 @@
   
   
   <defTextVector device="AAG Cloud Watcher" name="serial" label="Port" group="Options" state="Idle" perm="rw" timeout="0">
-    <defText name="serialPort" label="Serial Port">/dev/ttyACM0</defText>  
+	  <defText name="serialPort" label="Serial Port">/tmp/ttyUSB1</defText>  
   </defTextVector> 
 
 
