@@ -30,4 +30,8 @@ git pull
 cd ~/indi_wiringpi_gpio
 git pull
 
+# IntercepTTY 
+cd ~/interceptty
+git pull
+
 popd

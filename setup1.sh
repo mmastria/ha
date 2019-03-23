@@ -129,6 +129,8 @@ echo "#" >> /boot/config.txt
 echo "##############################" >> /boot/config.txt
 systemctl stop serial-getty@ttyAMA0.service
 systemctl disable serial-getty@ttyAMA0.service
+systemctl stop serial-getty@ttyS0.service
+systemctl disable serial-getty@ttyS0.service
 systemctl stop hciuart
 systemctl disable hciuart
 

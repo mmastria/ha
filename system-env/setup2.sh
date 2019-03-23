@@ -1,37 +1,22 @@
 #!/bin/bash
 
-# first time only
+# run as root to use socat
 
-[ $(grep env /etc/passwd|wc -l) -eq 0 ] && \
-useradd -m -s /bin/bash env && \
-adduser env dialout && \
-adduser env video && \
-adduser env gpio && \
-adduser env tty && \
-mkdir /usr/share/indi/scripts && \
-pip install bottle && \
-pip install -U 'gevent~=1.2.2' && \
-pip install multiprocessing && \
-pip install requests && \
-./rtl-sdr-rules.sh && \
+./rtl-sdr-rules.sh
 sed -i 's/^#alias l/alias l/g' /home/env/.bashrc
-
-[ ! -d /home/env/dev ] && mkdir -p /home/env/dev && chown env:env /home/env/dev
-
-# every execution
 
 cp -f *.service /etc/systemd/system/
 cp -f arua*.sh /usr/local/bin/
-[ ! -d /usr/share/indi/scripts ] && mkdir -p /usr/share/indi/scripts
-cp -f *.py /usr/share/indi/scripts/
+cp -f *.py /usr/local/bin/
 cp -f *sk.xml /usr/share/indi/
-[ ! -d /home/env/.indi ] && mkdir -p /home/env/.indi && chown env:env /home/env/.indi
-cp -f *.default /home/env/.indi/
-ls -1 /home/env/.indi/*.default|xargs -n 1 -I{a} echo {a}|sed 's/.default//'|xargs -r -n 1 -I{b} cp {b}.default {b}
-chown env:env /home/env/.indi/*.default
-chown env:env /home/env/.indi/*.xml
+[ ! -d /root/.indi ] && mkdir -p /root/.indi
+cp -f *.default /root/.indi/
+ls -1 /root/.indi/*.default|xargs -n 1 -I{a} echo {a}|sed 's/.default//'|xargs -r -n 1 -I{b} cp {b}.default {b}
 
 systemctl daemon-reload
+
+systemctl enable arua_cloudWatcherMux.service
+systemctl restart arua_cloudWatcherMux.service
 
 systemctl enable arua_system-env_indiserver.service
 systemctl restart arua_system-env_indiserver.service

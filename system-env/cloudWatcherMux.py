@@ -41,12 +41,12 @@ def main():
     if not solo.isOpen():
         sys.exit()
 
-    cmd=['/usr/bin/socat','-d','-d','PTY,link=/tmp/ttyUSB0,raw,echo=0','PTY,link=/tmp/ttyUSB1,raw,echo=0']
+    cmd=['/usr/bin/socat','-d','-d','PTY,link=/dev/ttyUSB1,raw,echo=0','PTY,link=/dev/ttyUSB2,raw,echo=0']
     proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     time.sleep(1)
 
     indi = serial.Serial(
-        port='/tmp/ttyUSB0',
+        port='/dev/ttyUSB1',
         baudrate = 9600,
         parity = serial.PARITY_NONE,
         stopbits = serial.STOPBITS_ONE,
