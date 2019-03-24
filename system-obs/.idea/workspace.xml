@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="421c5a88-915d-4ea9-b6ce-dca56febe2a8" name="Default Changelist" comment="" />
+    <list default="true" id="421c5a88-915d-4ea9-b6ce-dca56febe2a8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/admin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/admin.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,14 +15,15 @@
     <session id="-2106310240">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="8" />
+          <entry key="project.closed" value="10" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.5" value="3" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="8" />
+          <entry key="project.open.time.8" value="2" />
+          <entry key="project.open.time.9" value="1" />
+          <entry key="project.opened" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -38,7 +42,8 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="1388" />
+          <entry key="dummy" value="34" />
+          <entry key="py" value="1560" />
           <entry key="service" value="35" />
           <entry key="sh" value="54" />
           <entry key="txt" value="9" />
@@ -47,8 +52,8 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Bash" value="54" />
-          <entry key="PLAIN_TEXT" value="44" />
-          <entry key="Python" value="1388" />
+          <entry key="PLAIN_TEXT" value="78" />
+          <entry key="Python" value="1560" />
         </counts>
       </usages-collector>
     </session>
@@ -58,8 +63,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ror.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="288" column="84" selection-start-line="288" selection-start-column="84" selection-end-line="288" selection-end-column="84" />
+            <state relative-caret-position="460">
+              <caret line="380" selection-start-line="380" selection-end-line="380" />
               <folding>
                 <element signature="e#43#65#0" expanded="true" />
               </folding>
@@ -80,8 +85,14 @@
     <findStrings>
       <find>#</find>
       <find>unpark</find>
-      <find>safe</find>
       <find>can_unpark</find>
+      <find>safe</find>
+      <find>sw4</find>
+      <find>ROR_AAGSAFE</find>
+      <find>aagsafe</find>
+      <find>rl4b</find>
+      <find>pw</find>
+      <find>rl2b</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -106,20 +117,7 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="system-obs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="system-obs" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -225,7 +223,28 @@
       <option name="project" value="LOCAL" />
       <updated>1539472934532</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="ror">
+      <created>1539572643279</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1539572643279</updated>
+    </task>
+    <task id="LOCAL-00009" summary="ror">
+      <created>1539574841339</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1539574841339</updated>
+    </task>
+    <task id="LOCAL-00010" summary="ror">
+      <created>1539575106636</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1539575106636</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TodoView">
@@ -247,8 +266,8 @@
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" weight="0.32885906" />
       <window_info anchor="bottom" id="Python Console" order="2" weight="0.32891566" />
       <window_info anchor="bottom" id="Message" order="3" />
-      <window_info anchor="bottom" id="Find" order="4" />
-      <window_info anchor="bottom" id="Version Control" order="5" visible="true" weight="0.14337349" />
+      <window_info anchor="bottom" id="Find" order="4" weight="0.32891566" />
+      <window_info anchor="bottom" id="Version Control" order="5" weight="0.13493976" />
       <window_info anchor="bottom" id="Run" order="6" weight="0.32891566" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
@@ -349,8 +368,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ror.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="288" column="84" selection-start-line="288" selection-start-column="84" selection-end-line="288" selection-end-column="84" />
+        <state relative-caret-position="460">
+          <caret line="380" selection-start-line="380" selection-end-line="380" />
           <folding>
             <element signature="e#43#65#0" expanded="true" />
           </folding>
