@@ -7,7 +7,7 @@ import subprocess
 
 def main():
 
-    print '\nInitializing serial relay connection'
+    #print '\nInitializing serial relay connection'
 
     watcher = serial.Serial(
         port = '/dev/ttyUSB0',
@@ -87,7 +87,7 @@ def main():
             if inByte == '!':
                 break;
         if inByte == '!':
-            print 'solo >> ' + solo_req
+            #print 'solo >> ' + solo_req
             watcher.write(solo_req)
             time.sleep(0.1)
             watcher_resp = ''
@@ -108,11 +108,11 @@ def main():
             if len(watcher_resp) >= 15 and len(watcher_resp) % 15 == 14 and watcher_resp[-14:]+'0'==handshaking:
                 watcher_resp += '0'
             if len(watcher_resp) >= 15 and len(watcher_resp) % 15 == 0 and watcher_resp[-15:]==handshaking:
-                print 'solo << ' + watcher_resp
+                #print 'solo << ' + watcher_resp
                 solo.write(watcher_resp)
             else:
-                print 'solo <# ' + watcher_resp.replace(' ','.')
-                print 'solo <= ' + handshaking
+                #print 'solo <# ' + watcher_resp.replace(' ','.')
+                #print 'solo <= ' + handshaking
                 solo.write(handshaking)
             time.sleep(0.1)
 
@@ -125,7 +125,7 @@ def main():
             if inByte == '!':
                 break;
         if inByte == '!':
-            print 'indi >> ' + indi_req
+            #print 'indi >> ' + indi_req
             watcher.write(indi_req)
             time.sleep(0.1)
             watcher_resp = ''
@@ -146,11 +146,11 @@ def main():
             if len(watcher_resp) >= 15 and len(watcher_resp) % 15 == 14 and watcher_resp[-14:]+'0'==handshaking:
                 watcher_resp += '0'
             if len(watcher_resp) >= 15 and len(watcher_resp) % 15 == 0 and watcher_resp[-15:]==handshaking: 
-                print 'indi << ' + watcher_resp
+                #print 'indi << ' + watcher_resp
                 indi.write(watcher_resp)
             else:
-                print 'indi <# ' + watcher_resp.replace(' ','.')
-                print 'indi <= ' + handshaking
+                #print 'indi <# ' + watcher_resp.replace(' ','.')
+                #print 'indi <= ' + handshaking
                 indi.write(handshaking)
             time.sleep(0.1)
 
