@@ -19,6 +19,8 @@ child=$!
 echo "start indi_wiringpi_gpio -n \"Power System\" -c \"$HOME/.indi/Power System_config.xml\"" > ~/.indi/indiFIFO
 echo "start indi_script_dome -n \"Dome Scripting Gateway\" -c \"$HOME/.indi/Dome Scripting Gateway_config.xml\"" > ~/.indi/indiFIFO
 echo "start indi_watchdog -n \"WatchDog\" -c \"$HOME/.indi/WatchDog_config.xml\"" > ~/.indi/indiFIFO
+echo "start \"Weather Meta\"@system-env:7624" > ~/.indi/indiFIFO
+
 #echo "start indi_armadillo_focus -n \"Armadillo focuser Main\" -c \"$HOME/.indi/Armadillo focuser main_config.xml\"" > ~/.indi/indiFIFO
 #echo "start indi_armadillo_focus -n \"Armadillo focuser Exp\" -c \"$HOME/.indi/Armadillo focuser exp_config.xml\"" > ~/.indi/indiFIFO
 
