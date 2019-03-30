@@ -95,14 +95,6 @@
       Off
   </oneSwitch>
 </newSwitchVector>
-<newSwitchVector device='Atik 383L' name='CCD_EXPOSURE_LOOP'>
-  <oneSwitch name='LOOP_ON'>
-      Off
-  </oneSwitch>
-  <oneSwitch name='LOOP_OFF'>
-      On
-  </oneSwitch>
-</newSwitchVector>
 <newSwitchVector device='Atik 383L' name='CCD_COMPRESSION'>
   <oneSwitch name='CCD_COMPRESS'>
       Off
@@ -111,6 +103,20 @@
       On
   </oneSwitch>
 </newSwitchVector>
+<newNumberVector device='Atik 383L' name='CCD_FRAME'>
+  <oneNumber name='X'>
+      0
+  </oneNumber>
+  <oneNumber name='Y'>
+      0
+  </oneNumber>
+  <oneNumber name='WIDTH'>
+      3354
+  </oneNumber>
+  <oneNumber name='HEIGHT'>
+      2529
+  </oneNumber>
+</newNumberVector>
 <newNumberVector device='Atik 383L' name='CCD_BINNING'>
   <oneNumber name='HOR_BIN'>
       1

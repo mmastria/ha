@@ -119,7 +119,7 @@
 </newSwitchVector>
 <newNumberVector device='iOptron CEM60' name='GEOGRAPHIC_COORD'>
   <oneNumber name='LAT'>
-      -23.463333333333334707
+      -23.463611111111109864
   </oneNumber>
   <oneNumber name='LONG'>
       313.73027777777775782
@@ -194,6 +194,12 @@
   <oneText name='MOTIONDIR'>
       JOYSTICK_1
   </oneText>
+  <oneText name='MOTIONDIRNS'>
+      AXIS_8
+  </oneText>
+  <oneText name='MOTIONDIRWE'>
+      AXIS_7
+  </oneText>
   <oneText name='SLEWPRESET'>
       JOYSTICK_2
   </oneText>
@@ -213,6 +219,14 @@
       BUTTON_3
   </oneText>
 </newTextVector>
+<newSwitchVector device='iOptron CEM60' name='MOTION_CONTROL_MODE'>
+  <oneSwitch name='MOTION_CONTROL_MODE_JOYSTICK'>
+      On
+  </oneSwitch>
+  <oneSwitch name='MOTION_CONTROL_MODE_AXES'>
+      Off
+  </oneSwitch>
+</newSwitchVector>
 <newSwitchVector device='iOptron CEM60' name='JOYSTICK_LOCK_AXIS'>
   <oneSwitch name='LOCK_AXIS_1'>
       Off
