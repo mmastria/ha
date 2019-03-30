@@ -64,6 +64,7 @@ dpkg-reconfigure tzdata
 git config credential.helper store
 git config --global user.email "marco@mastria.com.br"
 git config --global user.name "mmastria"
+git config --global http.postBuffer 524288000
 git pull
 
 passwd <<eof
