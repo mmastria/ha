@@ -128,10 +128,10 @@
       Off
   </oneSwitch>
   <oneSwitch name='6x'>
-      On
+      Off
   </oneSwitch>
   <oneSwitch name='7x'>
-      Off
+      On
   </oneSwitch>
   <oneSwitch name='8x'>
       Off
