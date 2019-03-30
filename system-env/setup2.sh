@@ -3,7 +3,7 @@
 # run as root to use socat
 
 ./rtl-sdr-rules.sh
-sed -i 's/^#alias l/alias l/g' /home/env/.bashrc
+sed -i 's/^#alias l/alias l/g' /root/.bashrc
 
 cp -f *.service /etc/systemd/system/
 cp -f arua*.sh /usr/local/bin/
