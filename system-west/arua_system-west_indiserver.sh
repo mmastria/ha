@@ -25,7 +25,7 @@ echo "start indi_moonlite_focus" > ~/.indi/indiFIFO
 echo "start \"Weather Meta\"@system-env:7624" > ~/.indi/indiFIFO
 echo "start \"Dome Scripting Gateway\"@system-obs:7624" > ~/.indi/indiFIFO
 echo "start \"Observ Cam\"@system-env:7624" > ~/.indi/indiFIFO
-#echo "start indi_v4l2_ccd -n \"West Camera\" -c \"$HOME/.indi/West Camera_config.xml\"" > ~/.indi/indiFIFO
+echo "start indi_v4l2_ccd -n \"Watec\" -c \"$HOME/.indi/Watec_config.xml\"" > ~/.indi/indiFIFO
 
 wait "$child"
 echo "stopping indiserver"
