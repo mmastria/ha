@@ -27,7 +27,6 @@ echo "start indi_watchdog -n \"WatchDog\" -c \"$HOME/.indi/WatchDog_config.xml\"
 echo "start indi_webcam_ccd -n \"Observ Cam\" -c \"$HOME/.indi/Observ Cam_config.xml\"" > ~/.indi/indiFIFO
 
 #/usr/share/indi/scripts/indi_watcher_weather.py &
-/usr/share/indi/scripts/indi_wiringpi_gpio.py &
 /usr/share/indi/scripts/indi_aagcloudwatcher.py &
 /usr/share/indi/scripts/indi_vantage_weather.py &
 /usr/share/indi/scripts/indi_meta_weather.py
