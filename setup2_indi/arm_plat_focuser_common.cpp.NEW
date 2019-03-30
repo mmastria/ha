@@ -533,8 +533,10 @@ bool ArmPlat::setMaxSpeed(uint16_t nspeed)
 
 bool ArmPlat::setMovePower(uint16_t nmovepow)
 {
-    if ( port == -1 )
+    if ( port == -1 ) {
+        LOGF_DEBUG("setMovePower - port error %d", port );
         return false;
+    }
 
     int rc;
     char cmd[SLP_SEND_BUF_SIZE]={0};
@@ -542,17 +544,22 @@ bool ArmPlat::setMovePower(uint16_t nmovepow)
 
     if ( slpSendRxInt( cmd, &rc ) )
     {
-        if ( rc == 0 )
+        if ( rc == 0 ) {
+                LOGF_DEBUG("setMovePower - send ok %d", rc );
                 return true;
+	}
     }
+    LOGF_DEBUG("setMovePower - send error %d", -1 );
 
     return false;
 }
 
 bool ArmPlat::setStopPower(uint16_t nstoppow)
 {
-    if ( port == -1 )
+    if ( port == -1 ) {
+        LOGF_DEBUG("setStopPower - port error %d", port );
         return false;
+    }
 
     int rc;
     char cmd[SLP_SEND_BUF_SIZE]={0};
@@ -560,9 +567,12 @@ bool ArmPlat::setStopPower(uint16_t nstoppow)
 
     if ( slpSendRxInt( cmd, &rc ) )
     {
-        if ( rc == 0 )
+        if ( rc == 0 ) {
+                LOGF_DEBUG("setStopPower - send ok %d", rc );
                 return true;
+	}
     }
+    LOGF_DEBUG("setStopPower - send error %d", -1 );
 
     return false;
 }
@@ -684,6 +694,13 @@ IPState ArmPlat::MoveAbsFocuser(uint32_t targetTicks)
 
     char cmd[SLP_SEND_BUF_SIZE]={0};
     int rc = -1;
+    
+    // MASTRIA
+    setMovePower( (uint16_t)MOVEPOW );
+    LOGF_DEBUG("step movepow setted %d", MOVEPOW );
+    setStopPower( (uint16_t)STOPPOW );
+    LOGF_DEBUG("step stoppow setted %d", STOPPOW );
+    // -------
 
     LOGF_DEBUG("Abs move to %d", targetTicks );
     sprintf(cmd, "!step goto %d %i %i#", port, targetTicks, backlash );
@@ -715,6 +732,13 @@ IPState ArmPlat::MoveRelFocuser(FocusDirection dir, uint32_t ticks)
         realticks = -ticks;
     else
         realticks = ticks;
+
+    // MASTRIA
+    setMovePower( (uint16_t)MOVEPOW );
+    LOGF_DEBUG("step movepow setted %d", MOVEPOW );
+    setStopPower( (uint16_t)STOPPOW );
+    LOGF_DEBUG("step stoppow setted %d", STOPPOW );
+    // -------
 
     LOGF_DEBUG("Rel move to %d", realticks );
     sprintf(cmd, "!step gopr %d %d#", port, realticks );

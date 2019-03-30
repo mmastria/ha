@@ -3,7 +3,8 @@
 pushd ~
 [ -d ~/indi ] || exit 1
 [ -d ~/wiringPi ] || exit 1
-[ -d indi_wiringpi_gpio ] || exit 1
+[ -d ~/indi_wiringpi_gpio ] || exit 1
+[ -d ~/interceptty ] || exit 1
 
 [ -f ~/indi/libindi/libs/indibase/indidome.cpp.ORIGINAL ] && mv -f ~/indi/libindi/libs/indibase/indidome.cpp.ORIGINAL ~/indi/libindi/libs/indibase/indidome.cpp
 [ -f ~/indi/libindi/drivers/dome/dome_script.cpp.ORIGINAL ] && mv -f ~/indi/libindi/drivers/dome/dome_script.cpp.ORIGINAL ~/indi/libindi/drivers/dome/dome_script.cpp
