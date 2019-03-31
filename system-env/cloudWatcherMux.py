@@ -22,16 +22,6 @@ RESP_M    =   '!M\x01\x22\x07\xD0\x00\x38\x0D\x7A\x00\x01\x00\x01\x00'
 # Rain Resistance at 25 (K)  = 1    = x00 x01 
 # Rain PullUp Resistance (K) = 1    = x00 x01
 
-# Supply 4.99 --- 1023 * ZenerConstant / Zener voltage
-# Sky 733
-# Sensor 2092.5
-# Ambient 20.9
-# Rain 2609.0
-# Rain Heater 102.0
-# Rain Temp 515.0
-# Wind Speed n/a
-# LDR 1021.0
-# Read cycle 2.720s
 # Firmware ver. 5.70
 
 def talk(src, sname, dest, dname):
@@ -49,10 +39,10 @@ def talk(src, sname, dest, dname):
         print ' '*len(sname)+'    [' + ':'.join(x.encode('hex') for x in src_req) + ']'
         if src_req == 'V!':
             dest_resp = RESP_V + handshaking
-        elif src_req == 'K!':
-            dest_resp = RESP_K + handshaking 
-        elif src_req == 'M!':
-            dest_resp = RESP_M + handshaking 
+        #elif src_req == 'K!':
+        #    dest_resp = RESP_K + handshaking 
+        #elif src_req == 'M!':
+        #    dest_resp = RESP_M + handshaking 
         else:
             dest.write(src_req)
             time.sleep(0.1)
@@ -71,12 +61,17 @@ def talk(src, sname, dest, dname):
                     dest_resp += inByte
                 else:
                     print ' '*len(sname) + ' ## [' + inByte + '] discarding - hex [' + inByte.encode('hex') + ']'
-        #dest_resp = dest_resp.replace('\x00', ' ')
-        if len(dest_resp) >= 15 and len(dest_resp) % 15 == 13 and dest_resp[-13:]+' 0'==handshaking:
+        if len(dest_resp) >= 15 and len(dest_resp) % 15 == 13 and dest_resp[-13:]+' 0' == handshaking:
             dest_resp += ' 0'
-        if len(dest_resp) >= 15 and len(dest_resp) % 15 == 14 and dest_resp[-14:]+'0'==handshaking:
+        if len(dest_resp) >= 15 and len(dest_resp) % 15 == 14 and dest_resp[-14:]+'0' == handshaking:
             dest_resp += '0'
-        if len(dest_resp) >= 15 and len(dest_resp) % 15 == 0 and dest_resp[-15:]==handshaking:
+        if len(dest_resp) >= 15 and len(dest_resp) % 15 == 0 and dest_resp[-15:] == handshaking:
+            if src_req == 'K!' and dest_resp == kresponse + handshaking:
+                print sname + ' <# [' + dest_resp.replace(hschar,'_').replace(' ','.') + ']'
+                dest_resp = RESP_K + handshaking 
+            if src_req == 'M!' and dest_resp == mresponse + handshaking:
+                print sname + ' <# [' + dest_resp.replace(hschar,'_').replace(' ','.') + ']'
+                dest_resp = RESP_M + handshaking 
             print sname + ' << [' + dest_resp.replace(hschar,'_') + ']'
             print ' '*len(sname)+'    [' + ':'.join(x.encode('hex') for x in dest_resp) + ']'
             src.write(dest_resp)
