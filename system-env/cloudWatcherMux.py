@@ -5,170 +5,105 @@ import time
 import os
 import subprocess
 
+timeout = 100
+handshaking = '\x21\x11\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x30'
+hschar = '\x11'
+RESP_V = '!w          000'
+
+def talk(src, sname, dest, dname):
+    inByte = ''
+    src_req = '' 
+    while src.inWaiting() > 0:
+        inByte = src.read(1)
+        if inByte == '':
+            break;
+        src_req += inByte
+        if inByte == '!':
+            break;
+    if inByte == '!':
+        print '\n' + sname + ' >> [' + src_req + ']'
+        if src_req == 'V!':
+            dest_resp = RESP_V + handshaking 
+        else:
+            dest.write(src_req)
+            time.sleep(0.1)
+            dest_resp = ''
+            timeout = 100
+            if src_req == 'E!':
+                time.sleep(0.2)
+                timeout *= 3
+            #src_req = '' 
+            while dest.inWaiting() == 0 and timeout > 0:
+                time.sleep(0.001)
+                timeout -= 1
+            while dest.inWaiting() > 0:
+                inByte = dest.read(1)
+                if not (dest_resp == '' and inByte != '!'):
+                    dest_resp += inByte
+            if len(dest_resp) >= 15 and len(dest_resp) % 15 == 13 and dest_resp[-13:]+' 0'==handshaking:
+                dest_resp += ' 0'
+            if len(dest_resp) >= 15 and len(dest_resp) % 15 == 14 and dest_resp[-14:]+'0'==handshaking:
+                dest_resp += '0'
+            #src_req = '' 
+            if len(dest_resp) >= 15 and len(dest_resp) % 15 == 0 and dest_resp[-15:]==handshaking:
+                print sname + ' << [' + dest_resp.replace(hschar,'_') + ']'
+                src.write(dest_resp)
+            else:
+                print sname + ' <# [' + dest_resp.replace(hschar,'_').replace(' ','.') + ']'
+                print sname + ' <= [' + handshaking.replace(hschar,'_') + ']'
+                src.write(handshaking)
+            time.sleep(0.1)
+
+def connect(fport, name):
+    dev = serial.Serial(
+        port = fport,
+        baudrate = 9600,
+        parity = serial.PARITY_NONE,
+        stopbits = serial.STOPBITS_ONE,
+        bytesize = serial.EIGHTBITS,
+        xonxoff = False,
+        rtscts = False,
+        dsrdtr = False,
+        writeTimeout = 2,
+        timeout = 2 
+    )
+    if not dev.isOpen():
+        print '... can\'t connect to ' + name + ' at ' + fport + ', exiting.'
+        sys.exit()
+    print '... connected to ' + name + ' - ' + fport
+    dev.flushInput()
+    dev.flushOutput()
+    return dev
+
+def createVPort(fPortServer, fPortClient):
+    cmd=['/usr/bin/socat','-d','-d','PTY,link='+fPortServer+',b9600,rawer','PTY,link='+fPortClient+',b9600,rawer']
+    fproc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    time.sleep(1)
+    return fproc
+
+def destroyVPort(fproc):
+    vproc.kill()
+
 def main():
 
-    print '\nInitializing serial relay connection'
+    print '\nInitializing Serial Multiplex'
 
-    watcher = serial.Serial(
-        port = '/dev/ttyUSB0',
-        baudrate = 9600,
-        parity = serial.PARITY_NONE,
-        stopbits = serial.STOPBITS_ONE,
-        bytesize = serial.EIGHTBITS,
-        xonxoff = False,
-        rtscts = False,
-        dsrdtr = False,
-        writeTimeout = 2,
-        timeout = 2 
-    )
+    proc = createVPort('/dev/ttyUSB1', '/dev/ttyUSB2')
 
-    solo = serial.Serial(
-        port='/dev/ttyAMA0',
-        baudrate = 9600,
-        parity = serial.PARITY_NONE,
-        stopbits = serial.STOPBITS_ONE,
-        bytesize = serial.EIGHTBITS,
-        xonxoff = False,
-        rtscts = False,
-        dsrdtr = False,
-        writeTimeout = 2,
-        timeout = 2 
-    )
-
-    if not watcher.isOpen():
-        sys.exit()
-    print '... connected to AAG Cloud Watcher - /dev/ttyUSB0'
-
-    if not solo.isOpen():
-        sys.exit()
-    print '... connected to AAG Solo - /dev/ttyAMA0' 
+    watcher = connect( '/dev/ttyUSB0', 'AAG Cloud Watcher' ) 
+    solo = connect( '/dev/ttyAMA0', 'AAG Solo')
+    indi = connect( '/dev/ttyUSB1', 'Indi' )
 
 
-    cmd=['/usr/bin/socat','-d','-d','PTY,link=/dev/ttyUSB1,b9600,rawer','PTY,link=/dev/ttyUSB2,b9600,rawer']
-    proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    time.sleep(1)
-
-    indi = serial.Serial(
-        port='/dev/ttyUSB1',
-        baudrate = 9600,
-        parity = serial.PARITY_NONE,
-        stopbits = serial.STOPBITS_ONE,
-        bytesize = serial.EIGHTBITS,
-        xonxoff = False,
-        rtscts = False,
-        dsrdtr = False,
-        writeTimeout = 2,
-        timeout = 2 
-    )
-
-    if not indi.isOpen():
-        sys.exit()
-    print '... connected to Indi - /dev/ttyUSB1 loop /dev/ttyUSB2'
-
-    watcher.flushInput()
-    watcher.flushOutput()
-
-    solo.flushInput()
-    solo.flushOutput()
-
-    indi.flushInput()
-    indi.flushOutput()
-
-    solo_req = '' 
-    indi_req = ''
-
-    print '... cleared buffers'
-
-    timeout = 100
-    handshaking = '\x21\x11\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x30'
-   
-    RESP_V = '!w          000'
-
+    print 'Serial Multiplex running...'
     while True:
 
         # AAG Solo <--> AAG Clowd Watcher
-
-        inByte = ''
-        while solo.inWaiting() > 0:
-            inByte = solo.read(1)
-            if inByte == '':
-                break;
-            solo_req += inByte
-            if inByte == '!':
-                break;
-        if inByte == '!':
-            #print '\nsolo >> ' + solo_req
-            watcher.write(solo_req)
-            time.sleep(0.1)
-            watcher_resp = ''
-            timeout = 100
-            if solo_req == 'E!':
-                time.sleep(0.2)
-                timeout *= 3
-            solo_req = '' 
-            while watcher.inWaiting() == 0 and timeout > 0:
-                time.sleep(0.001)
-                timeout -= 1
-            while watcher.inWaiting() > 0:
-                inByte = watcher.read(1)
-                if not (watcher_resp == '' and inByte != '!'):
-                    watcher_resp += inByte
-            if len(watcher_resp) >= 15 and len(watcher_resp) % 15 == 13 and watcher_resp[-13:]+' 0'==handshaking:
-                watcher_resp += ' 0'
-            if len(watcher_resp) >= 15 and len(watcher_resp) % 15 == 14 and watcher_resp[-14:]+'0'==handshaking:
-                watcher_resp += '0'
-            if len(watcher_resp) >= 15 and len(watcher_resp) % 15 == 0 and watcher_resp[-15:]==handshaking:
-                print 'solo << ' + watcher_resp
-                solo.write(watcher_resp)
-            else:
-                #print 'solo <# ' + watcher_resp.replace(' ','.')
-                #print 'solo <= ' + handshaking
-                solo.write(handshaking)
-            time.sleep(0.1)
+        talk( solo, 'solo', watcher, 'watcher')
 
         # Indi Driver <--> AAG Clowd Watcher
-
-        inByte = '' 
-        while indi.inWaiting() > 0:
-            inByte = indi.read(1)
-            if inByte == '':
-                break;
-            indi_req += inByte
-            if inByte == '!':
-                break;
-        if inByte == '!':
-            print '\nindi >> ' + indi_req
-            if indi_req == 'V!':
-                watcher_resp = RESP_V + handshaking 
-            else:
-                watcher.write(indi_req)
-                time.sleep(0.1)
-                watcher_resp = ''
-                timeout = 100
-                if indi_req == 'E!':
-                    time.sleep(0.2)
-                    timeout *= 3
-                while watcher.inWaiting() == 0 and timeout > 0:
-                    time.sleep(0.001)
-                    timeout -= 1
-                while watcher.inWaiting() > 0:
-                    inByte = watcher.read(1)
-                    if not (watcher_resp == '' and inByte != '!'):
-                        watcher_resp += inByte
-                if len(watcher_resp) >= 15 and len(watcher_resp) % 15 == 13 and watcher_resp[-13:]+' 0'==handshaking:
-                    watcher_resp += ' 0'
-                if len(watcher_resp) >= 15 and len(watcher_resp) % 15 == 14 and watcher_resp[-14:]+'0'==handshaking:
-                    watcher_resp += '0'
-            indi_req = ''
-            if len(watcher_resp) >= 15 and len(watcher_resp) % 15 == 0 and watcher_resp[-15:]==handshaking: 
-                print 'indi << ' + watcher_resp
-                indi.write(watcher_resp)
-            else:
-                print 'indi <# ' + watcher_resp.replace(' ','.')
-                print 'indi <= ' + handshaking
-                indi.write(handshaking)
-            time.sleep(0.1)
+        talk( indi, 'indi', watcher, 'watcher')
 
 if __name__ == '__main__':
     main()
-    proc.kill() 
+    destroyVPort(proc)
