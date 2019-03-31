@@ -7,15 +7,39 @@ import subprocess
 
 timeout = 100
 handshaking = '\x21\x11\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x30'
-hschar = '\x11'
-RESP_V = '!w          000'
+kresponse =   '\x21\x4b\x21\x21\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+mresponse =   '\x21\x4d\x21\x21\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+hschar =      '\x11'
+RESP_V =      '!w          000'
+RESP_K    =   '!K1198\x20\x20\x20\x20\x20\x20\x20\x20\x20'
+RESP_M    =   '!M\x01\x22\x07\xD0\x00\x38\x0D\x7A\x00\x01\x00\x01\x00'
+
+# Internal Serial No         = 1198
+# Zener voltage              = 2.9  = x01 x22
+# LDR Max Resistance (K)     = 2000 = x07 xD0
+# LDR PullUp Resistance (K)  = 56   = x00 x38
+# Rain Beta Factor           = 3450 = x0D x7A
+# Rain Resistance at 25 (K)  = 1    = x00 x01 
+# Rain PullUp Resistance (K) = 1    = x00 x01
+
+# Supply 4.99 --- 1023 * ZenerConstant / Zener voltage
+# Sky 733
+# Sensor 2092.5
+# Ambient 20.9
+# Rain 2609.0
+# Rain Heater 102.0
+# Rain Temp 515.0
+# Wind Speed n/a
+# LDR 1021.0
+# Read cycle 2.720s
+# Firmware ver. 5.70
 
 def talk(src, sname, dest, dname):
     inByte = ''
     src_req = '' 
     while src.inWaiting() > 0:
         inByte = src.read(1)
-        if inByte == '':
+        if len(inByte) == 0:
             break;
         src_req += inByte
         if inByte == '!':
@@ -24,24 +48,30 @@ def talk(src, sname, dest, dname):
         print '\n' + sname + ' >> [' + src_req + ']'
         print ' '*len(sname)+'    [' + ':'.join(x.encode('hex') for x in src_req) + ']'
         if src_req == 'V!':
-            dest_resp = RESP_V + handshaking 
+            dest_resp = RESP_V + handshaking
+        elif src_req == 'K!':
+            dest_resp = RESP_K + handshaking 
+        elif src_req == 'M!':
+            dest_resp = RESP_M + handshaking 
         else:
             dest.write(src_req)
             time.sleep(0.1)
             dest_resp = ''
             timeout = 100
-            if src_req == 'E!' or src_req == 'h!' or src_req == 't!':
-                time.sleep(0.2)
+            if src_req == 'E!' or src_req == 'h!' or src_req == 't!' or src_req == 'M!' or src_req == 'K!':
+                time.sleep(0.1)
                 timeout *= 3
             while dest.inWaiting() == 0 and timeout > 0:
                 time.sleep(0.001)
                 timeout -= 1
             while dest.inWaiting() > 0:
                 inByte = dest.read(1)
+                time.sleep(0.01)
                 if not (dest_resp == '' and inByte != '!'):
                     dest_resp += inByte
                 else:
                     print ' '*len(sname) + ' ## [' + inByte + '] discarding - hex [' + inByte.encode('hex') + ']'
+        #dest_resp = dest_resp.replace('\x00', ' ')
         if len(dest_resp) >= 15 and len(dest_resp) % 15 == 13 and dest_resp[-13:]+' 0'==handshaking:
             dest_resp += ' 0'
         if len(dest_resp) >= 15 and len(dest_resp) % 15 == 14 and dest_resp[-14:]+'0'==handshaking:
