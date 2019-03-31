@@ -12,15 +12,15 @@ mresponse =   '\x21\x4d\x21\x21\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
 hschar =      '\x11'
 RESP_V =      '!w          000'
 RESP_K    =   '!K1198\x20\x20\x20\x20\x20\x20\x20\x20\x20'
-RESP_M    =   '!M\x01\x22\x07\xD0\x00\x38\x0D\x7A\x00\x01\x00\x01\x00'
+RESP_M    =   '!M\x01\x22\x07\xD0\x02\x30\x0D\x7A\x00\x0A\x00\x0A\x00'
 
 # Internal Serial No         = 1198
-# Zener voltage              = 2.9  = x01 x22
-# LDR Max Resistance (K)     = 2000 = x07 xD0
-# LDR PullUp Resistance (K)  = 56   = x00 x38
-# Rain Beta Factor           = 3450 = x0D x7A
-# Rain Resistance at 25 (K)  = 1    = x00 x01 
-# Rain PullUp Resistance (K) = 1    = x00 x01
+# Zener voltage              = 2.9  =  290 = x01 x22
+# LDR Max Resistance (K)     = 2000 = 2000 = x07 xD0
+# LDR PullUp Resistance (K)  = 56   =  560 = x02 x30
+# Rain Beta Factor           = 3450 = 3450 = x0D x7A
+# Rain Resistance at 25 (K)  = 1    =   10 = x00 x0A 
+# Rain PullUp Resistance (K) = 1    =   10 = x00 x0A
 
 # Firmware ver. 5.70
 
