@@ -22,6 +22,7 @@ def talk(src, sname, dest, dname):
             break;
     if inByte == '!':
         print '\n' + sname + ' >> [' + src_req + ']'
+        print ' '*len(sname)+'    [' + ':'.join(x.encode('hex') for x in src_req) + ']'
         if src_req == 'V!':
             dest_resp = RESP_V + handshaking 
         else:
@@ -29,10 +30,9 @@ def talk(src, sname, dest, dname):
             time.sleep(0.1)
             dest_resp = ''
             timeout = 100
-            if src_req == 'E!':
+            if src_req == 'E!' or src_req == 'h!' or src_req == 't!':
                 time.sleep(0.2)
                 timeout *= 3
-            #src_req = '' 
             while dest.inWaiting() == 0 and timeout > 0:
                 time.sleep(0.001)
                 timeout -= 1
@@ -40,17 +40,21 @@ def talk(src, sname, dest, dname):
                 inByte = dest.read(1)
                 if not (dest_resp == '' and inByte != '!'):
                     dest_resp += inByte
+                else:
+                    print ' '*len(sname) + ' ## [' + inByte + '] discarding - hex [' + inByte.encode('hex') + ']'
             if len(dest_resp) >= 15 and len(dest_resp) % 15 == 13 and dest_resp[-13:]+' 0'==handshaking:
                 dest_resp += ' 0'
             if len(dest_resp) >= 15 and len(dest_resp) % 15 == 14 and dest_resp[-14:]+'0'==handshaking:
                 dest_resp += '0'
-            #src_req = '' 
             if len(dest_resp) >= 15 and len(dest_resp) % 15 == 0 and dest_resp[-15:]==handshaking:
                 print sname + ' << [' + dest_resp.replace(hschar,'_') + ']'
+                print ' '*len(sname)+'    [' + ':'.join(x.encode('hex') for x in dest_resp) + ']'
                 src.write(dest_resp)
             else:
                 print sname + ' <# [' + dest_resp.replace(hschar,'_').replace(' ','.') + ']'
+                print ' '*len(sname)+'    [' + ':'.join(x.encode('hex') for x in dest_resp) + ']'
                 print sname + ' <= [' + handshaking.replace(hschar,'_') + ']'
+                print ' '*len(sname)+'    [' + ':'.join(x.encode('hex') for x in handshaking) + ']'
                 src.write(handshaking)
             time.sleep(0.1)
 
