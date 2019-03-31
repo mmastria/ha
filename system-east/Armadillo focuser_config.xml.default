@@ -1,5 +1,5 @@
 <INDIDriver>
-<newSwitchVector device='Armadillo focuser Main' name='DEBUG'>
+<newSwitchVector device='Armadillo focuser' name='DEBUG'>
   <oneSwitch name='ENABLE'>
       Off
   </oneSwitch>
@@ -7,12 +7,12 @@
       On
   </oneSwitch>
 </newSwitchVector>
-<newNumberVector device='Armadillo focuser Main' name='POLLING_PERIOD'>
+<newNumberVector device='Armadillo focuser' name='POLLING_PERIOD'>
   <oneNumber name='PERIOD_MS'>
       1000
   </oneNumber>
 </newNumberVector>
-<newSwitchVector device='Armadillo focuser Main' name='CONNECTION_MODE'>
+<newSwitchVector device='Armadillo focuser' name='CONNECTION_MODE'>
   <oneSwitch name='CONNECTION_SERIAL'>
       On
   </oneSwitch>
@@ -20,12 +20,12 @@
       Off
   </oneSwitch>
 </newSwitchVector>
-<newTextVector device='Armadillo focuser Main' name='DEVICE_PORT'>
+<newTextVector device='Armadillo focuser' name='DEVICE_PORT'>
   <oneText name='PORT'>
       /dev/ttyUSB0
   </oneText>
 </newTextVector>
-<newSwitchVector device='Armadillo focuser Main' name='DEVICE_BAUD_RATE'>
+<newSwitchVector device='Armadillo focuser' name='DEVICE_BAUD_RATE'>
   <oneSwitch name='9600'>
       Off
   </oneSwitch>
@@ -45,7 +45,7 @@
       Off
   </oneSwitch>
 </newSwitchVector>
-<newSwitchVector device='Armadillo focuser Main' name='DEVICE_AUTO_SEARCH'>
+<newSwitchVector device='Armadillo focuser' name='DEVICE_AUTO_SEARCH'>
   <oneSwitch name='ENABLED'>
       On
   </oneSwitch>
@@ -53,7 +53,7 @@
       Off
   </oneSwitch>
 </newSwitchVector>
-<newSwitchVector device='Armadillo focuser Main' name='DEBUG_LEVEL'>
+<newSwitchVector device='Armadillo focuser' name='DEBUG_LEVEL'>
   <oneSwitch name='DBG_ERROR'>
       On
   </oneSwitch>
@@ -70,7 +70,7 @@
       Off
   </oneSwitch>
 </newSwitchVector>
-<newSwitchVector device='Armadillo focuser Main' name='LOGGING_LEVEL'>
+<newSwitchVector device='Armadillo focuser' name='LOGGING_LEVEL'>
   <oneSwitch name='LOG_ERROR'>
       On
   </oneSwitch>
@@ -87,7 +87,7 @@
       Off
   </oneSwitch>
 </newSwitchVector>
-<newSwitchVector device='Armadillo focuser Main' name='LOG_OUTPUT'>
+<newSwitchVector device='Armadillo focuser' name='LOG_OUTPUT'>
   <oneSwitch name='CLIENT_DEBUG'>
       On
   </oneSwitch>
@@ -95,7 +95,12 @@
       Off
   </oneSwitch>
 </newSwitchVector>
-<newNumberVector device='Armadillo focuser Main' name='Presets'>
+<newNumberVector device='Armadillo focuser' name='FOCUS_MAX'>
+  <oneNumber name='FOCUS_MAX_VALUE'>
+      100000
+  </oneNumber>
+</newNumberVector>
+<newNumberVector device='Armadillo focuser' name='Presets'>
   <oneNumber name='PRESET_1'>
       0
   </oneNumber>
@@ -106,7 +111,7 @@
       0
   </oneNumber>
 </newNumberVector>
-<newSwitchVector device='Armadillo focuser Main' name='USEJOYSTICK'>
+<newSwitchVector device='Armadillo focuser' name='USEJOYSTICK'>
   <oneSwitch name='ENABLE'>
       Off
   </oneSwitch>
@@ -114,7 +119,7 @@
       On
   </oneSwitch>
 </newSwitchVector>
-<newTextVector device='Armadillo focuser Main' name='JOYSTICKSETTINGS'>
+<newTextVector device='Armadillo focuser' name='JOYSTICKSETTINGS'>
   <oneText name='Focus In'>
       BUTTON_1
   </oneText>
@@ -125,7 +130,7 @@
       BUTTON_3
   </oneText>
 </newTextVector>
-<newSwitchVector device='Armadillo focuser Main' name='Temperature sensor in use'>
+<newSwitchVector device='Armadillo focuser' name='Temperature sensor in use'>
   <oneSwitch name='Internal'>
       Off
   </oneSwitch>
@@ -133,7 +138,7 @@
       On
   </oneSwitch>
 </newSwitchVector>
-<newSwitchVector device='Armadillo focuser Main' name='Port in use'>
+<newSwitchVector device='Armadillo focuser' name='Port in use'>
   <oneSwitch name='Main'>
       On
   </oneSwitch>
@@ -141,7 +146,7 @@
       Off
   </oneSwitch>
 </newSwitchVector>
-<newSwitchVector device='Armadillo focuser Main' name='Half step'>
+<newSwitchVector device='Armadillo focuser' name='Half step'>
   <oneSwitch name='Off'>
       Off
   </oneSwitch>
@@ -149,7 +154,7 @@
       On
   </oneSwitch>
 </newSwitchVector>
-<newSwitchVector device='Armadillo focuser Main' name='Wiring'>
+<newSwitchVector device='Armadillo focuser' name='Wiring'>
   <oneSwitch name='Lunatico Normal'>
       Off
   </oneSwitch>
@@ -163,12 +168,12 @@
       Off
   </oneSwitch>
 </newSwitchVector>
-<newNumberVector device='Armadillo focuser Main' name='Backlash'>
+<newNumberVector device='Armadillo focuser' name='Backlash'>
   <oneNumber name='Value'>
       0
   </oneNumber>
 </newNumberVector>
-<newSwitchVector device='Armadillo focuser Main' name='Backlash Compensation'>
+<newSwitchVector device='Armadillo focuser' name='Backlash Compensation'>
   <oneSwitch name='Enable'>
       Off
   </oneSwitch>
@@ -176,7 +181,7 @@
       On
   </oneSwitch>
 </newSwitchVector>
-<newSwitchVector device='Armadillo focuser Main' name='Motor Type'>
+<newSwitchVector device='Armadillo focuser' name='Motor Type'>
   <oneSwitch name='Unipolar'>
       On
   </oneSwitch>
@@ -190,7 +195,7 @@
       Off
   </oneSwitch>
 </newSwitchVector>
-<newNumberVector device='Armadillo focuser Main' name='MaxSpeed'>
+<newNumberVector device='Armadillo focuser' name='MaxSpeed'>
   <oneNumber name='Value'>
       9800
   </oneNumber>

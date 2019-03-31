@@ -23,11 +23,9 @@ echo "start indi_qhy_ccd -n \"QHY5LII-M\" -c \"$HOME/.indi/QHY5LII-M_config.xml\
 echo "start indi_astrometry -n \"Astrometry\" -c \"$HOME/.indi/Astrometry_config.xml\"" > ~/.indi/indiFIFO
 echo "start indi_watchdog -n \"WatchDog\" -c \"$HOME/.indi/WatchDog_config.xml\"" > ~/.indi/indiFIFO
 echo "start indi_armadillo_focus -n \"Armadillo focuser\" -c \"$HOME/.indi/Armadillo focuser_config.xml\"" > ~/.indi/indiFIFO
-#echo "start \"Armadillo focuser Main\"@system-obs:7624" > ~/.indi/indiFIFO
-echo "start \"Weather Meta\"@system-obs:7624" > ~/.indi/indiFIFO
+echo "start \"Weather Meta\"@system-env:7624" > ~/.indi/indiFIFO
 echo "start \"Dome Scripting Gateway\"@system-obs:7624" > ~/.indi/indiFIFO
-#echo "start \"Observ Cam\"@system-obs:7624" > ~/.indi/indiFIFO
-#echo "start indi_v4l2_ccd -n \"East Camera\" -c \"$HOME/.indi/East Camera_config.xml\"" > ~/.indi/indiFIFO
+echo "start \"Observ Cam\"@system-env:7624" > ~/.indi/indiFIFO
 
 wait "$child"
 echo "stopping indiserver"

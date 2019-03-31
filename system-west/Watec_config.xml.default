@@ -1,5 +1,5 @@
 <INDIDriver>
-<newSwitchVector device='West Camera' name='DEBUG'>
+<newSwitchVector device='Watec' name='DEBUG'>
   <oneSwitch name='ENABLE'>
       Off
   </oneSwitch>
@@ -7,12 +7,12 @@
       On
   </oneSwitch>
 </newSwitchVector>
-<newNumberVector device='West Camera' name='POLLING_PERIOD'>
+<newNumberVector device='Watec' name='POLLING_PERIOD'>
   <oneNumber name='PERIOD_MS'>
       1000
   </oneNumber>
 </newNumberVector>
-<newSwitchVector device='West Camera' name='DEBUG_LEVEL'>
+<newSwitchVector device='Watec' name='DEBUG_LEVEL'>
   <oneSwitch name='DBG_ERROR'>
       On
   </oneSwitch>
@@ -26,7 +26,7 @@
       Off
   </oneSwitch>
 </newSwitchVector>
-<newSwitchVector device='West Camera' name='LOGGING_LEVEL'>
+<newSwitchVector device='Watec' name='LOGGING_LEVEL'>
   <oneSwitch name='LOG_ERROR'>
       On
   </oneSwitch>
@@ -40,7 +40,7 @@
       Off
   </oneSwitch>
 </newSwitchVector>
-<newSwitchVector device='West Camera' name='LOG_OUTPUT'>
+<newSwitchVector device='Watec' name='LOG_OUTPUT'>
   <oneSwitch name='CLIENT_DEBUG'>
       On
   </oneSwitch>
@@ -48,12 +48,12 @@
       Off
   </oneSwitch>
 </newSwitchVector>
-<newTextVector device='West Camera' name='ACTIVE_DEVICES'>
+<newTextVector device='Watec' name='ACTIVE_DEVICES'>
   <oneText name='ACTIVE_TELESCOPE'>
       iOptron CEM120
   </oneText>
   <oneText name='ACTIVE_FOCUSER'>
-      
+      MoonLite
   </oneText>
   <oneText name='ACTIVE_FILTER'>
       
@@ -62,7 +62,7 @@
       
   </oneText>
 </newTextVector>
-<newSwitchVector device='West Camera' name='UPLOAD_MODE'>
+<newSwitchVector device='Watec' name='UPLOAD_MODE'>
   <oneSwitch name='UPLOAD_CLIENT'>
       On
   </oneSwitch>
@@ -73,7 +73,7 @@
       Off
   </oneSwitch>
 </newSwitchVector>
-<newTextVector device='West Camera' name='UPLOAD_SETTINGS'>
+<newTextVector device='Watec' name='UPLOAD_SETTINGS'>
   <oneText name='UPLOAD_DIR'>
       /home/west
   </oneText>
@@ -81,23 +81,15 @@
       IMAGE_XXX
   </oneText>
 </newTextVector>
-<newSwitchVector device='West Camera' name='TELESCOPE_TYPE'>
+<newSwitchVector device='Watec' name='TELESCOPE_TYPE'>
   <oneSwitch name='TELESCOPE_PRIMARY'>
-      Off
+      On
   </oneSwitch>
   <oneSwitch name='TELESCOPE_GUIDE'>
-      On
-  </oneSwitch>
-</newSwitchVector>
-<newSwitchVector device='West Camera' name='CCD_EXPOSURE_LOOP'>
-  <oneSwitch name='LOOP_ON'>
       Off
   </oneSwitch>
-  <oneSwitch name='LOOP_OFF'>
-      On
-  </oneSwitch>
 </newSwitchVector>
-<newSwitchVector device='West Camera' name='CCD_COMPRESSION'>
+<newSwitchVector device='Watec' name='CCD_COMPRESSION'>
   <oneSwitch name='CCD_COMPRESS'>
       Off
   </oneSwitch>
@@ -105,7 +97,7 @@
       On
   </oneSwitch>
 </newSwitchVector>
-<newNumberVector device='West Camera' name='CCD_FRAME'>
+<newNumberVector device='Watec' name='CCD_FRAME'>
   <oneNumber name='X'>
       0
   </oneNumber>
@@ -113,13 +105,13 @@
       0
   </oneNumber>
   <oneNumber name='WIDTH'>
-      640
+      720
   </oneNumber>
   <oneNumber name='HEIGHT'>
-      480
+      576
   </oneNumber>
 </newNumberVector>
-<newNumberVector device='West Camera' name='CCD_BINNING'>
+<newNumberVector device='Watec' name='CCD_BINNING'>
   <oneNumber name='HOR_BIN'>
       1
   </oneNumber>
@@ -127,7 +119,7 @@
       1
   </oneNumber>
 </newNumberVector>
-<newSwitchVector device='West Camera' name='CCD_STREAM_ENCODER'>
+<newSwitchVector device='Watec' name='CCD_STREAM_ENCODER'>
   <oneSwitch name='RAW'>
       On
   </oneSwitch>
@@ -135,7 +127,7 @@
       Off
   </oneSwitch>
 </newSwitchVector>
-<newTextVector device='West Camera' name='RECORD_FILE'>
+<newTextVector device='Watec' name='RECORD_FILE'>
   <oneText name='RECORD_FILE_DIR'>
       /home/west/indi__D_
   </oneText>
@@ -143,7 +135,7 @@
       indi_record__T_
   </oneText>
 </newTextVector>
-<newNumberVector device='West Camera' name='RECORD_OPTIONS'>
+<newNumberVector device='Watec' name='RECORD_OPTIONS'>
   <oneNumber name='RECORD_DURATION'>
       1
   </oneNumber>
@@ -151,38 +143,41 @@
       30
   </oneNumber>
 </newNumberVector>
-<newSwitchVector device='West Camera' name='CCD_STREAM_RECORDER'>
+<newSwitchVector device='Watec' name='CCD_STREAM_RECORDER'>
   <oneSwitch name='SER'>
       On
   </oneSwitch>
 </newSwitchVector>
-<newNumberVector device='West Camera' name='Image Adjustments'>
+<newNumberVector device='Watec' name='Image Adjustments'>
   <oneNumber name='Brightness'>
       128
   </oneNumber>
   <oneNumber name='Contrast'>
-      32
+      64
   </oneNumber>
   <oneNumber name='Saturation'>
-      32
+      64
   </oneNumber>
-  <oneNumber name='Gain'>
+  <oneNumber name='Hue'>
       0
   </oneNumber>
-  <oneNumber name='White Balance Temperature'>
-      4000
+  <oneNumber name='Volume'>
+      31
+  </oneNumber>
+  <oneNumber name='Red Balance'>
+      0
+  </oneNumber>
+  <oneNumber name='Blue Balance'>
+      0
   </oneNumber>
   <oneNumber name='Sharpness'>
-      24
+      0
   </oneNumber>
-  <oneNumber name='Backlight Compensation'>
-      1
-  </oneNumber>
-  <oneNumber name='Exposure (Absolute)'>
-      166
+  <oneNumber name='Chroma Gain'>
+      15
   </oneNumber>
 </newNumberVector>
-<newSwitchVector device='West Camera' name='CCD_STREAM_ENCODER'>
+<newSwitchVector device='Watec' name='CCD_STREAM_ENCODER'>
   <oneSwitch name='RAW'>
       On
   </oneSwitch>
@@ -190,7 +185,7 @@
       Off
   </oneSwitch>
 </newSwitchVector>
-<newTextVector device='West Camera' name='RECORD_FILE'>
+<newTextVector device='Watec' name='RECORD_FILE'>
   <oneText name='RECORD_FILE_DIR'>
       /home/west/indi__D_
   </oneText>
@@ -198,7 +193,7 @@
       indi_record__T_
   </oneText>
 </newTextVector>
-<newNumberVector device='West Camera' name='RECORD_OPTIONS'>
+<newNumberVector device='Watec' name='RECORD_OPTIONS'>
   <oneNumber name='RECORD_DURATION'>
       1
   </oneNumber>
@@ -206,7 +201,7 @@
       30
   </oneNumber>
 </newNumberVector>
-<newSwitchVector device='West Camera' name='CCD_STREAM_RECORDER'>
+<newSwitchVector device='Watec' name='CCD_STREAM_RECORDER'>
   <oneSwitch name='SER'>
       On
   </oneSwitch>

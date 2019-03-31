@@ -95,14 +95,6 @@
       Off
   </oneSwitch>
 </newSwitchVector>
-<newSwitchVector device='QHY CCD QHY5LII-M-60d7e' name='CCD_EXPOSURE_LOOP'>
-  <oneSwitch name='LOOP_ON'>
-      Off
-  </oneSwitch>
-  <oneSwitch name='LOOP_OFF'>
-      On
-  </oneSwitch>
-</newSwitchVector>
 <newSwitchVector device='QHY CCD QHY5LII-M-60d7e' name='CCD_COMPRESSION'>
   <oneSwitch name='CCD_COMPRESS'>
       Off

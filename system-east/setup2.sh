@@ -1,12 +1,12 @@
 #!/bin/bash
 
-# iOptron CEM60
+# iOptron CEM60 / ttyUSB1
 # Atik 383L+
 # Starlight Xpress Filter Wheel
 # QHY5L-II Mono
 # Astrometry 
 # WatchDog
-# Seletek Armadillo 2
+# Seletek Armadillo 2 / ttyUSB0
 # Weather Meta Remote
 # Dome Scripting Gateway Remote
 

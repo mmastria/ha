@@ -1,7 +1,8 @@
 #!/bin/bash
 
-# iOptron CEM120
+# iOptron CEM120 / ttyUSB0
 # Atik 320E
+# Watec / tty
 # QHY5L-II Mono
 # Astrometry
 # WatchDog
