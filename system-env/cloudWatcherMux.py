@@ -42,21 +42,21 @@ def talk(src, sname, dest, dname):
                     dest_resp += inByte
                 else:
                     print ' '*len(sname) + ' ## [' + inByte + '] discarding - hex [' + inByte.encode('hex') + ']'
-            if len(dest_resp) >= 15 and len(dest_resp) % 15 == 13 and dest_resp[-13:]+' 0'==handshaking:
-                dest_resp += ' 0'
-            if len(dest_resp) >= 15 and len(dest_resp) % 15 == 14 and dest_resp[-14:]+'0'==handshaking:
-                dest_resp += '0'
-            if len(dest_resp) >= 15 and len(dest_resp) % 15 == 0 and dest_resp[-15:]==handshaking:
-                print sname + ' << [' + dest_resp.replace(hschar,'_') + ']'
-                print ' '*len(sname)+'    [' + ':'.join(x.encode('hex') for x in dest_resp) + ']'
-                src.write(dest_resp)
-            else:
-                print sname + ' <# [' + dest_resp.replace(hschar,'_').replace(' ','.') + ']'
-                print ' '*len(sname)+'    [' + ':'.join(x.encode('hex') for x in dest_resp) + ']'
-                print sname + ' <= [' + handshaking.replace(hschar,'_') + ']'
-                print ' '*len(sname)+'    [' + ':'.join(x.encode('hex') for x in handshaking) + ']'
-                src.write(handshaking)
-            time.sleep(0.1)
+        if len(dest_resp) >= 15 and len(dest_resp) % 15 == 13 and dest_resp[-13:]+' 0'==handshaking:
+            dest_resp += ' 0'
+        if len(dest_resp) >= 15 and len(dest_resp) % 15 == 14 and dest_resp[-14:]+'0'==handshaking:
+            dest_resp += '0'
+        if len(dest_resp) >= 15 and len(dest_resp) % 15 == 0 and dest_resp[-15:]==handshaking:
+            print sname + ' << [' + dest_resp.replace(hschar,'_') + ']'
+            print ' '*len(sname)+'    [' + ':'.join(x.encode('hex') for x in dest_resp) + ']'
+            src.write(dest_resp)
+        else:
+            print sname + ' <# [' + dest_resp.replace(hschar,'_').replace(' ','.') + ']'
+            print ' '*len(sname)+'    [' + ':'.join(x.encode('hex') for x in dest_resp) + ']'
+            print sname + ' <= [' + handshaking.replace(hschar,'_') + ']'
+            print ' '*len(sname)+'    [' + ':'.join(x.encode('hex') for x in handshaking) + ']'
+            src.write(handshaking)
+        time.sleep(0.1)
 
 def connect(fport, name):
     dev = serial.Serial(
