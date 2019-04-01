@@ -69,7 +69,7 @@ if (not(indiclient.connectServer())):
      print("No indiserver running on "+indiclient.getHost()+":"+str(indiclient.getPort())+" - Try to run")
      print("  indiserver indi_simulator_telescope indi_simulator_ccd")
      sys.exit(1)
-time.sleep(1)
+time.sleep(10)
 
 # Print list of devices. The list is obtained from the wrapper function getDevices as indiclient is an instance
 # of PyIndi.BaseClient and the original C++ array is mapped to a Python List. Each device in this list is an
