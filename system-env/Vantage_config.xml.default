@@ -98,10 +98,10 @@
       0
   </oneNumber>
   <oneNumber name='MAX_OK'>
-      1
+      2
   </oneNumber>
   <oneNumber name='PERC_WARN'>
-      0
+      15
   </oneNumber>
 </newNumberVector>
 <newNumberVector device='Vantage' name='WEATHER_TEMPERATURE'>
@@ -109,10 +109,10 @@
       -10
   </oneNumber>
   <oneNumber name='MAX_OK'>
-      40
+      30
   </oneNumber>
   <oneNumber name='PERC_WARN'>
-      5
+      15
   </oneNumber>
 </newNumberVector>
 <newNumberVector device='Vantage' name='WEATHER_BAROMETER'>
@@ -120,10 +120,10 @@
       20
   </oneNumber>
   <oneNumber name='MAX_OK'>
-      1200
+      32.5
   </oneNumber>
   <oneNumber name='PERC_WARN'>
-      10
+      15
   </oneNumber>
 </newNumberVector>
 <newNumberVector device='Vantage' name='WEATHER_WIND_SPEED'>
@@ -134,7 +134,7 @@
       20
   </oneNumber>
   <oneNumber name='PERC_WARN'>
-      10
+      15
   </oneNumber>
 </newNumberVector>
 <newNumberVector device='Vantage' name='WEATHER_WIND_DIRECTION'>
@@ -145,7 +145,7 @@
       360
   </oneNumber>
   <oneNumber name='PERC_WARN'>
-      0
+      15
   </oneNumber>
 </newNumberVector>
 <newNumberVector device='Vantage' name='WEATHER_HUMIDITY'>
@@ -156,7 +156,7 @@
       100
   </oneNumber>
   <oneNumber name='PERC_WARN'>
-      5
+      15
   </oneNumber>
 </newNumberVector>
 <newNumberVector device='Vantage' name='WEATHER_RAIN_RATE'>
@@ -178,7 +178,7 @@
       10000
   </oneNumber>
   <oneNumber name='PERC_WARN'>
-      0
+      15
   </oneNumber>
 </newNumberVector>
 </INDIDriver>
