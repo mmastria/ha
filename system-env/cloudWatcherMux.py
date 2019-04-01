@@ -108,7 +108,13 @@ def connect(fport, name):
 def createVPort(fPortServer, fPortClient):
     cmd=['/usr/bin/socat','-d','-d','PTY,link='+fPortServer+',b9600,rawer','PTY,link='+fPortClient+',b9600,rawer']
     fproc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    time.sleep(1)
+    time.sleep(0.5)
+    cmd=['/bin/stty','-F', fPortServer, '9600']
+    subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    time.sleep(0.5)
+    cmd=['/bin/stty','-F', fPortClient, '9600']
+    subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    time.sleep(0.5)
     return fproc
 
 def destroyVPort(fproc):
