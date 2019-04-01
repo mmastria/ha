@@ -18,6 +18,7 @@ child=$!
 
 echo "start indi_wiringpi_gpio -n \"Power System\" -c \"$HOME/.indi/Power System_config.xml\"" > ~/.indi/indiFIFO
 echo "start indi_script_dome -n \"Dome Scripting Gateway\" -c \"$HOME/.indi/Dome Scripting Gateway_config.xml\"" > ~/.indi/indiFIFO
+echo "start indi_webcam_ccd -n \"Observ Cam\" -c \"$HOME/.indi/Observ Cam_config.xml\"" > ~/.indi/indiFIFO
 echo "start indi_watchdog -n \"WatchDog\" -c \"$HOME/.indi/WatchDog_config.xml\"" > ~/.indi/indiFIFO
 echo "start \"Weather Meta\"@system-env:7624" > ~/.indi/indiFIFO
 
