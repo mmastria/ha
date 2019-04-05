@@ -1,6 +1,11 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
 
+#    watcher       = /dev/ttyUSB0 (serial)
+#    solo          = /dev/ttyAMA0 (usb)
+#    indi internal = /dev/ttyUSB1 (virtual)
+#    indi device   = /dev/ttyUSB2 (virtual)
+
 import serial
 import sys
 import time
@@ -46,7 +51,7 @@ def talk(src, sname, dest, dname):
             dest_resp = RESP_V + handshaking
         else:
             dest.write(src_req)
-            time.sleep(0.1)
+            time.sleep(0.01)
             dest_resp = ''
             timeout = 100
             if src_req == 'E!' or src_req == 'h!' or src_req == 't!' or src_req == 'M!' or src_req == 'K!':
@@ -82,7 +87,7 @@ def talk(src, sname, dest, dname):
             #print sname + ' <= [' + handshaking.replace(hschar,'_') + ']'
             #print ' '*len(sname)+'    [' + ':'.join(x.encode('hex') for x in handshaking) + ']'
             src.write(handshaking)
-        time.sleep(0.1)
+        time.sleep(0.01)
 
 def connect(fport, name):
     dev = serial.Serial(
