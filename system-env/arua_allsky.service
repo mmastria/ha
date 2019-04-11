@@ -1,0 +1,12 @@
+[Unit]
+Description=AllSky Cam Monitoring
+After=multi-user.target
+
+[Service]
+Restart=always
+RestartSec=5
+User=root
+ExecStart=fswebcam -d /dev/video0 -i 0 -l 15 -r "640x480" -F 150 --deinterlace --crop 465x420,86x4 --scale 465x465 --timestamp %d-%m-%Y\ %H\:%M\:%S --title Mastria\ Observatory --save /var/www/html/allsky_%Y%m%d-%H%M%S.jpg --exec cp\ /var/www/html/allsky_%Y%m%d-%H%M%S.jpg\ /var/www/html/allsky.jpg
+
+[Install]
+WantedBy=multi-user.target

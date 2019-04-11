@@ -12,6 +12,7 @@
 # reboot
 # ssh root@ip
 # raspi-config
+# raspi-config - Advanced / Split Memory / GPU = 16
 # apt -y install git
 # git clone https://github.com/mmastria/ha.git
 # cd ha
@@ -93,7 +94,9 @@ apt-get -y install build-essential git python-dev python-pip vim cmake ntpdate \
        zlib1g-dev libffi-dev libfftw3-dev librtlsdr-dev ffmpeg gawk lsof libavcodec-dev libavdevice-dev \
        libgtest-dev google-mock oggvideotools \
        astrometry.net \
-       screen
+       screen \
+       fswebcam 
+       #python-pygame python-pil libsdl1.2-dev
 [ '$DEVICE' == 'aagsolo' ] && apt-get -y install swig 
 [ '$DEVICE' != 'aagsolo' ] && apt-get -y install swig2.0 libz3-dev raspberrypi-kernel-headers
 apt-get -y --fix-broken install
