@@ -1,0 +1,70 @@
+# sensors.yaml
+
+#  - platform: command_line
+#    name: hwg_temperatura
+#    command: 'curl http://192.168.0.203/values.xml|grep -A 7 -E "Temperatura.*"|grep -Eo "<Value>(.*?)<.*"|cut -d ">" -f 2|cut -d "<" -f 1|grep -v 999'
+#    unit_of_measurement: "°C"
+#    scan_interval: 60
+
+- platform: hwg
+  host: 192.168.0.203
+  monitored_conditions:
+    - temperature
+    - humidity
+#    - temperature_status
+#    - humidity_status
+#    - temperature_normal
+#    - humidity_normal
+
+- platform: aag
+  host: 192.168.0.205
+  monitored_conditions:
+    - clouds
+    - rain
+    - light
+    - switch
+    - safe
+#    - temperature
+
+- platform: nhs
+  host: 192.168.0.217
+  monitored_conditions:
+#    - nominal_input_voltage
+#    - nominal_output_voltage
+#    - batteries
+#    - nominal_charger_current
+#    - read_charger_current
+#    - read_temperature
+    - input_voltage
+    - output_voltage
+    - load
+    - battery_voltage
+    - temperature
+#    - chager_current
+    - status
+#    - source
+
+- platform: yr
+  forecast: 24
+  monitored_conditions:
+    - temperature
+#    - symbol
+    - precipitation
+#    - windSpeed
+#    - pressure
+    - humidity
+#    - fog
+    - cloudiness
+#    - dewpointTemperature
+#    - windDirection
+#    - lowClouds
+#    - mediumClouds
+#    - highClouds
+
+- platform: moon
+
+- platform: systemmonitor
+  resources:
+    - type: last_boot
+#    - type: processor_use
+

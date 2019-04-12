@@ -1,0 +1,18 @@
+# cameras.yaml
+
+- platform: mjpeg
+  name: Observatorio
+  mjpeg_url: http://192.168.0.206:8080/stream/video/mjpeg
+  still_image_url: http://192.168.0.206:8080/stream/snapshot.jpg
+  authentication: digest
+  username: !secret cam_observatorio_username
+  password: !secret cam_observatorio_password
+
+- platform: generic
+  name: AllSky
+  still_image_url: http://192.168.0.210:80/allsky.jpg
+  verify_ssl: false
+
+#- platform: local_file
+#  name: All Sky
+#  file_path: /share/motion/lastsnap.jpg

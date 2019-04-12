@@ -1,0 +1,40 @@
+# switches.yaml
+
+- platform: rpi_gpio
+  ports:
+    15: dehum_marron
+    17: dehum_bege
+  invert_logic: true
+
+#    14: exaustor
+#    18: dehum_branco
+
+- platform: wake_on_lan
+  name: system-obs-win
+  mac_address: "F0-4D-A2-E4-B6-63"
+  host: 192.168.0.214
+  turn_off:
+    service: hassio.addon_stdin
+    data:
+      addon: core_rpc_shutdown
+      input: system-obs-win
+#      service: shell_command.turn_off_scope_west
+
+#shell_command:
+#  turn_off_scope_east: ''
+#  turn_off_scope_west: ''
+
+#- platform: arduino
+#  pins:
+#    2:
+#      name: Relay A
+#      initial: false
+#      negate: true
+#    3:
+#      name: Relay B
+#      initial: false
+#      negate: true
+#    13:
+#      name: Arduino LED
+#      initial: true
+#      negate: false

@@ -1,0 +1,45 @@
+# binsensors.yaml
+
+- platform: ping
+  host: 192.168.0.203
+  name: hwg
+
+- platform: ping
+  host: 192.168.0.205
+  name: aagsolo
+
+- platform: ping
+  host: 192.168.0.206
+  name: cam-observatorio
+
+- platform: ping
+  host: 192.168.0.210
+  name: system-env
+
+- platform: ping
+  host: 192.168.0.211
+  name: system-obs
+
+- platform: ping
+  host: 192.168.0.212
+  name: hassio
+
+- platform: ping
+  host: 192.168.0.214
+  name: system-obs-win
+
+- platform: ping
+  host: 192.168.0.217
+  name: weather
+
+- platform: ping
+  host: 192.168.0.220
+  name: system-west
+
+- platform: ping
+  host: 192.168.0.221
+  name: system-east
+
+- platform: ping
+  host: 192.168.0.224
+  name: cem120

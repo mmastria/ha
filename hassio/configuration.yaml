@@ -1,0 +1,40 @@
+# configuration.yaml
+
+hassio:
+
+homeassistant:
+  name: Mastria - Arua
+  latitude: -23.463692
+  longitude: -46.270144
+  elevation: 753
+  unit_system: metric
+  time_zone: America/Sao_Paulo
+
+frontend:
+  extra_html_url:
+    - /local/custom.html
+
+system_health:
+config:
+updater:
+history:
+sun:
+
+sensor: !include sensors.yaml
+switch: !include switches.yaml
+automation: !include automations.yaml
+binary_sensor: !include binsensors.yaml
+camera: !include cameras.yaml
+
+panel_iframe: !include panels.yaml
+
+#      - sensor.aagsolo_temperature
+history_graph:
+  temperature:
+    entities:
+      - sensor.hwg_ste_ambient_temperature
+    hours_to_show: 216
+  humidity:
+    entities:
+      - sensor.hwg_ste_ambient_humidity
+    hours_to_show: 216

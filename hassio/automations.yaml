@@ -1,0 +1,47 @@
+# automations.yaml
+
+- alias: Auto Liga Desumidificadores
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.hwg_ste_ambient_humidity
+    above: 61.0
+  action:
+    service: switch.turn_on
+    entity_id:
+      - switch.dehum_marron
+      - switch.dehum_bege
+
+#      - switch.dehum_branco
+
+- alias: Auto Desliga Desumidificadores
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.hwg_ste_ambient_humidity
+    below: 56.0
+  action:
+    service: switch.turn_off
+    entity_id:
+      - switch.dehum_marron
+      - switch.dehum_bege
+
+#      - switch.dehum_branco
+
+#- alias: Auto Liga Exaustor
+#  trigger:
+#    platform: numeric_state
+#    entity_id: sensor.hwgste_ambient_humidity
+#    above: 35.00
+#  action:
+#    service: switch.turn_on
+#    entity_id:
+#      - switch.exaustor
+
+#- alias: Auto Desliga Exaustor
+#  trigger:
+#    platform: numeric_state
+#    entity_id: sensor.hwgste_ambient_humidity
+#    below: 32.00
+#  action:
+#    service: switch.turn_off
+#    entity_id:
+#      - switch.exaustor
