@@ -11,9 +11,8 @@ cp -f *.py /usr/local/bin/
 cp -f *sk.xml /usr/share/indi/
 [ ! -d /root/.indi ] && mkdir -p /root/.indi
 cp -f *.default /root/.indi/
-cp -f tarjpg /etc/cron.daily
+cp -f allsky_rotate.sh /etc/cron.daily
 ls -1 /root/.indi/*.default|xargs -n 1 -I{a} echo {a}|sed 's/.default//'|xargs -r -n 1 -I{b} cp {b}.default {b}
-mkdir -p ~/images
 
 systemctl daemon-reload
 

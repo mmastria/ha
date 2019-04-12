@@ -1,3 +1,0 @@
-#!/bin/sh
-cd /var/www/html
-find . -name "allsky_*jpg"|xargs -r -I % sh -c 'tar -rf allsky_'$(date +%Y%m%d)'.tgz % && rm -f %'
