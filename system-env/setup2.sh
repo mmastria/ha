@@ -2,6 +2,10 @@
 
 # run as root to use socat
 
+# necessario para camera USB DVC100
+#rmmod em28xx
+#modprobe em28xx nodrop=1 timeout=5000 quirks=0x80
+
 ./rtl-sdr-rules.sh
 sed -i 's/^#alias l/alias l/g' /root/.bashrc
 
