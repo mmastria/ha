@@ -22,25 +22,25 @@ DEFAULT_NAME = 'NHS-UPS'
 DEFAULT_PORT = 2001
 
 SENSOR_TYPES = {
-    'nominal_input_voltage': ['Tensao Entrada Nominal', '', 'mdi:current-ac', 'tensao_entrada_nominal', 1],
-    'nominal_output_voltage': ['Tensao Saida Nominal', '', 'mdi:current-ac', 'tensao_saida_nominal', 1],
+    'nominal_input_voltage': ['Tensao Entrada Nominal', 'V', 'mdi:current-ac', 'tensao_entrada_nominal', 1],
+    'nominal_output_voltage': ['Tensao Saida Nominal', 'V', 'mdi:current-ac', 'tensao_saida_nominal', 1],
     'batteries': ['Quantidade Baterias', '', 'mdi:car-battery', 'quantidade_baterias', 0],
-    'nominal_charger_current': ['Corrente Nominal Carregador', '', 'mdi:flash', 'corrente_nominal_carregador', 0],
+    'nominal_charger_current': ['Corrente Nominal Carregador', 'i', 'mdi:flash', 'corrente_nominal_carregador', 0],
     'read_charger_current': ['Mede Corrente Carregador', '', 'mdi:comment-question-outline', 'mede_corrente_carregador', None],
     'read_temperature': ['Mede Temperatura', '', 'mdi:comment-question-outline', 'mede_temperatura', None],
-    'input_voltage': ['Tensao Entrada', '', 'mdi:current-ac', 'tensao_entrada', 1],
-    'output_voltage': ['Tensao Saida', '', 'mdi:current-ac', 'tensao_saida', 1],
+    'input_voltage': ['Tensao Entrada', 'V', 'mdi:current-ac', 'tensao_entrada', 1],
+    'output_voltage': ['Tensao Saida', 'V', 'mdi:current-ac', 'tensao_saida', 1],
     'load': ['Carga', '%', 'mdi:gauge-full', 'carga', 1],
-    'battery_voltage': ['Tensao Bateria', '', 'mdi:batty-chaging-outline', 'tensao_bateria', 1],
+    'battery_voltage': ['Tensao Bateria', 'V', 'mdi:batty-chaging-outline', 'tensao_bateria', 1],
     'temperature': ['Temperatura', TEMP_CELSIUS, 'mdi:oil-tempereture', 'temperatura', 1],
-    'chager_current': ['Corrente Carregador', '', 'mdi:flash', 'corrente_carregador', 1],
-    'status': ['Status', '', 'mdi:skull', 'status', None],
-    'source': ['Source', '', 'mdi:skull', 'source', None]
+    'chager_current': ['Corrente Carregador', 'i', 'mdi:flash', 'corrente_carregador', 1],
+    'status': ['Status', '', 'mdi:battery-alert', 'status', None],
+    'source': ['Source', '', 'mdi:battery-alert', 'source', None]
 }
 
 SENSOR_STATE = {
-    'ok': ['AC Source', True],
-    'nok': ['On Battery', False]
+    'ok': ['AC Source', "on"],
+    'nok': ['On Battery', "off"]
 }
 
 """
@@ -68,9 +68,9 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
     vol.Optional(CONF_PORT, default=DEFAULT_PORT): cv.port,
     vol.Optional(CONF_NAME, default=DEFAULT_NAME): cv.string,
     vol.Required(CONF_MONITORED_CONDITIONS, default=['load','status']):
-    vol.All(cv.ensure_list, vol.Length(min=1), [vol.In(SENSOR_TYPES)]),
+        vol.All(cv.ensure_list, vol.Length(min=1), [vol.In(SENSOR_TYPES)]),
     vol.Optional(CONF_UPDATE_INTERVAL, default=timedelta(seconds=60)): (
-    vol.All(cv.time_period, cv.positive_timedelta)),
+        vol.All(cv.time_period, cv.positive_timedelta)),
 })
 
 def setup_platform(hass, config, add_devices, discovery_info=None):
@@ -117,6 +117,11 @@ class NhsSensor(Entity):
     @property
     def state(self):
         """Return the state of the sensor."""
+        return self._sensor_value
+
+    @property
+    def is_on(self):
+        """Return the state of the entity."""
         return self._sensor_value
 
     @property
@@ -179,7 +184,6 @@ class NhsData(object):
             except:
                 self.measurings = None
                 _LOGGER.error("Unable to parse data")
-                _LOGGER.error(json.dumps(rjson, indent=4, sort_keys=True))
         except requests.exceptions.ConnectionError:
             self.measurings = None
             _LOGGER.error("Unable to retrieve data or connect to %s", url)

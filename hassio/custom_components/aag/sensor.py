@@ -26,17 +26,33 @@ SENSOR_TYPES = {
     'cwinfo': ['Release', '', 'mdi:information-outline', 'cwinfo', None],
     'clouds': ['Clouds', TEMP_CELSIUS, 'mdi:weather-cloudy', 'clouds', 2],
     'temperature': ['Temperature', TEMP_CELSIUS, 'mdi:thermometer', 'temp', 1],
-    'wind': ['Wind', '', 'mdi:weather-wind', 'wind', 0],
-    'gust': ['Gust', '', 'mdi:weather-wind', 'gust', 0],
-    'rain': ['Rain', '', 'mdi:weather-rainy', 'rain', 0],
-    'light': ['Light', '', 'mdi:weather-sunny', 'light', 0],
-    'switch': ['Switch', '', 'mdi:power', 'switch', 0],
-    'safe': ['Safe', '', 'mdi:skull', 'safe', 0],
+    'wind': ['Wind', 'km/h', 'mdi:weather-wind', 'wind', 0],
+    'gust': ['Gust', 'km/h', 'mdi:weather-wind', 'gust', 0],
+    'rain': ['Rain', 'u', 'mdi:weather-rainy', 'rain', 0],
+    'light': ['Light', 'u', 'mdi:weather-sunny', 'light', 0],
+    'switch': ['Switch', '', 'mdi:power', 'switch', None],
+    'safe': ['Safe', '', 'mdi:alert', 'safe', None],
     'humidity': ['Humidity', '%', 'mdi:water-percent', 'hum', 1],
     'dewpoint': ['Dewpoint', TEMP_CELSIUS, 'mdi:thermometer', 'dewp', 1],
+    'cloudsclear' : ['Sky Clear', TEMP_CELSIUS, 'mdi:weather-cloudy', 'Clear', 0],
+    'cloudscloudy' : ['Sky Cloudy', TEMP_CELSIUS, 'mdi:weather-cloudy', 'Cloudy', 0],
+    'cloudsovercast' : ['Sky Overcast', TEMP_CELSIUS, 'mdi:weather-cloudy', 'Overcast', 0],
+    'raindry' : ['Weather Dry', 'u', 'mdi:weather-rainy', 'Dry', 0],
+    'rainwet' : ['Weather Wet', 'u', 'mdi:weather-rainy', 'Wet', 0],
+    'rainrain' : ['Weather Rain', 'u', 'mdi:weather-rainy', 'Rain', 0],
+    'lightdark' : ['Sky Dark', 'u', 'mdi:weather-sunny', 'Dark', 0],
+    'lightlight' : ['Sky Light', 'u', 'mdi:weather-sunny', 'Light', 0],
+    'lightverylight' : ['Sky Very Light', 'u', 'mdi:weather-sunny', 'VeryLight', 0]
+}
+
+SENSOR_STATE = {
+    '0': 'off',
+    '1': 'on'
 }
 
 """
+http://aagsolo.arua/cgi-bin/cgiLastData
+
 dataGMTTime=2019/04/12 17:52:54
 cwinfo=Serial: 1198, FW: 5.7
 clouds=2.420000
@@ -49,6 +65,40 @@ switch=0
 safe=0
 hum=-1
 dewp=100.000000
+
+http://aagsolo.arua/cgi-bin/config.pl
+
+Ver=21
+Title=Mastria
+Subtitle=AAG Cloudwatcher Solo
+GraphCloudMin=
+Clear=0
+Cloudy=5
+Overcast=30
+GraphRainMax=2700
+Dry=2000
+Wet=1700
+Rain=400
+RHDry=
+Normal=
+Humid=
+Calm=5
+Windy=43.9
+VeryWindy=998.9
+GraphLightMax=59950
+Dark=27000
+Light=1000
+VeryLight=0
+Sw_Clouds=0
+Sw_Wind=24.9
+Sw_Rain=2400
+Sw_Light=27000
+Sw_Hum=
+HRSensor=0
+WindSensor=0
+BrowserLangs=en-us
+Now=2019/04/13 15:07:57
+TimeOffset=-10800
 """
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
@@ -107,6 +157,11 @@ class AagSensor(Entity):
         return self._sensor_value
 
     @property
+    def is_on(self):
+        """Return the state of the entity."""
+        return self._sensor_value
+
+    @property
     def unit_of_measurement(self):
         """Return the unit of measurement of this entity, if any."""
         return self._unit_of_measurement
@@ -153,7 +208,10 @@ class AagData(object):
             response = requests.get(url, timeout=5)
             try:
                 for sensor, value in [(pair.split("=")) for pair in response.text.splitlines()]:
-                    values[sensor] = value
+                    if sensor in ['safe', 'switch']:
+                        values[sensor] = SENSOR_STATE[value]
+                    else:
+                        values[sensor] = value
                 url = "http://{}:{}/cgi-bin/config.pl".format(self.host, self.port)
                 response = requests.get(url, timeout=5)
                 try:

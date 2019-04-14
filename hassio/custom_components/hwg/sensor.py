@@ -35,11 +35,11 @@ SENSOR_TYPES = {
 
 SENSOR_STATE = {
     '0': ['Invalid', None],
-    '1': ['Normal', True],
-    '2': ['OutOfRangeLo', False],
-    '3': ['OutOfRangeHi', False],
-    '4': ['AlarmLo', False],
-    '5': ['AlarmHi', False]
+    '1': ['Normal', "on"],
+    '2': ['OutOfRangeLo', "off"],
+    '3': ['OutOfRangeHi', "off"],
+    '4': ['AlarmLo', "off"],
+    '5': ['AlarmHi', "off"]
 }
 
 """
@@ -138,6 +138,11 @@ class HWgSensor(Entity):
     @property
     def state(self):
         """Return the state of the sensor."""
+        return self._sensor_value
+
+    @property
+    def is_on(self):
+        """Return the state of the entity."""
         return self._sensor_value
 
     @property

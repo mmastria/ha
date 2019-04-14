@@ -43,3 +43,14 @@
 - platform: ping
   host: 192.168.0.224
   name: cem120
+
+- platform: template
+  sensors:
+    nhs_status:
+      friendly_name: "UPS Status"
+      value_template: "{{ is_state('sensor.nhs_ups_status', 'on') }}"
+      icon_template: 'mdi:battery-alert'
+    aag_safe:
+      friendly_name: "AAG Status"
+      value_template: "{{ is_state('sensor.aag_ste_safe', 'on') }}"
+      icon_template: 'mdi:alert'

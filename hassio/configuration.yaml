@@ -11,8 +11,24 @@ homeassistant:
   time_zone: America/Sao_Paulo
 
 frontend:
-  extra_html_url:
-    - /local/custom.html
+  themes: !include themes.yaml
+# extra_html_url:
+#   - /www/custom.html
+
+lovelace:
+  mode: yaml
+
+input_select:
+  hass_theme:
+    name: HASS Themes
+    options:
+      - default
+      - midnight
+      - solarized
+      - PmxMononight
+      - Night_Theme
+    initial: solarized
+    icon: mdi:theme-light-dark
 
 system_health:
 config:
@@ -38,3 +54,7 @@ history_graph:
     entities:
       - sensor.hwg_ste_ambient_humidity
     hours_to_show: 216
+
+weather:
+  - platform: darksky
+    api_key: !secret darksky_apikey

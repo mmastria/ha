@@ -1,0 +1,173 @@
+# ui-lovelace.yaml
+
+title: Mastria - Arua
+
+resources:
+  - url: /local/button-card.js
+    type: module
+
+views:
+  - cards:
+
+      - type: picture-elements
+        image: /local/lixo.png
+        elements:
+          - type: state-icon
+            entity: binary_sensor.nhs_status
+            style:
+              top: 21%
+              left: 97%
+              "--paper-item-icon-color": lightgreen
+              "--paper-item-icon-active-color": red
+          - type: state-icon
+            entity: binary_sensor.aag_safe
+            style:
+              top: 31%
+              left: 97%
+              "--paper-item-icon-color": lightgreen
+              "--paper-item-icon-active-color": red
+
+      - cards:
+          - entity: camera.observatorio
+            show_name: false
+            show_state: false
+            type: picture-entity
+          - type: entities
+            entities:
+              - entity: sensor.nhs_ups_source
+                name: Fonte de Energia
+          - cards:
+
+
+              - type: "custom:button-card"
+                entity: switch.system_obs_win
+                icon: 'mdi:windows'
+                name: Lunar CAMS
+                color: rgb(249, 197, 54)
+                style:
+                    - font-size: '16.8px'
+                    - font-weight: '400'
+                    - padding: '1% 0'
+
+              - type: "custom:button-card"
+                entity: switch.dehum_marron
+                icon: 'mdi:weather-windy'
+                name: Desumid On/Off
+                color: rgb(249, 197, 54)
+                style:
+                    - font-size: '16.8px'
+                    - font-weight: '400'
+                    - padding: '1% 0'
+
+              - type: "custom:button-card"
+                entity: switch.dehum_bege
+                icon: 'mdi:weather-windy'
+                name: Desumid On/Off
+                color: rgb(249, 197, 54)
+                style:
+                    - font-size: '16.8px'
+                    - font-weight: '400'
+                    - padding: '1% 0'
+
+              - type: "custom:button-card"
+                entity: automation.controle_de_umidade
+                icon: 'mdi:weather-windy'
+                name: Desumid Auto
+                color: rgb(249, 197, 54)
+                style:
+                    - font-size: '16.8px'
+                    - font-weight: '400'
+                    - padding: '1% 0'
+
+            type: horizontal-stack
+          - cards:
+              - entity: sensor.hwg_ste_ambient_humidity
+                graph: line
+                name: Umidade
+                type: sensor
+              - entity: sensor.hwg_ste_ambient_temperature
+                graph: line
+                name: Temperatura
+                type: sensor
+            type: horizontal-stack
+        type: vertical-stack
+
+      - type: vertical-stack
+        cards:
+          - entity: camera.allsky
+            show_name: false
+            show_state: false
+            type: picture-entity
+          - columns: 4
+            entities:
+              - entity: binary_sensor.system_env
+                name: Env
+              - entity: binary_sensor.system_obs
+                name: Obs
+              - entity: binary_sensor.system_east
+                name: East
+              - entity: binary_sensor.system_west
+                name: West
+              - entity: binary_sensor.system_obs_win
+                name: Win
+              - entity: binary_sensor.cem120
+                name: Mount
+              - entity: binary_sensor.aag_safe
+                name: Safe
+              - entity: binary_sensor.nhs_status
+                name: UPS
+            show_icon: true
+            show_name: true
+            show_state: false
+            type: glance
+
+      - cards:
+          - entity: weather.dark_sky
+            type: weather-forecast
+          - entities:
+              - entity: sensor.moon
+              - entity: sun.sun
+            type: entities
+        type: vertical-stack
+
+      - cards:
+          - entity: sensor.nhs_ups_carga
+            max: 100
+            min: 0
+            name: Consumo UPS
+            severity:
+              green: 0
+              red: 70
+              yellow: 45
+            theme: default
+            type: gauge
+          - cards:
+              - entity: sensor.nhs_ups_tensao_entrada
+                max: 150
+                min: 0
+                name: Entrada (V)
+                severity:
+                  green: 120
+                  red: 130
+                  yellow: 100
+                theme: default
+                type: gauge
+                unit: ' '
+              - entity: sensor.nhs_ups_tensao_saida
+                max: 150
+                min: 0
+                name: Saída (V)
+                severity:
+                  green: 120
+                  red: 130
+                  yellow: 100
+                theme: default
+                type: gauge
+                unit: ' '
+            type: horizontal-stack
+        type: vertical-stack
+
+    panel: false
+    path: default_view
+    title: Observatory
+

@@ -19,12 +19,27 @@
 - platform: aag
   host: 192.168.0.205
   monitored_conditions:
+#    - datetime
+#    - cwinfo
     - clouds
+    - temperature
+#    - wind
+#    - gust
     - rain
     - light
     - switch
     - safe
-#    - temperature
+    - humidity
+#    - dewpoint
+    - cloudsclear
+    - cloudscloudy
+    - cloudsovercast
+    - raindry
+    - rainwet
+    - rainrain
+    - lightdark
+    - lightlight
+    - lightverylight    
 
 - platform: nhs
   host: 192.168.0.217
@@ -42,24 +57,24 @@
     - temperature
 #    - chager_current
     - status
-#    - source
+    - source
 
-- platform: yr
-  forecast: 24
-  monitored_conditions:
-    - temperature
-#    - symbol
-    - precipitation
-#    - windSpeed
-#    - pressure
-    - humidity
-#    - fog
-    - cloudiness
-#    - dewpointTemperature
-#    - windDirection
-#    - lowClouds
-#    - mediumClouds
-#    - highClouds
+#- platform: yr
+# forecast: 24
+# monitored_conditions:
+#   - temperature
+##    - symbol
+#   - precipitation
+##    - windSpeed
+##    - pressure
+#   - humidity
+##    - fog
+#   - cloudiness
+##    - dewpointTemperature
+##    - windDirection
+##    - lowClouds
+##    - mediumClouds
+##    - highClouds
 
 - platform: moon
 
