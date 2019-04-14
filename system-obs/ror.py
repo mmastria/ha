@@ -275,7 +275,7 @@ class RoR(object):
 		GPIO.output(ROR_MOVE, GPIO.HIGH)
 		return True
 
-		def abort(self):
+	def abort(self):
 		self.log.debug('abort')
 		return self._stop()
 
@@ -288,6 +288,16 @@ class RoR(object):
 			self._is_parked(), self._is_open(), self._is_closed(), self._is_mount_parked(), self.is_safe(), self.is_aagsafe(), p, s))
 		return '%s %s 0' % (p, s)
 
+	@property
+	def reststatus(self):
+            status = {}
+            status['parked'] = self._is_parked()
+            status['open'] = self._is_open()
+            status['closed'] = self._is_closed()
+            status['mount_parked'] = self._is_mount_parked()
+            status['safe'] = self.is_safe()
+            status['aagsafe'] = self.is_aagsafe()
+            return status
 
 # --------------------------
 
@@ -404,12 +414,11 @@ def ror_is_aagsafe():
 	return
 
 @route('/status', method='GET')
-def status():
-	data['safe'] = False
-	data['open'] = 'off'
-	data['status'] = 1
+def ror_reststatus():
+	ror = RoR()
+        response.content_type = 'application/json'
 	response.status = 200
-	return json.dumps(data)
+	return json.dumps(ror.reststatus)
 
 # --------------------------
 
