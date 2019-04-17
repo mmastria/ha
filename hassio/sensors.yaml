@@ -22,14 +22,14 @@
 #    - datetime
 #    - cwinfo
     - clouds
-    - temperature
+#    - temperature
 #    - wind
 #    - gust
     - rain
     - light
     - switch
     - safe
-    - humidity
+#    - humidity
 #    - dewpoint
     - cloudsclear
     - cloudscloudy
@@ -39,7 +39,7 @@
     - rainrain
     - lightdark
     - lightlight
-    - lightverylight    
+    - lightverylight
 
 - platform: nhs
   host: 192.168.0.217
@@ -54,10 +54,10 @@
     - output_voltage
     - load
     - battery_voltage
-    - temperature
+#    - temperature
 #    - chager_current
     - status
-    - source
+#    - alert
 
 #- platform: yr
 # forecast: 24
@@ -75,6 +75,16 @@
 ##    - lowClouds
 ##    - mediumClouds
 ##    - highClouds
+
+- platform: ror
+  host: 192.168.0.211
+  monitored_conditions:
+    - safe
+    - parked
+    - closed
+    - mount_parked
+    - open
+#    - aagsafe
 
 - platform: moon
 
