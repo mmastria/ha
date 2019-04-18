@@ -1,12 +1,12 @@
 [Unit]
-Description=INDI Server System West
+Description=INDI Server Lunar System 
 After=multi-user.target
 
 [Service]
 Restart=always
 RestartSec=5
-User=west
-ExecStart=/usr/local/bin/arua_system-west_indiserver.sh
+User=lunar
+ExecStart=/usr/local/bin/arua_system-lunar_indiserver.sh
 
 [Install]
 WantedBy=multi-user.target

@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # iOptron CEM120 / ttyUSB0
-# Watec / tty
 # QHY5L-II Mono
 # Astrometry
 # WatchDog
@@ -26,7 +25,8 @@ chown lunar:lunar /home/lunar/.indi/*.xml
 
 systemctl daemon-reload
 
-systemctl stop arua_system-west_indiserver.service
-systemctl disable arua_system-west_indiserver.service
+[ -f /etc/systemd/system/arua_system-west_indiserver.service ] && systemctl stop arua_system-west_indiserver.service
+[ -f /etc/systemd/system/arua_system-west_indiserver.service ] && systemctl disable arua_system-west_indiserver.service
+
 systemctl enable arua_system-lunar_indiserver.service
 systemctl restart arua_system-lunar_indiserver.service

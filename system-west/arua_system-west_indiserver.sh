@@ -17,7 +17,7 @@ mkfifo ~/.indi/indiFIFO
 child=$!
 
 echo "start indi_ioptronv3_telescope -n \"iOptron CEM120\" -c \"$HOME/.indi/iOptron CEM120_config.xml\"" > ~/.indi/indiFIFO
-#echo "start indi_atik_ccd -n \"Atik 320E\" -c \"$HOME/.indi/Atik 320E_config.xml\"" > ~/.indi/indiFIFO
+echo "start indi_atik_ccd -n \"Atik 320E\" -c \"$HOME/.indi/Atik 320E_config.xml\"" > ~/.indi/indiFIFO
 echo "start indi_qhy_ccd -n \"QHY5LII-M\" -c \"$HOME/.indi/QHY5LII-M_config.xml\"" > ~/.indi/indiFIFO
 echo "start indi_astrometry -n \"Astrometry\" -c \"$HOME/.indi/Astrometry_config.xml\"" > ~/.indi/indiFIFO
 echo "start indi_watchdog -n \"WatchDog\" -c \"$HOME/.indi/WatchDog_config.xml\"" > ~/.indi/indiFIFO
@@ -25,7 +25,6 @@ echo "start indi_moonlite_focus" > ~/.indi/indiFIFO
 echo "start \"Weather Meta\"@system-env:7624" > ~/.indi/indiFIFO
 echo "start \"Dome Scripting Gateway\"@system-obs:7624" > ~/.indi/indiFIFO
 echo "start \"Observ Cam\"@system-env:7624" > ~/.indi/indiFIFO
-echo "start indi_v4l2_ccd -n \"Watec\" -c \"$HOME/.indi/Watec_config.xml\"" > ~/.indi/indiFIFO
 
 wait "$child"
 echo "stopping indiserver"
