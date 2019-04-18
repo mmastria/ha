@@ -1,0 +1,12 @@
+[Unit]
+Description=INDI Server System West
+After=multi-user.target
+
+[Service]
+Restart=always
+RestartSec=5
+User=west
+ExecStart=/usr/local/bin/arua_system-west_indiserver.sh
+
+[Install]
+WantedBy=multi-user.target

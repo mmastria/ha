@@ -1,0 +1,209 @@
+<INDIDriver>
+<newSwitchVector device='Watec' name='DEBUG'>
+  <oneSwitch name='ENABLE'>
+      Off
+  </oneSwitch>
+  <oneSwitch name='DISABLE'>
+      On
+  </oneSwitch>
+</newSwitchVector>
+<newNumberVector device='Watec' name='POLLING_PERIOD'>
+  <oneNumber name='PERIOD_MS'>
+      1000
+  </oneNumber>
+</newNumberVector>
+<newSwitchVector device='Watec' name='DEBUG_LEVEL'>
+  <oneSwitch name='DBG_ERROR'>
+      On
+  </oneSwitch>
+  <oneSwitch name='DBG_WARNING'>
+      On
+  </oneSwitch>
+  <oneSwitch name='DBG_SESSION'>
+      On
+  </oneSwitch>
+  <oneSwitch name='DBG_DEBUG'>
+      Off
+  </oneSwitch>
+</newSwitchVector>
+<newSwitchVector device='Watec' name='LOGGING_LEVEL'>
+  <oneSwitch name='LOG_ERROR'>
+      On
+  </oneSwitch>
+  <oneSwitch name='LOG_WARNING'>
+      On
+  </oneSwitch>
+  <oneSwitch name='LOG_SESSION'>
+      On
+  </oneSwitch>
+  <oneSwitch name='LOG_DEBUG'>
+      Off
+  </oneSwitch>
+</newSwitchVector>
+<newSwitchVector device='Watec' name='LOG_OUTPUT'>
+  <oneSwitch name='CLIENT_DEBUG'>
+      On
+  </oneSwitch>
+  <oneSwitch name='FILE_DEBUG'>
+      Off
+  </oneSwitch>
+</newSwitchVector>
+<newTextVector device='Watec' name='ACTIVE_DEVICES'>
+  <oneText name='ACTIVE_TELESCOPE'>
+      iOptron CEM120
+  </oneText>
+  <oneText name='ACTIVE_FOCUSER'>
+      MoonLite
+  </oneText>
+  <oneText name='ACTIVE_FILTER'>
+      
+  </oneText>
+  <oneText name='ACTIVE_SKYQUALITY'>
+      
+  </oneText>
+</newTextVector>
+<newSwitchVector device='Watec' name='UPLOAD_MODE'>
+  <oneSwitch name='UPLOAD_CLIENT'>
+      On
+  </oneSwitch>
+  <oneSwitch name='UPLOAD_LOCAL'>
+      Off
+  </oneSwitch>
+  <oneSwitch name='UPLOAD_BOTH'>
+      Off
+  </oneSwitch>
+</newSwitchVector>
+<newTextVector device='Watec' name='UPLOAD_SETTINGS'>
+  <oneText name='UPLOAD_DIR'>
+      /home/west
+  </oneText>
+  <oneText name='UPLOAD_PREFIX'>
+      IMAGE_XXX
+  </oneText>
+</newTextVector>
+<newSwitchVector device='Watec' name='TELESCOPE_TYPE'>
+  <oneSwitch name='TELESCOPE_PRIMARY'>
+      On
+  </oneSwitch>
+  <oneSwitch name='TELESCOPE_GUIDE'>
+      Off
+  </oneSwitch>
+</newSwitchVector>
+<newSwitchVector device='Watec' name='CCD_COMPRESSION'>
+  <oneSwitch name='CCD_COMPRESS'>
+      Off
+  </oneSwitch>
+  <oneSwitch name='CCD_RAW'>
+      On
+  </oneSwitch>
+</newSwitchVector>
+<newNumberVector device='Watec' name='CCD_FRAME'>
+  <oneNumber name='X'>
+      0
+  </oneNumber>
+  <oneNumber name='Y'>
+      0
+  </oneNumber>
+  <oneNumber name='WIDTH'>
+      720
+  </oneNumber>
+  <oneNumber name='HEIGHT'>
+      576
+  </oneNumber>
+</newNumberVector>
+<newNumberVector device='Watec' name='CCD_BINNING'>
+  <oneNumber name='HOR_BIN'>
+      1
+  </oneNumber>
+  <oneNumber name='VER_BIN'>
+      1
+  </oneNumber>
+</newNumberVector>
+<newSwitchVector device='Watec' name='CCD_STREAM_ENCODER'>
+  <oneSwitch name='RAW'>
+      On
+  </oneSwitch>
+  <oneSwitch name='MJPEG'>
+      Off
+  </oneSwitch>
+</newSwitchVector>
+<newTextVector device='Watec' name='RECORD_FILE'>
+  <oneText name='RECORD_FILE_DIR'>
+      /home/west/indi__D_
+  </oneText>
+  <oneText name='RECORD_FILE_NAME'>
+      indi_record__T_
+  </oneText>
+</newTextVector>
+<newNumberVector device='Watec' name='RECORD_OPTIONS'>
+  <oneNumber name='RECORD_DURATION'>
+      1
+  </oneNumber>
+  <oneNumber name='RECORD_FRAME_TOTAL'>
+      30
+  </oneNumber>
+</newNumberVector>
+<newSwitchVector device='Watec' name='CCD_STREAM_RECORDER'>
+  <oneSwitch name='SER'>
+      On
+  </oneSwitch>
+</newSwitchVector>
+<newNumberVector device='Watec' name='Image Adjustments'>
+  <oneNumber name='Brightness'>
+      128
+  </oneNumber>
+  <oneNumber name='Contrast'>
+      64
+  </oneNumber>
+  <oneNumber name='Saturation'>
+      64
+  </oneNumber>
+  <oneNumber name='Hue'>
+      0
+  </oneNumber>
+  <oneNumber name='Volume'>
+      31
+  </oneNumber>
+  <oneNumber name='Red Balance'>
+      0
+  </oneNumber>
+  <oneNumber name='Blue Balance'>
+      0
+  </oneNumber>
+  <oneNumber name='Sharpness'>
+      0
+  </oneNumber>
+  <oneNumber name='Chroma Gain'>
+      15
+  </oneNumber>
+</newNumberVector>
+<newSwitchVector device='Watec' name='CCD_STREAM_ENCODER'>
+  <oneSwitch name='RAW'>
+      On
+  </oneSwitch>
+  <oneSwitch name='MJPEG'>
+      Off
+  </oneSwitch>
+</newSwitchVector>
+<newTextVector device='Watec' name='RECORD_FILE'>
+  <oneText name='RECORD_FILE_DIR'>
+      /home/west/indi__D_
+  </oneText>
+  <oneText name='RECORD_FILE_NAME'>
+      indi_record__T_
+  </oneText>
+</newTextVector>
+<newNumberVector device='Watec' name='RECORD_OPTIONS'>
+  <oneNumber name='RECORD_DURATION'>
+      1
+  </oneNumber>
+  <oneNumber name='RECORD_FRAME_TOTAL'>
+      30
+  </oneNumber>
+</newNumberVector>
+<newSwitchVector device='Watec' name='CCD_STREAM_RECORDER'>
+  <oneSwitch name='SER'>
+      On
+  </oneSwitch>
+</newSwitchVector>
+</INDIDriver>
