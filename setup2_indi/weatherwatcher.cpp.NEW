@@ -126,10 +126,10 @@ bool WeatherWatcher::createPropertiesFromMap()
             setCriticalParameter("WEATHER_WIND_SPEED");
         }
         else if (x.first == keywordT[3].text)
-		{
+        {
             addParameter("WEATHER_WIND_GUST", "Gust (kph)", -1, -1, 0);
-		}        
-		else if (x.first == keywordT[0].text)
+        }        
+        else if (x.first == keywordT[0].text)
         {
             addParameter("WEATHER_RAIN_HOUR", "Rain (mm)", 2550, 3000, 5);
             setCriticalParameter("WEATHER_RAIN_HOUR");
@@ -150,15 +150,15 @@ bool WeatherWatcher::initProperties()
 {
     INDI::Weather::initProperties();
     
-	IUFillText(&keywordT[0], "RAIN", "Rain", "precip");
-	IUFillText(&keywordT[1], "TEMP", "Temperature", "temperature");
+    IUFillText(&keywordT[0], "RAIN", "Rain", "precip");
+    IUFillText(&keywordT[1], "TEMP", "Temperature", "temperature");
     IUFillText(&keywordT[2], "WIND", "Wind", "wind");
     IUFillText(&keywordT[3], "GUST", "Gust", "gust");
     IUFillText(&keywordT[4], "FORECAST", "Forecast", "forecast");
     IUFillTextVector(&keywordTP, keywordT, 5, getDeviceName(), "KEYWORD", "Keywords", OPTIONS_TAB, IP_RW,
                      60, IPS_IDLE);
 
-	IUFillText(&watchFileT[0], "URL", "File", nullptr);
+    IUFillText(&watchFileT[0], "URL", "File", nullptr);
     IUFillTextVector(&watchFileTP, watchFileT, 1, getDeviceName(), "WATCH_SOURCE", "Source", OPTIONS_TAB, IP_RW,
                      60, IPS_IDLE);
 
@@ -178,10 +178,10 @@ void WeatherWatcher::ISGetProperties(const char *dev)
     defineText(&watchFileTP);
     loadConfig(true, "WATCH_SOURCE");
     
-	defineText(&keywordTP);
+    defineText(&keywordTP);
     loadConfig(true, "KEYWORD");
 
-	defineText(&separatorTP);
+    defineText(&separatorTP);
     loadConfig(true, "SEPARATOR_KEYWORD");
 
 }
@@ -219,8 +219,8 @@ bool WeatherWatcher::ISNewText(const char *dev, const char *name, char *texts[],
 
 IPState WeatherWatcher::updateWeather()
 {
-	    
-	if (readWatchFile() == false)
+        
+    if (readWatchFile() == false)
         return IPS_BUSY;
 
     for (auto const& x : weatherMap)
@@ -241,7 +241,7 @@ IPState WeatherWatcher::updateWeather()
 
             setParameterValue("WEATHER_WIND_GUST", std::strtod(x.second.c_str(), nullptr));
         }
-		else if (x.first == keywordT[4].text)
+        else if (x.first == keywordT[4].text)
         {
             setParameterValue("WEATHER_FORECAST", std::strtod(x.second.c_str(), nullptr));
         }

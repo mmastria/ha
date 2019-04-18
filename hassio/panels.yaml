@@ -1,0 +1,31 @@
+# panels.yaml
+
+#ide:
+#  title: IDE
+#  icon: mdi:code-braces
+#  url: http://192.168.0.212:8321
+
+wwwmotioneye:
+  title: motionEye
+  icon: mdi:video
+  url: http://192.168.0.212:8765
+
+wwwcloudwatcher:
+  title: AAG Cloudwatcher
+  icon: mdi:cloud
+  url: http://192.168.0.205
+
+wwwallsky:
+  title: AllSky Files
+  icon: mdi:weather-night
+  url: http://192.168.0.210
+
+wwwhwg:
+  title: HWG Ste
+  icon: mdi:water-percent
+  url: http://192.168.0.203
+
+wwwnhs:
+  title: NHS UPS
+  icon: mdi:car-battery
+  url: http://192.168.0.217:2001/graficos_gauge

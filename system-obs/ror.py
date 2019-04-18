@@ -7,6 +7,7 @@ from time import sleep
 from gevent import monkey
 from bottle import route, response, run
 import requests
+import json
 import logging.handlers
 
 monkey.patch_all()
@@ -171,7 +172,7 @@ class RoR(object):
 	@staticmethod
 	def is_aagsafe():
 		if GPIO.input(ROR_AAGSAFE) == GPIO.HIGH:
-                #if True:
+				#if True:
 			return True
 		return False
 
@@ -274,7 +275,7 @@ class RoR(object):
 		GPIO.output(ROR_MOVE, GPIO.HIGH)
 		return True
 
-        def abort(self):
+	def abort(self):
 		self.log.debug('abort')
 		return self._stop()
 
@@ -287,6 +288,16 @@ class RoR(object):
 			self._is_parked(), self._is_open(), self._is_closed(), self._is_mount_parked(), self.is_safe(), self.is_aagsafe(), p, s))
 		return '%s %s 0' % (p, s)
 
+	@property
+	def reststatus(self):
+            status = {}
+            status['parked'] = self._is_parked()
+            status['open'] = self._is_open()
+            status['closed'] = self._is_closed()
+            status['mount_parked'] = self._is_mount_parked()
+            status['safe'] = self.is_safe()
+            status['aagsafe'] = self.is_aagsafe()
+            return status
 
 # --------------------------
 
@@ -301,7 +312,7 @@ class RoR(object):
 def index():
 	response.content_type = 'text/html'
 	response.status = 200
-	return "REST Services - /ror = Roll-Off Roof Manager, /pwr = Power Manager"
+	return "REST Services - /ror = Roll-Off Roof Manager, /status = Rest Status"
 
 
 @route('/ror/park', method='GET')
@@ -401,6 +412,13 @@ def ror_is_safe():
 def ror_is_aagsafe():
 	response.status = 200 if RoR.is_aagsafe() else 409
 	return
+
+@route('/status', method='GET')
+def ror_reststatus():
+	ror = RoR()
+        response.content_type = 'application/json'
+	response.status = 200
+	return json.dumps(ror.reststatus)
 
 # --------------------------
 

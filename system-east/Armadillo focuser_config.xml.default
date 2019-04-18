@@ -132,10 +132,10 @@
 </newTextVector>
 <newSwitchVector device='Armadillo focuser' name='Temperature sensor in use'>
   <oneSwitch name='Internal'>
-      On
+      Off
   </oneSwitch>
   <oneSwitch name='External'>
-      Off
+      On
   </oneSwitch>
 </newSwitchVector>
 <newSwitchVector device='Armadillo focuser' name='Port in use'>
@@ -148,18 +148,18 @@
 </newSwitchVector>
 <newSwitchVector device='Armadillo focuser' name='Half step'>
   <oneSwitch name='Off'>
-      On
+      Off
   </oneSwitch>
   <oneSwitch name='On'>
-      Off
+      On
   </oneSwitch>
 </newSwitchVector>
 <newSwitchVector device='Armadillo focuser' name='Wiring'>
   <oneSwitch name='Lunatico Normal'>
-      On
+      Off
   </oneSwitch>
   <oneSwitch name='Lunatico Reverse'>
-      Off
+      On
   </oneSwitch>
   <oneSwitch name='RF/Moonlite Normal'>
       Off

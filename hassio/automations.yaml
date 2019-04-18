@@ -1,0 +1,63 @@
+# automations.yaml
+
+- alias: Controle de Umidade
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.hwg_ste_ambient_humidity
+      above: 61.0
+    - platform: numeric_state
+      entity_id: sensor.hwg_ste_ambient_humidity
+      below: 56.0
+  action:
+    service_template: >
+      {% if states('sensor.hwg_ste_ambient_humidity') | float > 61 %}
+        switch.turn_on
+      {% else %}
+        switch.turn_off
+      {% endif %}
+    entity_id:
+      - switch.dehum_marron
+      - switch.dehum_bege
+#      - switch.dehum_branco
+
+#- alias: Auto Liga Exaustor
+#  trigger:
+#    platform: numeric_state
+#    entity_id: sensor.hwgste_ambient_humidity
+#    above: 35.00
+#  action:
+#    service: switch.turn_on
+#    entity_id:
+#      - switch.exaustor
+
+#- alias: Auto Desliga Exaustor
+#  trigger:
+#    platform: numeric_state
+#    entity_id: sensor.hwgste_ambient_humidity
+#    below: 32.00
+#  action:
+#    service: switch.turn_off
+#    entity_id:
+#      - switch.exaustor
+
+- alias: 'Set theme at startup'
+  initial_state: 'on'
+  trigger:
+   - platform: homeassistant
+     event: start
+  action:
+    service: frontend.set_theme
+    data:
+      name: midnight
+
+- id: hass_theme
+  alias: hass_theme
+  initial_state: 'on'
+  trigger:
+    - platform: state
+      entity_id: input_select.hass_theme
+  action:
+    - service: frontend.set_theme
+      data_template:
+        name: "{{ states.input_select.hass_theme.state }}"
+

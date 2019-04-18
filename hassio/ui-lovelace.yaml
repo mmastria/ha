@@ -1,0 +1,190 @@
+# ui-lovelace.yaml
+
+title: Mastria - Arua
+
+views:
+  - cards:
+
+      - type: vertical-stack
+        cards:
+          - columns: 7
+            entities:
+              - entity: binary_sensor.aag_sunny
+              - entity: binary_sensor.aag_cloudy
+              - entity: binary_sensor.aag_rainy
+              - entity: binary_sensor.aag_safe
+              - entity: binary_sensor.nhs_onbattery
+              - entity: binary_sensor.nhs_critical
+              - entity: binary_sensor.obs_alert
+            show_icon: true
+            show_name: false
+            show_state: false
+            type: glance
+          - entity: camera.allsky
+            show_name: false
+            show_state: false
+            type: picture-entity
+          - columns: 4
+            entities:
+              - entity: binary_sensor.pwr_env
+                name: Env
+              - entity: binary_sensor.pwr_obs
+                name: Obs
+              - entity: binary_sensor.pwr_east
+                name: East
+              - entity: binary_sensor.pwr_west
+                name: West
+            show_icon: true
+            show_name: true
+            show_state: false
+            type: glance
+
+      - cards:
+          - columns: 4
+            entities:
+              - entity: binary_sensor.roof_mountsparked
+                name: Parked
+              - entity: binary_sensor.roof_parked
+                name: Locked
+              - entity: binary_sensor.roof_closed
+                name: Closed
+              - entity: binary_sensor.roof_open
+                name: Open
+            show_icon: true
+            show_name: false
+            show_state: false
+            type: glance
+          - entity: camera.observatorio
+            show_name: false
+            show_state: false
+            type: picture-entity
+          - cards:
+              - entity: switch.system_obs_win
+                icon: 'mdi:windows'
+                name: LunarScan CAMS
+                type: entity-button
+              - entity: switch.dehum_marron
+                icon: 'mdi:weather-windy'
+                name: Desumid On/Off
+                type: entity-button
+              - entity: switch.dehum_bege
+                icon: 'mdi:weather-windy'
+                name: Desumid On/Off
+                type: entity-button
+              - entity: binary_sensor.sw_umidade
+                icon: 'mdi:weather-windy'
+                name: Desumid Automatic
+                type: entity-button
+                tap_action:
+                  action: call-service
+                  service: automation.toggle
+                  service_data:
+                    entity_id: automation.controle_de_umidade
+            type: horizontal-stack
+          - cards:
+              - entity: sensor.hwg_ste_ambient_humidity
+                graph: line
+                name: Umidade
+                type: sensor
+              - entity: sensor.hwg_ste_ambient_temperature
+                graph: line
+                name: Temperatura
+                type: sensor
+            type: horizontal-stack
+        type: vertical-stack
+
+      - cards:
+          - cards:
+              - entity: sensor.nhs_ups_tensao_entrada
+                max: 150
+                min: 0
+                name: Entrada (V)
+                severity:
+                  green: 100
+                  red: 0
+                  yellow: 135
+                theme: default
+                type: gauge
+                unit: ' '
+              - entity: sensor.nhs_ups_carga
+                max: 100
+                min: 0
+                name: Consumo UPS
+                severity:
+                  green: 0
+                  red: 60
+                  yellow: 30
+                theme: default
+                type: gauge
+            type: horizontal-stack
+          - entities:
+              - entity: sensor.moon
+              - entity: sun.sun
+            type: entities
+          - entity: weather.dark_sky
+            type: weather-forecast
+        type: vertical-stack
+
+    panel: false
+    path: default_view
+    title: Observatory
+
+
+
+#resources:
+#  - url: /local/button-card.js
+#    type: module
+
+#      - type: picture-elements
+#        image: /local/lixo.png
+#        elements:
+#          - type: state-icon
+#            entity: binary_sensor.nhs_status
+#            style:
+#              top: 21%
+#              left: 97%
+#              "--paper-item-icon-color": lightgreen
+#              "--paper-item-icon-active-color": red
+#          - type: state-icon
+#            entity: binary_sensor.aag_safe
+#            style:
+#              top: 31%
+#              left: 97%
+#              "--paper-item-icon-color": lightgreen
+#              "--paper-item-icon-active-color": red
+
+
+#          - cards:
+#              - type: "custom:button-card"
+#                entity: switch.system_obs_win
+#                icon: 'mdi:windows'
+#                name: Lunar CAMS
+#                color: rgb(249, 197, 54)
+#                style:
+#                    - font-size: '16.8px'
+#                    - font-weight: '400'
+#              - type: "custom:button-card"
+#                entity: switch.dehum_marron
+#                icon: 'mdi:weather-windy'
+#                name: Desumid On/Off
+#                color: rgb(249, 197, 54)
+#                style:
+#                    - font-size: '16.8px'
+#                    - font-weight: '400'
+#              - type: "custom:button-card"
+#                entity: switch.dehum_bege
+#                icon: 'mdi:weather-windy'
+#                name: Desumid On/Off
+#                color: rgb(249, 197, 54)
+#                style:
+#                    - font-size: '16.8px'
+#                    - font-weight: '400'
+#              - type: "custom:button-card"
+#                entity: automation.controle_de_umidade
+#                icon: 'mdi:weather-windy'
+#                name: Desumid Auto
+#                color: rgb(249, 197, 54)
+#                style:
+#                    - font-size: '16.8px'
+#                    - font-weight: '400'
+#            type: horizontal-stack

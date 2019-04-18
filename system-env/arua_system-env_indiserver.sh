@@ -13,7 +13,7 @@ trap _term SIGTERM SIGINT
 ps -ef|grep /usr/bin/indiserver|grep -v grep|{ read a b n;echo $b; }|xargs -r -n 1 kill -TERM
 [ -p ~/.indi/indiFIFO ] && rm -f ~/.indi/indiFIFO
 mkfifo ~/.indi/indiFIFO
-/usr/bin/indiserver -p 7624 -m 100 -v -f ~/.indi/indiFIFO &
+/usr/bin/indiserver -p 7624 -v -m 100 -f ~/.indi/indiFIFO &
 child=$!
 
 #echo "start indi_watcher_weather -n \"AAG Solo Weather\" -c \"$HOME/.indi/AAG Solo Weather_config.xml\"" > ~/.indi/indiFIFO

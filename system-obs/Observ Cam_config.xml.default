@@ -1,0 +1,241 @@
+<INDIDriver>
+<newSwitchVector device='Observ Cam' name='DEBUG'>
+  <oneSwitch name='ENABLE'>
+      Off
+  </oneSwitch>
+  <oneSwitch name='DISABLE'>
+      On
+  </oneSwitch>
+</newSwitchVector>
+<newNumberVector device='Observ Cam' name='POLLING_PERIOD'>
+  <oneNumber name='PERIOD_MS'>
+      10
+  </oneNumber>
+</newNumberVector>
+<newSwitchVector device='Observ Cam' name='DEBUG_LEVEL'>
+  <oneSwitch name='DBG_ERROR'>
+      On
+  </oneSwitch>
+  <oneSwitch name='DBG_WARNING'>
+      On
+  </oneSwitch>
+  <oneSwitch name='DBG_SESSION'>
+      On
+  </oneSwitch>
+  <oneSwitch name='DBG_DEBUG'>
+      Off
+  </oneSwitch>
+  <oneSwitch name='DBG_EXTRA_1'>
+      Off
+  </oneSwitch>
+</newSwitchVector>
+<newSwitchVector device='Observ Cam' name='LOGGING_LEVEL'>
+  <oneSwitch name='LOG_ERROR'>
+      On
+  </oneSwitch>
+  <oneSwitch name='LOG_WARNING'>
+      On
+  </oneSwitch>
+  <oneSwitch name='LOG_SESSION'>
+      On
+  </oneSwitch>
+  <oneSwitch name='LOG_DEBUG'>
+      Off
+  </oneSwitch>
+  <oneSwitch name='LOG_EXTRA_1'>
+      Off
+  </oneSwitch>
+</newSwitchVector>
+<newSwitchVector device='Observ Cam' name='LOG_OUTPUT'>
+  <oneSwitch name='CLIENT_DEBUG'>
+      On
+  </oneSwitch>
+  <oneSwitch name='FILE_DEBUG'>
+      Off
+  </oneSwitch>
+</newSwitchVector>
+<newTextVector device='Observ Cam' name='ACTIVE_DEVICES'>
+  <oneText name='ACTIVE_TELESCOPE'>
+      
+  </oneText>
+  <oneText name='ACTIVE_FOCUSER'>
+      
+  </oneText>
+  <oneText name='ACTIVE_FILTER'>
+      
+  </oneText>
+  <oneText name='ACTIVE_SKYQUALITY'>
+      
+  </oneText>
+</newTextVector>
+<newSwitchVector device='Observ Cam' name='UPLOAD_MODE'>
+  <oneSwitch name='UPLOAD_CLIENT'>
+      On
+  </oneSwitch>
+  <oneSwitch name='UPLOAD_LOCAL'>
+      Off
+  </oneSwitch>
+  <oneSwitch name='UPLOAD_BOTH'>
+      Off
+  </oneSwitch>
+</newSwitchVector>
+<newTextVector device='Observ Cam' name='UPLOAD_SETTINGS'>
+  <oneText name='UPLOAD_DIR'>
+      /home/obs
+  </oneText>
+  <oneText name='UPLOAD_PREFIX'>
+      IMAGE_XXX
+  </oneText>
+</newTextVector>
+<newSwitchVector device='Observ Cam' name='TELESCOPE_TYPE'>
+  <oneSwitch name='TELESCOPE_PRIMARY'>
+      On
+  </oneSwitch>
+  <oneSwitch name='TELESCOPE_GUIDE'>
+      Off
+  </oneSwitch>
+</newSwitchVector>
+<newSwitchVector device='Observ Cam' name='CCD_EXPOSURE_LOOP'>
+  <oneSwitch name='LOOP_ON'>
+      Off
+  </oneSwitch>
+  <oneSwitch name='LOOP_OFF'>
+      On
+  </oneSwitch>
+</newSwitchVector>
+<newSwitchVector device='Observ Cam' name='CCD_COMPRESSION'>
+  <oneSwitch name='CCD_COMPRESS'>
+      Off
+  </oneSwitch>
+  <oneSwitch name='CCD_RAW'>
+      On
+  </oneSwitch>
+</newSwitchVector>
+<newNumberVector device='Observ Cam' name='CCD_FRAME'>
+  <oneNumber name='X'>
+      0
+  </oneNumber>
+  <oneNumber name='Y'>
+      0
+  </oneNumber>
+  <oneNumber name='WIDTH'>
+      1280
+  </oneNumber>
+  <oneNumber name='HEIGHT'>
+      720
+  </oneNumber>
+</newNumberVector>
+<newSwitchVector device='Observ Cam' name='CCD_STREAM_ENCODER'>
+  <oneSwitch name='RAW'>
+      On
+  </oneSwitch>
+  <oneSwitch name='MJPEG'>
+      Off
+  </oneSwitch>
+</newSwitchVector>
+<newTextVector device='Observ Cam' name='RECORD_FILE'>
+  <oneText name='RECORD_FILE_DIR'>
+      /home/obs/indi__D_
+  </oneText>
+  <oneText name='RECORD_FILE_NAME'>
+      indi_record__T_
+  </oneText>
+</newTextVector>
+<newNumberVector device='Observ Cam' name='RECORD_OPTIONS'>
+  <oneNumber name='RECORD_DURATION'>
+      1
+  </oneNumber>
+  <oneNumber name='RECORD_FRAME_TOTAL'>
+      30
+  </oneNumber>
+</newNumberVector>
+<newSwitchVector device='Observ Cam' name='CCD_STREAM_RECORDER'>
+  <oneSwitch name='SER'>
+      On
+  </oneSwitch>
+</newSwitchVector>
+<newSwitchVector device='Observ Cam' name='CAPTURE_DEVICE'>
+  <oneSwitch name='dv1394'>
+      Off
+  </oneSwitch>
+  <oneSwitch name='fbdev'>
+      Off
+  </oneSwitch>
+  <oneSwitch name='iec61883'>
+      Off
+  </oneSwitch>
+  <oneSwitch name='lavfi'>
+      Off
+  </oneSwitch>
+  <oneSwitch name='video4linux2,v4l2'>
+      Off
+  </oneSwitch>
+  <oneSwitch name='x11grab'>
+      Off
+  </oneSwitch>
+  <oneSwitch name='libdc1394'>
+      Off
+  </oneSwitch>
+  <oneSwitch name='IP Camera'>
+      On
+  </oneSwitch>
+</newSwitchVector>
+<newSwitchVector device='Observ Cam' name='RAPID_STACKING_OPTION'>
+  <oneSwitch name='Integration'>
+      Off
+  </oneSwitch>
+  <oneSwitch name='Average'>
+      Off
+  </oneSwitch>
+  <oneSwitch name='Off'>
+      On
+  </oneSwitch>
+</newSwitchVector>
+<newSwitchVector device='Observ Cam' name='OUTPUT_FORMAT_OPTION'>
+  <oneSwitch name='16 bit Grayscale'>
+      Off
+  </oneSwitch>
+  <oneSwitch name='16 bit RGB'>
+      On
+  </oneSwitch>
+  <oneSwitch name='8 bit RGB'>
+      Off
+  </oneSwitch>
+</newSwitchVector>
+<newTextVector device='Observ Cam' name='HTTP_INPUT_OPTIONS'>
+  <oneText name='CAPTURE_IP_ADDRESS'>
+      192.168.0.206
+  </oneText>
+  <oneText name='CAPTURE_PORT_NUMBER'>
+      8080/stream/video/mjpeg
+  </oneText>
+  <oneText name='CAPTURE_USERNAME'>
+      admin
+  </oneText>
+  <oneText name='CAPTURE_PASSWORD'>
+      dc365ap42bl6
+  </oneText>
+</newTextVector>
+<newTextVector device='Observ Cam' name='INPUT_OPTIONS'>
+  <oneText name='CAPTURE_DEVICE_TEXT'>
+      IP Camera
+  </oneText>
+  <oneText name='CAPTURE_SOURCE_TEXT'>
+      /dev/video0
+  </oneText>
+  <oneText name='CAPTURE_FRAME_RATE'>
+      30
+  </oneText>
+  <oneText name='CAPTURE_VIDEO_SIZE'>
+      640x480
+  </oneText>
+</newTextVector>
+<newTextVector device='Observ Cam' name='TIMEOUT_OPTIONS'>
+  <oneText name='FFMPEG_TIMEOUT_TEXT'>
+      1000000
+  </oneText>
+  <oneText name='BUFFER_TIMEOUT_TEXT'>
+      10000
+  </oneText>
+</newTextVector>
+</INDIDriver>

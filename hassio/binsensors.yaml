@@ -1,0 +1,113 @@
+# binsensors.yaml
+
+#- platform: ping
+#  host: 192.168.0.203
+#  name: hwg
+
+#- platform: ping
+#  host: 192.168.0.205
+#  name: aagsolo
+
+#- platform: ping
+#  host: 192.168.0.206
+#  name: cam-observatorio
+
+- platform: ping
+  host: 192.168.0.210
+  name: system-env
+
+- platform: ping
+  host: 192.168.0.211
+  name: system-obs
+
+#- platform: ping
+#  host: 192.168.0.212
+#  name: hassio
+
+#- platform: ping
+#  host: 192.168.0.214
+#  name: system-obs-win
+
+#- platform: ping
+#  host: 192.168.0.217
+#  name: weather
+
+- platform: ping
+  host: 192.168.0.220
+  name: system-west
+
+- platform: ping
+  host: 192.168.0.221
+  name: system-east
+
+#- platform: ping
+#  host: 192.168.0.224
+#  name: cem120
+
+- platform: template
+  sensors:
+    nhs_onbattery:
+      friendly_name: "UPS on Battery"
+      value_template: "{{ states('sensor.nhs_ups_tensao_entrada') | float < 100 and states('sensor.nhs_ups_tensao_entrada') | float > 135 }}"
+      icon_template: 'mdi:power-plug-off'
+    nhs_critical:
+      friendly_name: "UPS Critical"
+      value_template: "{{ not is_state('sensor.nhs_ups_status', 'ok') }}"
+      icon_template: 'mdi:battery-20'
+    aag_safe:
+      friendly_name: "Weather Safe"
+      value_template: "{{ is_state('sensor.aag_solo_safe', 'on') }}"
+      icon_template: 'mdi:weather-night'
+    aag_cloudy:
+      friendly_name: "Weather Cloudy"
+      value_template: "{{ (states('sensor.aag_solo_clouds') | float) >= (states('sensor.aag_solo_sky_clear') | float) }}"
+      icon_template: 'mdi:weather-cloudy'
+    aag_rainy:
+      friendly_name: "Weather Rainy"
+      value_template: "{{ (states('sensor.aag_solo_rain') | float) <= (states('sensor.aag_weather_dry') | float) }}"
+      icon_template: 'mdi:weather-pouring'
+    aag_sunny:
+      friendly_name: "Weather Sunny"
+      value_template: "{{ (states('sensor.aag_solo_light') | float) <= (states('sensor.aag_solo_sky_dark') | float) }}"
+      icon_template: 'mdi:weather-sunny'
+    roof_parked:
+      friendly_name: "RoR Parked"
+      value_template: "{{ is_state('sensor.ror_ror_parked', 'on') }}"
+      icon_template: 'mdi:lock'
+    roof_closed:
+      friendly_name: "RoR Closed"
+      value_template: "{{ is_state('sensor.ror_ror_closed', 'on') }}"
+      icon_template: 'mdi:home-lock'
+    roof_open:
+      friendly_name: "RoR Open"
+      value_template: "{{ is_state('sensor.ror_ror_open', 'on') }}"
+      icon_template: 'mdi:home-lock-open'
+    roof_mountsparked:
+      friendly_name: "RoR Mounts Parked"
+      value_template: "{{ is_state('sensor.ror_mounts_parked', 'on') }}"
+      icon_template: 'mdi:telescope'
+    obs_alert:
+      friendly_name: "Alert"
+#      value_template: "{{ not ( is_state('sensor.nhs_ups_status', 'ok') and is_state('sensor.aag_solo_safe', 'on') ) }}"
+      value_template: "{{ not is_state('sensor.nhs_ups_status', 'ok') or not is_state('sensor.aag_solo_safe', 'on') }}"
+      icon_template: 'mdi:skull'
+    sw_umidade:
+      friendly_name: "Controle de Umidade"
+      value_template: "{{ is_state('automation.controle_de_umidade', 'on')  }}"
+      icon_template: 'mdi:weather-windy'
+    pwr_env:
+      friendly_name: "Environment System"
+      value_template: "{{ is_state('binary_sensor.system_env', 'on') }}"
+      icon_template: 'mdi:power'
+    pwr_obs:
+      friendly_name: "Observatory System"
+      value_template: "{{ is_state('binary_sensor.system_obs', 'on') }}"
+      icon_template: 'mdi:power'
+    pwr_east:
+      friendly_name: "East System"
+      value_template: "{{ is_state('binary_sensor.system_east', 'on') }}"
+      icon_template: 'mdi:power'
+    pwr_west:
+      friendly_name: "West System"
+      value_template: "{{ is_state('binary_sensor.system_west', 'on') }}"
+      icon_template: 'mdi:power'
