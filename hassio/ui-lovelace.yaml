@@ -9,7 +9,7 @@ views:
         cards:
           - columns: 7
             entities:
-              - entity: binary_sensor.aag_sunny
+              - entity: binary_sensor.aag_light
               - entity: binary_sensor.aag_cloudy
               - entity: binary_sensor.aag_rainy
               - entity: binary_sensor.aag_safe

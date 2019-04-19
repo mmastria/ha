@@ -66,10 +66,10 @@
       friendly_name: "Weather Rainy"
       value_template: "{{ (states('sensor.aag_solo_rain') | float) <= (states('sensor.aag_weather_dry') | float) }}"
       icon_template: 'mdi:weather-pouring'
-    aag_sunny:
-      friendly_name: "Weather Sunny"
+    aag_light:
+      friendly_name: "Weather Light"
       value_template: "{{ (states('sensor.aag_solo_light') | float) <= (states('sensor.aag_solo_sky_dark') | float) }}"
-      icon_template: 'mdi:weather-sunny'
+      icon_template: 'mdi:lightbulb-on-outline'
     roof_parked:
       friendly_name: "RoR Parked"
       value_template: "{{ is_state('sensor.ror_ror_parked', 'on') }}"
@@ -88,7 +88,6 @@
       icon_template: 'mdi:telescope'
     obs_alert:
       friendly_name: "Alert"
-#      value_template: "{{ not ( is_state('sensor.nhs_ups_status', 'ok') and is_state('sensor.aag_solo_safe', 'on') ) }}"
       value_template: "{{ not is_state('sensor.nhs_ups_status', 'ok') or not is_state('sensor.aag_solo_safe', 'on') }}"
       icon_template: 'mdi:skull'
     sw_umidade:
