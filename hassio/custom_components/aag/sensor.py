@@ -46,8 +46,8 @@ SENSOR_TYPES = {
 }
 
 SENSOR_STATE = {
-    '0': 'off',
-    '1': 'on'
+    '0': u'off',
+    '1': u'on'
 }
 
 """

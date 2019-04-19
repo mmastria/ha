@@ -35,13 +35,13 @@ SENSOR_TYPES = {
     'temperature': ['Temperatura', TEMP_CELSIUS, 'mdi:oil-tempereture', 'temperatura', 1],
     'chager_current': ['Corrente Carregador', 'i', 'mdi:flash', 'corrente_carregador', 1],
     'status': ['Status', '', 'mdi:battery-alert', 'status', None],
-    'source': ['Source', '', 'mdi:battery-alert', 'source', None]
+#    'alert': ['Alert', '', 'mdi:battery-alert', 'alert', None]
 }
 
-SENSOR_STATE = {
-    'ok': ['AC Source', "on"],
-    'nok': ['On Battery', "off"]
-}
+#SENSOR_STATE = {
+#    'ok': 'on',
+#    'nok': 'off'
+#}
 
 """
 {
@@ -174,12 +174,17 @@ class NhsData(object):
             try:
                 for item in rjson:
                     if item == 'status':
-                        values['source'] = SENSOR_STATE[rjson[item]][0]
-                        values['status'] = SENSOR_STATE[rjson[item]][1]
+#                        values['status'] = SENSOR_STATE[rjson[item]]
+                        values['status'] = rjson[item]
                         continue
                     if item == 'evento':
                         for sensor in rjson[item]:
                             values[sensor] = rjson[item][sensor]
+#                            if sensor == 'input_voltage':
+#                                if float(rjson[item][sensor]) < 100 or float(rjson[item][sensor]) > 135: 
+#                                    values['alert'] = 'on'
+#                                else:
+#                                    values['alert'] = 'off'
                 self.measurings = values
             except:
                 self.measurings = None
