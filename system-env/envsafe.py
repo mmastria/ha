@@ -11,7 +11,7 @@ import logging.handlers
 
 monkey.patch_all()
 
-class RoR(object):
+class EnvSafe(object):
 
 	log = logging.getLogger(__name__)
 	log.setLevel(logging.DEBUG)
@@ -26,11 +26,18 @@ class RoR(object):
 	def terminate(self):
 		self._running = False
 
+
+
+# curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJiYzk4ZWJlZjdkM2Q0ZjE4ODY1ODllYWFiNjg3OGNhNCIsImlhdCI6MTU1NTYyNzIzNiwiZXhwIjoxODcwOTg3MjM2fQ.jbOcr4Pmh9F2c0YD7Qzb87MHxsorUKmgipuVdJpwwxI" -H "Content-Type: application/json" http://hassio.arua:8123/api/states/binary_sensor.obs_alert|jq
+
+# r = requests.get('<MY_URI>', headers={'Authorization': 'TOK:<MY_TOKEN>'})
+
+
 	@staticmethod
 	def is_safe():
 		values = {}
 		try:
-			url = "http://{}:{}/cgi-bin/cgiLastData".format(ROR_AAG_HOST, ROR_AAG_PORT)
+			url = "http://{}:{}/".format(ROR_AAG_HOST, ROR_AAG_PORT)
 			resp = requests.get(url, timeout=5)
 			try:
 				for sensor, value in [(pair.split("=")) for pair in resp.text.splitlines()]:
@@ -45,34 +52,16 @@ class RoR(object):
 			return False
 
 	@property
-	def reststatus(self):
+	def status(self):
             status = {}
-            status['parked'] = self._is_parked()
-            status['open'] = self._is_open()
-            status['closed'] = self._is_closed()
-            status['mount_parked'] = self._is_mount_parked()
             status['safe'] = self.is_safe()
-            status['aagsafe'] = self.is_aagsafe()
             return status
 
 @route('/', method='GET')
 def index():
 	response.content_type = 'text/html'
 	response.status = 200
-	return "REST Services - /ror = Roll-Off Roof Manager, /status = Rest Status"
-
-
-@route('/ror/close', method='GET')
-def ror_can_close():
-	response.status = 200 if RoR.can_close() else 409
-	return
-
-@route('/ror/status', method='GET')
-def ror_status():
-	ror = RoR()
-	response.content_type = 'text/html'
-	response.status = 200
-	return ror.status
+	return "REST Services - /status - Environment Status"
 
 @route('/status', method='GET')
 def ror_reststatus():
@@ -84,6 +73,4 @@ def ror_reststatus():
 # --------------------------
 
 if __name__ == "__main__":
-	# t = Timer(10, rotina para fazer pooling do aagcw)
-	# t.run()
 	run(host='0.0.0.0', port=80, server='gevent')
