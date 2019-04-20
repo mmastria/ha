@@ -261,7 +261,6 @@ void DomeScript::TimerHit()
         int parked = 0, shutter = 0;
         float az   = 0;
         FILE *file = fopen(tmpfile, "r");
-        FILE *file = fopen(name, "r");
         int ret    = 0;
 
         ret = fscanf(file, "%d %d %f", &parked, &shutter, &az);
