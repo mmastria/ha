@@ -55,16 +55,16 @@
 </newSwitchVector>
 <newSwitchVector device='MoonLite' name='DEBUG_LEVEL'>
   <oneSwitch name='DBG_ERROR'>
-      On
+      Off
   </oneSwitch>
   <oneSwitch name='DBG_WARNING'>
-      On
+      Off
   </oneSwitch>
   <oneSwitch name='DBG_SESSION'>
-      On
+      Off
   </oneSwitch>
   <oneSwitch name='DBG_DEBUG'>
-      On
+      Off
   </oneSwitch>
 </newSwitchVector>
 <newSwitchVector device='MoonLite' name='LOGGING_LEVEL'>
