@@ -1,1 +1,0 @@
-curl -v -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJiYzk4ZWJlZjdkM2Q0ZjE4ODY1ODllYWFiNjg3OGNhNCIsImlhdCI6MTU1NTYyNzIzNiwiZXhwIjoxODcwOTg3MjM2fQ.jbOcr4Pmh9F2c0YD7Qzb87MHxsorUKmgipuVdJpwwxI" -H "Content-Type: application/json" http://hassio.arua:8123/api/states/binary_sensor.obs_alert|jq
