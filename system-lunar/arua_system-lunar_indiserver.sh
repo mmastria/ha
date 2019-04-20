@@ -23,7 +23,6 @@ echo "start indi_watchdog -n \"WatchDog\" -c \"$HOME/.indi/WatchDog_config.xml\"
 echo "start indi_moonlite_focus" > ~/.indi/indiFIFO
 echo "start \"Weather Meta\"@system-env:7624" > ~/.indi/indiFIFO
 echo "start \"Dome Scripting Gateway\"@system-obs:7624" > ~/.indi/indiFIFO
-echo "start \"Observ Cam\"@system-env:7624" > ~/.indi/indiFIFO
 
 wait "$child"
 echo "stopping indiserver"
