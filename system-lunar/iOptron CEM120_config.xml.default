@@ -100,10 +100,10 @@ Off
     </newSwitchVector>
     <newNumberVector device="iOptron CEM120" name="GEOGRAPHIC_COORD">
         <oneNumber name="LAT">
-      -23.463611111111106311
+      -23.46333333333333826
         </oneNumber>
         <oneNumber name="LONG">
-      313.73000000000001819
+      313.73027777777775782
         </oneNumber>
         <oneNumber name="ELEV">
       0
