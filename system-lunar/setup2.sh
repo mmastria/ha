@@ -2,9 +2,9 @@
 
 # iOptron CEM120 / ttyUSB0
 # QHY5L-II Mono
+# Moonlite Focuser 
 # Astrometry
 # WatchDog
-# Moonlite Focuser 
 # Weather Meta Remote
 # Dome Scripting Gateway Remote 
 
