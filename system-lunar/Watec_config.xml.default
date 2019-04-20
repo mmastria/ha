@@ -105,10 +105,10 @@
       0
   </oneNumber>
   <oneNumber name='WIDTH'>
-      720
+      640
   </oneNumber>
   <oneNumber name='HEIGHT'>
-      576
+      480
   </oneNumber>
 </newNumberVector>
 <newNumberVector device='Watec' name='CCD_BINNING'>
