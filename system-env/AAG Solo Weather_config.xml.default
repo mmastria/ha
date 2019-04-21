@@ -55,18 +55,18 @@
 </newTextVector>
 <newNumberVector device='AAG Solo Weather' name='GEOGRAPHIC_COORD'>
   <oneNumber name='LAT'>
-      -23.547499999999999432
+      0
   </oneNumber>
   <oneNumber name='LONG'>
-      313.36700000000001864
+      0
   </oneNumber>
   <oneNumber name='ELEV'>
-      765.39999999999997726
+      0
   </oneNumber>
 </newNumberVector>
 <newNumberVector device='AAG Solo Weather' name='WEATHER_UPDATE'>
   <oneNumber name='PERIOD'>
-      10
+      60
   </oneNumber>
 </newNumberVector>
 <newNumberVector device='AAG Solo Weather' name='WEATHER_TEMPERATURE'>
@@ -74,10 +74,10 @@
       -20
   </oneNumber>
   <oneNumber name='MAX_OK'>
-      1
+      0
   </oneNumber>
   <oneNumber name='PERC_WARN'>
-      10
+      0
   </oneNumber>
 </newNumberVector>
 <newNumberVector device='AAG Solo Weather' name='WEATHER_WIND_GUST'>
@@ -93,10 +93,10 @@
 </newNumberVector>
 <newNumberVector device='AAG Solo Weather' name='WEATHER_RAIN_HOUR'>
   <oneNumber name='MIN_OK'>
-      2550
+      2400
   </oneNumber>
   <oneNumber name='MAX_OK'>
-      3000
+      2700
   </oneNumber>
   <oneNumber name='PERC_WARN'>
       5

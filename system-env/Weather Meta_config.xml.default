@@ -50,13 +50,13 @@
 </newSwitchVector>
 <newTextVector device='Weather Meta' name='ACTIVE_DEVICES'>
   <oneText name='ACTIVE_WEATHER_1'>
-      AAG Cloud Watcher
+      AAG Solo Weather
   </oneText>
   <oneText name='ACTIVE_WEATHER_2'>
       Vantage
   </oneText>
   <oneText name='ACTIVE_WEATHER_3'>
-      
+      Weather Safety Proxy
   </oneText>
   <oneText name='ACTIVE_WEATHER_4'>
       
