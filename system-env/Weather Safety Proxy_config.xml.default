@@ -1,0 +1,109 @@
+<INDIDriver>
+<newSwitchVector device='Weather Safety Proxy' name='DEBUG'>
+  <oneSwitch name='ENABLE'>
+      Off
+  </oneSwitch>
+  <oneSwitch name='DISABLE'>
+      On
+  </oneSwitch>
+</newSwitchVector>
+<newNumberVector device='Weather Safety Proxy' name='POLLING_PERIOD'>
+  <oneNumber name='PERIOD_MS'>
+      1000
+  </oneNumber>
+</newNumberVector>
+<newSwitchVector device='Weather Safety Proxy' name='DEBUG_LEVEL'>
+  <oneSwitch name='DBG_ERROR'>
+      On
+  </oneSwitch>
+  <oneSwitch name='DBG_WARNING'>
+      On
+  </oneSwitch>
+  <oneSwitch name='DBG_SESSION'>
+      On
+  </oneSwitch>
+  <oneSwitch name='DBG_DEBUG'>
+      Off
+  </oneSwitch>
+</newSwitchVector>
+<newSwitchVector device='Weather Safety Proxy' name='LOGGING_LEVEL'>
+  <oneSwitch name='LOG_ERROR'>
+      On
+  </oneSwitch>
+  <oneSwitch name='LOG_WARNING'>
+      On
+  </oneSwitch>
+  <oneSwitch name='LOG_SESSION'>
+      On
+  </oneSwitch>
+  <oneSwitch name='LOG_DEBUG'>
+      Off
+  </oneSwitch>
+</newSwitchVector>
+<newSwitchVector device='Weather Safety Proxy' name='LOG_OUTPUT'>
+  <oneSwitch name='CLIENT_DEBUG'>
+      On
+  </oneSwitch>
+  <oneSwitch name='FILE_DEBUG'>
+      Off
+  </oneSwitch>
+</newSwitchVector>
+<newTextVector device='Weather Safety Proxy' name='ACTIVE_DEVICES'>
+  <oneText name='ACTIVE_GPS'>
+      GPS Simulator
+  </oneText>
+</newTextVector>
+<newNumberVector device='Weather Safety Proxy' name='GEOGRAPHIC_COORD'>
+  <oneNumber name='LAT'>
+      0
+  </oneNumber>
+  <oneNumber name='LONG'>
+      0
+  </oneNumber>
+  <oneNumber name='ELEV'>
+      0
+  </oneNumber>
+</newNumberVector>
+<newNumberVector device='Weather Safety Proxy' name='WEATHER_UPDATE'>
+  <oneNumber name='PERIOD'>
+      60
+  </oneNumber>
+</newNumberVector>
+<newNumberVector device='Weather Safety Proxy' name='WEATHER_SAFETY'>
+  <oneNumber name='MIN_OK'>
+      0.9000000000000000222
+  </oneNumber>
+  <oneNumber name='MAX_OK'>
+      1.1000000000000000888
+  </oneNumber>
+  <oneNumber name='PERC_WARN'>
+      0
+  </oneNumber>
+</newNumberVector>
+<newTextVector device='Weather Safety Proxy' name='WEATHER_SAFETY_SCRIPTS'>
+  <oneText name='WEATHER_SAFETY_SCRIPT'>
+      
+  </oneText>
+</newTextVector>
+<newTextVector device='Weather Safety Proxy' name='WEATHER_SAFETY_URLS'>
+  <oneText name='WEATHER_SAFETY_URL'>
+      http://system-env.arua:81/status
+  </oneText>
+</newTextVector>
+<newSwitchVector device='Weather Safety Proxy' name='SCRIPT_OR_CURL'>
+  <oneSwitch name='Use script'>
+      Off
+  </oneSwitch>
+  <oneSwitch name='Use url'>
+      On
+  </oneSwitch>
+</newSwitchVector>
+<newNumberVector device='Weather Safety Proxy' name='SOFT_ERROR_HYSTERESIS'>
+  <oneNumber name='SOFT_ERROR_MAX'>
+      30
+  </oneNumber>
+  <oneNumber name='SOFT_ERROR_RECOVERY'>
+      7
+  </oneNumber>
+</newNumberVector>
+</INDIDriver>
