@@ -6,6 +6,13 @@
 #rmmod em28xx
 #modprobe em28xx nodrop=1 timeout=5000 quirks=0x80
 
+# resolver como colocar 1vez
+#pip install bottle && \
+#pip install -U 'gevent~=1.2.2' && \
+#pip install multiprocessing && \
+#pip install requests && \
+#pip install cffi
+
 ./rtl-sdr-rules.sh
 sed -i 's/^#alias l/alias l/g' /root/.bashrc
 
@@ -22,6 +29,9 @@ systemctl daemon-reload
 
 systemctl enable arua_cloudWatcherMux.service
 systemctl restart arua_cloudWatcherMux.service
+
+systemctl enable arua_envSafe.service
+systemctl restart arua_envSafe.service
 
 systemctl enable arua_allsky.service
 systemctl restart arua_allsky.service

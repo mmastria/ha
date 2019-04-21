@@ -17,10 +17,10 @@ mkfifo ~/.indi/indiFIFO
 child=$!
 
 echo "start indi_watcher_weather -n \"AAG Solo Weather\" -c \"$HOME/.indi/AAG Solo Weather_config.xml\"" > ~/.indi/indiFIFO
-#echo "start indi_weather_safety_proxy -n \"HassIo Monitor\" -c \"$HOME/.indi/HassIo Monitor_config.xml\"" > ~/.indi/indiFIFO
 echo "start indi_weather_safety_proxy"  > ~/.indi/indiFIFO
 echo "start indi_aagcloudwatcher -n \"AAG Cloud Watcher\" -c \"$HOME/.indi/AAG Cloud Watcher_config.xml\"" > ~/.indi/indiFIFO
 echo "start indi_vantage_weather -n \"Vantage\" -c \"$HOME/.indi/Vantage_config.xml\"" > ~/.indi/indiFIFO
+#echo "start indi_weather_safety_proxy -n \"HassIo Monitor\" -c \"$HOME/.indi/HassIo Monitor_config.xml\"" > ~/.indi/indiFIFO
 echo "start indi_meta_weather -n \"Weather Meta\" -c \"$HOME/.indi/Weather Meta_config.xml\"" > ~/.indi/indiFIFO
 echo "start indi_watchdog -n \"WatchDog\" -c \"$HOME/.indi/WatchDog_config.xml\"" > ~/.indi/indiFIFO
 #echo "start indi_rtlsdr_detector -n \"RTL-SDR Receiver\" -c \"$HOME/.indi/RTL-SDR Receiver_config.xml\"" > ~/.indi/indiFIFO

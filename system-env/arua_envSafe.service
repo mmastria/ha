@@ -1,0 +1,12 @@
+[Unit]
+Description=Check Environment Safe
+After=multi-user.target
+
+[Service]
+Restart=always
+RestartSec=5
+User=root
+ExecStart=/usr/local/bin/envSafe.py
+
+[Install]
+WantedBy=multi-user.target
