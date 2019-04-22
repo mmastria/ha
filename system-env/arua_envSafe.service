@@ -6,7 +6,7 @@ After=multi-user.target
 Restart=always
 RestartSec=5
 User=root
-ExecStart=/usr/local/bin/envSafe.py
+ExecStart=/usr/share/indi/scripts/envSafe.py
 
 [Install]
 WantedBy=multi-user.target

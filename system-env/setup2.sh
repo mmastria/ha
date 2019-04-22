@@ -12,18 +12,18 @@
 #pip install multiprocessing && \
 #pip install requests && \
 #pip install cffi
-
-./rtl-sdr-rules.sh
-sed -i 's/^#alias l/alias l/g' /root/.bashrc
+#./rtl-sdr-rules.sh
+#sed -i 's/^#alias l/alias l/g' /root/.bashrc
 
 cp -f *.service /etc/systemd/system/
 cp -f arua*.sh /usr/local/bin/
-cp -f *.py /usr/local/bin/
+[ ! -d /usr/share/indi/scripts ] && mkdir -p /usr/share/indi/scripts
+cp -f ../common/*.py /usr/share/indi/scripts/
 cp -f *sk.xml /usr/share/indi/
 [ ! -d /root/.indi ] && mkdir -p /root/.indi
 cp -f *.default /root/.indi/
-cp -f allsky_rotate /etc/cron.daily
 ls -1 /root/.indi/*.default|xargs -n 1 -I{a} echo {a}|sed 's/.default//'|xargs -r -n 1 -I{b} cp {b}.default {b}
+cp -f allsky_rotate /etc/cron.daily
 
 systemctl daemon-reload
 
