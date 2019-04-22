@@ -21,8 +21,9 @@ echo "start indi_script_dome -n \"Dome Scripting Gateway\" -c \"$HOME/.indi/Dome
 echo "start indi_watchdog -n \"WatchDog\" -c \"$HOME/.indi/WatchDog_config.xml\"" > ~/.indi/indiFIFO
 echo "start \"Weather Meta\"@system-env:7624" > ~/.indi/indiFIFO
 
-/usr/share/indi/scripts/indi_wiringpi_gpio.py &&
-/usr/share/indi/scripts/indi_script_dome.py
+/usr/share/indi/scripts/loadDriver "Power System"
+/usr/share/indi/scripts/loadDriver "Dome Scripting Gateway"
+/usr/share/indi/scripts/loadDriver "Weather Meta"
 
 wait "$child"
 echo "stopping indiserver"

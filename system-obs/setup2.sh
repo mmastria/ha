@@ -48,7 +48,7 @@ sed -i 's/^#alias l/alias l/g' /home/obs/.bashrc
 cp -f *.service /etc/systemd/system/
 cp -f arua*.sh /usr/local/bin/
 [ ! -d /usr/share/indi/scripts ] && mkdir -p /usr/share/indi/scripts
-cp -f *.py /usr/share/indi/scripts/
+cp -f ../common/*.py /usr/share/indi/scripts/
 [ ! -d /home/obs/.indi ] && mkdir -p /home/obs/.indi && chown obs:obs /home/obs/.indi
 cp -f *.default /home/obs/.indi/
 ls -1 /home/obs/.indi/*.default|xargs -n 1 -I{a} echo {a}|sed 's/.default//'|xargs -r -n 1 -I{b} cp {b}.default {b}

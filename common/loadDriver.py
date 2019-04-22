@@ -46,12 +46,14 @@ if __name__ == "__main__":
         indiclient.log("No indiserver running, exiting.")
         sys.exit(1)
  
-    device_name=sys.argv[1:]
+    device_name=sys.argv[1]
     device=None
     connection_name="CONNECTION"
     connection=None
     config_name="CONFIG_PROCESS"
     config=None
+
+    indiclient.log("LOADING DEVICE CONFIG <%s>" % device_name)
 
     while not(device):
         device=indiclient.getDevice(device_name)
