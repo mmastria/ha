@@ -27,10 +27,10 @@ echo "start indi_rtlsdr_detector -n \"RTL-SDR Receiver\" -c \"$HOME/.indi/RTL-SD
 # wget --user=admin --password=YWRtaW4= http://[ipofcamera]:8080/stream/snapshot.jpg
 echo "start indi_webcam_ccd -n \"Observ Cam\" -c \"$HOME/.indi/Observ Cam_config.xml\"" > ~/.indi/indiFIFO
 
-/usr/share/indi/scripts/indi_watcher_weather.py &
-/usr/share/indi/scripts/indi_aagcloudwatcher.py &
-/usr/share/indi/scripts/indi_vantage_weather.py &
-/usr/share/indi/scripts/indi_meta_weather.py
+/usr/local/bin/indi_watcher_weather.py
+/usr/local/bin/indi_aagcloudwatcher.py
+/usr/local/bin/indi_vantage_weather.py
+/usr/local/bin/indi_meta_weather.py
 
 wait "$child"
 echo "stopping indiserver"
