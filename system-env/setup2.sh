@@ -24,6 +24,7 @@ cp -f *sk.xml /usr/share/indi/
 cp -f *.default /root/.indi/
 ls -1 /root/.indi/*.default|xargs -n 1 -I{a} echo {a}|sed 's/.default//'|xargs -r -n 1 -I{b} cp {b}.default {b}
 cp -f allsky_rotate /etc/cron.daily
+sed -i 's/test -x \/usr\/sbin\/anacron || ( cd \/ && run-parts --report \/etc\/cron.daily )/cd \/ \&\& run-parts --report \/etc\/cron.daily /' /etc/crontab
 
 systemctl daemon-reload
 
@@ -38,3 +39,4 @@ systemctl restart arua_allsky.service
 
 systemctl enable arua_system-env_indiserver.service
 systemctl restart arua_system-env_indiserver.service
+
