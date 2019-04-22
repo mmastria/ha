@@ -17,6 +17,8 @@ sed -i 's/^#alias l/alias l/g' /home/lunar/.bashrc
 
 cp -f *.service /etc/systemd/system/
 cp -f arua*.sh /usr/local/bin/
+[ ! -d /usr/share/indi/scripts ] && mkdir -p /usr/share/indi/scripts
+cp -f ../common/*.py /usr/share/indi/scripts/
 [ ! -d /home/lunar/.indi ] && mkdir -p /home/lunar/.indi && chown lunar:lunar /home/lunar/.indi
 cp -f *.default /home/lunar/.indi/
 ls -1 /home/lunar/.indi/*.default|xargs -n 1 -I{a} echo {a}|sed 's/.default//'|xargs -r -n 1 -I{b} cp {b}.default {b}

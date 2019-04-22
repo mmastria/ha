@@ -25,6 +25,10 @@ echo "start indi_moonlite_focus" > ~/.indi/indiFIFO
 echo "start \"Weather Meta\"@system-env:7624" > ~/.indi/indiFIFO
 echo "start \"Dome Scripting Gateway\"@system-obs:7624" > ~/.indi/indiFIFO
 
+/usr/share/indi/scripts/loadDriver.py "Astrometry"
+/usr/share/indi/scripts/loadDriver.py "Weather Meta"
+/usr/share/indi/scripts/loadDriver.py "Dome Scripting Gateway"
+
 wait "$child"
 echo "stopping indiserver"
 exit
