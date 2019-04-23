@@ -19,5 +19,13 @@ git clone https://github.com/magnue/indi_wiringpi_gpio.git
 [ -d ~/interceptty ] || \
 git clone https://github.com/geoffmeyers/interceptty.git
 
+# USB Reset
+#[ -d ~/usbreset ] || \
+#git clone https://gist.github.com/5124616.git usbreset &&
+#pushd usbreset &&
+#cc usbreset.c -o usbreset &&
+#chmod +x usbreset &&
+#popd
+
 popd
 

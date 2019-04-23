@@ -8,7 +8,7 @@ RestartSec=5
 User=root
 ExecStartPre=/bin/sleep 30
 ExecStartPre=/usr/bin/v4l2-ctl --device=/dev/video0 --set-standard=ntsc-m
-ExecStart=/usr/bin/fswebcam -d /dev/video0 -i 0 -l 30 -r 640x480 -F 255\
+ExecStart=/usr/bin/fswebcam -d /dev/video0 -i 0 -l 30 -r 640x480 -F 255 -D 1 \
 --deinterlace --crop 466x420,86x4 --scale 466x466 \
 --timestamp "%%d-%%m-%%Y %%H:%%M:%%S" \
 --title "Mastria Observatory" \
