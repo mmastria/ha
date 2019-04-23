@@ -26,7 +26,13 @@ echo "start indi_armadillo_focus -n \"Armadillo focuser\" -c \"$HOME/.indi/Armad
 echo "start \"Weather Meta\"@system-env:7624" > ~/.indi/indiFIFO
 echo "start \"Dome Scripting Gateway\"@system-obs:7624" > ~/.indi/indiFIFO
 
+/usr/share/indi/scripts/loadDriver.py "iOptron CEM60"
+/usr/share/indi/scripts/loadDriver.py "Atik 383L"
+/usr/share/indi/scripts/loadDriver.py "SX Wheel"
+/usr/share/indi/scripts/loadDriver.py "QHY CCD QHY5LII-M-60d7e"
 /usr/share/indi/scripts/loadDriver.py "Astrometry"
+/usr/share/indi/scripts/loadDriver.py "WatchDog"
+/usr/share/indi/scripts/loadDriver.py "Armadillo focuser"
 /usr/share/indi/scripts/loadDriver.py "Weather Meta"
 /usr/share/indi/scripts/loadDriver.py "Dome Scripting Gateway"
 

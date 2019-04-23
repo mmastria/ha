@@ -74,7 +74,7 @@
 </newTextVector>
 <newSwitchVector device='WatchDog' name='WATCHDOG_SHUTDOWN'>
   <oneSwitch name='PARK_MOUNT'>
-      On
+      Off
   </oneSwitch>
   <oneSwitch name='PARK_DOME'>
       Off
