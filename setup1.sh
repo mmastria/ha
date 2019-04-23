@@ -2,7 +2,7 @@
 
 #set -x
 
-# etcher raspibian stretch
+# etcher raspbian stretch
 # touch /boot/ssh
 
 # ssh pi@ip
