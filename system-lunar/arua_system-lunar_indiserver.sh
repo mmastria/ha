@@ -24,7 +24,11 @@ echo "start indi_moonlite_focus -n \"MoonLite\" -c \"$HOME/.indi/MoonLite_config
 echo "start \"Weather Meta\"@system-env:7624" > ~/.indi/indiFIFO
 echo "start \"Dome Scripting Gateway\"@system-obs:7624" > ~/.indi/indiFIFO
 
+/usr/share/indi/scripts/loadDriver.py "iOptron CEM120"
+/usr/share/indi/scripts/loadDriver.py "QHY CCD QHY5LII-M-6097e"
 /usr/share/indi/scripts/loadDriver.py "Astrometry"
+/usr/share/indi/scripts/loadDriver.py "WatchDog"
+/usr/share/indi/scripts/loadDriver.py "MoonLite"
 /usr/share/indi/scripts/loadDriver.py "Weather Meta"
 /usr/share/indi/scripts/loadDriver.py "Dome Scripting Gateway"
 
