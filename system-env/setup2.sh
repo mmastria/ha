@@ -3,8 +3,10 @@
 # run as root to use socat
 
 # necessario para camera USB DVC100
+#rmmod em28xx_v4l
 #rmmod em28xx
 #modprobe em28xx nodrop=1 timeout=5000 quirks=0x80
+#modprobe em28xx_v4l
 
 # resolver como colocar 1vez
 #pip install bottle && \
