@@ -74,7 +74,7 @@
       -20
   </oneNumber>
   <oneNumber name='MAX_OK'>
-      1
+      2 
   </oneNumber>
   <oneNumber name='PERC_WARN'>
       0
