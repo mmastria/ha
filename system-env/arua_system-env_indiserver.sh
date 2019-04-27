@@ -29,8 +29,8 @@ echo "start indi_webcam_ccd -n \"Observ Cam\" -c \"$HOME/.indi/Observ Cam_config
 
 /usr/share/indi/scripts/loadDriver.py "AAG Solo Weather"
 /usr/share/indi/scripts/loadDriver.py "AAG Cloud Watcher"
-/usr/share/indi/scripts/loadDriver.py "Vantage"
 /usr/share/indi/scripts/loadDriver.py "Weather Safety Proxy"
+/usr/share/indi/scripts/loadDriver.py "Vantage"
 /usr/share/indi/scripts/loadDriver.py "Weather Meta"
 
 wait "$child"
