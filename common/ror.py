@@ -305,23 +305,39 @@ class RoR(object):
             obs = {}
             env = {}
             try:
-                s = subprocess.Popen('indi_getprop -h system-obs',shell=True, stdin=None, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-                sleep(1)
-                while s.wait():
-                    pass
-                t, e = s.communicate()
-                for sensor, value in [(pair.split("=")) for pair in t.replace('==','=').splitlines()]:
-                    obs[sensor] = value
+                s = subprocess.Popen('indi_getprop -h system-obs',shell=True, stdin=None, stdout=subprocess.PIPE, close_fds=True)
+                t = s.stdout.read()
+                s.wait()
+                for device, value in [(pair.split("=")) for pair in t.replace('==','=').splitlines()]:
+                    key = obs 
+                    prop = device.split('.')[-1]
+                    for k in device.split('.'):
+                        if not k in key:
+                            if not k == prop:
+                                key[k] = {}
+                                key = key[k]
+                            else:
+                                key[k] = value
+                        else:
+                            key = key[k]
             except:
                 pass
             try:
-                s = subprocess.Popen('indi_getprop -t 3 -h system-env',shell=True, stdin=None, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-                sleep(1)
-                while s.wait():
-                    pass
-                t, e = s.communicate()
-                for sensor, value in [(pair.split("=")) for pair in t.replace('==','=').splitlines()]:
-                    env[sensor] = value
+                s = subprocess.Popen('indi_getprop -h system-env',shell=True, stdin=None, stdout=subprocess.PIPE, close_fds=True)
+                t = s.stdout.read()
+                s.wait()
+                for device, value in [(pair.split("=")) for pair in t.replace('==','=').splitlines()]:
+                    key = env 
+                    prop = device.split('.')[-1]
+                    for k in device.split('.'):
+                        if not k in key:
+                            if not k == prop:
+                                key[k] = {}
+                                key = key[k]
+                            else:
+                                key[k] = value
+                        else:
+                            key = key[k]
             except:
                 pass
             return {'obs': obs, 'env': env}
@@ -443,18 +459,20 @@ def ror_is_aagsafe():
 @route('/status', method='GET')
 def ror_reststatus():
 	ror = RoR()
+        r = json.dumps(ror.reststatus)
         response.content_type = 'application/json'
 	response.status = 200
-	return json.dumps(ror.reststatus)
+        response['Content-Length'] = len(r)
+	return r 
 
 @route('/indiprop', method='GET')
 def ror_indiprop():
 	ror = RoR()
+        r = json.dumps(ror.indiprop())
         response.content_type = 'application/json'
 	response.status = 200
-	#return json.dumps(ror.indiprop, sort_keys=True, indent=4)
-        r = ror.indiprop()
-	return json.dumps(r)
+        response['Content-Length'] = len(r)
+	return r
 
 # --------------------------
 
