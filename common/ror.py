@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
 
+import subprocess
 import multiprocessing
 import RPi.GPIO as GPIO
 from time import sleep
@@ -299,6 +300,32 @@ class RoR(object):
             status['aagsafe'] = self.is_aagsafe()
             return status
 
+	#@property
+	def indiprop(self):
+            obs = {}
+            env = {}
+            try:
+                s = subprocess.Popen('indi_getprop -h system-obs',shell=True, stdin=None, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+                sleep(1)
+                while s.wait():
+                    pass
+                t, e = s.communicate()
+                for sensor, value in [(pair.split("=")) for pair in t.replace('==','=').splitlines()]:
+                    obs[sensor] = value
+            except:
+                pass
+            try:
+                s = subprocess.Popen('indi_getprop -t 3 -h system-env',shell=True, stdin=None, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+                sleep(1)
+                while s.wait():
+                    pass
+                t, e = s.communicate()
+                for sensor, value in [(pair.split("=")) for pair in t.replace('==','=').splitlines()]:
+                    env[sensor] = value
+            except:
+                pass
+            return {'obs': obs, 'env': env}
+
 # --------------------------
 
 # 200 OK
@@ -419,6 +446,15 @@ def ror_reststatus():
         response.content_type = 'application/json'
 	response.status = 200
 	return json.dumps(ror.reststatus)
+
+@route('/indiprop', method='GET')
+def ror_indiprop():
+	ror = RoR()
+        response.content_type = 'application/json'
+	response.status = 200
+	#return json.dumps(ror.indiprop, sort_keys=True, indent=4)
+        r = ror.indiprop()
+	return json.dumps(r)
 
 # --------------------------
 

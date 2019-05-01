@@ -84,6 +84,8 @@ echo $SDEVICE > /etc/hostname
 sed -i 's/^# export/export/g' /root/.bashrc
 sed -i 's/^# eval/eval/g' /root/.bashrc
 sed -i 's/^# alias l/alias l/g' /root/.bashrc
+echo "export PYTHONSTARTUP=/root/.pythonstartup" >> /root/bashrc
+cp -f pythonstartup /root/.pythonstartup
 
 apt-get -y install build-essential git python-dev python-pip vim cmake ntpdate \
        cdbs libcfitsio-dev libnova-dev \
@@ -95,7 +97,8 @@ apt-get -y install build-essential git python-dev python-pip vim cmake ntpdate \
        libgtest-dev google-mock oggvideotools \
        astrometry.net \
        screen \
-       fswebcam 
+       fswebcam \
+       libncurses5-dev rlwrap
        #python-pygame python-pil libsdl1.2-dev
 [ '$DEVICE' == 'aagsolo' ] && apt-get -y install swig 
 [ '$DEVICE' != 'aagsolo' ] && apt-get -y install swig2.0 libz3-dev raspberrypi-kernel-headers

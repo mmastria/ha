@@ -27,11 +27,13 @@ adduser obs dialout && \
 adduser obs video && \
 adduser obs gpio && \
 mkdir /usr/share/indi/scripts && \
+pip install readline && \
 pip install bottle && \
 pip install -U 'gevent~=1.2.2' && \
 pip install multiprocessing && \
 pip install requests && \
 pip install cffi && \
+pip install 'urllib3<1.25' && \
 sed -i 's/^#alias l/alias l/g' /home/obs/.bashrc
 # (crontab -l 2>/dev/null; echo "*/5 * * * * /usr/local/bin/arua_close-wait.sh") | crontab -
 
