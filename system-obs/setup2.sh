@@ -64,3 +64,6 @@ systemctl restart arua_system-obs_ror.service
 
 systemctl enable arua_system-obs_indiserver.service
 systemctl restart arua_system-obs_indiserver.service
+
+systemctl enable arua_indi_rest.service
+systemctl restart arua_indi_rest.service

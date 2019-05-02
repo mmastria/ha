@@ -13,6 +13,7 @@ import logging.handlers
 
 monkey.patch_all()
 
+# https://stackoverflow.com/questions/25297627/why-no-timer-class-in-pythons-multiprocessing-module?noredirect=1&lq=1
 class Timer(multiprocessing.Process):
 
 	def __init__(self, interval, function, args=[], kwargs={}):
@@ -52,7 +53,7 @@ class Indi(object):
 	def getprop(self):
             data = {}
             try:
-                s = subprocess.Popen('indi_getprop -h system-obs',shell=True, stdin=None, stdout=subprocess.PIPE, close_fds=True)
+                s = subprocess.Popen('indi_getprop',shell=True, stdin=None, stdout=subprocess.PIPE, close_fds=True)
                 t = s.stdout.read()
                 s.wait()
                 for device, value in [(pair.split("=")) for pair in t.replace('==','=').splitlines()]:
@@ -92,4 +93,4 @@ def indi_getprop():
 if __name__ == "__main__":
 	# t = Timer(10, rotina para fazer pooling)
 	# t.run()
-	run(host='0.0.0.0', port=8080, server='gevent')
+	run(host='0.0.0.0', port=7625, server='gevent')
