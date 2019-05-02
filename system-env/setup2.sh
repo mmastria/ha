@@ -13,6 +13,8 @@
 #pip install -U 'gevent~=1.2.2' && \
 #pip install multiprocessing && \
 #pip install requests && \
+#pip install readline && \
+#pip install 'urllib3<1.25' && \
 #pip install cffi
 #./rtl-sdr-rules.sh
 #sed -i 's/^#alias l/alias l/g' /root/.bashrc
@@ -41,4 +43,7 @@ systemctl restart arua_allsky.service
 
 systemctl enable arua_system-env_indiserver.service
 systemctl restart arua_system-env_indiserver.service
+
+systemctl enable arua_indi_rest.service
+systemctl restart arua_indi_rest.service
 
