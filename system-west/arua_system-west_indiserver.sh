@@ -23,7 +23,6 @@ echo "start indi_astrometry -n \"Astrometry\" -c \"$HOME/.indi/Astrometry_config
 echo "start indi_watchdog -n \"WatchDog\" -c \"$HOME/.indi/WatchDog_config.xml\"" > ~/.indi/indiFIFO
 echo "start indi_moonlite_focus -n \"MoonLite\" -c \"$HOME/.indi/MoonLite_config.xml\"" > ~/.indi/indiFIFO
 echo "start \"Weather Meta\"@system-env:7624" > ~/.indi/indiFIFO
-echo "start \"Dome Scripting Gateway\"@system-obs:7624" > ~/.indi/indiFIFO
 
 /usr/share/indi/scripts/loadDriver.py "iOptron CEM120"
 /usr/share/indi/scripts/loadDriver.py "Atik 320E"
@@ -32,7 +31,6 @@ echo "start \"Dome Scripting Gateway\"@system-obs:7624" > ~/.indi/indiFIFO
 /usr/share/indi/scripts/loadDriver.py "WatchDog"
 /usr/share/indi/scripts/loadDriver.py "MoonLite"
 /usr/share/indi/scripts/loadDriver.py "Weather Meta"
-/usr/share/indi/scripts/loadDriver.py "Dome Scripting Gateway"
 
 wait "$child"
 echo "stopping indiserver"
