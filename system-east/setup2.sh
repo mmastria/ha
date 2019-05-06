@@ -28,5 +28,10 @@ chown east:east /home/east/.indi/*.default
 chown east:east /home/east/.indi/*.xml
 
 systemctl daemon-reload
+
 systemctl enable arua_system-east_indiserver.service
 systemctl restart arua_system-east_indiserver.service
+
+systemctl enable arua_indi_rest.service
+systemctl restart arua_indi_rest.service
+
