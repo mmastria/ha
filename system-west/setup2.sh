@@ -33,3 +33,7 @@ systemctl daemon-reload
 
 systemctl enable arua_system-west_indiserver.service
 systemctl restart arua_system-west_indiserver.service
+
+systemctl enable arua_indi_rest.service
+systemctl restart arua_indi_rest.service
+

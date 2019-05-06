@@ -1,0 +1,12 @@
+[Unit]
+Description=INDI Rest Services
+After=multi-user.target
+
+[Service]
+Restart=always
+RestartSec=5
+User=root
+ExecStart=/usr/share/indi/scripts/indi_rest.py
+
+[Install]
+WantedBy=multi-user.target

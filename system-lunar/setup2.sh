@@ -32,3 +32,7 @@ systemctl daemon-reload
 
 systemctl enable arua_system-lunar_indiserver.service
 systemctl restart arua_system-lunar_indiserver.service
+
+systemctl enable arua_indi_rest.service
+systemctl restart arua_indi_rest.service
+
