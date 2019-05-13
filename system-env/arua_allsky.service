@@ -7,7 +7,7 @@ Restart=always
 RestartSec=5
 User=root
 ExecStartPre=/bin/sleep 15
-#ExecStartPre=/root/usbreset/usbreset /dev/bus/usb/$(/usr/bin/lsusb|/bin/grep Pinnacle|/usr/bin/cut -c5-7)/$(/usr/bin/lsusb |/bin/grep Pinnacle|/usr/bin/cut -c16-18)
+ExecStartPre=/root/usbreset/usbreset /dev/bus/usb/$(/usr/bin/lsusb|/bin/grep Pinnacle|/usr/bin/cut -c5-7)/$(/usr/bin/lsusb |/bin/grep Pinnacle|/usr/bin/cut -c16-18)
 ExecStartPre=/bin/sleep 5 
 ExecStartPre=/usr/bin/v4l2-ctl --device=/dev/video0 --set-standard=ntsc-m
 ExecStart=/usr/bin/fswebcam -d /dev/video0 -i 0 -l 15 -r 640x480 -F 255 -D 1 \
