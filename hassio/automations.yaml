@@ -1,24 +1,23 @@
 # automations.yaml
 
-- alias: Controle de Umidade
-  trigger:
-    - platform: numeric_state
-      entity_id: sensor.hwg_ste_ambient_humidity
-      above: 61.0
-    - platform: numeric_state
-      entity_id: sensor.hwg_ste_ambient_humidity
-      below: 56.0
-  action:
-    service_template: >
-      {% if states('sensor.hwg_ste_ambient_humidity') | float > 61 %}
-        switch.turn_on
-      {% else %}
-        switch.turn_off
-      {% endif %}
-    entity_id:
-      - switch.dehum_marron
-      - switch.dehum_bege
-#      - switch.dehum_branco
+#- alias: Controle de Umidade
+#  trigger:
+#    - platform: numeric_state
+#      entity_id: sensor.hwg_ste_ambient_humidity
+#      above: 61.0
+#    - platform: numeric_state
+#      entity_id: sensor.hwg_ste_ambient_humidity
+#      below: 56.0
+#  action:
+#    service_template: >
+#      {% if states('sensor.hwg_ste_ambient_humidity') | float > 61 %}
+#        switch.turn_on
+#      {% else %}
+#        switch.turn_off
+#      {% endif %}
+#    entity_id:
+#      - switch.dehum_marron
+#      - switch.dehum_bege
 
 #- alias: Auto Liga Exaustor
 #  trigger:

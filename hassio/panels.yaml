@@ -11,26 +11,26 @@ wwwmotioneye:
   url: http://192.168.0.212:8765
 
 wwwcloudwatcher:
-  title: Clouds
+  title: Cloud Watcher
   icon: mdi:cloud
   url: http://192.168.0.205
 
 wwwallsky:
-  title: AllSky Files
+  title: AllSky
   icon: mdi:weather-night
   url: http://192.168.0.210
 
 wwwhwg:
-  title: Obs Temp/Hum
+  title: HWG-Ste
   icon: mdi:water-percent
   url: http://192.168.0.203
 
 wwwnhs:
-  title: Power Source
+  title: NHS UPS
   icon: mdi:car-battery
   url: http://192.168.0.217:2001/graficos_gauge
 
 wwwglances:
-  title: Monitor
+  title: Sys Monitor
   icon: mdi:gauge
   url: http://hassio.arua:61208

@@ -12,8 +12,6 @@ homeassistant:
 
 frontend:
   themes: !include themes.yaml
-# extra_html_url:
-#   - /www/custom.html
 
 lovelace:
   mode: yaml
@@ -42,7 +40,6 @@ camera: !include cameras.yaml
 
 panel_iframe: !include panels.yaml
 
-#      - sensor.aagsolo_temperature
 history_graph:
   temperature:
     entities:
@@ -56,3 +53,8 @@ history_graph:
 weather:
   - platform: darksky
     api_key: !secret darksky_apikey
+
+mqtt:
+  broker: 192.168.0.157
+  port: 1883
+  discovery: true

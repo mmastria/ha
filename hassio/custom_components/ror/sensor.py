@@ -37,7 +37,7 @@ SENSOR_STATE = {
 
 """
 
-http://system-obs.arua/status
+http://node-red.arua:1880/roof
 
 {
     "safe": false,
@@ -155,7 +155,8 @@ class RorData(object):
         """Get the latest data"""
         values = {}
         try:
-            url = "http://{}:{}/status".format(self.host, self.port)
+            #url = "http://{}:{}/status".format(self.host, self.port)
+            url = "http://{}:{}/roof".format(self.host, self.port)
             response = requests.get(url, timeout=5)
             rjson = response.json()
             try:

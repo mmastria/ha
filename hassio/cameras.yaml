@@ -8,6 +8,14 @@
   username: !secret cam_observatorio_username
   password: !secret cam_observatorio_password
 
+- platform: mjpeg
+  name: Garagem
+  mjpeg_url: http://192.168.0.207:8080/stream/video/mjpeg
+  still_image_url: http://192.168.0.207:8080/stream/snapshot.jpg
+  authentication: digest
+  username: !secret cam_garagem_username
+  password: !secret cam_garagem_password
+
 - platform: generic
   name: AllSky
   still_image_url: http://192.168.0.210:80/allsky.jpg

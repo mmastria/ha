@@ -1,83 +1,100 @@
 # sensors.yaml
 
-#  - platform: command_line
-#    name: hwg_temperatura
-#    command: 'curl http://192.168.0.203/values.xml|grep -A 7 -E "Temperatura.*"|grep -Eo "<Value>(.*?)<.*"|cut -d ">" -f 2|cut -d "<" -f 1|grep -v 999'
-#    unit_of_measurement: "°C"
-#    scan_interval: 60
+- platform: mqtt
+  state_topic: 'hwg/state'
+  name: 'hwg_temperature'
+  unit_of_measurement: '°C'
+  value_template: '{{ value_json.temperatura|round(1) }}'
+  icon: "mdi:thermometer"
+  force_update: true
 
-- platform: hwg
-  host: 192.168.0.203
-  monitored_conditions:
-    - temperature
-    - humidity
-#    - temperature_status
-#    - humidity_status
-#    - temperature_normal
-#    - humidity_normal
+- platform: mqtt
+  state_topic: 'hwg/state'
+  name: 'hwg_humidity'
+  unit_of_measurement: '%'
+  value_template: '{{ value_json.umidade|round(1) }}'
+  icon: "mdi:water-percent"
+  force_update: true
 
-- platform: aag
-  host: 192.168.0.205
-  monitored_conditions:
-#    - datetime
-#    - cwinfo
-    - clouds
-#    - temperature
-#    - wind
-#    - gust
-    - rain
-    - light
-    - switch
-    - safe
-#    - humidity
-#    - dewpoint
-    - cloudsclear
-    - cloudscloudy
-    - cloudsovercast
-    - raindry
-    - rainwet
-    - rainrain
-    - lightdark
-    - lightlight
-    - lightverylight
 
-- platform: nhs
-  host: 192.168.0.217
-  monitored_conditions:
-#    - nominal_input_voltage
-#    - nominal_output_voltage
-#    - batteries
-#    - nominal_charger_current
-#    - read_charger_current
-#    - read_temperature
-    - input_voltage
-    - output_voltage
-    - load
-    - battery_voltage
-#    - temperature
-#    - chager_current
-    - status
-#    - alert
 
-#- platform: yr
-# forecast: 24
-# monitored_conditions:
-#   - temperature
-##    - symbol
-#   - precipitation
-##    - windSpeed
-##    - pressure
-#   - humidity
-##    - fog
-#   - cloudiness
-##    - dewpointTemperature
-##    - windDirection
-##    - lowClouds
-##    - mediumClouds
-##    - highClouds
+- platform: mqtt
+  state_topic: 'aag/state'
+  name: 'aag_safe'
+  value_template: '{{ value_json.safe }}'
+  icon: "mdi:weather-night"
+  force_update: true
+
+- platform: mqtt
+  state_topic: 'aag/state'
+  name: 'aag_clouds'
+  value_template: '{{ value_json.clouds }}'
+  icon: "mdi:weather-cloudy"
+  force_update: true
+
+- platform: mqtt
+  state_topic: 'aag/state'
+  name: 'aag_sw_clouds'
+  value_template: '{{ value_json.sw_clouds }}'
+  icon: "mdi:weather-cloudy"
+  force_update: true
+
+- platform: mqtt
+  state_topic: 'aag/state'
+  name: 'aag_rain'
+  value_template: '{{ value_json.rain }}'
+  icon: "mdi:weather-pouring"
+  force_update: true
+
+- platform: mqtt
+  state_topic: 'aag/state'
+  name: 'aag_sw_rain'
+  value_template: '{{ value_json.sw_rain }}'
+  icon: "mdi:weather-pouring"
+  force_update: true
+
+- platform: mqtt
+  state_topic: 'aag/state'
+  name: 'aag_light'
+  value_template: '{{ value_json.light }}'
+  icon: "mdi:lightbulb-on-outline"
+  force_update: true
+
+- platform: mqtt
+  state_topic: 'aag/state'
+  name: 'aag_sw_light'
+  value_template: '{{ value_json.sw_light }}'
+  icon: "mdi:lightbulb-on-outline"
+  force_update: true
+
+
+
+- platform: mqtt
+  state_topic: 'nhs/state'
+  name: 'nhs_tensao_entrada'
+  value_template: '{{ value_json.tensao_entrada }}'
+  icon: "mdi:current-ac"
+  force_update: true
+
+- platform: mqtt
+  state_topic: 'nhs/state'
+  name: 'nhs_carga'
+  value_template: '{{ value_json.carga }}'
+  icon: "mdi:gauge-full"
+  force_update: true
+
+- platform: mqtt
+  state_topic: 'nhs/state'
+  name: 'nhs_status'
+  value_template: '{{ value_json.status }}'
+  icon: "mdi:battery-alert"
+  force_update: true
+
+
 
 - platform: ror
-  host: 192.168.0.211
+  host: 192.168.0.157
+  port: 1880
   monitored_conditions:
     - safe
     - parked
@@ -91,5 +108,4 @@
 - platform: systemmonitor
   resources:
     - type: last_boot
-#    - type: processor_use
 

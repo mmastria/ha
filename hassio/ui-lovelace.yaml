@@ -7,12 +7,12 @@ views:
 
       - type: vertical-stack
         cards:
-          - columns: 7
+          - columns: 8
             entities:
               - entity: binary_sensor.aag_light
+              - entity: binary_sensor.aag_safe
               - entity: binary_sensor.aag_cloudy
               - entity: binary_sensor.aag_rainy
-              - entity: binary_sensor.aag_safe
               - entity: binary_sensor.nhs_onbattery
               - entity: binary_sensor.nhs_critical
               - entity: binary_sensor.obs_alert
@@ -28,8 +28,8 @@ views:
             entities:
               - entity: binary_sensor.pwr_env
                 name: Env
-              - entity: binary_sensor.pwr_obs
-                name: Obs
+              - entity: binary_sensor.pwr_nodered
+                name: Services
               - entity: binary_sensor.pwr_east
                 name: East
               - entity: binary_sensor.pwr_west
@@ -42,14 +42,17 @@ views:
       - cards:
           - columns: 4
             entities:
-              - entity: binary_sensor.roof_mountsparked
+              - entity: binary_sensor.mounts_parked
                 name: Parked
+                icon: 'mdi:telescope'
               - entity: binary_sensor.roof_parked
                 name: Locked
               - entity: binary_sensor.roof_closed
                 name: Closed
-              - entity: binary_sensor.roof_open
-                name: Open
+                icon: 'mdi:home-lock'
+              - entity: binary_sensor.roof_opened
+                name: Opened
+                icon: 'mdi:home-lock-open'
             show_icon: true
             show_name: false
             show_state: false
@@ -63,30 +66,60 @@ views:
                 icon: 'mdi:windows'
                 name: LunarScan CAMS
                 type: entity-button
-              - entity: switch.dehum_marron
+              - entity: switch.dehum_front
                 icon: 'mdi:weather-windy'
                 name: Desumid On/Off
                 type: entity-button
-              - entity: switch.dehum_bege
+              - entity: switch.dehum_back
                 icon: 'mdi:weather-windy'
                 name: Desumid On/Off
                 type: entity-button
-              - entity: binary_sensor.sw_umidade
+              - entity: switch.dehum_auto
                 icon: 'mdi:weather-windy'
-                name: Desumid Automatic
+                name: Desumid Monitor
                 type: entity-button
-                tap_action:
-                  action: call-service
-                  service: automation.toggle
-                  service_data:
-                    entity_id: automation.controle_de_umidade
             type: horizontal-stack
           - cards:
-              - entity: sensor.hwg_ste_ambient_humidity
+              - entity: switch.main
+                name: Main
+                type: entity-button
+              - entity: switch.mounts
+                name: Mounts
+                icon: 'mdi:telescope'
+                type: entity-button
+              - entity: switch.indi
+                name: Indi
+                icon: 'mdi:access-point-network'
+                type: entity-button
+              - entity: switch.cams
+                name: CAMS
+                icon: 'mdi:meteor'
+                type: entity-button
+            type: horizontal-stack
+          - cards:
+              - entity: switch.roof_lock
+                name: Lock
+                icon: 'mdi:lock'
+                type: entity-button
+              - entity: switch.roof_open
+                name: Open
+                icon: 'mdi:home-lock-open'
+                type: entity-button
+              - entity: switch.roof_close
+                name: Close
+                icon: 'mdi:home-lock'
+                type: entity-button
+              - entity: switch.roof_stop
+                name: Stop
+                icon: 'mdi:stop'
+                type: entity-button
+            type: horizontal-stack
+          - cards:
+              - entity: sensor.hwg_humidity
                 graph: line
                 name: Umidade
                 type: sensor
-              - entity: sensor.hwg_ste_ambient_temperature
+              - entity: sensor.hwg_temperature
                 graph: line
                 name: Temperatura
                 type: sensor
@@ -95,7 +128,7 @@ views:
 
       - cards:
           - cards:
-              - entity: sensor.nhs_ups_tensao_entrada
+              - entity: sensor.nhs_tensao_entrada
                 max: 150
                 min: 0
                 name: Entrada (V)
@@ -106,7 +139,7 @@ views:
                 theme: default
                 type: gauge
                 unit: ' '
-              - entity: sensor.nhs_ups_carga
+              - entity: sensor.nhs_carga
                 max: 100
                 min: 0
                 name: Consumo UPS
@@ -129,62 +162,17 @@ views:
     path: default_view
     title: Observatory
 
+  - cards:
+      - type: vertical-stack
+        cards:
+          - entity: camera.garagem
+            show_name: false
+            show_state: false
+            type: picture-entity
+          - entity: switch.holof
+            icon: 'mdi:track-light'
+            name: Holofote
+            type: entity-button
 
-
-#resources:
-#  - url: /local/button-card.js
-#    type: module
-
-#      - type: picture-elements
-#        image: /local/lixo.png
-#        elements:
-#          - type: state-icon
-#            entity: binary_sensor.nhs_status
-#            style:
-#              top: 21%
-#              left: 97%
-#              "--paper-item-icon-color": lightgreen
-#              "--paper-item-icon-active-color": red
-#          - type: state-icon
-#            entity: binary_sensor.aag_safe
-#            style:
-#              top: 31%
-#              left: 97%
-#              "--paper-item-icon-color": lightgreen
-#              "--paper-item-icon-active-color": red
-
-
-#          - cards:
-#              - type: "custom:button-card"
-#                entity: switch.system_obs_win
-#                icon: 'mdi:windows'
-#                name: Lunar CAMS
-#                color: rgb(249, 197, 54)
-#                style:
-#                    - font-size: '16.8px'
-#                    - font-weight: '400'
-#              - type: "custom:button-card"
-#                entity: switch.dehum_marron
-#                icon: 'mdi:weather-windy'
-#                name: Desumid On/Off
-#                color: rgb(249, 197, 54)
-#                style:
-#                    - font-size: '16.8px'
-#                    - font-weight: '400'
-#              - type: "custom:button-card"
-#                entity: switch.dehum_bege
-#                icon: 'mdi:weather-windy'
-#                name: Desumid On/Off
-#                color: rgb(249, 197, 54)
-#                style:
-#                    - font-size: '16.8px'
-#                    - font-weight: '400'
-#              - type: "custom:button-card"
-#                entity: automation.controle_de_umidade
-#                icon: 'mdi:weather-windy'
-#                name: Desumid Auto
-#                color: rgb(249, 197, 54)
-#                style:
-#                    - font-size: '16.8px'
-#                    - font-weight: '400'
-#            type: horizontal-stack
+    panel: false
+    title: Home

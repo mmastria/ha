@@ -1,13 +1,11 @@
 # switches.yaml
 
-- platform: rpi_gpio
-  ports:
-    15: dehum_marron
-    17: dehum_bege
-  invert_logic: true
+#- platform: rpi_gpio
+#  ports:
+#    14: dehum_bege
+#    15: dehum_marron
+#  invert_logic: false
 
-#    14: exaustor
-#    18: dehum_branco
 
 - platform: wake_on_lan
   name: system-obs-win
@@ -18,11 +16,6 @@
     data:
       addon: core_rpc_shutdown
       input: system-obs-win
-#      service: shell_command.turn_off_scope_west
-
-#shell_command:
-#  turn_off_scope_east: ''
-#  turn_off_scope_west: ''
 
 #- platform: arduino
 #  pins:
@@ -34,8 +27,96 @@
 #      name: Relay B
 #      initial: false
 #      negate: true
-#    13:
-#      name: Arduino LED
-#      initial: true
-#      negate: false
 
+#- platform: rest
+#  name: cams
+#  resource: http://192.168.0.157:1880/cams
+#  body_on: '{"cams": "true"}'
+#  body_off: '{"cams": "false"}'
+#  is_on_template: '{{ value_json.cams }}'
+#  headers:
+#    Content-Type: application/json
+#  verify_ssl: false
+
+- platform: mqtt
+  name: main
+  command_topic: "main/power"
+  state_topic: "main/state"
+  payload_on: 1
+  payload_off: 0
+
+- platform: mqtt
+  name: mounts
+  command_topic: "mounts/power"
+  state_topic: "mounts/state"
+  payload_on: 1
+  payload_off: 0
+
+- platform: mqtt
+  name: indi
+  command_topic: "indi/power"
+  state_topic: "indi/state"
+  payload_on: 1
+  payload_off: 0
+
+- platform: mqtt
+  name: cams
+  command_topic: "cams/power"
+  state_topic: "cams/state"
+  payload_on: 1
+  payload_off: 0
+
+- platform: mqtt
+  name: roof_lock
+  command_topic: "roof/lock"
+  state_topic: "roof/lock/state"
+  payload_on: 0
+  payload_off: 1
+
+- platform: mqtt
+  name: roof_open
+  command_topic: "roof/open"
+  state_topic: "roof/opened"
+  payload_on: 0
+  payload_off: 1
+
+- platform: mqtt
+  name: roof_close
+  command_topic: "roof/close"
+  state_topic: "roof/closed"
+  payload_on: 0
+  payload_off: 1
+
+- platform: mqtt
+  name: roof_stop
+  command_topic: "roof/stop"
+  payload_on: 1
+  payload_off: 0
+
+- platform: mqtt
+  name: holof
+  command_topic: "holof/power"
+  state_topic: "holof/state"
+  payload_on: 1
+  payload_off: 0
+
+- platform: mqtt
+  name: dehum_front
+  command_topic: "dehum_front/power"
+  state_topic: "dehum_front/state"
+  payload_on: 1
+  payload_off: 0
+
+- platform: mqtt
+  name: dehum_back
+  command_topic: "dehum_back/power"
+  state_topic: "dehum_back/state"
+  payload_on: 1
+  payload_off: 0
+
+- platform: mqtt
+  name: dehum_auto
+  command_topic: "dehum_auto/power"
+  state_topic: "dehum_auto/state"
+  payload_on: 1
+  payload_off: 0
