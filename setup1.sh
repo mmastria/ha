@@ -98,7 +98,9 @@ apt-get -y install build-essential git python-dev python-pip vim cmake ntpdate \
        astrometry.net \
        screen \
        fswebcam \
-       libncurses5-dev rlwrap
+       libncurses5-dev rlwrap \
+       gstreamer1.0-omx gstreamer1.0-tools gstreamer1.0-plugins-good gstreamer1.0-plugins-bad libgstreamer1.0-0 \
+       libgstreamer1.0-dev libgstreamer-plugins-base1.0-0 libgstreamer-plugins-base1.0-dev
        #python-pygame python-pil libsdl1.2-dev
 [ '$DEVICE' == 'aagsolo' ] && apt-get -y install swig 
 [ '$DEVICE' != 'aagsolo' ] && apt-get -y install swig2.0 libz3-dev raspberrypi-kernel-headers
