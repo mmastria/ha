@@ -5,22 +5,23 @@ pushd ~
 [ -d ~/wiringPi ] || exit 1
 [ -d ~/indi_wiringpi_gpio ] || exit 1
 [ -d ~/interceptty ] || exit 1
+[ -d ~/usbreset ] || exit 1
 
-[ -f ~/indi/libindi/libs/indibase/indidome.cpp.ORIGINAL ] && mv -f ~/indi/libindi/libs/indibase/indidome.cpp.ORIGINAL ~/indi/libindi/libs/indibase/indidome.cpp
-[ -f ~/indi/libindi/drivers/dome/dome_script.cpp.ORIGINAL ] && mv -f ~/indi/libindi/drivers/dome/dome_script.cpp.ORIGINAL ~/indi/libindi/drivers/dome/dome_script.cpp
+#[ -f ~/indi/libindi/libs/indibase/indidome.cpp.ORIGINAL ] && mv -f ~/indi/libindi/libs/indibase/indidome.cpp.ORIGINAL ~/indi/libindi/libs/indibase/indidome.cpp
+#[ -f ~/indi/libindi/drivers/dome/dome_script.cpp.ORIGINAL ] && mv -f ~/indi/libindi/drivers/dome/dome_script.cpp.ORIGINAL ~/indi/libindi/drivers/dome/dome_script.cpp
 
 #[ -f ~/indi/3rdparty/indi-armadillo-platypus/arm_plat_focuser_common.cpp.ORIGINAL ] && mv -f ~/indi/3rdparty/indi-armadillo-platypus/arm_plat_focuser_common.cpp.ORIGINAL ~/indi/3rdparty/indi-armadillo-platypus/arm_plat_focuser_common.cpp
 #[ -f ~/indi/3rdparty/indi-armadillo-platypus/arm_plat_focuser_common.h.ORIGINAL ] && mv -f ~/indi/3rdparty/indi-armadillo-platypus/arm_plat_focuser_common.h.ORIGINAL ~/indi/3rdparty/indi-armadillo-platypus/arm_plat_focuser_common.h
 
-[ -f ~/indi_wiringpi_gpio/wiringpi_gpio/wiringpi_gpio.cpp.ORIGINAL ] && mv -f ~/indi_wiringpi_gpio/wiringpi_gpio/wiringpi_gpio.cpp.ORIGINAL ~/indi_wiringpi_gpio/wiringpi_gpio/wiringpi_gpio.cpp
+#[ -f ~/indi_wiringpi_gpio/wiringpi_gpio/wiringpi_gpio.cpp.ORIGINAL ] && mv -f ~/indi_wiringpi_gpio/wiringpi_gpio/wiringpi_gpio.cpp.ORIGINAL ~/indi_wiringpi_gpio/wiringpi_gpio/wiringpi_gpio.cpp
 
 # libindi
 # 3rd party
 cd ~/indi
 
 # --------
-rm -f libindi/drivers/weather/weatherwatcher.cpp
-git checkout libindi/drivers/weather/weatherwatcher.cpp
+#rm -f libindi/drivers/weather/weatherwatcher.cpp
+#git checkout libindi/drivers/weather/weatherwatcher.cpp
 #git stash 
 # --------
 git pull
@@ -85,6 +86,10 @@ git pull
 
 # IntercepTTY 
 cd ~/interceptty
+git pull
+
+# usbreset
+cd ~/usbreset
 git pull
 
 popd
