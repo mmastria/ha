@@ -66,44 +66,44 @@ class IndiClient(PyIndi.BaseClient):
 
 logging.basicConfig(format='%(asctime)s %(message)s', level=logging.INFO)
 
-obs=IndiClient()
+#obs=IndiClient()
 east=IndiClient()
 west=IndiClient()
 
-obs.setServer("localhost",7624)
+#obs.setServer("localhost",7624)
 east.setServer("system-east.arua",7624)
 west.setServer("system-west.arua",7624)
 
 print("-----------------")
 print("-- connecting")
 print("-----------------")
-if (not(obs.connectServer())):
-     print("No indiserver running on "+obs.getHost()+":"+str(obs.getPort())+" - Exiting")
-     sys.exit(1)
-else:
-     print("- "+obs.getHost()+":"+str(obs.getPort())+" - ok")
+#if (not(obs.connectServer())):
+#     print("No indiserver running on "+obs.getHost()+":"+str(obs.getPort())+" - Exiting")
+#     sys.exit(1)
+#else:
+#     print("- "+obs.getHost()+":"+str(obs.getPort())+" - ok")
 
 if (not(east.connectServer())):
      print("No indiserver running on "+east.getHost()+":"+str(east.getPort())+" - Exiting")
      sys.exit(1)
 else:
-     print("- "+east.getHost()+":"+str(obs.getPort())+" - ok")
+     print("- "+east.getHost()+":"+str(east.getPort())+" - ok")
 
 if (not(west.connectServer())):
      print("No indiserver running on "+west.getHost()+":"+str(west.getPort())+" - Exiting")
      sys.exit(1)
 else:
-     print("- "+west.getHost()+":"+str(obs.getPort())+" - ok")
+     print("- "+west.getHost()+":"+str(west.getPort())+" - ok")
 
 print("-----------------")
 print("-- delay")
 print("-----------------")
 time.sleep(5)
 
-print("-----------------")
-dl=obs.getDevices()
-for dev in dl:
-    print(dev.getDeviceName())
+#print("-----------------")
+#dl=obs.getDevices()
+#for dev in dl:
+#    print(dev.getDeviceName())
 
 print("-----------------")
 dl=east.getDevices()
