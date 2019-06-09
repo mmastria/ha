@@ -32,8 +32,8 @@ sed -i 's/test -x \/usr\/sbin\/anacron || ( cd \/ && run-parts --report \/etc\/c
 
 systemctl daemon-reload
 
-systemctl enable arua_cloudWatcherMux.service
-systemctl restart arua_cloudWatcherMux.service
+#systemctl enable arua_cloudWatcherMux.service
+#systemctl restart arua_cloudWatcherMux.service
 
 systemctl enable arua_envSafe.service
 systemctl restart arua_envSafe.service

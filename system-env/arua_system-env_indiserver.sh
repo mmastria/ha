@@ -17,7 +17,7 @@ mkfifo ~/.indi/indiFIFO
 child=$!
 
 echo "start indi_watcher_weather -n \"AAG Solo Weather\" -c \"$HOME/.indi/AAG Solo Weather_config.xml\"" > ~/.indi/indiFIFO
-echo "start indi_aagcloudwatcher -n \"AAG Cloud Watcher\" -c \"$HOME/.indi/AAG Cloud Watcher_config.xml\"" > ~/.indi/indiFIFO
+#echo "start indi_aagcloudwatcher -n \"AAG Cloud Watcher\" -c \"$HOME/.indi/AAG Cloud Watcher_config.xml\"" > ~/.indi/indiFIFO
 echo "start indi_vantage_weather -n \"Vantage\" -c \"$HOME/.indi/Vantage_config.xml\"" > ~/.indi/indiFIFO
 echo "start indi_weather_safety_proxy -n \"Weather Safety Proxy\" -c \"$HOME/.indi/Weather Safety Proxy_config.xml\"" > ~/.indi/indiFIFO
 echo "start indi_meta_weather -n \"Weather Meta\" -c \"$HOME/.indi/Weather Meta_config.xml\"" > ~/.indi/indiFIFO
@@ -28,7 +28,7 @@ echo "start indi_rtlsdr_detector -n \"RTL-SDR Receiver\" -c \"$HOME/.indi/RTL-SD
 echo "start indi_webcam_ccd -n \"Observ Cam\" -c \"$HOME/.indi/Observ Cam_config.xml\"" > ~/.indi/indiFIFO
 
 /usr/share/indi/scripts/loadDriver.py "AAG Solo Weather"
-/usr/share/indi/scripts/loadDriver.py "AAG Cloud Watcher"
+#/usr/share/indi/scripts/loadDriver.py "AAG Cloud Watcher"
 /usr/share/indi/scripts/loadDriver.py "Weather Safety Proxy"
 /usr/share/indi/scripts/loadDriver.py "Vantage"
 /usr/share/indi/scripts/loadDriver.py "Weather Meta"
