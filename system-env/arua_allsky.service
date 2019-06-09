@@ -6,14 +6,14 @@ After=multi-user.target
 Restart=always
 RestartSec=5
 User=root
-ExecStartPre=/bin/sleep 15
-ExecStartPre=/root/usbreset/usbreset /dev/bus/usb/$(/usr/bin/lsusb|/bin/grep Pinnacle|/usr/bin/cut -c5-7)/$(/usr/bin/lsusb |/bin/grep Pinnacle|/usr/bin/cut -c16-18)
-ExecStartPre=/bin/sleep 5 
+ExecStartPre=/bin/sleep 10
+ExecStartPre=/bin/bash -c "/root/usbreset/usbreset /dev/bus/usb/$(/usr/bin/lsusb|/bin/grep Pinnacle|/usr/bin/cut -c5-7)/$(/usr/bin/lsusb |/bin/grep Pinnacle|/usr/bin/cut -c16-18)"
+ExecStartPre=/bin/sleep 10
 ExecStartPre=/usr/bin/v4l2-ctl --device=/dev/video0 --set-standard=ntsc-m
 ExecStart=/usr/bin/fswebcam -d /dev/video0 -i 0 -l 15 -r 640x480 -F 255 -D 1 \
 --deinterlace --crop 460x460,94x20 \
---line-colour "#FF000000" \
---banner-colour "#FF000000" \
+--line-colour \#FF000000 \
+--banner-colour \#FF000000 \
 --timestamp "%%d-%%m-%%Y %%H:%%M:%%S" \
 --title "Mastria Observatory" \
 --save "/var/www/html/allsky_%%Y%%m%%d-%%H%%M%%S.jpg" \
