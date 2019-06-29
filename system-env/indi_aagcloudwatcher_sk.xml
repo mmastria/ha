@@ -65,7 +65,7 @@
   </defNumberVector>
   
   <defNumberVector device="AAG Cloud Watcher" name="limitsRain" label="For Rain Conditions (cycles)" group="Limits" state="Idle" perm="rw" timeout="0">
-    <defNumber name="dry" label="Dry (more than)" format="%.0f" min="0" max="100000" step="0">2000</defNumber>
+    <defNumber name="dry" label="Dry (more than)" format="%.0f" min="0" max="100000" step="0">1900</defNumber>
     <defNumber name="wet" label="Wet (more than)" format="%.0f" min="0" max="100000" step="0">1700</defNumber>
     <defNumber name="rain" label="Rain (more than)" format="%.0f" min="0" max="100000" step="0">400</defNumber>
   </defNumberVector>

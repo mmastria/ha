@@ -22,7 +22,7 @@
 </newSwitchVector>
 <newTextVector device='Vantage' name='DEVICE_ADDRESS'>
   <oneText name='ADDRESS'>
-      192.168.0.217
+      weather.arua 
   </oneText>
   <oneText name='PORT'>
       5512
