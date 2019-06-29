@@ -74,7 +74,7 @@
       -20
   </oneNumber>
   <oneNumber name='MAX_OK'>
-      2 
+      2
   </oneNumber>
   <oneNumber name='PERC_WARN'>
       0
@@ -93,7 +93,7 @@
 </newNumberVector>
 <newNumberVector device='AAG Solo Weather' name='WEATHER_RAIN_HOUR'>
   <oneNumber name='MIN_OK'>
-      2400
+      2000
   </oneNumber>
   <oneNumber name='MAX_OK'>
       2700
