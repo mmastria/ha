@@ -1,0 +1,41 @@
+esphome:
+  name: mastria_external_dht
+  platform: ESP32
+  board: esp32doit-devkit-v1
+
+wifi:
+  networks:
+  - ssid: "tucano"
+    password: "net.6942"
+  - ssid: "Toddynho"
+    password: "net.6942"
+  - ssid: "Foursys"
+    password: "4Sys@2015*"
+
+# Enable logging
+logger:
+
+web_server:
+  port: 80
+
+mqtt:
+  broker: 52.28.141.81
+
+#  on_message:
+#    topic: mastria/external/dht/get
+#    then:  
+#    - mqtt.publish:
+#        topic: mastria/external/dht/data
+#        payload: 'OK'
+
+ota:
+
+sensor:
+  - platform: dht
+    model: DHT22
+    pin: GPIO26
+    temperature:
+      name: "Apto Temperature"
+    humidity:
+      name: "Apto Humidity"
+    update_interval: 10s

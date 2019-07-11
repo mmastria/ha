@@ -1,0 +1,21 @@
+esphome:
+  name: mastria_esp32_c 
+  platform: ESP32
+  board: esp32doit-devkit-v1
+
+wifi:
+  ssid: "Toddynho"
+  password: "net.6942"
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+ota:
+
+switch:
+  - platform: gpio
+    name: "GPIO Device C"
+    pin: 5
