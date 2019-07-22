@@ -22,7 +22,7 @@ Off
     </newSwitchVector>
     <newTextVector device="iOptron CEM60" name="DEVICE_PORT">
         <oneText name="PORT">
-/dev/ttyUSB1
+/dev/ttyUSB0
         </oneText>
     </newTextVector>
     <newSwitchVector device="iOptron CEM60" name="DEVICE_BAUD_RATE">
@@ -97,7 +97,9 @@ Off
     </newSwitchVector>
     <newTextVector device="iOptron CEM60" name="ACTIVE_DEVICES">
         <oneText name="ACTIVE_GPS"/>
-        <oneText name="ACTIVE_DOME"/>
+        <oneText name="ACTIVE_DOME">
+Dome Scripting Gateway
+        </oneText>
     </newTextVector>
     <newSwitchVector device="iOptron CEM60" name="DOME_POLICY">
         <oneSwitch name="NO_ACTION">
@@ -115,10 +117,10 @@ Off
     </newSwitchVector>
     <newNumberVector device="iOptron CEM60" name="GEOGRAPHIC_COORD">
         <oneNumber name="LAT">
-      174.64168055555558112
+      -23.463611111111109864
         </oneNumber>
         <oneNumber name="LONG">
-      313.73049166666669407
+      313.73000000000001819
         </oneNumber>
         <oneNumber name="ELEV">
       0
@@ -186,7 +188,35 @@ Off
 On
         </oneSwitch>
     </newSwitchVector>
-    <newTextVector device="" name=""/>
+    <newTextVector device="iOptron CEM60" name="JOYSTICKSETTINGS">
+        <oneText name="MOTIONDIR">
+JOYSTICK_1
+        </oneText>
+        <oneText name="MOTIONDIRNS">
+AXIS_8
+        </oneText>
+        <oneText name="MOTIONDIRWE">
+AXIS_7
+        </oneText>
+        <oneText name="SLEWPRESET">
+JOYSTICK_2
+        </oneText>
+        <oneText name="SLEWPRESETUP">
+BUTTON_5
+        </oneText>
+        <oneText name="SLEWPRESETDOWN">
+BUTTON_6
+        </oneText>
+        <oneText name="ABORTBUTTON">
+BUTTON_1
+        </oneText>
+        <oneText name="PARKBUTTON">
+BUTTON_2
+        </oneText>
+        <oneText name="UNPARKBUTTON">
+BUTTON_3
+        </oneText>
+    </newTextVector>
     <newSwitchVector device="iOptron CEM60" name="MOTION_CONTROL_MODE">
         <oneSwitch name="MOTION_CONTROL_MODE_JOYSTICK">
 On
@@ -201,22 +231,6 @@ Off
         </oneSwitch>
         <oneSwitch name="LOCK_AXIS_2">
 Off
-        </oneSwitch>
-    </newSwitchVector>
-    <newSwitchVector device="iOptron CEM60" name="Slew Type">
-        <oneSwitch name="Counterweight UP">
-Off
-        </oneSwitch>
-        <oneSwitch name="Normal">
-On
-        </oneSwitch>
-    </newSwitchVector>
-    <newSwitchVector device="iOptron CEM60" name="DaylightSaving">
-        <oneSwitch name="ON">
-Off
-        </oneSwitch>
-        <oneSwitch name="OFF">
-On
         </oneSwitch>
     </newSwitchVector>
 </INDIDriver>

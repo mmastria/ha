@@ -8,7 +8,6 @@
 # WatchDog
 # Seletek Armadillo 2 / ttyUSB0
 # Weather Meta Remote
-# Dome Scripting Gateway Remote
 
 [ $(grep east /etc/passwd|wc -l) -eq 0 ] && \
 useradd -m -s /bin/bash east && \
