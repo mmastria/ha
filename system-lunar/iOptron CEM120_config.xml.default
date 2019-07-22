@@ -14,18 +14,17 @@
 </newNumberVector>
 <newSwitchVector device='iOptron CEM120' name='CONNECTION_MODE'>
   <oneSwitch name='CONNECTION_SERIAL'>
-      Off
+      ON
   </oneSwitch>
   <oneSwitch name='CONNECTION_TCP'>
-      On
+      OFF
   </oneSwitch>
 </newSwitchVector>
 <newTextVector device='iOptron CEM120' name='DEVICE_ADDRESS'>
   <oneText name='ADDRESS'>
-      192.168.0.50
+      /dev/ttyUSB0
   </oneText>
   <oneText name='PORT'>
-      8080
   </oneText>
 </newTextVector>
 <newSwitchVector device='iOptron CEM120' name='CONNECTION_TYPE'>
