@@ -14,17 +14,18 @@
 </newNumberVector>
 <newSwitchVector device='iOptron CEM120' name='CONNECTION_MODE'>
   <oneSwitch name='CONNECTION_SERIAL'>
-      ON
+      Off
   </oneSwitch>
   <oneSwitch name='CONNECTION_TCP'>
-      OFF
+      On
   </oneSwitch>
 </newSwitchVector>
 <newTextVector device='iOptron CEM120' name='DEVICE_ADDRESS'>
   <oneText name='ADDRESS'>
-      /dev/ttyUSB0
+      cem120.arua
   </oneText>
   <oneText name='PORT'>
+      8080
   </oneText>
 </newTextVector>
 <newSwitchVector device='iOptron CEM120' name='CONNECTION_TYPE'>
@@ -101,13 +102,13 @@
 </newSwitchVector>
 <newNumberVector device='iOptron CEM120' name='GEOGRAPHIC_COORD'>
   <oneNumber name='LAT'>
-      -23.46333333333333826
+      -23.463599999999999568
   </oneNumber>
   <oneNumber name='LONG'>
-      313.73027777777775782
+      313.73000000000001819
   </oneNumber>
   <oneNumber name='ELEV'>
-      0
+      754
   </oneNumber>
 </newNumberVector>
 <newSwitchVector device='iOptron CEM120' name='TELESCOPE_SLEW_RATE'>
@@ -133,10 +134,10 @@
       Off
   </oneSwitch>
   <oneSwitch name='8x'>
-      On
+      Off
   </oneSwitch>
   <oneSwitch name='9x'>
-      Off
+      On
   </oneSwitch>
 </newSwitchVector>
 <newSwitchVector device='iOptron CEM120' name='TELESCOPE_TRACK_MODE'>

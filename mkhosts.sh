@@ -21,4 +21,5 @@ _mkhosts system-env
 _mkhosts node-red
 _mkhosts hassio
 _mkhosts aagsolo 
+#_mkhosts cem120
 
