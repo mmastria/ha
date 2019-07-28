@@ -23,7 +23,7 @@ cp -f *.service /etc/systemd/system/
 cp -f arua*.sh /usr/local/bin/
 [ ! -d /usr/share/indi/scripts ] && mkdir -p /usr/share/indi/scripts
 cp -f ../common/*.py /usr/share/indi/scripts/
-cp -f *sk.xml /usr/share/indi/
+#cp -f *sk.xml /usr/share/indi/
 [ ! -d /root/.indi ] && mkdir -p /root/.indi
 cp -f *.default /root/.indi/
 ls -1 /root/.indi/*.default|xargs -n 1 -I{a} echo {a}|sed 's/.default//'|xargs -r -n 1 -I{b} cp {b}.default {b}
@@ -35,8 +35,8 @@ systemctl daemon-reload
 #systemctl enable arua_cloudWatcherMux.service
 #systemctl restart arua_cloudWatcherMux.service
 
-systemctl enable arua_envSafe.service
-systemctl restart arua_envSafe.service
+#systemctl enable arua_envSafe.service
+#systemctl restart arua_envSafe.service
 
 systemctl enable arua_allsky.service
 systemctl restart arua_allsky.service
