@@ -81,7 +81,7 @@
 </newSwitchVector>
 <newTextVector device='Observ Cam' name='UPLOAD_SETTINGS'>
   <oneText name='UPLOAD_DIR'>
-      /home/obs
+      /root
   </oneText>
   <oneText name='UPLOAD_PREFIX'>
       IMAGE_XXX
@@ -93,14 +93,6 @@
   </oneSwitch>
   <oneSwitch name='TELESCOPE_GUIDE'>
       Off
-  </oneSwitch>
-</newSwitchVector>
-<newSwitchVector device='Observ Cam' name='CCD_EXPOSURE_LOOP'>
-  <oneSwitch name='LOOP_ON'>
-      Off
-  </oneSwitch>
-  <oneSwitch name='LOOP_OFF'>
-      On
   </oneSwitch>
 </newSwitchVector>
 <newSwitchVector device='Observ Cam' name='CCD_COMPRESSION'>
@@ -135,7 +127,7 @@
 </newSwitchVector>
 <newTextVector device='Observ Cam' name='RECORD_FILE'>
   <oneText name='RECORD_FILE_DIR'>
-      /home/obs/indi__D_
+      /root/indi__D_
   </oneText>
   <oneText name='RECORD_FILE_NAME'>
       indi_record__T_
@@ -204,7 +196,7 @@
 </newSwitchVector>
 <newTextVector device='Observ Cam' name='HTTP_INPUT_OPTIONS'>
   <oneText name='CAPTURE_IP_ADDRESS'>
-      192.168.0.206
+      192.168.0.26
   </oneText>
   <oneText name='CAPTURE_PORT_NUMBER'>
       8080/stream/video/mjpeg
