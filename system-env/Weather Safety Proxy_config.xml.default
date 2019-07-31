@@ -87,7 +87,7 @@
 </newTextVector>
 <newTextVector device='Weather Safety Proxy' name='WEATHER_SAFETY_URLS'>
   <oneText name='WEATHER_SAFETY_URL'>
-      http://192.168.0.60:1880/safe
+      http://192.168.0.60:1880/weather/safety
   </oneText>
 </newTextVector>
 <newSwitchVector device='Weather Safety Proxy' name='SCRIPT_OR_CURL'>
