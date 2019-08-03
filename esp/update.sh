@@ -6,3 +6,5 @@
 
 sudo pip2 install -U esphome
 sudo pip2 install -U tornado esptool
+platformio platform update
+

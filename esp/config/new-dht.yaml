@@ -1,0 +1,60 @@
+esphome:
+  name: new_dht
+  platform: ESP32
+  board: esp32doit-devkit-v1
+
+wifi:
+  networks:
+  - ssid: "tucano"
+    password: "net.6942"
+
+# Enable logging
+logger:
+
+web_server:
+  port: 80
+
+mqtt:
+  broker: 192.168.0.4
+#  broker: broker.hivemq.com
+
+#  on_message:
+#    topic: mastria/external/dht/get
+#    then:  
+#    - mqtt.publish:
+#        topic: mastria/external/dht/data
+#        payload: 'OK'
+
+ota:
+
+time:
+  - platform: sntp
+    id: sntp_time
+    timezone: America/Sao_Paulo
+    servers:
+      - 0.br.pool.ntp.org
+      - 1.br.pool.ntp.org
+      - 2.br.pool.ntp.org
+
+sensor:
+
+  - platform: dht
+    model: DHT22
+    pin: GPIO26
+    temperature:
+      name: "Temperature"
+    humidity:
+      name: "Humidity"
+    update_interval: 30s
+
+
+text_sensor:
+  - platform: template
+    id: timestamp
+    name: "Timestamp"
+    lambda: |-
+      char str[20];
+      time_t currTime = id(sntp_time).now().timestamp;
+      strftime(str, sizeof(str), "%Y-%m-%d %H:%M:%S", localtime(&currTime));
+      return { str };
+    update_interval: 30s
