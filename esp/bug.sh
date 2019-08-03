@@ -18,4 +18,5 @@ done
 
 find . -name platformio.ini-e -exec rm {} \;
 
-
+[ $(grep 'partitions' config/.gitignore|wc -l) = 0 ] && \
+echo '**/partitions.csv' >> config/.gitignore
