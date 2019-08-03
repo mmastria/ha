@@ -2,9 +2,9 @@
 
 pushd ~
 [ -d ~/indi ] || exit 1
-[ -d ~/wiringPi ] || exit 1
-[ -d ~/indi_wiringpi_gpio ] || exit 1
-[ -d ~/interceptty ] || exit 1
+#[ -d ~/wiringPi ] || exit 1
+#[ -d ~/indi_wiringpi_gpio ] || exit 1
+#[ -d ~/interceptty ] || exit 1
 [ -d ~/usbreset ] || exit 1
 
 #[ -f ~/indi/libindi/libs/indibase/indidome.cpp.ORIGINAL ] && mv -f ~/indi/libindi/libs/indibase/indidome.cpp.ORIGINAL ~/indi/libindi/libs/indibase/indidome.cpp
@@ -77,16 +77,16 @@ git pull
 ##git checkout f8b50d4257361517cb6234f748dc8939151f0a1f ./3rdparty/indi-radiosim/indi_radiosim_detector.cpp
 
 # WiringPi
-cd ~/wiringPi
-git pull
+#cd ~/wiringPi
+#git pull
 
 # Indi WiringPi GPIO
-cd ~/indi_wiringpi_gpio
-git pull
+#cd ~/indi_wiringpi_gpio
+#git pull
 
 # IntercepTTY 
-cd ~/interceptty
-git pull
+#cd ~/interceptty
+#git pull
 
 # usbreset
 cd ~/usbreset
