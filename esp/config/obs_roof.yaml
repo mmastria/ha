@@ -66,6 +66,9 @@ binary_sensor:
       number: GPIO17
       mode: INPUT
       inverted: False
+    filters:
+      - delayed_on: 1s
+      - delayed_off: 1s
 
   - platform: gpio
     name: "Roof Open"
@@ -73,6 +76,9 @@ binary_sensor:
       number: GPIO18
       mode: INPUT
       inverted: False
+    filters:
+      - delayed_on: 1s
+      - delayed_off: 1s
 
   - platform: gpio
     name: "Roof Closed"
@@ -80,6 +86,9 @@ binary_sensor:
       number: GPIO19
       mode: INPUT
       inverted: False
+    filters:
+      - delayed_on: 1s
+      - delayed_off: 1s
 
   - platform: gpio
     name: "Weather Safe"
@@ -87,3 +96,6 @@ binary_sensor:
       number: GPIO21
       mode: INPUT
       inverted: True
+    filters:
+      - delayed_on: 1s
+      - delayed_off: 1s
