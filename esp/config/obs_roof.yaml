@@ -40,16 +40,14 @@ output:
     pin: GPIO16
     id: roof_relay
 
-switch:
+text_sensor:
+  - platform: template
+    name: "IP Address"
+    lambda: |-
+      std::string str = WiFi.localIP().toString().c_str();
+      return { str.c_str() };
 
-#  - platform: gpio
-#    id: relay
-#    on_turn_on:
-#    - delay: 100ms
-#    - switch.turn_off: relay
-#    pin:
-#      number: GPIO16
-#      mode: OUTPUT
+switch:
 
 binary_sensor:
 
