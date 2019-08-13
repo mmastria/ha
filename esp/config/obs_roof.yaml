@@ -1,62 +1,55 @@
+# nao atualizar versao o esphome
+# https://github.com/esphome/issues/issues/409
+
 esphome:
   name: obs_roof
   platform: ESP32
   board: esp32doit-devkit-v1
 
 wifi:
+  fast_connect: ON
   networks:
   - ssid: "tucano"
     password: "net.6942"
 
 logger:
-
+  level: Verbose
+  
 web_server:
   port: 80
 
 ota:
 
-time:
-  - platform: sntp
-    id: sntp_time
-    timezone: America/Sao_Paulo
-    servers:
-      - 0.br.pool.ntp.org
-      - 1.br.pool.ntp.org
-      - 2.br.pool.ntp.org
-
 mqtt:
   broker: 192.168.0.4
+  discovery: OFF
+  on_message:
+    topic: obs_roof/pulse
+    payload: "PULSE"
+    qos: 0
+    then:
+      - output.turn_on: roof_relay
+      - delay: 100ms
+      - output.turn_off: roof_relay
 
-### DATA ###
+status_led:
+  pin: GPIO2
 
-#text_sensor:
-#
-#  - platform: template
-#    id: timestamp
-#    name: "Timestamp"
-#    lambda: |-
-#      char str[20];
-#      time_t currTime = id(sntp_time).now().timestamp;
-#      strftime(str, sizeof(str), "%Y-%m-%d %H:%M:%S", localtime(&currTime));
-#      return { str };
-#    update_interval: 60s
+output:
+  - platform: gpio
+    pin: GPIO16
+    id: roof_relay
 
 switch:
 
-  - platform: gpio
-    id: relay
-    restore_mode: ALWAYS_OFF
-    pin:
-      number: GPIO16
-      mode: OUTPUT
-      inverted: False
-
-  - platform: template
-    name: "Roof Move"
-    turn_on_action:
-    - switch.turn_on: relay
-    - delay: 500ms
-    - switch.turn_off: relay
+#  - platform: gpio
+#    id: relay
+#    on_turn_on:
+#    - delay: 100ms
+#    - switch.turn_off: relay
+#    pin:
+#      number: GPIO16
+#      mode: OUTPUT
 
 binary_sensor:
 
@@ -65,7 +58,6 @@ binary_sensor:
     pin:
       number: GPIO17
       mode: INPUT
-      inverted: False
     filters:
       - delayed_on: 1s
       - delayed_off: 1s
@@ -75,7 +67,6 @@ binary_sensor:
     pin:
       number: GPIO18
       mode: INPUT
-      inverted: False
     filters:
       - delayed_on: 1s
       - delayed_off: 1s
@@ -85,7 +76,6 @@ binary_sensor:
     pin:
       number: GPIO19
       mode: INPUT
-      inverted: False
     filters:
       - delayed_on: 1s
       - delayed_off: 1s
@@ -96,6 +86,3 @@ binary_sensor:
       number: GPIO21
       mode: INPUT
       inverted: True
-    filters:
-      - delayed_on: 1s
-      - delayed_off: 1s

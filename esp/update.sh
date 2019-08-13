@@ -4,7 +4,10 @@
 # dev
 # pip install https://github.com/esphome/esphome/archive/dev.zip
 
-sudo pip2 install -U esphome
+#
+# versoes acima da 1.13.3 ate 1.13.6 com problemas de rede
+#
+sudo pip2 install esphome==1.13.3
 sudo pip2 install -U tornado esptool
 platformio platform update
 
