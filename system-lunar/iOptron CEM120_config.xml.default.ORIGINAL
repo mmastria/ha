@@ -22,7 +22,7 @@
 </newSwitchVector>
 <newTextVector device='iOptron CEM120' name='DEVICE_ADDRESS'>
   <oneText name='ADDRESS'>
-      192.168.10.50
+      cem120.arua
   </oneText>
   <oneText name='PORT'>
       8080
@@ -102,13 +102,13 @@
 </newSwitchVector>
 <newNumberVector device='iOptron CEM120' name='GEOGRAPHIC_COORD'>
   <oneNumber name='LAT'>
-      -23.46333333333333826
+      -23.463599999999999568
   </oneNumber>
   <oneNumber name='LONG'>
-      313.73027777777775782
+      313.73000000000001819
   </oneNumber>
   <oneNumber name='ELEV'>
-      0
+      754
   </oneNumber>
 </newNumberVector>
 <newSwitchVector device='iOptron CEM120' name='TELESCOPE_SLEW_RATE'>
