@@ -23,7 +23,7 @@ echo "start indi_meta_weather -n \"Weather Meta\" -c \"$HOME/.indi/Weather Meta_
 echo "start indi_watchdog -n \"WatchDog\" -c \"$HOME/.indi/WatchDog_config.xml\"" > ~/.indi/indiFIFO
 # http://[ipofcamera]:8080/stream/video/mjpeg
 # wget --user=admin --password=YWRtaW4= http://[ipofcamera]:8080/stream/snapshot.jpg
-echo "start indi_webcam_ccd -n \"Observ Cam\" -c \"$HOME/.indi/Observ Cam_config.xml\"" > ~/.indi/indiFIFO
+#echo "start indi_webcam_ccd -n \"Observ Cam\" -c \"$HOME/.indi/Observ Cam_config.xml\"" > ~/.indi/indiFIFO
 #echo "start indi_rtlsdr_detector -n \"RTL-SDR Receiver\" -c \"$HOME/.indi/RTL-SDR Receiver_config.xml\"" > ~/.indi/indiFIFO
 
 /usr/share/indi/scripts/loadDriver.py "AAG Solo Weather"
