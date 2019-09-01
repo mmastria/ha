@@ -1,0 +1,44 @@
+esphome:
+  name: espmini2
+  platform: ESP8266
+  board: d1_mini
+
+wifi:
+  ssid: "tucano"
+  password: "net.6942"
+
+logger:
+  level: Verbose
+
+web_server:
+  port: 80
+
+ota:
+
+mqtt:
+  broker: 192.168.0.4
+  discovery: OFF
+
+i2c:
+  sda: 4
+  scl: 5
+  scan: True
+  
+status_led:
+  pin: GPIO2
+
+text_sensor:
+  - platform: template
+    name: "IP Address"
+    lambda: |-
+      std::string str = WiFi.localIP().toString().c_str();
+      return { str.c_str() };
+
+sensor:
+  - platform: sht3xd
+    temperature:
+      name: "Temperature"
+    humidity:
+      name: "Humidity"
+    address: 0x44
+    update_interval: 60s

@@ -1,0 +1,54 @@
+esphome:
+  name: obs_mounts
+  platform: ESP32
+  board: esp32doit-devkit-v1
+
+wifi:
+  fast_connect: ON
+  networks:
+  - ssid: "tucano"
+    password: "net.6942"
+
+logger:
+  level: Verbose
+  
+web_server:
+  port: 80
+
+ota:
+
+mqtt:
+  broker: 192.168.0.4
+  discovery: OFF
+
+status_led:
+  pin: GPIO2
+
+text_sensor:
+  - platform: template
+    name: "IP Address"
+    lambda: |-
+      std::string str = WiFi.localIP().toString().c_str();
+      return { str.c_str() };
+
+binary_sensor:
+
+  - platform: gpio
+    name: "East Parked"
+    pin:
+      number: GPIO17
+      mode: INPUT
+      inverted: True
+    filters:
+      - delayed_on: 1s
+      - delayed_off: 1s
+
+  - platform: gpio
+    name: "West Parked"
+    pin:
+      number: GPIO18
+      mode: INPUT
+      inverted: True
+    filters:
+      - delayed_on: 1s
+      - delayed_off: 1s

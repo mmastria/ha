@@ -13,6 +13,7 @@ find . -type d -name AsyncTCP_ID1826|grep -v \/lib|xargs -n 1 rm -rf
 for i in $(find ./config -type f -maxdepth 2 -name platformio.ini)
 do
 [ $(grep 'AsyncTCP@<1.1.0' ${i} |wc -l) = 0 ] && \
+[ $(grep 'esp32doit-devkit-v1' ${i} |wc -l) > 0 ] && \
 sed -i -e '/lib_deps =/ a\'$'\n''\ \ \ \ AsyncTCP@<1.1.0'$'\n''' ${i}
 done
 
