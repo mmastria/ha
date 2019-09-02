@@ -52,7 +52,7 @@ switch:
 binary_sensor:
 
   - platform: gpio
-    name: "Mounts Parked"
+    name: "Door Closed"
     pin:
       number: GPIO17
       mode: INPUT

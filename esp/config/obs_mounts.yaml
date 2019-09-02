@@ -17,6 +17,11 @@ web_server:
 
 ota:
 
+i2c:
+  sda: 21
+  scl: 22
+  scan: True
+
 mqtt:
   broker: 192.168.0.4
   discovery: OFF
@@ -52,3 +57,12 @@ binary_sensor:
     filters:
       - delayed_on: 1s
       - delayed_off: 1s
+
+sensor:
+  - platform: sht3xd
+    temperature:
+      name: "Temperature"
+    humidity:
+      name: "Humidity"
+    address: 0x44
+    update_interval: 60s
