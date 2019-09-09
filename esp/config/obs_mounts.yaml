@@ -66,3 +66,7 @@ sensor:
       name: "Humidity"
     address: 0x44
     update_interval: 60s
+
+switch:
+  - platform: restart
+    name: "Esp Restart"
