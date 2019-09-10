@@ -3,9 +3,9 @@
 # iOptron CEM120 / ttyUSB0
 # Atik 320E
 # QHY5L-II Mono
+# ASI EAF Focuser
 # Astrometry
 # WatchDog
-# Moonlite Focuser 
 # Weather Meta Remote
 # Dome Scripting Gateway Remote 
 
