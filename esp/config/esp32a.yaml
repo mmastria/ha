@@ -1,10 +1,10 @@
 esphome:
-  name: obs_mounts
+  name: esp32a
   platform: ESP32
   board: esp32doit-devkit-v1
 
 wifi:
-  fast_connect: ON
+  fast_connect: OFF
   networks:
   - ssid: "tucano"
     password: "net.6942"
@@ -36,28 +36,6 @@ text_sensor:
       std::string str = WiFi.localIP().toString().c_str();
       return { str.c_str() };
 
-binary_sensor:
-
-  - platform: gpio
-    name: "East Parked"
-    pin:
-      number: GPIO16
-      mode: INPUT
-      inverted: True
-    filters:
-      - delayed_on: 1s
-      - delayed_off: 1s
-
-  - platform: gpio
-    name: "West Parked"
-    pin:
-      number: GPIO18
-      mode: INPUT
-      inverted: True
-    filters:
-      - delayed_on: 1s
-      - delayed_off: 1s
-
 sensor:
   - platform: sht3xd
     temperature:
@@ -66,7 +44,3 @@ sensor:
       name: "Humidity"
     address: 0x44
     update_interval: 60s
-
-switch:
-  - platform: restart
-    name: "Esp Restart"
