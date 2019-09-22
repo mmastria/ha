@@ -2,7 +2,7 @@
 
 # iOptron CEM120 / ttyUSB0
 # QHY5L-II Mono
-# Moonlite Focuser 
+# ASI EAF Focuser
 # Astrometry
 # WatchDog
 # Weather Meta Remote
