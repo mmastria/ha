@@ -7,10 +7,29 @@ Restart=always
 RestartSec=5
 User=root
 ExecStartPre=/bin/sleep 10
-ExecStartPre=/bin/bash -c "/root/usbreset/usbreset /dev/bus/usb/$(/usr/bin/lsusb|/bin/grep Pinnacle|/usr/bin/cut -c5-7)/$(/usr/bin/lsusb |/bin/grep Pinnacle|/usr/bin/cut -c16-18)"
-ExecStartPre=/bin/sleep 10
+
+#### PINNACLE
+#ExecStartPre=/bin/bash -c "/root/usbreset/usbreset /dev/bus/usb/$(/usr/bin/lsusb|/bin/grep Pinnacle|/usr/bin/cut -c5-7)/$(/usr/bin/lsusb |/bin/grep Pinnacle|/usr/bin/cut -c16-18)"
+####
+
+#### MOONGLOW
+#ExecStartPre=/bin/bash -c "/root/usbreset/usbreset /dev/bus/usb/$(/usr/bin/lsusb|/bin/grep mPIA|/usr/bin/cut -c5-7)/$(/usr/bin/lsusb |/bin/grep Pinnacle|/usr/bin/cut -c16-18)"
+####
+
+ExecStartPre=-/sbin/rmmod em28xx_v4l
+ExecStartPre=-/sbin/rmmod em28xx
+
+#### PINNACLE
+#ExecStartPre=/sbin/modprobe em28xx nodrop=1 timeout=5000 quirks=0x80
+####
+#### MOONGLOW
+ExecStartPre=/sbin/modprobe em28xx card=9 nodrop=1 timeout=5000 quirks=0x80
+####
+
+ExecStartPre=/sbin/modprobe em28xx_v4l
 ExecStartPre=/usr/bin/v4l2-ctl --device=/dev/video0 --set-standard=ntsc-m
-ExecStart=/usr/bin/fswebcam -d /dev/video0 -i 0 -l 15 -r 640x480 -F 255 -D 1 \
+
+ExecStart=/usr/bin/fswebcam -d /dev/video0 -r 640x480 -i 0 -l 15 -F 255 -D 1 \
 --deinterlace --crop 460x460,94x20 \
 --line-colour \#FF000000 \
 --timestamp "%%d-%%m-%%Y %%H:%%M:%%S" \

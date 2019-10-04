@@ -8,6 +8,12 @@
 #modprobe em28xx nodrop=1 timeout=5000 quirks=0x80
 #modprobe em28xx_v4l
 
+# para camera AllSky
+#rmmod em28xx_v4l
+#rmmod em28xx
+#modprobe em28xx card=1 
+#modprobe em28xx_v4l
+
 # resolver como colocar 1vez
 #pip install bottle && \
 #pip install -U 'gevent~=1.2.2' && \
