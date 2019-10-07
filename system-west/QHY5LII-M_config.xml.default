@@ -55,7 +55,9 @@ Off
         </oneSwitch>
     </newSwitchVector>
     <newTextVector device="QHY CCD QHY5LII-M-6097e" name="ACTIVE_DEVICES">
-        <oneText name="ACTIVE_TELESCOPE"/>
+        <oneText name="ACTIVE_TELESCOPE">
+iOptron CEM120
+        </oneText>
         <oneText name="ACTIVE_FOCUSER"/>
         <oneText name="ACTIVE_FILTER"/>
         <oneText name="ACTIVE_SKYQUALITY"/>
@@ -73,7 +75,7 @@ Off
     </newSwitchVector>
     <newTextVector device="QHY CCD QHY5LII-M-6097e" name="UPLOAD_SETTINGS">
         <oneText name="UPLOAD_DIR">
-/home/west
+/home/lunar
         </oneText>
         <oneText name="UPLOAD_PREFIX">
 IMAGE_XXX
@@ -84,14 +86,6 @@ IMAGE_XXX
 Off
         </oneSwitch>
         <oneSwitch name="TELESCOPE_GUIDE">
-On
-        </oneSwitch>
-    </newSwitchVector>
-    <newSwitchVector device="QHY CCD QHY5LII-M-6097e" name="CCD_EXPOSURE_LOOP">
-        <oneSwitch name="LOOP_ON">
-Off
-        </oneSwitch>
-        <oneSwitch name="LOOP_OFF">
 On
         </oneSwitch>
     </newSwitchVector>
@@ -135,7 +129,7 @@ Off
     </newSwitchVector>
     <newTextVector device="QHY CCD QHY5LII-M-6097e" name="RECORD_FILE">
         <oneText name="RECORD_FILE_DIR">
-/home/west/indi__D_
+/home/lunar/indi__D_
         </oneText>
         <oneText name="RECORD_FILE_NAME">
 indi_record__T_

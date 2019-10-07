@@ -1,7 +1,7 @@
 <INDIDriver>
 <newTextVector device='Astrometry' name='ACTIVE_DEVICES'>
   <oneText name='ACTIVE_CCD'>
-      Atik 320E CCD
+      QHY CCD QHY5LII-M-6097e
   </oneText>
 </newTextVector>
 <newTextVector device='Astrometry' name='ASTROMETRY_SETTINGS'>

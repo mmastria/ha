@@ -56,7 +56,7 @@
 </newSwitchVector>
 <newNumberVector device='ASI EAF' name='FOCUS_MAX'>
   <oneNumber name='FOCUS_MAX_VALUE'>
-      100000
+      6000
   </oneNumber>
 </newNumberVector>
 <newSwitchVector device='ASI EAF' name='FOCUS_REVERSE_MOTION'>
@@ -85,10 +85,10 @@
       0
   </oneNumber>
   <oneNumber name='PRESET_2'>
-      0
+      3000
   </oneNumber>
   <oneNumber name='PRESET_3'>
-      0
+      6000
   </oneNumber>
 </newNumberVector>
 <newSwitchVector device='ASI EAF' name='USEJOYSTICK'>

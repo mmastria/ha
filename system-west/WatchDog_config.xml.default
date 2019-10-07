@@ -69,7 +69,7 @@
       iOptron CEM120
   </oneText>
   <oneText name='ACTIVE_DOME'>
-      Dome Scripting Gateway
+      
   </oneText>
 </newTextVector>
 <newSwitchVector device='WatchDog' name='WATCHDOG_SHUTDOWN'>
