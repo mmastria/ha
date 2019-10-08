@@ -103,6 +103,14 @@ apt-get -y install build-essential git python-dev python-pip vim cmake ntpdate \
        libgstreamer1.0-dev libgstreamer-plugins-base1.0-0 libgstreamer-plugins-base1.0-dev \
        liblimesuite-dev
        #python-pygame python-pil libsdl1.2-dev
+
+apt-get -y install libnova-dev libcfitsio-dev \
+	libusb-1.0-0-dev zlib1g-dev libgsl-dev \
+	build-essential cmake git libjpeg-dev \
+	libcurl4-gnutls-dev libtiff-dev libfftw3-dev libftdi-dev \
+	libgps-dev libraw-dev libdc1394-22-dev libgphoto2-dev libboost-dev \
+	libboost-regex-dev librtlsdr-dev liblimesuite-dev libftdi1-dev
+
 [ '$DEVICE' == 'aagsolo' ] && apt-get -y install swig 
 [ '$DEVICE' != 'aagsolo' ] && apt-get -y install swig2.0 libz3-dev raspberrypi-kernel-headers
 apt-get -y --fix-broken install

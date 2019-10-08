@@ -22,12 +22,19 @@ pushd ~
 #cp -f ~/ha/setup2_indi/dome_script.cpp.NEW ~/indi/libindi/drivers/dome/dome_script.cpp 
 #cp -f ~/ha/setup2_indi/weatherwatcher.cpp.NEW ~/indi/libindi/drivers/weather/weatherwatcher.cpp
 
-mkdir -p ~/indi/build/libindi
-cd ~/indi/build/libindi/
+#mkdir -p ~/indi/build/libindi
+#cd ~/indi/build/libindi/
 
 # -DCMAKE_BUILD_TYPE=Debug
-cmake -DCMAKE_CXX_FLAGS="-Wno-psabi -Wno-unused-parameter -Wno-unused-variable -Wno-unused-but-set-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-value -Wno-sign-compare -Wno-misleading-indentation -Wno-maybe-uninitialized -Wno-unused-function -Wno-unused-result" -DCMAKE_INSTALL_PREFIX=/usr ~/indi/libindi
+#cmake -DCMAKE_CXX_FLAGS="-Wno-psabi -Wno-unused-parameter -Wno-unused-variable -Wno-unused-but-set-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-value -Wno-sign-compare -Wno-misleading-indentation -Wno-maybe-uninitialized -Wno-unused-function -Wno-unused-result" -DCMAKE_INSTALL_PREFIX=/usr ~/indi/libindi
+#make install
+
+mkdir -p ~/build/indi-core
+cd ~/build/indi-core
+cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Debug ~/indi
+make -j4
 make install
+
 
 popd
 

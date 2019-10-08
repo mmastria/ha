@@ -3,9 +3,12 @@
 pushd ~
 
 # libindi
-# 3rd party
 [ -d ~/indi ] || \
 git clone https://github.com/indilib/indi.git
+
+# 3rd party
+[ -d ~/indi-3rdparty ] || \
+git clone https://github.com/indilib/indi-3rdparty.git
 
 # WiringPi
 #[ -d ~/wiringPi ] || \
