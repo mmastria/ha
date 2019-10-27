@@ -13,7 +13,7 @@ ExecStartPre=/bin/sleep 10
 ####
 
 #### MOONGLOW
-#ExecStartPre=/bin/bash -c "/root/usbreset/usbreset /dev/bus/usb/$(/usr/bin/lsusb|/bin/grep mPIA|/usr/bin/cut -c5-7)/$(/usr/bin/lsusb |/bin/grep Pinnacle|/usr/bin/cut -c16-18)"
+#ExecStartPre=/bin/bash -c "/root/usbreset/usbreset /dev/bus/usb/$(/usr/bin/lsusb|/bin/grep eMPIA|/usr/bin/cut -c5-7)/$(/usr/bin/lsusb |/bin/grep eMPIA|/usr/bin/cut -c16-18)"
 ####
 
 ExecStartPre=-/sbin/rmmod em28xx_v4l
