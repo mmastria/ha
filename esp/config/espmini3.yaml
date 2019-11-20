@@ -1,11 +1,17 @@
+# nao atualizar versao o esphome - 1.13.3
+# https://github.com/esphome/issues/issues/409
+# https://github.com/esphome/issues/issues/455
+
 esphome:
   name: espmini3
   platform: ESP8266
   board: d1_mini
 
 wifi:
-  ssid: "tucano"
-  password: "net.6942"
+  fast_connect: ON
+  networks:
+  - ssid: "tucano"
+    password: "net.6942"
 
 logger:
   level: Verbose
@@ -14,6 +20,19 @@ web_server:
   port: 80
 
 ota:
+
+time:
+  - platform: sntp
+    id: sntp_time
+    timezone: America/Sao_Paulo
+    servers:
+      - 192.168.0.4
+    on_time:
+      - seconds: 0
+        minutes: 0
+        hours: 13
+        then:
+          - switch.toggle: esp_restart
 
 mqtt:
   broker: 192.168.0.4
@@ -28,13 +47,28 @@ status_led:
   pin: GPIO2
 
 text_sensor:
+  - platform: version
+    name: "ESPHome Version"
+  - platform: wifi_info
+    ip_address:
+      name: ESP IP Address
   - platform: template
-    name: "IP Address"
+    name: "Timestamp"
     lambda: |-
-      std::string str = WiFi.localIP().toString().c_str();
-      return { str.c_str() };
+      char str[20];
+      time_t currTime = id(sntp_time).now().timestamp;
+      strftime(str, sizeof(str), "%Y-%m-%d %H:%M:%S", localtime(&currTime));
+      return { str };
+
+binary_sensor:
+  - platform: status
+    name: "MQTT Status"
 
 sensor:
+  - platform: wifi_signal
+    name: WiFi Signal
+  - platform: uptime
+    name: Uptime
   - platform: sht3xd
     temperature:
       name: "Temperature"
@@ -42,3 +76,8 @@ sensor:
       name: "Humidity"
     address: 0x44
     update_interval: 60s
+
+switch:
+  - platform: restart
+    id: esp_restart
+    name: "Esp Restart"

@@ -1,5 +1,6 @@
-# nao atualizar versao o esphome
+# nao atualizar versao o esphome - 1.13.3
 # https://github.com/esphome/issues/issues/409
+# https://github.com/esphome/issues/issues/455
 
 esphome:
   name: obs_roof
@@ -20,6 +21,19 @@ web_server:
 
 ota:
 
+time:
+  - platform: sntp
+    id: sntp_time
+    timezone: America/Sao_Paulo
+    servers:
+      - 192.168.0.4
+    on_time:
+      - seconds: 0
+        minutes: 0
+        hours: 13
+        then:
+          - switch.toggle: sw_restart
+
 mqtt:
   broker: 192.168.0.4
   discovery: OFF
@@ -35,22 +49,23 @@ mqtt:
 status_led:
   pin: GPIO2
 
-output:
-  - platform: gpio
-    pin: GPIO16
-    id: roof_relay
-
 text_sensor:
+  - platform: version
+    name: "ESPHome Version"
+  - platform: wifi_info
+    ip_address:
+      name: ESP IP Address
   - platform: template
-    name: "IP Address"
+    name: "Timestamp"
     lambda: |-
-      std::string str = WiFi.localIP().toString().c_str();
-      return { str.c_str() };
-
-switch:
+      char str[20];
+      time_t currTime = id(sntp_time).now().timestamp;
+      strftime(str, sizeof(str), "%Y-%m-%d %H:%M:%S", localtime(&currTime));
+      return { str };
 
 binary_sensor:
-
+  - platform: status
+    name: "MQTT Status"
   - platform: gpio
     name: "Door Closed"
     pin:
@@ -59,7 +74,6 @@ binary_sensor:
     filters:
       - delayed_on: 1s
       - delayed_off: 1s
-
   - platform: gpio
     name: "Roof Open"
     pin:
@@ -68,7 +82,6 @@ binary_sensor:
     filters:
       - delayed_on: 1s
       - delayed_off: 1s
-
   - platform: gpio
     name: "Roof Closed"
     pin:
@@ -77,10 +90,25 @@ binary_sensor:
     filters:
       - delayed_on: 1s
       - delayed_off: 1s
-
   - platform: gpio
     name: "Weather Safe"
     pin:
       number: GPIO21
       mode: INPUT
       inverted: True
+
+sensor:
+  - platform: wifi_signal
+    name: WiFi Signal
+  - platform: uptime
+    name: Uptime
+
+output:
+  - platform: gpio
+    pin: GPIO16
+    id: roof_relay
+
+switch:
+  - platform: restart
+    id: sw_restart
+    name: "Esp Restart"

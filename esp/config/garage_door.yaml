@@ -3,9 +3,9 @@
 # https://github.com/esphome/issues/issues/455
 
 esphome:
-  name: espmini2
-  platform: ESP8266
-  board: d1_mini
+  name: garage_door
+  platform: ESP32
+  board: esp32doit-devkit-v1
 
 wifi:
   fast_connect: ON
@@ -15,7 +15,7 @@ wifi:
 
 logger:
   level: Verbose
-
+  
 web_server:
   port: 80
 
@@ -32,17 +32,20 @@ time:
         minutes: 0
         hours: 13
         then:
-          - switch.toggle: esp_restart
+          - switch.toggle: sw_restart
 
 mqtt:
   broker: 192.168.0.4
   discovery: OFF
+  on_message:
+    topic: garage_door/pulse
+    payload: "PULSE"
+    qos: 0
+    then:
+      - output.turn_on: garage_relay
+      - delay: 100ms
+      - output.turn_off: garage_relay
 
-i2c:
-  sda: 4
-  scl: 5
-  scan: True
-  
 status_led:
   pin: GPIO2
 
@@ -63,21 +66,35 @@ text_sensor:
 binary_sensor:
   - platform: status
     name: "MQTT Status"
+  - platform: gpio
+    name: "Garage Open"
+    pin:
+      number: GPIO18
+      mode: INPUT
+    filters:
+      - delayed_on: 1s
+      - delayed_off: 1s
+  - platform: gpio
+    name: "Garage Closed"
+    pin:
+      number: GPIO19
+      mode: INPUT
+    filters:
+      - delayed_on: 1s
+      - delayed_off: 1s
 
 sensor:
   - platform: wifi_signal
     name: WiFi Signal
   - platform: uptime
     name: Uptime
-  - platform: sht3xd
-    temperature:
-      name: "Temperature"
-    humidity:
-      name: "Humidity"
-    address: 0x44
-    update_interval: 60s
+
+output:
+  - platform: gpio
+    pin: GPIO16
+    id: garage_relay
 
 switch:
   - platform: restart
-    id: esp_restart
+    id: sw_restart
     name: "Esp Restart"

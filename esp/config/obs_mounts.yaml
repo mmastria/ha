@@ -1,3 +1,7 @@
+# nao atualizar versao o esphome - 1.13.3
+# https://github.com/esphome/issues/issues/409
+# https://github.com/esphome/issues/issues/455
+
 esphome:
   name: obs_mounts
   platform: ESP32
@@ -17,27 +21,48 @@ web_server:
 
 ota:
 
-i2c:
-  sda: 21
-  scl: 22
-  scan: True
+time:
+  - platform: sntp
+    id: sntp_time
+    timezone: America/Sao_Paulo
+    servers:
+      - 192.168.0.4
+    on_time:
+      - seconds: 0
+        minutes: 0
+        hours: 13
+        then:
+          - switch.toggle: sw_restart
 
 mqtt:
   broker: 192.168.0.4
   discovery: OFF
 
+i2c:
+  sda: 21
+  scl: 22
+  scan: True
+
 status_led:
   pin: GPIO2
 
 text_sensor:
+  - platform: version
+    name: "ESPHome Version"
+  - platform: wifi_info
+    ip_address:
+      name: ESP IP Address
   - platform: template
-    name: "IP Address"
+    name: "Timestamp"
     lambda: |-
-      std::string str = WiFi.localIP().toString().c_str();
-      return { str.c_str() };
+      char str[20];
+      time_t currTime = id(sntp_time).now().timestamp;
+      strftime(str, sizeof(str), "%Y-%m-%d %H:%M:%S", localtime(&currTime));
+      return { str };
 
 binary_sensor:
-
+  - platform: status
+    name: "MQTT Status"
   - platform: gpio
     name: "East Parked"
     pin:
@@ -47,7 +72,6 @@ binary_sensor:
     filters:
       - delayed_on: 1s
       - delayed_off: 1s
-
   - platform: gpio
     name: "West Parked"
     pin:
@@ -59,6 +83,10 @@ binary_sensor:
       - delayed_off: 1s
 
 sensor:
+  - platform: wifi_signal
+    name: WiFi Signal
+  - platform: uptime
+    name: Uptime
   - platform: sht3xd
     temperature:
       name: "Temperature"
@@ -69,4 +97,5 @@ sensor:
 
 switch:
   - platform: restart
+    id: sw_restart
     name: "Esp Restart"
