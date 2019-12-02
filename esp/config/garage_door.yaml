@@ -70,7 +70,9 @@ binary_sensor:
     name: "Garage Open"
     pin:
       number: GPIO18
-      mode: INPUT
+#      mode: INPUT
+      mode: INPUT_PULLUP
+      inverted: True
     filters:
       - delayed_on: 1s
       - delayed_off: 1s
@@ -78,7 +80,9 @@ binary_sensor:
     name: "Garage Closed"
     pin:
       number: GPIO19
-      mode: INPUT
+#      mode: INPUT
+      mode: INPUT_PULLUP
+      inverted: True
     filters:
       - delayed_on: 1s
       - delayed_off: 1s
